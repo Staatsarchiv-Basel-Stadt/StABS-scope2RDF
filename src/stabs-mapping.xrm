@@ -9,19 +9,6 @@ import WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Deskriptoren_Verknuepfung
 import WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Ablieferungen_Verknuepfungen.*
 import WSD_STABS_SCP_ARCHIV_DBA.Deskriptoren_Verweise.*
 
-
-
-map SomeMapping from WSD_STABS_SCP_ARCHIV_DBA.Partner {
-	subject template "http://something.org/bla/{0}" with ID_NR
-	types stabs.Partner 
-	
-	properties 
-	
-	stabs.ABLIEFERNDE_STELLE from ID_NAME
-}
-
-
-
 map RecordSet from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 	subject template "http://data.staatsarchiv-bs.ch/id/record/{0}" with ID_NR
 	

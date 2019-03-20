@@ -4,7 +4,6 @@ PREFIX schema: <http://schema.org/>
 PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/>
 
 # debug output ..
-# SomeMapping 
 # RecordSet 
 # Deskriptor 
 # Ablieferung 
@@ -16,21 +15,6 @@ PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/>
 # Deskriptoren_Verweise_Annotation 
 # Deskriptoren_Verweise 
 
-<#SomeMapping>
-	rr:logicalTable [ rr:tableName "MVK_OGD_PRTNR_1" ];
-	
-	rr:subjectMap [
-		rr:template "http://something.org/bla/{ID_NR}";
-		rr:class stabs:Partner ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate stabs:ABLIEFERNDE_STELLE ;
-		rr:objectMap [
-			rr:column "ID_NAME" ;
-		];
-	]
-.
 <#RecordSet>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
 	
