@@ -2,6 +2,7 @@ PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX annotation: <http://exmaple.org/annotation>
 PREFIX schema: <http://schema.org/>
 PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 # debug output ..
 # RecordSet 
@@ -621,6 +622,18 @@ PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/>
 		rr:predicate stabs:FARBE_BILDBEARBEITUNG ;
 		rr:objectMap [
 			rr:column "FARBE_BILDBEARBEITUNG" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:HAUSNAME ;
+		rr:objectMap [
+			rr:column "HAUSNAME" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:ALTE_HAUSNUMMER ;
+		rr:objectMap [
+			rr:column "ALTE_HAUSNUMMER" ;
 		];
 	];
 	rr:predicateObjectMap [

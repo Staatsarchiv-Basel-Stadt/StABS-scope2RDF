@@ -51,6 +51,7 @@ vocabulary ric {
     	RecordSet;
     	
     properties
+    	something
     	title
     	scopeAndContent
     	contentType
@@ -170,6 +171,9 @@ vocabulary stabs {
 		PHYSISCHE_BESCHREIBUNG
 		BESCHREIBSTOFF
 		FARBE_BILDBEARBEITUNG
+		HAUSNAME
+//            EIGENTÜMER_1862
+        ALTE_HAUSNUMMER
 		ENTSTEHUNGSSTUFE
 		FORMALBEGRIFF_HOEFLINGER
 		REPRO
