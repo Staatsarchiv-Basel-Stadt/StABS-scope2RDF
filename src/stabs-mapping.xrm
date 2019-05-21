@@ -241,35 +241,6 @@ map Verzeichnunseinheiten_Ablieferungen_Verknuepfungen from WSD_STABS_SCP_ARCHIV
 	stabs.ablieferung link Ablieferung with ID_NR_ABLFR
 }
 
-map Verzeichnunseinheiten_Verweise_Annotation from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Verweise {
-	
-	subject template "http://data.staatsarchiv-bs.ch/id/verzeichnungseinheit_verweis/{0}/{1}" with  ID_NR_1 ID_NR_2
-	types annotation.Annotation
-	
-	properties
-	stabs.ROLLE from ROLLE
-	stabs.ZEITRAUM from ZEITRAUM
-	stabs.NOTIZ from NOTIZ
-	
-	// TODO: saubere Annotation von body & target
-	
-}
-
-
-
-map Verzeichnunseinheiten_Deskriptoren_Verknuepfungen_Annotation from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Deskriptoren_Verknuepfungen {
-	
-	subject template "http://data.staatsarchiv-bs.ch/id/verzeichnungseinheit_deskriptor/{0}/{1}" with ID_NR_DSKRP ID_NR_VRZNG_ENHT
-	types annotation.Annotation
-	
-	properties
-	stabs.ROLLE from ROLLE
-	stabs.ZEITRAUM from ZEITRAUM
-	stabs.NOTIZ from NOTIZ
-	
-	// TODO: saubere Annotation von body & target
-}
-
 map Verzeichnunseinheiten_Deskriptoren_Verknuepfungen from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Deskriptoren_Verknuepfungen {
 	
 	subject template "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}" with ID_NR_DSKRP
@@ -278,22 +249,76 @@ map Verzeichnunseinheiten_Deskriptoren_Verknuepfungen from WSD_STABS_SCP_ARCHIV_
 	stabs.deskriptor_ve template "http://data.staatsarchiv-bs.ch/id/record/{0}" with ID_NR_VRZNG_ENHT
 }
 
-map Deskriptoren_Verweise_Annotation from WSD_STABS_SCP_ARCHIV_DBA.Deskriptoren_Verweise {
+map Verzeichnunseinheiten_Deskriptoren_Verknuepfungen_Annotation from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Deskriptoren_Verknuepfungen {
 	
-	subject template  "http://data.staatsarchiv-bs.ch/id/deskriptor_deskriptor/{0}/{1}" with ID_NR_1 ID_NR_2
-	types annotation.Annotation
+	subject template "http://data.staatsarchiv-bs.ch/id/verzeichnungseinheit_deskriptor/{0}/{1}" with ID_NR_DSKRP ID_NR_VRZNG_ENHT
+	types oa.Annotation
 	
 	properties
+	stabs.oaSource from ID_NR_DSKRP
+	stabs.oaTarget from ID_NR_VRZNG_ENHT
 	stabs.ROLLE from ROLLE
 	stabs.ZEITRAUM from ZEITRAUM
 	stabs.NOTIZ from NOTIZ
+	
+	// TODO: saubere Annotation von body & target
 }
 
 map Deskriptoren_Verweise from WSD_STABS_SCP_ARCHIV_DBA.Deskriptoren_Verweise {
 	
 	subject template  "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}"  with ID_NR_1
-	types annotation.Annotation
+	types oa.Annotation
 	
 	properties
 	stabs.deskriptor_deskriptor template "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}" with ID_NR_2
+}
+
+map Deskriptoren_Verweise_Annotation from WSD_STABS_SCP_ARCHIV_DBA.Deskriptoren_Verweise {
+	
+	subject template  "http://data.staatsarchiv-bs.ch/id/deskriptor_deskriptor/{0}/{1}" with ID_NR_1 ID_NR_2
+	types oa.Annotation
+	
+	properties
+	stabs.oaSource from ID_NR_1
+	stabs.oaTarget from ID_NR_2
+	stabs.ROLLE from ROLLE
+	stabs.ZEITRAUM from ZEITRAUM
+	stabs.NOTIZ from NOTIZ
+}
+
+map Verzeichnunseinheiten_Verweise_Annotation from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Verweise {
+	
+	subject template "http://data.staatsarchiv-bs.ch/id/verzeichnungseinheit_verweis/{0}/{1}" with  ID_NR_1 ID_NR_2
+	types oa.Annotation
+	
+	properties
+	stabs.oaSource from ID_NR_1
+	stabs.oaTarget from ID_NR_2
+	stabs.ROLLE from ROLLE
+	stabs.ZEITRAUM from ZEITRAUM
+	stabs.NOTIZ from NOTIZ
+		
+}
+
+// no additional metadata for this one so we only link
+map Verzeichnungeinheiten_Partner_Verknuepfungen from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungeinheiten_Partner_Verknuepfungen {
+	
+	subject template "http://data.staatsarchiv-bs.ch/id/record/{0}" with ID_NR_VRZNG_ENHT
+	
+	properties
+	stabs.partner link Partner with ID_NR_PRTNR
+	
+}
+
+map Partner_Verweise from WSD_STABS_SCP_ARCHIV_DBA.Partner_Verweise {
+	
+	subject template "http://data.staatsarchiv-bs.ch/id/partner_verweis/{0}/{1}" with  ID_NR_1 ID_NR_2
+	types oa.Annotation
+	
+	properties
+	stabs.oaSource from ID_NR_1
+	stabs.oaTarget from ID_NR_2
+	stabs.ROLLE from ROLLE
+	stabs.ZEITRAUM from ZEITRAUM
+	stabs.NOTIZ from NOTIZ
 }

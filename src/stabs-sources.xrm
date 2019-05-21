@@ -222,7 +222,6 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 		}
 	}
 	
-	
 	logical-source Verzeichnungseinheiten_Deskriptoren_Verknuepfungen {
 		source "MVK_OGD_VE_DSKRP_BZHNG_1" ;
 		
@@ -243,6 +242,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			ID_NR_ABLFR	
 		}
 	}
+	
 	logical-source Deskriptoren_Verweise {
 		source "MVK_OGD_DSKRP_BZHNG_1";
 		
@@ -255,5 +255,26 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 		}
 	}
 	
+	logical-source Verzeichnungeinheiten_Partner_Verknuepfungen {
+		source "MVK_OGD_VE_PRTNR_BZHNG_1" ;
+	
+		referenceables {
+			ID_NR_VRZNG_ENHT
+			ID_NR_PRTNR
+		}	
+		
+	}
+		
+	logical-source Partner_Verweise {
+		source "MVK_OGD_PRTNR_BZHNG_1" ;
+		
+		referenceables {
+			ID_NR_1
+			ID_NR_2
+			ROLLE
+			ZEITRAUM
+			NOTIZ
+		}
+	} 
 
 }

@@ -26,11 +26,15 @@ vocabulary skos {
 		inScheme;	
 }
 
-vocabulary annotation {
-	prefix "annotation:"  "http://exmaple.org/annotation" ;
+vocabulary oa {
+	prefix "oa:"  "http://www.w3.org/ns/oa#" ;
 	
 	classes
 		Annotation; 
+		
+	properties
+		hasBody
+		hasTarget;
 }
 
 vocabulary schema {
@@ -262,5 +266,9 @@ vocabulary stabs {
 		// LINKS
 		deskriptor_deskriptor
 		deskriptor_ve
-		ablieferung;
+		ablieferung
+		partner
+		// OA workaround
+		oaSource
+		oaTarget;
 }

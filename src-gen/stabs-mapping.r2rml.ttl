@@ -1,5 +1,5 @@
 PREFIX rr: <http://www.w3.org/ns/r2rml#>
-PREFIX annotation: <http://exmaple.org/annotation>
+PREFIX oa: <http://www.w3.org/ns/oa#>
 PREFIX schema: <http://schema.org/>
 PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -10,11 +10,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 # Ablieferung 
 # Partner 
 # Verzeichnunseinheiten_Ablieferungen_Verknuepfungen 
-# Verzeichnunseinheiten_Verweise_Annotation 
-# Verzeichnunseinheiten_Deskriptoren_Verknuepfungen_Annotation 
 # Verzeichnunseinheiten_Deskriptoren_Verknuepfungen 
-# Deskriptoren_Verweise_Annotation 
+# Verzeichnunseinheiten_Deskriptoren_Verknuepfungen_Annotation 
 # Deskriptoren_Verweise 
+# Deskriptoren_Verweise_Annotation 
+# Verzeichnunseinheiten_Verweise_Annotation 
+# Verzeichnungeinheiten_Partner_Verknuepfungen 
+# Partner_Verweise 
 
 <#RecordSet>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
@@ -1147,60 +1149,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#Verzeichnunseinheiten_Verweise_Annotation>
-	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_BZHNG_1" ];
-	
-	rr:subjectMap [
-		rr:template "http://data.staatsarchiv-bs.ch/id/verzeichnungseinheit_verweis/{ID_NR_1}/{ID_NR_2}";
-		rr:class annotation:Annotation ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate stabs:ROLLE ;
-		rr:objectMap [
-			rr:column "ROLLE" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate stabs:ZEITRAUM ;
-		rr:objectMap [
-			rr:column "ZEITRAUM" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate stabs:NOTIZ ;
-		rr:objectMap [
-			rr:column "NOTIZ" ;
-		];
-	]
-.
-<#Verzeichnunseinheiten_Deskriptoren_Verknuepfungen_Annotation>
-	rr:logicalTable [ rr:tableName "MVK_OGD_VE_DSKRP_BZHNG_1" ];
-	
-	rr:subjectMap [
-		rr:template "http://data.staatsarchiv-bs.ch/id/verzeichnungseinheit_deskriptor/{ID_NR_DSKRP}/{ID_NR_VRZNG_ENHT}";
-		rr:class annotation:Annotation ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate stabs:ROLLE ;
-		rr:objectMap [
-			rr:column "ROLLE" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate stabs:ZEITRAUM ;
-		rr:objectMap [
-			rr:column "ZEITRAUM" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate stabs:NOTIZ ;
-		rr:objectMap [
-			rr:column "NOTIZ" ;
-		];
-	]
-.
 <#Verzeichnunseinheiten_Deskriptoren_Verknuepfungen>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VE_DSKRP_BZHNG_1" ];
 	
@@ -1215,14 +1163,26 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#Deskriptoren_Verweise_Annotation>
-	rr:logicalTable [ rr:tableName "MVK_OGD_DSKRP_BZHNG_1" ];
+<#Verzeichnunseinheiten_Deskriptoren_Verknuepfungen_Annotation>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VE_DSKRP_BZHNG_1" ];
 	
 	rr:subjectMap [
-		rr:template "http://data.staatsarchiv-bs.ch/id/deskriptor_deskriptor/{ID_NR_1}/{ID_NR_2}";
-		rr:class annotation:Annotation ;
+		rr:template "http://data.staatsarchiv-bs.ch/id/verzeichnungseinheit_deskriptor/{ID_NR_DSKRP}/{ID_NR_VRZNG_ENHT}";
+		rr:class oa:Annotation ;
 	];
 	
+	rr:predicateObjectMap [
+		rr:predicate stabs:oaSource ;
+		rr:objectMap [
+			rr:column "ID_NR_DSKRP" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:oaTarget ;
+		rr:objectMap [
+			rr:column "ID_NR_VRZNG_ENHT" ;
+		];
+	];
 	rr:predicateObjectMap [
 		rr:predicate stabs:ROLLE ;
 		rr:objectMap [
@@ -1247,13 +1207,144 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	
 	rr:subjectMap [
 		rr:template "http://data.staatsarchiv-bs.ch/id/deskriptor/{ID_NR_1}";
-		rr:class annotation:Annotation ;
+		rr:class oa:Annotation ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate stabs:deskriptor_deskriptor ;
 		rr:objectMap [
 			rr:template "http://data.staatsarchiv-bs.ch/id/deskriptor/{ID_NR_2}" ;
+		];
+	]
+.
+<#Deskriptoren_Verweise_Annotation>
+	rr:logicalTable [ rr:tableName "MVK_OGD_DSKRP_BZHNG_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://data.staatsarchiv-bs.ch/id/deskriptor_deskriptor/{ID_NR_1}/{ID_NR_2}";
+		rr:class oa:Annotation ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs:oaSource ;
+		rr:objectMap [
+			rr:column "ID_NR_1" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:oaTarget ;
+		rr:objectMap [
+			rr:column "ID_NR_2" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:ROLLE ;
+		rr:objectMap [
+			rr:column "ROLLE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:ZEITRAUM ;
+		rr:objectMap [
+			rr:column "ZEITRAUM" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:NOTIZ ;
+		rr:objectMap [
+			rr:column "NOTIZ" ;
+		];
+	]
+.
+<#Verzeichnunseinheiten_Verweise_Annotation>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_BZHNG_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://data.staatsarchiv-bs.ch/id/verzeichnungseinheit_verweis/{ID_NR_1}/{ID_NR_2}";
+		rr:class oa:Annotation ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs:oaSource ;
+		rr:objectMap [
+			rr:column "ID_NR_1" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:oaTarget ;
+		rr:objectMap [
+			rr:column "ID_NR_2" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:ROLLE ;
+		rr:objectMap [
+			rr:column "ROLLE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:ZEITRAUM ;
+		rr:objectMap [
+			rr:column "ZEITRAUM" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:NOTIZ ;
+		rr:objectMap [
+			rr:column "NOTIZ" ;
+		];
+	]
+.
+<#Verzeichnungeinheiten_Partner_Verknuepfungen>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VE_PRTNR_BZHNG_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://data.staatsarchiv-bs.ch/id/record/{ID_NR_VRZNG_ENHT}";
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs:partner ;
+		rr:objectMap [
+			rr:template "http://data.staatsarchiv-bs.ch/id/partner/{ID_NR_PRTNR}" ;
+		];
+	]
+.
+<#Partner_Verweise>
+	rr:logicalTable [ rr:tableName "MVK_OGD_PRTNR_BZHNG_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://data.staatsarchiv-bs.ch/id/partner_verweis/{ID_NR_1}/{ID_NR_2}";
+		rr:class oa:Annotation ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs:oaSource ;
+		rr:objectMap [
+			rr:column "ID_NR_1" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:oaTarget ;
+		rr:objectMap [
+			rr:column "ID_NR_2" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:ROLLE ;
+		rr:objectMap [
+			rr:column "ROLLE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:ZEITRAUM ;
+		rr:objectMap [
+			rr:column "ZEITRAUM" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:NOTIZ ;
+		rr:objectMap [
+			rr:column "NOTIZ" ;
 		];
 	]
 .
