@@ -2,57 +2,57 @@ language-tags {
 	de
 }
 
-datatypes {
-	prefix "xsd:" "http://www.w3.org/2001/XMLSchema#";
+datatypes xsd {
+	prefix "xsd:" "http://www.w3.org/2001/XMLSchema#"
 	int
 	double
 }
 
 vocabulary dc {
-	prefix "dc:" "http://purl.org/dc/terms/";
+	prefix "dc:" "http://purl.org/dc/terms/"
 	
 	properties
-		relation;
+		relation
 }
 
 vocabulary skos {
-	prefix "skos:" "http://www.w3.org/2004/02/skos/core#";	
+	prefix "skos:" "http://www.w3.org/2004/02/skos/core#"
 	classes
-		Concept;
+		Concept
 		
 	properties
 		notation
 		prefLabel
-		inScheme;	
+		inScheme
 }
 
 vocabulary oa {
-	prefix "oa:"  "http://www.w3.org/ns/oa#" ;
+	prefix "oa:"  "http://www.w3.org/ns/oa#"
 	
 	classes
-		Annotation; 
+		Annotation
 		
 	properties
 		hasBody
-		hasTarget;
+		hasTarget
 }
 
 vocabulary schema {
 	
-	prefix "schema:" "http://schema.org/" ;
+	prefix "schema:" "http://schema.org/"
 	
 	classes 
-		Person ;
+		Person
 	
 	properties
-	 place ;
+	 place
 	
 }
 
 vocabulary ric {
-    prefix "ric:" "http://www.ica.org/standards/RiC/ontology#";
+    prefix "ric:" "http://www.ica.org/standards/RiC/ontology#"
     classes
-    	RecordSet;
+    	RecordSet
     	
     properties
     	something
@@ -61,18 +61,18 @@ vocabulary ric {
     	contentType
     	qualityOfInformation
     	date
-    	characteristic_Physical;
+    	characteristic_Physical
 		// TODO '-' in IDs -> characteristic-Physical    
 }
 
 vocabulary stabs {
-	prefix "stabs:" "http://data.staatsarchiv-bs.ch/vocab/";
+	prefix "stabs:" "http://data.staatsarchiv-bs.ch/vocab/"
 	
 	classes
 		Ablieferung
 		Deskriptor
 		Partner
-		Verzeichnungseinheit;
+		Verzeichnungseinheit
 		
 	properties
 		TITEL
@@ -270,5 +270,5 @@ vocabulary stabs {
 		partner
 		// OA workaround
 		oaSource
-		oaTarget;
+		oaTarget
 }

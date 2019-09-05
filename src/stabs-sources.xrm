@@ -1,10 +1,14 @@
+source-types {
+    rdb referenceFormulation "rr:SQL2008"
+}
+
 source-group WSD_STABS_SCP_ARCHIV_DBA {
-	type rdb;
+	type rdb
   
     logical-source Verzeichnungseinheiten {
-    	source "MVK_OGD_VRZNG_ENHT_1";
+    	source "MVK_OGD_VRZNG_ENHT_1"
     	
-    	referenceables {
+    	referenceables 
     		TITEL
 			SIGNATUR
 			GEBURTSDATUM
@@ -154,13 +158,12 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			BEWILLIGUNG
 			PHYSISCHE_BENUETZBARKEIT
 			ZUGAENGLICHKEIT
-    	}
     }
 
 	logical-source Deskriptoren {
-		source "MVK_OGD_DSKRP_1" ;
+		source "MVK_OGD_DSKRP_1" 
 		
-		referenceables {
+		referenceables
 			THESAURUS
 			BEZEICHNUNG
 			FREMDSPRACHIGE_BEZEICHNUNGEN
@@ -173,14 +176,13 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			TODESDATUM
 			GND
 			VIAF
-		}
 		
 	}
 	
 	logical-source Ablieferungen {
-		source "MVK_OGD_ABLFR_1" ;
+		source "MVK_OGD_ABLFR_1"
 		
-		referenceables {
+		referenceables
 			TYP
 			SUBTYP
 			ABLIEFERNDE_STELLE
@@ -191,13 +193,12 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			JAHR_LAUF_NR
 			ID_NR
 			ID_NAME
-		}
 	}
 	
 	logical-source Partner {
-		source "MVK_OGD_PRTNR_1" ;
+		source "MVK_OGD_PRTNR_1"
 		
-		referenceables {
+		referenceables
 			ID_NR
 			ID_NAME
 			TYP_DER_EINHEIT
@@ -207,74 +208,67 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			RECHTSFORM
 			RECHTLICHE_GRUNDLAGE
 			AUFNAHMEDATUM		
-		}
 	}
 	
 	logical-source Verzeichnungseinheiten_Verweise {
-		source "MVK_OGD_VRZNG_ENHT_BZHNG_1";
+		source "MVK_OGD_VRZNG_ENHT_BZHNG_1"
 		
-		referenceables {
+		referenceables
 			ID_NR_1
 			ID_NR_2
 			ROLLE
 			ZEITRAUM
-			NOTIZ	
-		}
+			NOTIZ
 	}
 	
 	logical-source Verzeichnungseinheiten_Deskriptoren_Verknuepfungen {
-		source "MVK_OGD_VE_DSKRP_BZHNG_1" ;
+		source "MVK_OGD_VE_DSKRP_BZHNG_1"
 		
-		referenceables {
+		referenceables
 			ID_NR_DSKRP
 			ID_NR_VRZNG_ENHT
 			ROLLE
 			ZEITRAUM
 			NOTIZ
-		}
 	}
 	
 	logical-source Verzeichnungseinheiten_Ablieferungen_Verknuepfungen {
-		source "MVK_OGD_VE_ABLFR_BZHNG_1" ;
+		source "MVK_OGD_VE_ABLFR_BZHNG_1"
 		
-		referenceables {
+		referenceables
 			ID_NR_VRZNG_ENHT
 			ID_NR_ABLFR	
-		}
 	}
 	
 	logical-source Deskriptoren_Verweise {
-		source "MVK_OGD_DSKRP_BZHNG_1";
+		source "MVK_OGD_DSKRP_BZHNG_1"
 		
-		referenceables {
+		referenceables
 			ID_NR_1
 			ID_NR_2
 			ROLLE
 			ZEITRAUM
 			NOTIZ	
-		}
 	}
 	
 	logical-source Verzeichnungeinheiten_Partner_Verknuepfungen {
-		source "MVK_OGD_VE_PRTNR_BZHNG_1" ;
+		source "MVK_OGD_VE_PRTNR_BZHNG_1"
 	
-		referenceables {
+		referenceables
 			ID_NR_VRZNG_ENHT
 			ID_NR_PRTNR
-		}	
 		
 	}
 		
 	logical-source Partner_Verweise {
-		source "MVK_OGD_PRTNR_BZHNG_1" ;
+		source "MVK_OGD_PRTNR_BZHNG_1"
 		
-		referenceables {
+		referenceables
 			ID_NR_1
 			ID_NR_2
 			ROLLE
 			ZEITRAUM
 			NOTIZ
-		}
 	} 
 
 }

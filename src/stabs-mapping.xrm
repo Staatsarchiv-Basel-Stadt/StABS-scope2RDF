@@ -1,14 +1,5 @@
 //https://github.com/zazuko/staatsarchiv-bs/blob/master/pdstavs13t/oracle-mapping.ttl
 
-import WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten.*
-import WSD_STABS_SCP_ARCHIV_DBA.Deskriptoren.*
-import WSD_STABS_SCP_ARCHIV_DBA.Ablieferungen.*
-import WSD_STABS_SCP_ARCHIV_DBA.Partner.*
-import WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Verweise.*
-import WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Deskriptoren_Verknuepfungen.*
-import WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Ablieferungen_Verknuepfungen.*
-import WSD_STABS_SCP_ARCHIV_DBA.Deskriptoren_Verweise.*
-
 map RecordSet from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 	subject template "http://data.staatsarchiv-bs.ch/id/record/{0}" with ID_NR
 	
@@ -185,7 +176,7 @@ map Deskriptor from WSD_STABS_SCP_ARCHIV_DBA.Deskriptoren {
 	stabs.QUELLE from QUELLE
 	stabs.BESCHREIBUNG from BESCHREIBUNG
 	stabs.ID_NAME from ID_NAME
-	stabs.ID_NR from ID_NR with datatype int
+	stabs.ID_NR from ID_NR with datatype xsd.int
 	stabs.ANZAHL_VERKNUEPFUNGEN from ANZAHL_VERKNUEPFUNGEN
 	stabs.GEBURTSDATUM from GEBURTSDATUM
 	stabs.TODESDATUM from TODESDATUM
