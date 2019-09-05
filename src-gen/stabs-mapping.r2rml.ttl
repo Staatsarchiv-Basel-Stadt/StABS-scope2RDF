@@ -4,20 +4,6 @@ PREFIX schema: <http://schema.org/>
 PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-# debug output ..
-# RecordSet 
-# Deskriptor 
-# Ablieferung 
-# Partner 
-# Verzeichnunseinheiten_Ablieferungen_Verknuepfungen 
-# Verzeichnunseinheiten_Deskriptoren_Verknuepfungen 
-# Verzeichnunseinheiten_Deskriptoren_Verknuepfungen_Annotation 
-# Deskriptoren_Verweise 
-# Deskriptoren_Verweise_Annotation 
-# Verzeichnunseinheiten_Verweise_Annotation 
-# Verzeichnungeinheiten_Partner_Verknuepfungen 
-# Partner_Verweise 
-
 <#RecordSet>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
 	
