@@ -655,6 +655,18 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
+		rr:predicate stabs:ENTSTEHUNGSSTUFE_AUSWAHLLISTE ;
+		rr:objectMap [
+			rr:column "ENTSTEHUNGSSTUFE_AUSWAHLLISTE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs:FORM_DER_DARSTELLUNG_AUSWAHLLI ;
+		rr:objectMap [
+			rr:column "FORM_DER_DARSTELLUNG_AUSWAHLLI" ;
+		];
+	];
+	rr:predicateObjectMap [
 		rr:predicate stabs:WEBLINK ;
 		rr:objectMap [
 			rr:column "WEBLINK" ;
