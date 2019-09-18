@@ -1,5 +1,7 @@
 PREFIX rr: <http://www.w3.org/ns/r2rml#>
+PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX ric: <http://purl.org/ica/ric#>
 PREFIX schema: <http://schema.org/>
 PREFIX stabs: <http://data.staatsarchiv-bs.ch/vocab/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -10,10 +12,24 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:subjectMap [
 		rr:template "http://data.staatsarchiv-bs.ch/id/record/{ID_NR}";
 		rr:class stabs:Verzeichnungseinheit ;
+		rr:class ric:Record ;
+		rr:class dc:BibliographicResource ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate stabs:TITEL ;
+		rr:objectMap [
+			rr:column "TITEL" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate dc:title ;
+		rr:objectMap [
+			rr:column "TITEL" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ric:title ;
 		rr:objectMap [
 			rr:column "TITEL" ;
 		];

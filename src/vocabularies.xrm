@@ -11,7 +11,12 @@ datatypes xsd {
 vocabulary dc {
 	prefix "dc:" "http://purl.org/dc/terms/"
 	
+	classes
+	    BibliographicResource 
+	
 	properties
+	    creator
+	    title
 		relation
 }
 
@@ -50,8 +55,9 @@ vocabulary schema {
 }
 
 vocabulary ric {
-    prefix "ric:" "http://www.ica.org/standards/RiC/ontology#"
+    prefix "ric:" "http://purl.org/ica/ric#"
     classes
+        Record
     	RecordSet
     	
     properties
