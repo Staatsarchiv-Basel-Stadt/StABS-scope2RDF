@@ -215,6 +215,7 @@ map Partner from  WSD_STABS_SCP_ARCHIV_DBA.Partner {
 	properties
 	
 	stabs.ID_NR from ID_NR
+	foaf.openid from ID_NR
 	stabs.ID_NAME from ID_NAME
 	stabs.TYP_DER_EINHEIT from TYP_DER_EINHEIT
 	stabs.AUTORISIERTE_NAMENSFORM_EN from AUTORISIERTE_NAMENSFORM_EN
@@ -225,7 +226,7 @@ map Partner from  WSD_STABS_SCP_ARCHIV_DBA.Partner {
 	stabs.AUFNAHMEDATUM from AUFNAHMEDATUM
 }
 
-map Verzeichnunseinheiten_Ablieferungen_Verknuepfungen from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Ablieferungen_Verknuepfungen {
+map Verzeichnungseinheiten_Ablieferungen_Verknuepfungen from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Ablieferungen_Verknuepfungen {
 	
 	subject template "http://data.staatsarchiv-bs.ch/id/record/{0}" with ID_NR_VRZNG_ENHT
 	
@@ -234,7 +235,7 @@ map Verzeichnunseinheiten_Ablieferungen_Verknuepfungen from WSD_STABS_SCP_ARCHIV
 	stabs.ablieferung link Ablieferung with ID_NR_ABLFR
 }
 
-map Verzeichnunseinheiten_Deskriptoren_Verknuepfungen from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Deskriptoren_Verknuepfungen {
+map Verzeichnungseinheiten_Deskriptoren_Verknuepfungen from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Deskriptoren_Verknuepfungen {
 	
 	subject template "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}" with ID_NR_DSKRP
 	
@@ -242,7 +243,7 @@ map Verzeichnunseinheiten_Deskriptoren_Verknuepfungen from WSD_STABS_SCP_ARCHIV_
 	stabs.deskriptor_ve template "http://data.staatsarchiv-bs.ch/id/record/{0}" with ID_NR_VRZNG_ENHT
 }
 
-map Verzeichnunseinheiten_Deskriptoren_Verknuepfungen_Annotation from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Deskriptoren_Verknuepfungen {
+map Verzeichnungseinheiten_Deskriptoren_Verknuepfungen_Annotation from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Deskriptoren_Verknuepfungen {
 	
 	subject template "http://data.staatsarchiv-bs.ch/id/verzeichnungseinheit_deskriptor/{0}/{1}" with ID_NR_DSKRP ID_NR_VRZNG_ENHT
 	types oa.Annotation
@@ -279,7 +280,7 @@ map Deskriptoren_Verweise_Annotation from WSD_STABS_SCP_ARCHIV_DBA.Deskriptoren_
 	stabs.NOTIZ from NOTIZ
 }
 
-map Verzeichnunseinheiten_Verweise_Annotation from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Verweise {
+map Verzeichnungseinheiten_Verweise_Annotation from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Verweise {
 	
 	subject template "http://data.staatsarchiv-bs.ch/id/verzeichnungseinheit_verweis/{0}/{1}" with  ID_NR_1 ID_NR_2
 	types oa.Annotation

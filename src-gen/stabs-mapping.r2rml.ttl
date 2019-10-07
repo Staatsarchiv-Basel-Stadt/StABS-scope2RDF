@@ -1,5 +1,6 @@
 PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX oa: <http://www.w3.org/ns/oa#>
 PREFIX ric: <http://purl.org/ica/ric#>
 PREFIX schema: <http://schema.org/>
@@ -1089,6 +1090,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
+		rr:predicate foaf:openid ;
+		rr:objectMap [
+			rr:column "ID_NR" ;
+		];
+	];
+	rr:predicateObjectMap [
 		rr:predicate stabs:ID_NAME ;
 		rr:objectMap [
 			rr:column "ID_NAME" ;
@@ -1137,7 +1144,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#Verzeichnunseinheiten_Ablieferungen_Verknuepfungen>
+<#Verzeichnungseinheiten_Ablieferungen_Verknuepfungen>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VE_ABLFR_BZHNG_1" ];
 	
 	rr:subjectMap [
@@ -1151,7 +1158,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#Verzeichnunseinheiten_Deskriptoren_Verknuepfungen>
+<#Verzeichnungseinheiten_Deskriptoren_Verknuepfungen>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VE_DSKRP_BZHNG_1" ];
 	
 	rr:subjectMap [
@@ -1165,7 +1172,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#Verzeichnunseinheiten_Deskriptoren_Verknuepfungen_Annotation>
+<#Verzeichnungseinheiten_Deskriptoren_Verknuepfungen_Annotation>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VE_DSKRP_BZHNG_1" ];
 	
 	rr:subjectMap [
@@ -1258,7 +1265,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#Verzeichnunseinheiten_Verweise_Annotation>
+<#Verzeichnungseinheiten_Verweise_Annotation>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_BZHNG_1" ];
 	
 	rr:subjectMap [

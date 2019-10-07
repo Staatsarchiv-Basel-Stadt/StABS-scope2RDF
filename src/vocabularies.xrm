@@ -20,17 +20,26 @@ vocabulary dc {
 		relation
 }
 
-vocabulary skos {
-	prefix "skos:" "http://www.w3.org/2004/02/skos/core#"
+/** Friend of a friend
+    attemt to model partners and (ablieferungs-)projects
+*/
+vocabulary foaf {
+	prefix "foaf:" "http://xmlns.com/foaf/0.1/"
+	
 	classes
-		Concept
-		
+	    Agent
+	    Group
+	    Person
+	    Organization
+	    Project
+	
 	properties
-		notation
-		prefLabel
-		inScheme
+		made
+		name
+		openid
 }
 
+// Web annotation ontology
 vocabulary oa {
 	prefix "oa:"  "http://www.w3.org/ns/oa#"
 	
@@ -40,18 +49,6 @@ vocabulary oa {
 	properties
 		hasBody
 		hasTarget
-}
-
-vocabulary schema {
-	
-	prefix "schema:" "http://schema.org/"
-	
-	classes 
-		Person
-	
-	properties
-	 place
-	
 }
 
 vocabulary ric {
@@ -69,6 +66,29 @@ vocabulary ric {
     	date
     	characteristic_Physical
 		// TODO '-' in IDs -> characteristic-Physical    
+}
+
+vocabulary skos {
+	prefix "skos:" "http://www.w3.org/2004/02/skos/core#"
+	classes
+		Concept
+		
+	properties
+		notation
+		prefLabel
+		inScheme
+}
+
+vocabulary schema {
+	
+	prefix "schema:" "http://schema.org/"
+	
+	classes 
+		Person
+	
+	properties
+	 place
+	
 }
 
 vocabulary stabs {
