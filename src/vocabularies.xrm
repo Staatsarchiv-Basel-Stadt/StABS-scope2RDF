@@ -21,7 +21,7 @@ vocabulary dc {
 }
 
 /** Friend of a friend
-    attemt to model partners and (ablieferungs-)projects
+    attempt to model partners and (ablieferungs-)projects
 */
 vocabulary foaf {
 	prefix "foaf:" "http://xmlns.com/foaf/0.1/"
@@ -51,11 +51,13 @@ vocabulary oa {
 		hasTarget
 }
 
-vocabulary ric {
-    prefix "ric:" "http://purl.org/ica/ric#"
+vocabulary rico {
+    prefix "rico:" "https://www.ica.org/standards/RiC/ontology#"
     classes
         Record
     	RecordSet
+    	Place
+    	PlaceName
     	
     properties
     	something
@@ -65,7 +67,16 @@ vocabulary ric {
     	qualityOfInformation
     	date
     	characteristic_Physical
+    	Place
 		// TODO '-' in IDs -> characteristic-Physical    
+}
+
+vocabulary ricdft {
+	prefix "ric-dft:" "https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#"
+}
+
+vocabulary ricrst {
+	prefix "ric-rst:" "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#"
 }
 
 vocabulary skos {
