@@ -51,6 +51,10 @@ vocabulary oa {
 		hasTarget
 }
 
+vocabulary rdfs {
+	prefix "rdfs:" "http://www.w3.org/2000/01/rdf-schema#"
+}
+
 vocabulary ric {
     prefix "ric:" "http://purl.org/ica/ric#"
     classes
