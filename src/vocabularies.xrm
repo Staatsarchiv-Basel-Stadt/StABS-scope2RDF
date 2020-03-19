@@ -58,9 +58,9 @@ vocabulary rico {
     	RecordSet
     	Place
     	PlaceName
+    	Agent
 
     properties
-    	something
     	title
     	scopeAndContent
     	contentType
