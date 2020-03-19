@@ -56,18 +56,75 @@ vocabulary rico {
     classes
         Record
     	RecordSet
+    	RecordPart
+    	Instantiation
     	Place
     	PlaceName
     	Agent
 
     properties
-    	title
-    	scopeAndContent
-    	contentType
-    	qualityOfInformation
-    	date
-    	characteristic_Physical
-    	Place
+        affectedBy
+        beginningDate
+        belongsToCategory
+        creationDate
+        date
+        deletionDate
+        describedBy
+        descriptiveNote
+        endDate
+        follows
+        followsInTime
+        hasAppellation
+        hasBeginningDate
+        hasEndDate
+        hasLocation
+        hasModificationDate
+        hasName
+        hasPart
+        height
+        identifiedBy
+        identifier
+        involvedIn
+        isAssociatedWithDate
+        isAssociatedWithEvent
+        isAssociatedWithPlace
+        isAssociatedWithRule
+        isEquivalentTo
+        isMainSubjectOf
+        isPartOf
+        isRelatedTo
+        isSubjectOf
+        isUnderAuthorityOf
+        lastModificationDate
+        measure
+        modificationDate
+        name
+        ownedBy
+        precedes
+        precedesInTime
+        referenceSystem
+        regulatedBy
+        resultsFrom
+        ruleFollowed
+        thingIsConnectedToRelation
+        thingIsContextOfRelation
+        thingIsSourceOfRelation
+        thingIsSourceOfSequentialRelation
+        thingIsSourceOfTemporalRelation
+        thingIsSourceOfWholePartRelation
+        thingIsTargetOfAppellationRelation
+        thingIsTargetOfAuthorityRelation
+        thingIsTargetOfEventRelation
+        thingIsTargetOfOwnershipRelation
+        thingIsTargetOfPlaceRelation
+        thingIsTargetOfRelation
+        thingIsTargetOfRuleRelation
+        thingIsTargetOfSequentialRelation
+        thingIsTargetOfTemporalRelation
+        thingIsTargetOfTypeRelation
+        thingIsTargetOfWholePartRelation
+        wasLastUpdatedAtDate
+        width 
 		// TODO '-' in IDs -> characteristic-Physical
 }
 

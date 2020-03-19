@@ -10,10 +10,11 @@ map RecordSet from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 	//skos.prefLabel from DESCRIPTOR with language-tag de3
 	
 	//stabs.SIGNATUR template "sugus/{0}" with SIGNATUR
-	
-	stabs.TITEL from TITEL
+	rico.name from TITEL	
+
 	dc.title from TITEL
-	rico.title from TITEL
+
+	stabs.TITEL from TITEL
 	stabs.SIGNATUR from SIGNATUR
 	stabs.GEBURTSDATUM from GEBURTSDATUM
 	stabs.TODESDATUM from TODESDATUM
