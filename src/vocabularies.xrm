@@ -6,6 +6,7 @@ datatypes xsd {
 	prefix "xsd:" "http://www.w3.org/2001/XMLSchema#"
 	int
 	double
+	string
 }
 
 vocabulary dc {
@@ -54,12 +55,9 @@ vocabulary oa {
 vocabulary rico {
     prefix "rico:" "https://www.ica.org/standards/RiC/ontology#"
     classes
-        Record
-    	RecordSet
-    	RecordPart
+        Record RecordSet RecordPart
     	Instantiation
-    	Place
-    	PlaceName
+    	Place PlaceName
     	Agent
 
     properties
@@ -81,6 +79,8 @@ vocabulary rico {
         hasModificationDate
         hasName
         hasPart
+        hasPhysicalLocation
+        hasPlaceName
         height
         identifiedBy
         identifier

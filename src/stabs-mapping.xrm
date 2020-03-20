@@ -1,21 +1,29 @@
-//https://github.com/zazuko/staatsarchiv-bs/blob/master/pdstavs13t/oracle-mapping.ttl
-
-map Deskriptor from WSD_STABS_SCP_ARCHIV_DBA.Deskriptoren {
+map ricoPlace from WSD_STABS_SCP_ARCHIV_DBA.Ortsdeskriptoren {
 
 	subject template "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}" with ID_NR
 	
-	types rico.Place stabs.Deskriptor;
+	types rico.Place;
 	
 	properties
+	rico.hasPlaceName from BEZEICHNUNG with datatype xsd.string
+}
+
+map stabsDeskriptor from WSD_STABS_SCP_ARCHIV_DBA.Ortsdeskriptoren {
+	
+	subject template "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}" with ID_NR
+	
+	types stabs.Deskriptor;
+	
+	properties
+		
 	stabs.THESAURUS from THESAURUS
-	stabs.BEZEICHNUNG from BEZEICHNUNG
-	rico.Place from BEZEICHNUNG
+	stabs.BEZEICHNUNG from BEZEICHNUNG with datatype xsd.string
 	stabs.FREMDSPRACHIGE_BEZEICHNUNGEN from FREMDSPRACHIGE_BEZEICHNUNGEN
 	stabs.QUELLE from QUELLE
-	stabs.BESCHREIBUNG from BESCHREIBUNG
+	stabs.BESCHREIBUNG from BESCHREIBUNG with datatype xsd.string
 	stabs.ID_NAME from ID_NAME
 	stabs.ID_NR from ID_NR with datatype xsd.int
-	stabs.ANZAHL_VERKNUEPFUNGEN from ANZAHL_VERKNUEPFUNGEN
+	stabs.ANZAHL_VERKNUEPFUNGEN from ANZAHL_VERKNUEPFUNGEN with datatype xsd.int
 	stabs.GEBURTSDATUM from GEBURTSDATUM
 	stabs.TODESDATUM from TODESDATUM
 	stabs.GND from GND
