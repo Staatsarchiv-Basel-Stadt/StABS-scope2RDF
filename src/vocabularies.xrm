@@ -10,10 +10,10 @@ datatypes xsd {
 
 vocabulary dc {
 	prefix "dc:" "http://purl.org/dc/terms/"
-	
+
 	classes
-	    BibliographicResource 
-	
+	    BibliographicResource
+
 	properties
 	    creator
 	    title
@@ -25,14 +25,14 @@ vocabulary dc {
 */
 vocabulary foaf {
 	prefix "foaf:" "http://xmlns.com/foaf/0.1/"
-	
+
 	classes
 	    Agent
 	    Group
 	    Person
 	    Organization
 	    Project
-	
+
 	properties
 		made
 		name
@@ -42,10 +42,10 @@ vocabulary foaf {
 // Web annotation ontology
 vocabulary oa {
 	prefix "oa:"  "http://www.w3.org/ns/oa#"
-	
+
 	classes
 		Annotation
-		
+
 	properties
 		hasBody
 		hasTarget
@@ -56,19 +56,76 @@ vocabulary rico {
     classes
         Record
     	RecordSet
+    	RecordPart
+    	Instantiation
     	Place
     	PlaceName
-    	
+    	Agent
+
     properties
-    	something
-    	title
-    	scopeAndContent
-    	contentType
-    	qualityOfInformation
-    	date
-    	characteristic_Physical
-    	Place
-		// TODO '-' in IDs -> characteristic-Physical    
+        affectedBy
+        beginningDate
+        belongsToCategory
+        creationDate
+        date
+        deletionDate
+        describedBy
+        descriptiveNote
+        endDate
+        follows
+        followsInTime
+        hasAppellation
+        hasBeginningDate
+        hasEndDate
+        hasLocation
+        hasModificationDate
+        hasName
+        hasPart
+        height
+        identifiedBy
+        identifier
+        involvedIn
+        isAssociatedWithDate
+        isAssociatedWithEvent
+        isAssociatedWithPlace
+        isAssociatedWithRule
+        isEquivalentTo
+        isMainSubjectOf
+        isPartOf
+        isRelatedTo
+        isSubjectOf
+        isUnderAuthorityOf
+        lastModificationDate
+        measure
+        modificationDate
+        name
+        ownedBy
+        precedes
+        precedesInTime
+        referenceSystem
+        regulatedBy
+        resultsFrom
+        ruleFollowed
+        thingIsConnectedToRelation
+        thingIsContextOfRelation
+        thingIsSourceOfRelation
+        thingIsSourceOfSequentialRelation
+        thingIsSourceOfTemporalRelation
+        thingIsSourceOfWholePartRelation
+        thingIsTargetOfAppellationRelation
+        thingIsTargetOfAuthorityRelation
+        thingIsTargetOfEventRelation
+        thingIsTargetOfOwnershipRelation
+        thingIsTargetOfPlaceRelation
+        thingIsTargetOfRelation
+        thingIsTargetOfRuleRelation
+        thingIsTargetOfSequentialRelation
+        thingIsTargetOfTemporalRelation
+        thingIsTargetOfTypeRelation
+        thingIsTargetOfWholePartRelation
+        wasLastUpdatedAtDate
+        width 
+		// TODO '-' in IDs -> characteristic-Physical
 }
 
 vocabulary ricdft {
@@ -83,7 +140,7 @@ vocabulary skos {
 	prefix "skos:" "http://www.w3.org/2004/02/skos/core#"
 	classes
 		Concept
-		
+
 	properties
 		notation
 		prefLabel
@@ -91,26 +148,26 @@ vocabulary skos {
 }
 
 vocabulary schema {
-	
+
 	prefix "schema:" "http://schema.org/"
-	
-	classes 
+
+	classes
 		Person
-	
+
 	properties
 	 place
-	
+
 }
 
 vocabulary stabs {
 	prefix "stabs:" "http://data.staatsarchiv-bs.ch/vocab/"
-	
+
 	classes
 		Ablieferung
 		Deskriptor
 		Partner
 		Verzeichnungseinheit
-		
+
 	properties
 		TITEL
 		SIGNATUR
