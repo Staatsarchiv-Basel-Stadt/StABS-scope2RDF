@@ -1,3 +1,13 @@
+map ricoRecord from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheien {
+	
+	subject template "https://data.staatsarchiv.bs.ch/id/uod/{0}" with ID_NR
+	
+	types rico.Record
+	
+	properties
+	rico.date from ENTSTEHUNGSZEITRAUM
+}
+
 map ricoPlace from WSD_STABS_SCP_ARCHIV_DBA.Ortsdeskriptoren {
 
 	subject template "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}" with ID_NR
