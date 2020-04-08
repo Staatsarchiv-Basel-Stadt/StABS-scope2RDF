@@ -2,37 +2,39 @@ language-tags {
 	de
 }
 
-datatypes xsd {
-	prefix "xsd:" "http://www.w3.org/2001/XMLSchema#"
-	int
-	double
-	string
+vocabulary xsd {
+	prefix "xsd" "http://www.w3.org/2001/XMLSchema#"
+
+	datatypes
+		integer
+		string
 }
 
+
 vocabulary dc {
-	prefix "dc:" "http://purl.org/dc/terms/"
+	prefix "dc" "http://purl.org/dc/terms/"
 
 	classes
-	    BibliographicResource
+		BibliographicResource
 
 	properties
-	    creator
-	    title
+		creator
+		title
 		relation
 }
 
 /** Friend of a friend
-    attempt to model partners and (ablieferungs-)projects
-*/
+ *     attempt to model partners and (ablieferungs-)projects
+ */
 vocabulary foaf {
-	prefix "foaf:" "http://xmlns.com/foaf/0.1/"
+	prefix "foaf" "http://xmlns.com/foaf/0.1/"
 
 	classes
-	    Agent
-	    Group
-	    Person
-	    Organization
-	    Project
+		Agent
+		Group
+		Person
+		Organization
+		Project
 
 	properties
 		made
@@ -42,7 +44,7 @@ vocabulary foaf {
 
 // Web annotation ontology
 vocabulary oa {
-	prefix "oa:"  "http://www.w3.org/ns/oa#"
+	prefix "oa" "http://www.w3.org/ns/oa#"
 
 	classes
 		Annotation
@@ -53,91 +55,96 @@ vocabulary oa {
 }
 
 vocabulary rico {
-    prefix "rico:" "https://www.ica.org/standards/RiC/ontology#"
-    classes
-        Record RecordSet RecordPart
-    	Instantiation
-    	Place PlaceName
-    	Agent
+	prefix "rico" "https://www.ica.org/standards/RiC/ontology#"
 
-    properties
-        affectedBy
-        beginningDate
-        belongsToCategory
-        creationDate
-        date
-        deletionDate
-        describedBy
-        descriptiveNote
-        endDate
-        follows
-        followsInTime
-        hasAppellation
-        hasBeginningDate
-        hasEndDate
-        hasLocation
-        hasModificationDate
-        hasName
-        hasPart
-        hasPhysicalLocation
-        hasPlaceName
-        height
-        identifiedBy
-        identifier
-        involvedIn
-        isAssociatedWithDate
-        isAssociatedWithEvent
-        isAssociatedWithPlace
-        isAssociatedWithRule
-        isEquivalentTo
-        isMainSubjectOf
-        isPartOf
-        isRelatedTo
-        isSubjectOf
-        isUnderAuthorityOf
-        lastModificationDate
-        measure
-        modificationDate
-        name
-        ownedBy
-        precedes
-        precedesInTime
-        referenceSystem
-        regulatedBy
-        resultsFrom
-        ruleFollowed
-        thingIsConnectedToRelation
-        thingIsContextOfRelation
-        thingIsSourceOfRelation
-        thingIsSourceOfSequentialRelation
-        thingIsSourceOfTemporalRelation
-        thingIsSourceOfWholePartRelation
-        thingIsTargetOfAppellationRelation
-        thingIsTargetOfAuthorityRelation
-        thingIsTargetOfEventRelation
-        thingIsTargetOfOwnershipRelation
-        thingIsTargetOfPlaceRelation
-        thingIsTargetOfRelation
-        thingIsTargetOfRuleRelation
-        thingIsTargetOfSequentialRelation
-        thingIsTargetOfTemporalRelation
-        thingIsTargetOfTypeRelation
-        thingIsTargetOfWholePartRelation
-        wasLastUpdatedAtDate
-        width 
-		// TODO '-' in IDs -> characteristic-Physical
+	classes
+		Record
+		RecordSet
+		RecordPart
+		Instantiation
+		Place
+		PlaceName
+		Agent
+
+	properties
+		affectedBy
+		beginningDate
+		belongsToCategory
+		creationDate
+		date
+		deletionDate
+		describedBy
+		descriptiveNote
+		endDate
+		follows
+		followsInTime
+		hasAppellation
+		hasBeginningDate
+		hasEndDate
+		hasLocation
+		hasModificationDate
+		hasName
+		hasPart
+		hasPhysicalLocation
+		hasPlaceName
+		height
+		identifiedBy
+		identifier
+		involvedIn
+		isAssociatedWithDate
+		isAssociatedWithEvent
+		isAssociatedWithPlace
+		isAssociatedWithRule
+		isEquivalentTo
+		isMainSubjectOf
+		isPartOf
+		isRelatedTo
+		isSubjectOf
+		isUnderAuthorityOf
+		lastModificationDate
+		measure
+		modificationDate
+		name
+		ownedBy
+		precedes
+		precedesInTime
+		referenceSystem
+		regulatedBy
+		resultsFrom
+		ruleFollowed
+		thingIsConnectedToRelation
+		thingIsContextOfRelation
+		thingIsSourceOfRelation
+		thingIsSourceOfSequentialRelation
+		thingIsSourceOfTemporalRelation
+		thingIsSourceOfWholePartRelation
+		thingIsTargetOfAppellationRelation
+		thingIsTargetOfAuthorityRelation
+		thingIsTargetOfEventRelation
+		thingIsTargetOfOwnershipRelation
+		thingIsTargetOfPlaceRelation
+		thingIsTargetOfRelation
+		thingIsTargetOfRuleRelation
+		thingIsTargetOfSequentialRelation
+		thingIsTargetOfTemporalRelation
+		thingIsTargetOfTypeRelation
+		thingIsTargetOfWholePartRelation
+		wasLastUpdatedAtDate
+		width
+// TODO '-' in IDs -> characteristic-Physical
 }
 
 vocabulary ricdft {
-	prefix "ric-dft:" "https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#"
+	prefix "ric-dft" "https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#"
 }
 
 vocabulary ricrst {
-	prefix "ric-rst:" "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#"
+	prefix "ric-rst" "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#"
 }
 
 vocabulary skos {
-	prefix "skos:" "http://www.w3.org/2004/02/skos/core#"
+	prefix "skos" "http://www.w3.org/2004/02/skos/core#"
+
 	classes
 		Concept
 
@@ -148,19 +155,17 @@ vocabulary skos {
 }
 
 vocabulary schema {
-
-	prefix "schema:" "http://schema.org/"
+	prefix "schema" "http://schema.org/"
 
 	classes
 		Person
 
 	properties
-	 place
-
+		place
 }
 
 vocabulary stabs {
-	prefix "stabs:" "http://data.staatsarchiv-bs.ch/vocab/"
+	prefix "stabs" "http://data.staatsarchiv-bs.ch/vocab/"
 
 	classes
 		Ablieferung
@@ -271,7 +276,7 @@ vocabulary stabs {
 		FARBE_BILDBEARBEITUNG
 		HAUSNAME
 //            EIGENTÜMER_1862
-        ALTE_HAUSNUMMER
+		ALTE_HAUSNUMMER
 		ENTSTEHUNGSSTUFE
 		FORMALBEGRIFF_HOEFLINGER
 		REPRO
@@ -319,7 +324,7 @@ vocabulary stabs {
 		BEWILLIGUNG
 		PHYSISCHE_BENUETZBARKEIT
 		ZUGAENGLICHKEIT
-		//Deskriptor
+		// Deskriptor
 		THESAURUS
 		BEZEICHNUNG
 		FREMDSPRACHIGE_BEZEICHNUNGEN
@@ -332,7 +337,7 @@ vocabulary stabs {
 		TODESDATUM
 		GND
 		VIAF
-		//Ablieferung
+		// Ablieferung
 		TYP
 		SUBTYP
 		ABLIEFERNDE_STELLE
@@ -343,7 +348,7 @@ vocabulary stabs {
 		JAHR_LAUF_NR
 		ID_NR
 		ID_NAME
-		//Partner
+		// Partner
 		ID_NR
 		ID_NAME
 		TYP_DER_EINHEIT
@@ -353,7 +358,7 @@ vocabulary stabs {
 		RECHTSFORM
 		RECHTLICHE_GRUNDLAGE
 		AUFNAHMEDATUM
-		//Rest
+		// Rest
 		ROLLE
 		ZEITRAUM
 		NOTIZ
@@ -366,3 +371,4 @@ vocabulary stabs {
 		oaSource
 		oaTarget
 }
+
