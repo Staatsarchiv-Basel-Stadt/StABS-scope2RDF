@@ -5,11 +5,10 @@ map ricoRecord from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheien {
 
 	types
 		rico.Record
-		dc.BibliographicResource
 
 	properties
 		rico.date from ENTSTEHUNGSZEITRAUM;
-		dc.title from TITEL with datatype xsd.string;
+		rico.title from TITEL;
 }
 
 map ricoPlace from WSD_STABS_SCP_ARCHIV_DBA.Ortsdeskriptoren {

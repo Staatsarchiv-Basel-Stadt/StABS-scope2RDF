@@ -129,6 +129,7 @@ vocabulary rico {
 		thingIsTargetOfTemporalRelation
 		thingIsTargetOfTypeRelation
 		thingIsTargetOfWholePartRelation
+		title
 		wasLastUpdatedAtDate
 		width
 // TODO '-' in IDs -> characteristic-Physical
