@@ -1,6 +1,6 @@
 output rml
 
-map ricoRecord from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheien {
+map ricoRecord from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 	subject template "https://data.staatsarchiv.bs.ch/id/uod/{0}" with ID_NR;
 
 	types
