@@ -2,11 +2,11 @@ output rml
 
 template uodIRI "https://data.staatsarchiv.bs.ch/id/uod/{0}"
 template queryURI "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
-template  descriptorIRI "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}"
+template descriptorIRI "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}"
 
 map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 	subject template uodIRI with ID_NR;
-	
+
 	types
 		xisadgr.ArchivalDescription
 
@@ -16,14 +16,14 @@ map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 
 map identity from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 	subject template uodIRI with ID_NR;
-	
+
 	types
-	    xisadgr.Identity
-	    
+		xisadgr.Identity
+
 	properties
-	    xisadgr.hasReferenceCode template queryURI with ID_NR;
-	    xisadgr.hasTitle from TITEL;
-	    xisadgr.hasReferenceCodeOld from FRUEHERE_STABS_SIGNATUR;
-	    xisadgr.hasReferenceCodeSt from SIGNATUR;
-	    xisadgr.hasCreatedDateRange from ENTSTEHUNGSZEITRAUM;
+		xisadgr.hasReferenceCode template queryURI with ID_NR;
+		xisadgr.hasTitle from TITEL;
+		xisadgr.hasReferenceCodeOld from FRUEHERE_STABS_SIGNATUR;
+		xisadgr.hasReferenceCodeSt from SIGNATUR;
+		xisadgr.hasCreatedDateRange from ENTSTEHUNGSZEITRAUM;
 }

@@ -10,7 +10,6 @@ vocabulary xsd {
 		string
 }
 
-
 vocabulary dc {
 	prefix "dc" "http://purl.org/dc/terms/"
 
@@ -365,17 +364,17 @@ vocabulary stabs {
 
 vocabulary xisadgr {
 	prefix "xisadgr" "https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Ontology.owl#"
-	
+
 	classes
-	    ArchivalDescription
-	    Archive
-	    Group
-	    Fonds
-	    Series
-	    File
-	    Item
-	    Identity
-	
+		ArchivalDescription
+		Archive
+		Group
+		Fonds
+		Series
+		File
+		Item
+		Identity
+
 	properties
 		hasCreatedDateRange
 		hasCreatedDatePoint
@@ -384,6 +383,5 @@ vocabulary xisadgr {
 		hasReferenceCodeSt
 		hasReferenceCodeOld
 		hasTitle
-
 }
 
