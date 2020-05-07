@@ -155,16 +155,6 @@ vocabulary skos {
 		inScheme
 }
 
-vocabulary schema {
-	prefix "schema" "http://schema.org/"
-
-	classes
-		Person
-
-	properties
-		place
-}
-
 vocabulary stabs {
 	prefix "stabs" "http://data.staatsarchiv-bs.ch/vocab/"
 
@@ -371,5 +361,29 @@ vocabulary stabs {
 		// OA workaround
 		oaSource
 		oaTarget
+}
+
+vocabulary xisadgr {
+	prefix "xisadgr" "https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Ontology.owl#"
+	
+	classes
+	    ArchivalDescription
+	    Archive
+	    Group
+	    Fonds
+	    Series
+	    File
+	    Item
+	    Identity
+	
+	properties
+		hasCreatedDateRange
+		hasCreatedDatePoint
+		hasIdentity
+		hasReferenceCode
+		hasReferenceCodeSt
+		hasReferenceCodeOld
+		hasTitle
+
 }
 

@@ -1,6 +1,19 @@
 source-group WSD_STABS_SCP_ARCHIV_DBA {
 	type csv
 	
+	logical-source Dossiers {
+		source "/home/oliver/Dokumente/testRDFizer/OGD-Data/input/10000verzeichnungseinheiten.csv"
+		
+		referenceables
+		ID_NR
+        TITEL
+        SIGNATUR
+        GEBURTSDATUM
+        STUFE is "Dossier"
+        ENTSTEHUNGSZEITRAUM
+        DARIN
+}
+	
 	logical-source Verzeichnungseinheiten {
 		source "/home/oliver/Dokumente/testRDFizer/OGD-Data/input/10000verzeichnungseinheiten.csv"
 		

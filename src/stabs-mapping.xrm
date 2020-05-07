@@ -1,45 +1,29 @@
 output rml
 
-map ricoRecord from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
-	subject template "https://data.staatsarchiv.bs.ch/id/uod/{0}" with ID_NR;
+template uodIRI "https://data.staatsarchiv.bs.ch/id/uod/{0}"
+template queryURI "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
+template  descriptorIRI "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}"
 
-	types
-		rico.Record
-
-	properties
-		rico.date from ENTSTEHUNGSZEITRAUM;
-		rico.title from TITEL;
-}
-
-map ricoPlace from WSD_STABS_SCP_ARCHIV_DBA.Ortsdeskriptoren {
-	subject template "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}" with ID_NR;
-
-	types
-		rico.Place
-
-	properties
-		rico.hasPlaceName from BEZEICHNUNG;
-}
-
-map stabsDeskriptor from WSD_STABS_SCP_ARCHIV_DBA.Ortsdeskriptoren {
-	subject template "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}" with ID_NR;
-
-	types
-		stabs.Deskriptor
-
-	properties
-
-		stabs.THESAURUS from THESAURUS;
-		stabs.BEZEICHNUNG from BEZEICHNUNG with datatype xsd.string;
-		stabs.FREMDSPRACHIGE_BEZEICHNUNGEN from FREMDSPRACHIGE_BEZEICHNUNGEN;
-		stabs.QUELLE from QUELLE;
-		stabs.BESCHREIBUNG from BESCHREIBUNG with datatype xsd.string;
-		stabs.ID_NAME from ID_NAME;
-		stabs.ID_NR from ID_NR with datatype xsd.integer;
-		stabs.ANZAHL_VERKNUEPFUNGEN from ANZAHL_VERKNUEPFUNGEN with datatype xsd.integer;
-		stabs.GEBURTSDATUM from GEBURTSDATUM;
-		stabs.TODESDATUM from TODESDATUM;
-		stabs.GND from GND;
-		stabs.VIAF from VIAF;
+map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+	subject template uodIRI with ID_NR;
 	
+	types
+		xisadgr.ArchivalDescription
+
+	properties
+		xisadgr.hasIdentity template uodIRI with ID_NR;
+}
+
+map identity from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+	subject template uodIRI with ID_NR;
+	
+	types
+	    xisadgr.Identity
+	    
+	properties
+	    xisadgr.hasReferenceCode template queryURI with ID_NR;
+	    xisadgr.hasTitle from TITEL;
+	    xisadgr.hasReferenceCodeOld from FRUEHERE_STABS_SIGNATUR;
+	    xisadgr.hasReferenceCodeSt from SIGNATUR;
+	    xisadgr.hasCreatedDateRange from ENTSTEHUNGSZEITRAUM;
 }
