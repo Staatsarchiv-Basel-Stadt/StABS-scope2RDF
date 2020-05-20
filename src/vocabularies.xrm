@@ -1,5 +1,7 @@
 language-tags {
 	de
+	fr
+	en
 }
 
 vocabulary xsd {
@@ -383,5 +385,6 @@ vocabulary xisadgr {
 		hasReferenceCodeSt
 		hasReferenceCodeOld
 		hasTitle
+		hasContext
 }
 
