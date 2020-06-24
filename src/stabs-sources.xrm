@@ -1,15 +1,25 @@
-source-types {
-    rdb referenceFormulation "rr:SQL2008"
-}
-
 source-group WSD_STABS_SCP_ARCHIV_DBA {
-	type rdb
-  
-    logical-source Verzeichnungseinheiten {
-    	source "MVK_OGD_VRZNG_ENHT_1"
-    	
-    	referenceables 
-    		TITEL
+	type csv
+
+	logical-source Dossiers {
+		source "/home/oliver/Dokumente/testRDFizer/OGD-Data/input/10000verzeichnungseinheiten.csv"
+
+		referenceables
+			ID_NR
+			TITEL
+			SIGNATUR
+			GEBURTSDATUM
+			STUFE
+			is "Dossier"
+			ENTSTEHUNGSZEITRAUM
+			DARIN
+	}
+
+	logical-source Verzeichnungseinheiten {
+		source "/home/oliver/Dokumente/testRDFizer/OGD-Data/input/10000verzeichnungseinheiten.csv"
+
+		referenceables
+			TITEL
 			SIGNATUR
 			GEBURTSDATUM
 			TODESDATUM
@@ -110,8 +120,8 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			BESCHREIBSTOFF
 			FARBE_BILDBEARBEITUNG
 			HAUSNAME
-//            EIGENTÜMER_1862
-            ALTE_HAUSNUMMER
+			EIGENTUEMER_1862
+			ALTE_HAUSNUMMER
 			ENTSTEHUNGSSTUFE
 			FORMALBEGRIFF_HOEFLINGER
 			REPRO
@@ -158,11 +168,11 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			BEWILLIGUNG
 			PHYSISCHE_BENUETZBARKEIT
 			ZUGAENGLICHKEIT
-    }
+	}
 
-	logical-source Deskriptoren {
-		source "MVK_OGD_DSKRP_1" 
-		
+	logical-source Ortsdeskriptoren {
+		source "/home/oliver/Dokumente/testRDFizer/OGD-Data/input/ortsdeskriptoren.csv"
+
 		referenceables
 			THESAURUS
 			BEZEICHNUNG
@@ -176,99 +186,5 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			TODESDATUM
 			GND
 			VIAF
-		
 	}
-	
-	logical-source Ablieferungen {
-		source "MVK_OGD_ABLFR_1"
-		
-		referenceables
-			TYP
-			SUBTYP
-			ABLIEFERNDE_STELLE
-			AKTENBILDENDE_STELLE
-			BETREFF_TITEL
-			ZEITRAUM_PERIODE
-			BESCHREIBUNG
-			JAHR_LAUF_NR
-			ID_NR
-			ID_NAME
-	}
-	
-	logical-source Partner {
-		source "MVK_OGD_PRTNR_1"
-		
-		referenceables
-			ID_NR
-			ID_NAME
-			TYP_DER_EINHEIT
-			AUTORISIERTE_NAMENSFORM_EN
-			PARALLELE_NAMENSFORM_EN
-			EXISTENZ_ZEITRAUM
-			RECHTSFORM
-			RECHTLICHE_GRUNDLAGE
-			AUFNAHMEDATUM		
-	}
-	
-	logical-source Verzeichnungseinheiten_Verweise {
-		source "MVK_OGD_VRZNG_ENHT_BZHNG_1"
-		
-		referenceables
-			ID_NR_1
-			ID_NR_2
-			ROLLE
-			ZEITRAUM
-			NOTIZ
-	}
-	
-	logical-source Verzeichnungseinheiten_Deskriptoren_Verknuepfungen {
-		source "MVK_OGD_VE_DSKRP_BZHNG_1"
-		
-		referenceables
-			ID_NR_DSKRP
-			ID_NR_VRZNG_ENHT
-			ROLLE
-			ZEITRAUM
-			NOTIZ
-	}
-	
-	logical-source Verzeichnungseinheiten_Ablieferungen_Verknuepfungen {
-		source "MVK_OGD_VE_ABLFR_BZHNG_1"
-		
-		referenceables
-			ID_NR_VRZNG_ENHT
-			ID_NR_ABLFR	
-	}
-	
-	logical-source Deskriptoren_Verweise {
-		source "MVK_OGD_DSKRP_BZHNG_1"
-		
-		referenceables
-			ID_NR_1
-			ID_NR_2
-			ROLLE
-			ZEITRAUM
-			NOTIZ	
-	}
-	
-	logical-source Verzeichnungeinheiten_Partner_Verknuepfungen {
-		source "MVK_OGD_VE_PRTNR_BZHNG_1"
-	
-		referenceables
-			ID_NR_VRZNG_ENHT
-			ID_NR_PRTNR
-		
-	}
-		
-	logical-source Partner_Verweise {
-		source "MVK_OGD_PRTNR_BZHNG_1"
-		
-		referenceables
-			ID_NR_1
-			ID_NR_2
-			ROLLE
-			ZEITRAUM
-			NOTIZ
-	} 
-
 }
