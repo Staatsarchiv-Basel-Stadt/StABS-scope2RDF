@@ -1,9 +1,9 @@
 output r2rml
 
 template stabs "stabs:{0}"
-template uodIRI "https://data.staatsarchiv.bs.ch/id/uod/{0}"
+template uodIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}"
 template queryURI "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
-template descriptorIRI "http://data.staatsarchiv-bs.ch/id/deskriptor/{0}"
+template descriptorIRI "http://ld.staatsarchiv.bs.ch/id/deskriptor/{0}"
 
 map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 	subject template stabs with SIGNATUR;	
