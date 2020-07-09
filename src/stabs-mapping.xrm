@@ -12,7 +12,7 @@ map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 		xisadgr.ArchivalDescription
 
 	properties
-		xisadgr.hasIdentity template identityIRI with SIGNATUR;
+		xisadgr.hasIdentity template identityIRI with ID_NR;
 }
 
 map identity from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {

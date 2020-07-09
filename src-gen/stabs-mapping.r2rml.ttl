@@ -12,7 +12,7 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasIdentity ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{SIGNATUR}/identity" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/identity" ;
 		];
 	]
 .
