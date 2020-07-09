@@ -5,17 +5,25 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
 	
 	rr:subjectMap [
-		rr:template "stabs:{SIGNATUR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}" ;
 		rr:class xisadgr:ArchivalDescription ;
-		rr:class xisadgr:Identity ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasIdentity ;
 		rr:objectMap [
-			rr:template "stabs:{SIGNATUR}" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{SIGNATUR}/identity" ;
 		];
+	]
+.
+<#identity>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/identity" ;
+		rr:class xisadgr:Identity ;
 	];
+	
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasReferenceCode ;
 		rr:objectMap [
@@ -46,20 +54,5 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:objectMap [
 			rr:column "ENTSTEHUNGSZEITRAUM" ;
 		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasContext ;
-		rr:objectMap [
-			rr:template "stabs:{SIGNATUR}" ;
-		];
 	]
-.
-<#identity>
-	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}" ;
-		rr:class xisadgr:Identity ;
-	]
-	
 .
