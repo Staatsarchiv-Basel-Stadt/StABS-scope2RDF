@@ -1,30 +1,73 @@
 output r2rml
 
-template identityIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}/identity"
-template uodIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}"
-template queryURI "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
+template UodIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}"
+template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
+
+template ContentStructureIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}/ContentStructure"
+template ContextIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}/Context"
+template IdentityIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}/Identity"
+template NotesIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}/Notes"
+
 template descriptorIRI "http://ld.staatsarchiv.bs.ch/id/deskriptor/{0}"
 
 map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
-	subject template uodIRI with ID_NR;	
+	subject template UodIRI with ID_NR;	
 
 	types
 		xisadgr.ArchivalDescription
 
 	properties
-		xisadgr.hasIdentity template identityIRI with ID_NR;
+		xisadgr.hasIdentity template IdentityIRI with ID_NR;
+		xisadgr.hasNotes template NotesIRI with ID_NR;
+		xisadgr.hasContentStructure template ContentStructureIRI with ID_NR;
+		xisadgr.hasContext template ContextIRI with ID_NR;
 }
 
 map identity from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
-	subject template identityIRI with ID_NR;
+	subject template IdentityIRI with ID_NR;
 
 	types
 		xisadgr.Identity
 		
 	properties
-		xisadgr.hasReferenceCode template queryURI with ID_NR;
+		xisadgr.hasReferenceCode template queryURL with ID_NR;
 		xisadgr.hasTitle from TITEL with language-tag de;
 		xisadgr.hasReferenceCodeOld from FRUEHERE_STABS_SIGNATUR;
 		xisadgr.hasReferenceCodeSt from SIGNATUR;
 		xisadgr.hasCreatedDateRange from ENTSTEHUNGSZEITRAUM;	
+}
+
+map context from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+	subject template ContextIRI with ID_NR;
+	
+	types
+	    xisadgr.Context
+	    
+	properties
+	    xisadgr.hasArchivalHistory from BESTANDSGESCHICHTE with language-tag de;
+	    xisadgr.hasArchivalHistory from VERWALTUNGSGESCHICHTE with language-tag de;
+	    xisadgr.hasArchivalHistory from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag de;
+	    xisadgr.hasArchivalHistory from ARCHIVGESCHICHTE with language-tag de;
+}
+
+map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+	subject template ContentStructureIRI with ID_NR;
+	
+	types
+	    xisadgr.ContentStructure
+	    
+	properties
+	    xisadgr.hasScope from KOMMENTAR_ZUM_UMFANG with language-tag de;
+		xisadgr.hasContent from FORM_UND_INHALT with language-tag de;
+		xisadgr.hasAccruals from NEUZUGAENGE with language-tag de;
+}
+
+map notes from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten { 
+	subject template NotesIRI with ID_NR;
+	
+	types 
+	    xisadgr.Notes
+	
+	properties
+	    xisadgr.hasNote from FORM_UND_INHALT with language-tag de;
 }

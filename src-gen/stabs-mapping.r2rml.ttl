@@ -12,7 +12,25 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasIdentity ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/identity" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/Identity" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasNotes ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/Notes" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasContentStructure ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/ContentStructure" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasContext ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/Context" ;
 		];
 	]
 .
@@ -20,7 +38,7 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/identity" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/Identity" ;
 		rr:class xisadgr:Identity ;
 	];
 	
@@ -53,6 +71,89 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:predicate xisadgr:hasCreatedDateRange ;
 		rr:objectMap [
 			rr:column "ENTSTEHUNGSZEITRAUM" ;
+		];
+	]
+.
+<#context>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/Context" ;
+		rr:class xisadgr:Context ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasArchivalHistory ;
+		rr:objectMap [
+			rr:column "BESTANDSGESCHICHTE" ;
+			rr:language "de" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasArchivalHistory ;
+		rr:objectMap [
+			rr:column "VERWALTUNGSGESCHICHTE" ;
+			rr:language "de" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasArchivalHistory ;
+		rr:objectMap [
+			rr:column "VERWALTUNGSGESCHICHTE_BIOGRAFI" ;
+			rr:language "de" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasArchivalHistory ;
+		rr:objectMap [
+			rr:column "ARCHIVGESCHICHTE" ;
+			rr:language "de" ;
+		];
+	]
+.
+<#contentstructure>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/ContentStructure" ;
+		rr:class xisadgr:ContentStructure ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasScope ;
+		rr:objectMap [
+			rr:column "KOMMENTAR_ZUM_UMFANG" ;
+			rr:language "de" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasContent ;
+		rr:objectMap [
+			rr:column "FORM_UND_INHALT" ;
+			rr:language "de" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasAccruals ;
+		rr:objectMap [
+			rr:column "NEUZUGAENGE" ;
+			rr:language "de" ;
+		];
+	]
+.
+<#notes>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/Notes" ;
+		rr:class xisadgr:Notes ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasNote ;
+		rr:objectMap [
+			rr:column "FORM_UND_INHALT" ;
+			rr:language "de" ;
 		];
 	]
 .

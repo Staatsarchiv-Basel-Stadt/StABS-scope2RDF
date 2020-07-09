@@ -370,12 +370,15 @@ vocabulary xisadgr {
 	classes
 		ArchivalDescription
 		Archive
+		ContentStructure
+		Context
 		Group
 		Fonds
 		Series
 		File
 		Item
 		Identity
+		Notes
 
 	properties
 		hasCreatedDateRange
@@ -385,6 +388,14 @@ vocabulary xisadgr {
 		hasReferenceCodeSt
 		hasReferenceCodeOld
 		hasTitle
+		hasContentStructure
 		hasContext
+		hasNote
+		hasNotes
+		hasScope
+		hasAppraisalDestruction
+		hasContent
+		hasAccruals
+		hasArchivalHistory
 }
 
