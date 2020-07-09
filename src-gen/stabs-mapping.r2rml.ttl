@@ -1,0 +1,65 @@
+PREFIX rr: <http://www.w3.org/ns/r2rml#>
+PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Ontology.owl#>
+
+<#archivalDescription>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
+	
+	rr:subjectMap [
+		rr:template "stabs:{SIGNATUR}" ;
+		rr:class xisadgr:ArchivalDescription ;
+		rr:class xisadgr:Identity ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasIdentity ;
+		rr:objectMap [
+			rr:template "stabs:{SIGNATUR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasReferenceCode ;
+		rr:objectMap [
+			rr:template "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasTitle ;
+		rr:objectMap [
+			rr:column "TITEL" ;
+			rr:language "de" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasReferenceCodeOld ;
+		rr:objectMap [
+			rr:column "FRUEHERE_STABS_SIGNATUR" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasReferenceCodeSt ;
+		rr:objectMap [
+			rr:column "SIGNATUR" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasCreatedDateRange ;
+		rr:objectMap [
+			rr:column "ENTSTEHUNGSZEITRAUM" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasContext ;
+		rr:objectMap [
+			rr:template "stabs:{SIGNATUR}" ;
+		];
+	]
+.
+<#identity>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}" ;
+		rr:class xisadgr:Identity ;
+	]
+	
+.
