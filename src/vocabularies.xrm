@@ -25,7 +25,7 @@ vocabulary dc {
 }
 
 /** Friend of a friend
- *     attempt to model partners and (ablieferungs-)projects
+ *  attempt to model partners and (Ablieferungs-)projects
  */
 vocabulary foaf {
 	prefix "foaf" "http://xmlns.com/foaf/0.1/"
