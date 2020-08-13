@@ -5,32 +5,32 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/" ;
 		rr:class xisadgr:ArchivalDescription ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasIdentity ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/Identity" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/" ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasNotes ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/Notes" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Notes/" ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasContentStructure ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/ContentStructure" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/ContentStructure/" ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasContext ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/Context" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Context/" ;
 		];
 	]
 .
@@ -38,7 +38,7 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/Identity" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/" ;
 		rr:class xisadgr:Identity ;
 	];
 	
@@ -78,7 +78,7 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/Context" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Context/" ;
 		rr:class xisadgr:Context ;
 	];
 	
@@ -115,7 +115,7 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/ContentStructure" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/ContentStructure/" ;
 		rr:class xisadgr:ContentStructure ;
 	];
 	
@@ -145,7 +145,7 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/id/uod/{ID_NR}/Notes" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Notes/" ;
 		rr:class xisadgr:Notes ;
 	];
 	

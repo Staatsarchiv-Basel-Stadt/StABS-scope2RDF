@@ -1,30 +1,29 @@
 output r2rml
 
-template UodIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}"
+template UodURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/"
+template DescURI "http://ld.staatsarchiv.bs.ch/descriptor/id/{0}/"
 template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
 
-template ContentStructureIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}/ContentStructure"
-template ContextIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}/Context"
-template IdentityIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}/Identity"
-template NotesIRI "http://ld.staatsarchiv.bs.ch/id/uod/{0}/Notes"
-
-template descriptorIRI "http://ld.staatsarchiv.bs.ch/id/deskriptor/{0}"
+template ContentStructureURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/ContentStructure/"
+template ContextURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Context/"
+template IdentityURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Identity/"
+template NotesURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Notes/"
 
 map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
-	subject template UodIRI with ID_NR;	
+	subject template UodURI with ID_NR;	
 
 	types
 		xisadgr.ArchivalDescription
 
 	properties
-		xisadgr.hasIdentity template IdentityIRI with ID_NR;
-		xisadgr.hasNotes template NotesIRI with ID_NR;
-		xisadgr.hasContentStructure template ContentStructureIRI with ID_NR;
-		xisadgr.hasContext template ContextIRI with ID_NR;
+		xisadgr.hasIdentity template IdentityURI with ID_NR;
+		xisadgr.hasNotes template NotesURI with ID_NR;
+		xisadgr.hasContentStructure template ContentStructureURI with ID_NR;
+		xisadgr.hasContext template ContextURI with ID_NR;
 }
 
 map identity from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
-	subject template IdentityIRI with ID_NR;
+	subject template IdentityURI with ID_NR;
 
 	types
 		xisadgr.Identity
@@ -38,7 +37,7 @@ map identity from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 }
 
 map context from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
-	subject template ContextIRI with ID_NR;
+	subject template ContextURI with ID_NR;
 	
 	types
 	    xisadgr.Context
@@ -51,7 +50,7 @@ map context from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 }
 
 map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
-	subject template ContentStructureIRI with ID_NR;
+	subject template ContentStructureURI with ID_NR;
 	
 	types
 	    xisadgr.ContentStructure
@@ -63,7 +62,7 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 }
 
 map notes from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten { 
-	subject template NotesIRI with ID_NR;
+	subject template NotesURI with ID_NR;
 	
 	types 
 	    xisadgr.Notes
