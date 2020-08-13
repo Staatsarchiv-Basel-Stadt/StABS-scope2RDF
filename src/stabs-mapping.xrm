@@ -1,14 +1,29 @@
 output r2rml
 
+/*  Base URIs
+*   =========
+*   - UodURI: Unit of Description
+*   - DescURI: Descriptors (Persons, Organisations, Places, Topics that are subjects of UoDs)
+*   - queryURL: URL to the current public archival catalog
+*/
 template UodURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/"
 template DescURI "http://ld.staatsarchiv.bs.ch/descriptor/id/{0}/"
 template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
 
+/* Named Nodes (subclasses)
+ * ========================
+ */  
 template ContentStructureURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/ContentStructure/"
 template ContextURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Context/"
+template DatePointURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Identity/DatePoint/"
+template DateRangeURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Identity/DateRange/"
 template IdentityURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Identity/"
+template MatExprURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpression/"
 template NotesURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Notes/"
 
+/* Base Map
+ * ========
+ */
 map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 	subject template UodURI with ID_NR;	
 
@@ -16,12 +31,17 @@ map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 		xisadgr.ArchivalDescription
 
 	properties
-		xisadgr.hasIdentity template IdentityURI with ID_NR;
-		xisadgr.hasNotes template NotesURI with ID_NR;
 		xisadgr.hasContentStructure template ContentStructureURI with ID_NR;
 		xisadgr.hasContext template ContextURI with ID_NR;
+        xisadgr.hasIdentity template IdentityURI with ID_NR;
+        xisadgr.hasMaterialExpression template MatExprURI with ID_NR;
+		xisadgr.hasNotes template NotesURI with ID_NR;
+        
 }
 
+/* Identity Class 
+ * ==============
+ */
 map identity from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 	subject template IdentityURI with ID_NR;
 
@@ -33,7 +53,8 @@ map identity from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 		xisadgr.hasTitle from TITEL with language-tag de;
 		xisadgr.hasReferenceCodeOld from FRUEHERE_STABS_SIGNATUR;
 		xisadgr.hasReferenceCodeSt from SIGNATUR;
-		xisadgr.hasCreatedDateRange from ENTSTEHUNGSZEITRAUM;	
+		xisadgr.hasCreatedDatePoint from ENTSTEHUNGSZEITRAUM;
+//		xisadgr.hasCreatedDateRange template DateRangeURI with ID_NR;	
 }
 
 map context from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
@@ -47,6 +68,7 @@ map context from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 	    xisadgr.hasArchivalHistory from VERWALTUNGSGESCHICHTE with language-tag de;
 	    xisadgr.hasArchivalHistory from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag de;
 	    xisadgr.hasArchivalHistory from ARCHIVGESCHICHTE with language-tag de;
+//	    xisadgr.hasAcqInfo from 
 }
 
 map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
@@ -61,6 +83,31 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 		xisadgr.hasAccruals from NEUZUGAENGE with language-tag de;
 }
 
+//map daterange from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+//	subject template DateRangeURI with ID_NR;
+//	
+//	types
+//	    xisadgr.DateRange
+//	    
+//	properties
+//	    xisadgr.hasToDate from
+//	    xisadgr.hasFromDate from
+//}
+
+
+/* Material Expression: Base Map
+ * =============================
+ */
+ map matexpr from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+ 	subject template MatExprURI with ID_NR;
+ 	
+ 	types
+ 	    xisadgr.MaterialExpression
+ 	    
+ 	properties
+ 	    xisadgr.hasPhysTech from BESCHREIBSTOFF with language-tag de;
+ }
+ 
 map notes from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten { 
 	subject template NotesURI with ID_NR;
 	

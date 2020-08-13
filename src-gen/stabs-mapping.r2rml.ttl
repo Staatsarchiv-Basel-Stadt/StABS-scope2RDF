@@ -10,18 +10,6 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasIdentity ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasNotes ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Notes/" ;
-		];
-	];
-	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasContentStructure ;
 		rr:objectMap [
 			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/ContentStructure/" ;
@@ -31,6 +19,24 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:predicate xisadgr:hasContext ;
 		rr:objectMap [
 			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Context/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasIdentity ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasMaterialExpression ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasNotes ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Notes/" ;
 		];
 	]
 .
@@ -68,7 +74,7 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasCreatedDateRange ;
+		rr:predicate xisadgr:hasCreatedDatePoint ;
 		rr:objectMap [
 			rr:column "ENTSTEHUNGSZEITRAUM" ;
 		];
@@ -137,6 +143,22 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:predicate xisadgr:hasAccruals ;
 		rr:objectMap [
 			rr:column "NEUZUGAENGE" ;
+			rr:language "de" ;
+		];
+	]
+.
+<#matexpr>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/" ;
+		rr:class xisadgr:MaterialExpression ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasPhysTech ;
+		rr:objectMap [
+			rr:column "BESCHREIBSTOFF" ;
 			rr:language "de" ;
 		];
 	]
