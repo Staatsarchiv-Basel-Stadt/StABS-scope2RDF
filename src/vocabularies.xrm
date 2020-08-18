@@ -1,161 +1,38 @@
+/* Language Codes
+ * ==============
+ * small subset of ISO 639-2/5 
+ * see Library of Congres (https://www.loc.gov/standards/iso639-2/)
+ */
 language-tags {
-	de
-	fr
-	en
+	eng
+	fre
+	ger
+	gsw // Swiss German
+	ita
 }
+
+/* Datatypes
+ * =========
+ * small subset of XSD datatypes
+ * see "XML Schema Part 2: Datatypes Second Edition" (https://www.w3.org/TR/xmlschema-2/)
+ */
 
 vocabulary xsd {
 	prefix "xsd" "http://www.w3.org/2001/XMLSchema#"
 
 	datatypes
+		anyURI
+		boolean
+		decimal
 		integer
 		string
 }
 
-vocabulary dc {
-	prefix "dc" "http://purl.org/dc/terms/"
-
-	classes
-		BibliographicResource
-
-	properties
-		creator
-		title
-		relation
-}
-
-/** Friend of a friend
- *     attempt to model partners and (ablieferungs-)projects
+/* xIsadgR
+ * =======
+ * main vocabulary for first publication
+ * see xIsadg OWL by KOST (https://kost-ceco.ch/cms/17-034_owl_de.html)
  */
-vocabulary foaf {
-	prefix "foaf" "http://xmlns.com/foaf/0.1/"
-
-	classes
-		Agent
-		Group
-		Person
-		Organization
-		Project
-
-	properties
-		made
-		name
-		openid
-}
-
-// Web annotation ontology
-vocabulary oa {
-	prefix "oa" "http://www.w3.org/ns/oa#"
-
-	classes
-		Annotation
-
-	properties
-		hasBody
-		hasTarget
-}
-
-vocabulary rico {
-	prefix "rico" "https://www.ica.org/standards/RiC/ontology#"
-
-	classes
-		Record
-		RecordSet
-		RecordPart
-		Instantiation
-		Place
-		PlaceName
-		Agent
-
-	properties
-		affectedBy
-		beginningDate
-		belongsToCategory
-		creationDate
-		date
-		deletionDate
-		describedBy
-		descriptiveNote
-		endDate
-		follows
-		followsInTime
-		hasAppellation
-		hasBeginningDate
-		hasEndDate
-		hasLocation
-		hasModificationDate
-		hasName
-		hasPart
-		hasPhysicalLocation
-		hasPlaceName
-		height
-		identifiedBy
-		identifier
-		involvedIn
-		isAssociatedWithDate
-		isAssociatedWithEvent
-		isAssociatedWithPlace
-		isAssociatedWithRule
-		isEquivalentTo
-		isMainSubjectOf
-		isPartOf
-		isRelatedTo
-		isSubjectOf
-		isUnderAuthorityOf
-		lastModificationDate
-		measure
-		modificationDate
-		name
-		ownedBy
-		precedes
-		precedesInTime
-		referenceSystem
-		regulatedBy
-		resultsFrom
-		ruleFollowed
-		thingIsConnectedToRelation
-		thingIsContextOfRelation
-		thingIsSourceOfRelation
-		thingIsSourceOfSequentialRelation
-		thingIsSourceOfTemporalRelation
-		thingIsSourceOfWholePartRelation
-		thingIsTargetOfAppellationRelation
-		thingIsTargetOfAuthorityRelation
-		thingIsTargetOfEventRelation
-		thingIsTargetOfOwnershipRelation
-		thingIsTargetOfPlaceRelation
-		thingIsTargetOfRelation
-		thingIsTargetOfRuleRelation
-		thingIsTargetOfSequentialRelation
-		thingIsTargetOfTemporalRelation
-		thingIsTargetOfTypeRelation
-		thingIsTargetOfWholePartRelation
-		title
-		wasLastUpdatedAtDate
-		width
-// TODO '-' in IDs -> characteristic-Physical
-}
-
-vocabulary ricdft {
-	prefix "ric-dft" "https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#"
-}
-
-vocabulary ricrst {
-	prefix "ric-rst" "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#"
-}
-
-vocabulary skos {
-	prefix "skos" "http://www.w3.org/2004/02/skos/core#"
-
-	classes
-		Concept
-
-	properties
-		notation
-		prefLabel
-		inScheme
-}
-
 vocabulary xisadgr {
 	prefix "xisadgr" "https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Ontology.owl#"
 
