@@ -28,6 +28,42 @@ vocabulary xsd {
 		string
 }
 
+vocabulary admin {
+	prefix "admin" "https://schema.ld.admin.ch"
+	
+	classes
+	    Isil
+	
+	properties
+	    about
+	    administrativeHistory
+	    inventoryDescription
+	    libraryMaterials
+	    otherMaterials
+	    termCode
+	    valid
+}
+
+vocabulary schema {
+	prefix "schema" "https://schema.org"
+	
+	classes
+	    Organization
+	    ArchiveOrganization
+	    
+	properties
+	    address
+	    email
+	    foundingDate
+	    foundingLocation
+	    funder
+	    identifier
+	    location
+	    sameAs
+	    telephone
+	    url
+}
+
 /* xIsadgR
  * =======
  * main vocabulary for first publication
@@ -60,6 +96,7 @@ vocabulary xisadgr {
 		Identity
 		Item
 		MaterialExpression
+		MediaType
 		Notes
 		Premis
 		Series
@@ -101,6 +138,7 @@ vocabulary xisadgr {
 		hasDatePointNote
 		hasDescriptionControl
 		hasDescriptionDates
+		hasExistenceLocation
 		hasExistenceLocationCopies
 		hasExistenceLocationOriginals
 		hasExistenceLocationOriginalsSt

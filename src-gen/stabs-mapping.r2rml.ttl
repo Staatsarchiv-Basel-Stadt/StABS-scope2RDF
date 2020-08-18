@@ -1,4 +1,6 @@
 PREFIX rr: <http://www.w3.org/ns/r2rml#>
+PREFIX admin: <https://schema.ld.admin.ch>
+PREFIX schema: <https://schema.org>
 PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Ontology.owl#>
 
 <#archivalDescription>
@@ -9,6 +11,12 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:class xisadgr:ArchivalDescription ;
 	];
 	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasArchivalDescription ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{PARENT_ID_NR}/" ;
+		];
+	];
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasContentStructure ;
 		rr:objectMap [
@@ -156,12 +164,146 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 	];
 	
 	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasAccessConditions ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/AccessConditions/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasExistenceLocation ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/StorageLocation/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasExistenceLocationOriginalsSt ;
+		rr:objectMap [
+			rr:constant "Staatsarchiv Basel-Stadt (StABS)" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasExtentMediumSt ;
+		rr:objectMap [
+			rr:column "LAUFMETER" ;
+		];
+	];
+	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasPhysTech ;
 		rr:objectMap [
 			rr:column "BESCHREIBSTOFF" ;
 			rr:language "ger" ;
 		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasExtentMedium ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/ExtentMedium/" ;
+		];
 	]
+.
+<#accessconditions>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/AccessConditions/" ;
+		rr:class xisadgr:AccessConditions ;
+	]
+	
+.
+<#extentmedium>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/ExtentMedium/" ;
+		rr:class xisadgr:ExtentMedium ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasExtentMediumDataSize ;
+		rr:objectMap [
+			rr:column "LAUFMETER" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasExtentMediumDataQuantity ;
+		rr:objectMap [
+			rr:column "LAUFMETER" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasExtentMediumDescription ;
+		rr:objectMap [
+			rr:column "LAUFMETER" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasExtentMediumMedium ;
+		rr:objectMap [
+			rr:column "BESCHREIBSTOFF" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasMediaType ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/MediaType/" ;
+		];
+	]
+.
+<#storagelocation>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/StorageLocation/" ;
+		rr:class xisadgr:StorageLocation ;
+		rr:class admin:Isil ;
+		rr:class schema:Organization ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate admin:termCode ;
+		rr:objectMap [
+			rr:constant <https://culture.ld.admin.ch/isil/CH-000027-1> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate schema:identifier ;
+		rr:objectMap [
+			rr:constant "CH-000027-1" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate schema:email ;
+		rr:objectMap [
+			rr:constant "stabs@bs.ch" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate schema:sameAs ;
+		rr:objectMap [
+			rr:constant <https://de.wikipedia.org/wiki/Staatsarchiv_Basel-Stadt> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate schema:sameAs ;
+		rr:objectMap [
+			rr:constant <https://www.wikidata.org/wiki/Q2324698> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate schema:url ;
+		rr:objectMap [
+			rr:constant <https://staatsarchiv.bs.ch> ;
+		];
+	]
+.
+<#mediatype>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/MediaType/" ;
+		rr:class xisadgr:MediaType ;
+	]
+	
 .
 <#notes>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_1" ];

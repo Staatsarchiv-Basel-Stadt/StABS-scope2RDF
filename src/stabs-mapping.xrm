@@ -13,13 +13,17 @@ template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
 /* Named Nodes (subclasses)
  * ========================
  */  
+template AccessConditionsURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpression/AccessConditions/"
 template ContentStructureURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/ContentStructure/"
 template ContextURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Context/"
 template DatePointURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Identity/DatePoint/"
 template DateRangeURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Identity/DateRange/"
+template ExtentMediumURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpression/ExtentMedium/"
 template IdentityURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Identity/"
 template MatExprURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpression/"
+template MediaTypeURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpression/MediaType/"
 template NotesURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Notes/"
+template StorageLocationURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpression/StorageLocation/"
 
 /* Base Map
  * ========
@@ -31,6 +35,7 @@ map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 		xisadgr.ArchivalDescription
 
 	properties
+		xisadgr.hasArchivalDescription template UodURI with PARENT_ID_NR;
 		xisadgr.hasContentStructure template ContentStructureURI with ID_NR;
 		xisadgr.hasContext template ContextURI with ID_NR;
         xisadgr.hasIdentity template IdentityURI with ID_NR;
@@ -105,8 +110,83 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
  	    xisadgr.MaterialExpression
  	    
  	properties
+ 	    xisadgr.hasAccessConditions template AccessConditionsURI with ID_NR;
+ 	    xisadgr.hasExistenceLocation template StorageLocationURI with ID_NR;
+ 	    xisadgr.hasExistenceLocationOriginalsSt constant "Staatsarchiv Basel-Stadt (StABS)";
+ 	    xisadgr.hasExtentMediumSt from LAUFMETER;
  	    xisadgr.hasPhysTech from BESCHREIBSTOFF with language-tag ger;
+ 	    xisadgr.hasExtentMedium template ExtentMediumURI with ID_NR;
  }
+ 
+ /* Access Conditions
+  * ================
+  */
+ map accessconditions from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+ 	subject template AccessConditionsURI with ID_NR;
+ 	
+ 	types
+ 	    xisadgr.AccessConditions
+ 	
+// 	properties
+// 	    xisadgr.hasAccessConditionsNotes
+// 	    xisadgr.hasClassification
+// 	    xisadgr.hasIntelectualPropertyRight
+// 	    xisadgr.hasMetadataPrivacyProtection
+// 	    xisadgr.hasOpenToThePublic
+// 	    xisadgr.hasOtherAccessConditions
+// 	    xisadgr.hasPrivacyProtection
+// 	    xisadgr.hasRetentionPeriod
+// 	    xisadgr.hasRetentionPeriodConditions
+// 	    xisadgr.hasRetentionPeriodNotes
+}
+ 
+ /* Extent Medium
+  * =============
+  */
+map extentmedium from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+	subject template ExtentMediumURI with ID_NR;
+	
+	types
+	    xisadgr.ExtentMedium
+	    
+	properties
+	    xisadgr.hasExtentMediumDataSize from LAUFMETER;
+	    //xisadgr.hasExtentMediumDataUnit
+	    xisadgr.hasExtentMediumDataQuantity from LAUFMETER;
+	    xisadgr.hasExtentMediumDescription from LAUFMETER;
+	    xisadgr.hasExtentMediumMedium from BESCHREIBSTOFF;
+	    xisadgr.hasMediaType template MediaTypeURI with ID_NR;
+}
+
+/* Storage Location
+ * ================
+ * Attempt at describing the archives as an organisation
+ */
+map storagelocation from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+	subject template StorageLocationURI with ID_NR;
+	
+	types
+	    xisadgr.StorageLocation
+	    admin.Isil
+	    schema.Organization
+	    
+	properties
+	    admin.termCode constant "https://culture.ld.admin.ch/isil/CH-000027-1";
+	    schema.identifier constant "CH-000027-1";
+	    schema.email constant "stabs@bs.ch";
+	    schema.sameAs constant "https://de.wikipedia.org/wiki/Staatsarchiv_Basel-Stadt";
+	    schema.sameAs constant "https://www.wikidata.org/wiki/Q2324698";
+	    schema.url constant "https://staatsarchiv.bs.ch";
+} 
+/* Media Type
+ * ==========
+ */
+map mediatype from  WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+	subject template MediaTypeURI with ID_NR;
+	
+	types
+	    xisadgr.MediaType
+}
  
 map notes from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten { 
 	subject template NotesURI with ID_NR;
