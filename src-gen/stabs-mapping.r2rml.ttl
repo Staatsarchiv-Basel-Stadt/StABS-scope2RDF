@@ -58,7 +58,7 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:predicate xisadgr:hasTitle ;
 		rr:objectMap [
 			rr:column "TITEL" ;
-			rr:language "de" ;
+			rr:language "ger" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -92,28 +92,28 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:predicate xisadgr:hasArchivalHistory ;
 		rr:objectMap [
 			rr:column "BESTANDSGESCHICHTE" ;
-			rr:language "de" ;
+			rr:language "ger" ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasArchivalHistory ;
 		rr:objectMap [
 			rr:column "VERWALTUNGSGESCHICHTE" ;
-			rr:language "de" ;
+			rr:language "ger" ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasArchivalHistory ;
 		rr:objectMap [
 			rr:column "VERWALTUNGSGESCHICHTE_BIOGRAFI" ;
-			rr:language "de" ;
+			rr:language "ger" ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasArchivalHistory ;
 		rr:objectMap [
 			rr:column "ARCHIVGESCHICHTE" ;
-			rr:language "de" ;
+			rr:language "ger" ;
 		];
 	]
 .
@@ -129,21 +129,21 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:predicate xisadgr:hasScope ;
 		rr:objectMap [
 			rr:column "KOMMENTAR_ZUM_UMFANG" ;
-			rr:language "de" ;
+			rr:language "ger" ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasContent ;
 		rr:objectMap [
 			rr:column "FORM_UND_INHALT" ;
-			rr:language "de" ;
+			rr:language "ger" ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasAccruals ;
 		rr:objectMap [
 			rr:column "NEUZUGAENGE" ;
-			rr:language "de" ;
+			rr:language "ger" ;
 		];
 	]
 .
@@ -159,7 +159,7 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:predicate xisadgr:hasPhysTech ;
 		rr:objectMap [
 			rr:column "BESCHREIBSTOFF" ;
-			rr:language "de" ;
+			rr:language "ger" ;
 		];
 	]
 .
@@ -175,7 +175,7 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:predicate xisadgr:hasNote ;
 		rr:objectMap [
 			rr:column "FORM_UND_INHALT" ;
-			rr:language "de" ;
+			rr:language "ger" ;
 		];
 	]
 .
