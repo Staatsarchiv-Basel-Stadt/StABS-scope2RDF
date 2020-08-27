@@ -1,0 +1,35 @@
+output r2rml
+
+/* Mapping for Units of Description Dokumentationsstelle Riehen
+ * 
+ */
+ 
+ 
+/*  Base URIs
+*   =========
+*   - UodURI: Unit of Description
+*   - DescURI: Descriptors (Persons, Organisations, Places, Topics that are subjects of UoDs)
+*   - queryURL: URL to the current public archival catalog
+*/
+template UodURI "http://ld.dokumentationsstelle.riehen.ch/uod/id/{0}/"
+template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
+
+
+/* Base Map
+ * ========
+ */
+map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.VE_RIE {
+	subject template UodURI with ID_NR;	
+
+	types
+		xisadgr.ArchivalDescription
+
+	properties
+		xisadgr.hasArchivalDescription template UodURI with PARENT_ID_NR;
+		xisadgr.hasContentStructure template ContentStructureURI with ID_NR;
+		xisadgr.hasContext template ContextURI with ID_NR;
+        xisadgr.hasIdentity template IdentityURI with ID_NR;
+        xisadgr.hasMaterialExpression template MatExprURI with ID_NR;
+		xisadgr.hasNotes template NotesURI with ID_NR;
+        
+}

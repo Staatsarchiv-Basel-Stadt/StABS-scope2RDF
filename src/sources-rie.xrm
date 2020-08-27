@@ -1,8 +1,8 @@
 source-group WSD_STABS_SCP_ARCHIV_DBA {
 	type rdb
 
-	logical-source Verzeichnungseinheiten {
-    	source "MVK_OGD_VRZNG_ENHT_1"
+	logical-source VE_RIE {
+    	source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR LIKE 'RIE%'"
 
 		referenceables
 			TITEL
@@ -175,37 +175,6 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 		
 	}
 	
-	logical-source Ablieferungen {
-		source "MVK_OGD_ABLFR_1"
-		
-		referenceables
-			TYP
-			SUBTYP
-			ABLIEFERNDE_STELLE
-			AKTENBILDENDE_STELLE
-			BETREFF_TITEL
-			ZEITRAUM_PERIODE
-			BESCHREIBUNG
-			JAHR_LAUF_NR
-			ID_NR
-			ID_NAME
-	}
-	
-	logical-source Partner {
-		source "MVK_OGD_PRTNR_1"
-		
-		referenceables
-			ID_NR
-			ID_NAME
-			TYP_DER_EINHEIT
-			AUTORISIERTE_NAMENSFORM_EN
-			PARALLELE_NAMENSFORM_EN
-			EXISTENZ_ZEITRAUM
-			RECHTSFORM
-			RECHTLICHE_GRUNDLAGE
-			AUFNAHMEDATUM		
-	}
-	
 	logical-source Verzeichnungseinheiten_Verweise {
 		source "MVK_OGD_VRZNG_ENHT_BZHNG_1"
 		
@@ -228,14 +197,6 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			NOTIZ
 	}
 	
-	logical-source Verzeichnungseinheiten_Ablieferungen_Verknuepfungen {
-		source "MVK_OGD_VE_ABLFR_BZHNG_1"
-		
-		referenceables
-			ID_NR_VRZNG_ENHT
-			ID_NR_ABLFR	
-	}
-	
 	logical-source Deskriptoren_Verweise {
 		source "MVK_OGD_DSKRP_BZHNG_1"
 		
@@ -246,25 +207,5 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			ZEITRAUM
 			NOTIZ	
 	}
-	
-	logical-source Verzeichnungeinheiten_Partner_Verknuepfungen {
-		source "MVK_OGD_VE_PRTNR_BZHNG_1"
-	
-		referenceables
-			ID_NR_VRZNG_ENHT
-			ID_NR_PRTNR
-		
-	}
-		
-	logical-source Partner_Verweise {
-		source "MVK_OGD_PRTNR_BZHNG_1"
-		
-		referenceables
-			ID_NR_1
-			ID_NR_2
-			ROLLE
-			ZEITRAUM
-			NOTIZ
-	} 
 
 }

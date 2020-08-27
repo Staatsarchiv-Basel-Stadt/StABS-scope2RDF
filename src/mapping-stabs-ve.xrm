@@ -28,7 +28,7 @@ template StorageLocationURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExp
 /* Base Map
  * ========
  */
-map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template UodURI with ID_NR;	
 
 	types
@@ -47,7 +47,7 @@ map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 /* Identity Class 
  * ==============
  */
-map identity from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+map identity from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template IdentityURI with ID_NR;
 
 	types
@@ -62,7 +62,7 @@ map identity from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 //		xisadgr.hasCreatedDateRange template DateRangeURI with ID_NR;	
 }
 
-map context from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+map context from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template ContextURI with ID_NR;
 	
 	types
@@ -76,7 +76,7 @@ map context from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 //	    xisadgr.hasAcqInfo from 
 }
 
-map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template ContentStructureURI with ID_NR;
 	
 	types
@@ -88,7 +88,7 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 		xisadgr.hasAccruals from NEUZUGAENGE with language-tag ger;
 }
 
-//map daterange from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+//map daterange from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 //	subject template DateRangeURI with ID_NR;
 //	
 //	types
@@ -103,7 +103,7 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 /* Material Expression: Base Map
  * =============================
  */
- map matexpr from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+ map matexpr from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  	subject template MatExprURI with ID_NR;
  	
  	types
@@ -121,7 +121,7 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
  /* Access Conditions
   * ================
   */
- map accessconditions from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+ map accessconditions from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  	subject template AccessConditionsURI with ID_NR;
  	
  	types
@@ -143,7 +143,7 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
  /* Extent Medium
   * =============
   */
-map extentmedium from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+map extentmedium from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template ExtentMediumURI with ID_NR;
 	
 	types
@@ -162,7 +162,7 @@ map extentmedium from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
  * ================
  * Attempt at describing the archives as an organisation
  */
-map storagelocation from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+map storagelocation from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template StorageLocationURI with ID_NR;
 	
 	types
@@ -181,14 +181,14 @@ map storagelocation from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
 /* Media Type
  * ==========
  */
-map mediatype from  WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten {
+map mediatype from  WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template MediaTypeURI with ID_NR;
 	
 	types
 	    xisadgr.MediaType
 }
  
-map notes from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten { 
+map notes from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS { 
 	subject template NotesURI with ID_NR;
 	
 	types 

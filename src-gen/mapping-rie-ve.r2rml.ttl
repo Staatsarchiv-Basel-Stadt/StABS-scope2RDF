@@ -1,0 +1,48 @@
+PREFIX rr: <http://www.w3.org/ns/r2rml#>
+PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Ontology.owl#>
+
+<#archivalDescription>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR LIKE 'RIE%'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.dokumentationsstelle.riehen.ch/uod/id/{ID_NR}/" ;
+		rr:class xisadgr:ArchivalDescription ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasArchivalDescription ;
+		rr:objectMap [
+			rr:template "http://ld.dokumentationsstelle.riehen.ch/uod/id/{PARENT_ID_NR}/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasContentStructure ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/ContentStructure/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasContext ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Context/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasIdentity ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasMaterialExpression ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasNotes ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Notes/" ;
+		];
+	]
+.
