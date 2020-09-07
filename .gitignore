@@ -1,4 +1,3 @@
 .DS_Store
-src-gen/stabs-mapping.rml.ttl
 bin/
 ./project
