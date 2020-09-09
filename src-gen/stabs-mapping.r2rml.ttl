@@ -129,6 +129,27 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 			rr:column "ARCHIVGESCHICHTE" ;
 			rr:language "ger" ;
 		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasArchivalHistory ;
+		rr:objectMap [
+			rr:column "ZEITRAUM_DER_MATERIALZUSAMMENS" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasCreator ;
+		rr:objectMap [
+			rr:column "AKTENBILDNER_PROVENIENZ_TEXT" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasCreator ;
+		rr:objectMap [
+			rr:column "VERFERTIGERIN" ;
+			rr:language "ger" ;
+		];
 	]
 .
 <#contentstructure>

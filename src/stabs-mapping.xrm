@@ -1,7 +1,7 @@
 output r2rml
 
-/*  Base URIs
-*   =========
+/*  Base URI templates
+*   ==================
 *   - UodURI: Unit of Description
 *   - DescURI: Descriptors (Persons, Organisations, Places, Topics that are subjects of UoDs)
 *   - queryURL: URL to the current public archival catalog
@@ -25,8 +25,8 @@ template MediaTypeURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpressio
 template NotesURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Notes/"
 template StorageLocationURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpression/StorageLocation/"
 
-/* Base Map
- * ========
+/* Archival Description
+ * ====================
  */
 map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template UodURI with ID_NR;	
@@ -41,11 +41,10 @@ map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
         xisadgr.hasIdentity template IdentityURI with ID_NR;
         xisadgr.hasMaterialExpression template MatExprURI with ID_NR;
 		xisadgr.hasNotes template NotesURI with ID_NR;
-        
 }
 
-/* Identity Class 
- * ==============
+/* Identity
+ * --------
  */
 map identity from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template IdentityURI with ID_NR;
@@ -59,9 +58,12 @@ map identity from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 		xisadgr.hasReferenceCodeOld from FRUEHERE_STABS_SIGNATUR;
 		xisadgr.hasReferenceCodeSt from SIGNATUR;
 		xisadgr.hasCreatedDatePoint from ENTSTEHUNGSZEITRAUM;
-//		xisadgr.hasCreatedDateRange template DateRangeURI with ID_NR;	
+		xisadgr.hasCreatedDateRange template DateRangeURI with ID_NR;	
 }
 
+/* Context
+ * -------
+ */
 map context from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template ContextURI with ID_NR;
 	
@@ -73,9 +75,16 @@ map context from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	    xisadgr.hasArchivalHistory from VERWALTUNGSGESCHICHTE with language-tag ger;
 	    xisadgr.hasArchivalHistory from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
 	    xisadgr.hasArchivalHistory from ARCHIVGESCHICHTE with language-tag ger;
-//	    xisadgr.hasAcqInfo from 
+	    xisadgr.hasArchivalHistory from ZEITRAUM_DER_MATERIALZUSAMMENS with language-tag ger;
+//	    xisadgr.hasAcqInfo from;
+        xisadgr.hasCreator from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
+        xisadgr.hasCreator from VERFERTIGERIN with language-tag ger;
+// @todo: Ablieferungen (Link); Zugänge         
 }
 
+/* Content Structure
+ * -----------------
+ */
 map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template ContentStructureURI with ID_NR;
 	
@@ -86,18 +95,19 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	    xisadgr.hasScope from KOMMENTAR_ZUM_UMFANG with language-tag ger;
 		xisadgr.hasContent from FORM_UND_INHALT with language-tag ger;
 		xisadgr.hasAccruals from NEUZUGAENGE with language-tag ger;
+// @add: Darin, Enthält, Inhalt, Bild Vorschau, Bewertung und Kassation, Ordnung und Klassifikation		
 }
 
-//map daterange from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
-//	subject template DateRangeURI with ID_NR;
-//	
-//	types
-//	    xisadgr.DateRange
+map daterange from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+	subject template DateRangeURI with ID_NR;
+	
+	types
+	    xisadgr.DateRange
 //	    
 //	properties
 //	    xisadgr.hasToDate from
 //	    xisadgr.hasFromDate from
-//}
+}
 
 
 /* Material Expression: Base Map
@@ -119,7 +129,7 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  }
  
  /* Access Conditions
-  * ================
+  * -----------------
   */
  map accessconditions from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  	subject template AccessConditionsURI with ID_NR;
@@ -138,6 +148,8 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 // 	    xisadgr.hasRetentionPeriod
 // 	    xisadgr.hasRetentionPeriodConditions
 // 	    xisadgr.hasRetentionPeriodNotes
+
+// @add Rechtsstatus
 }
  
  /* Extent Medium
