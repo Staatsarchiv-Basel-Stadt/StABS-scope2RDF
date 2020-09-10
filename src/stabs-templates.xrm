@@ -16,6 +16,7 @@ template AdditionalDataURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/AdditionalDa
 template AdditionalReferenceURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/AdditionalReference/"
 template AgentURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Agent/"
 template AgentCvURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/AgentCv/"
+template AgentCvEntryURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/AgentCvEntry/"
 template AlliedMaterialsURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/AlliedMaterials/"
 template ArrangementURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Arrangement/"
 template ConditionsAccessUseURI "http://ld.staatsarchiv.bs.ch/uid/id/{0}/ConditionsAccessUse/"

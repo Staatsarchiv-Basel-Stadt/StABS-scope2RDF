@@ -107,6 +107,7 @@ vocabulary xisadgr {
 		hasAccessConditionsNotes
 		hasAccruals
 		hasAcqInfo
+		hasAdditionalData
 		hasAdditionalReference
 		hasAdminBioHistory
 		hasAgentCv
@@ -124,9 +125,11 @@ vocabulary xisadgr {
 		hasArchivalDescription
 		hasArchivalHistory
 		hasArrangement
+		hasArrangementComment
 		hasArrangementDateRange
 		hasArrangementDatePoint
 		hasClassification
+		hasConditionsAccessUse
 		hasContent
 		hasContentStructure
 		hasContext
