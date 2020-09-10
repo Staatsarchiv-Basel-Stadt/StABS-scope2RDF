@@ -238,6 +238,15 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 	]
 	
 .
+<#datepoint>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DatePoint/" ;
+		rr:class xisadgr:DatePoint ;
+	]
+	
+.
 <#matexpr>
 	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
 	

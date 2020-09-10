@@ -79,21 +79,45 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 		xisadgr.hasContent from FORM_UND_INHALT with language-tag ger;
 }
 
+/* Both Date classes
+ * --------------------
+ * - DateRange
+ * - DatePoint
+ * 
+ * @todo: how? -> clarify use of datePointType
+ * 
+ * use following XML-codes: 
+ * - ENTSTEHUNGSZEITRAUM
+ * - ENTSTEHUNGSZEIT_SCHWERGEWICHT_
+ * - ENTSTEHUNGSZEITRAUM_STREUDATEN
+ * - GEBURTSDATUM (personal files)
+ * - TODESDATUM (personal files)
+ * 
+ * 
+ */
 map daterange from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template DateRangeURI with ID_NR;
 	
 	types
 	    xisadgr.DateRange
-/* @todo: how?
- * use following XML-codes: ENTSTEHUNGSZEITRAUM, ENTSTEHUNGSZEIT_SCHWERGEWICHT_, ENTSTEHUNGSZEITRAUM_STREUDATEN, GEBURTSDATUM, TODESDATUM
- * 
- */  	    
+
 //	properties
 //		xisadgr.hasCreatedDatePoint from ENTSTEHUNGSZEITRAUM;
 //	    xisadgr.hasToDate from
 //	    xisadgr.hasFromDate from
 }
 
+map datepoint from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+	subject template DatePointURI with ID_NR;
+	
+	types
+	    xisadgr.DatePoint
+	
+//	properties
+//	    xisadgr.hasDatePoint // with type xisadgr:datePointType
+//	    xisadgr.hadDatePointApprox // boolean
+//	    xisadgr.hasDatePointNote // string
+}
 
 /* Material Expression: Base Map
  * =============================
@@ -137,7 +161,7 @@ map daterange from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 // @add Rechtsstatus
 }
 
-/* All the agent classes
+/* All the Agent classes
  * --------------------
  * - Agent 
  * - Agent-CV
