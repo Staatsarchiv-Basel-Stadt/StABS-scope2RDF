@@ -1,0 +1,32 @@
+/*  Base URI templates for StABS
+*   ============================
+*   - UodURI: Unit of Description
+*   - DescURI: Descriptors (Persons, Organisations, Places, Topics that are subjects of UoDs)
+*   - queryURL: URL to the current public archival catalog
+*/
+template UodURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/"
+template DescURI "http://ld.staatsarchiv.bs.ch/descriptor/id/{0}/"
+template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
+
+/* Named Nodes (subclasses) for StABS
+ * ==================================
+ */  
+template AccessConditionsURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpression/AccessConditions/"
+template AdditionalDataURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/AdditionalDataURI/"
+template AdditionalReferenceURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/AdditionalReference/"
+template AgentURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Agent/"
+template AgentCvURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/AgentCv/"
+template AlliedMaterialsURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/AlliedMaterials/"
+template ArrangementURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Arrangement/"
+template ConditionsAccessUseURI "http://ld.staatsarchiv.bs.ch/uid/id/{0}/ConditionsAccessUse/"
+template ContentStructureURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/ContentStructure/"
+template ContextURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Context/"
+template DatePointURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Identity/DatePoint/"
+template DateRangeURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Identity/DateRange/"
+template DescriptionControlURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/DescriptionControl/"
+template ExtentMediumURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpression/ExtentMedium/"
+template IdentityURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Identity/"
+template MatExprURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpression/"
+template MediaTypeURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpression/MediaType/"
+template NotesURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/Notes/"
+template StorageLocationURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/MaterialExpression/StorageLocation/"
