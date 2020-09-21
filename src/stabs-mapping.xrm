@@ -220,8 +220,24 @@ map arrangement from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	    xisadgr.hasArrangementDatePoint template DatePointURI with ID_NR;
 }
 
+/* ConditionsAccessUse
+ * -------------------
+ */
+ 
+ map conditionsaccessuse from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+ 	subject template ConditionsAccessUseURI with ID_NR;
+ 	
+ 	types
+ 	    xisadgr.ConditionsAccessUse
+ 	    
+ 	properties
+ 	    xisadgr.hasReproConditions from KOPIEN_BZW_REPRODUKTIONEN; // @todo: sicher falsch
+ 	    xisadgr.hasLanguageScripts from SPRACHE; // @todo: prüfen, ev. kann auch ein Standardwert für Latin o.ä. eingegeben werden?
+ 	    xisadgr.hasFindingAids from FINDHILFSMITTEL;
+ }
+ 
  /* Extent Medium
-  * =============
+  * -------------
   */
 map extentmedium from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template ExtentMediumURI with ID_NR;
@@ -239,8 +255,8 @@ map extentmedium from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 }
 
 /* Storage Location
- * ================
- * Attempt at describing the archives as an organisation
+ * ---------------
+ * @todo: Attempt at describing the archives as an organisation
  */
 map storagelocation from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template StorageLocationURI with ID_NR;
@@ -259,7 +275,7 @@ map storagelocation from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	    schema.url constant "https://staatsarchiv.bs.ch";
 } 
 /* Media Type
- * ==========
+ * ----------
  */
 map mediatype from  WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template MediaTypeURI with ID_NR;

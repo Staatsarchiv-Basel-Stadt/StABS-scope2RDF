@@ -392,6 +392,33 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		];
 	]
 .
+<#conditionsaccessuse>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uid/id/{ID_NR}/ConditionsAccessUse/" ;
+		rr:class xisadgr:ConditionsAccessUse ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasReproConditions ;
+		rr:objectMap [
+			rr:column "KOPIEN_BZW_REPRODUKTIONEN" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasLanguageScripts ;
+		rr:objectMap [
+			rr:column "SPRACHE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasFindingAids ;
+		rr:objectMap [
+			rr:column "FINDHILFSMITTEL" ;
+		];
+	]
+.
 <#extentmedium>
 	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
 	

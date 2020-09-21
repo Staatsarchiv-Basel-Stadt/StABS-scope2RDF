@@ -156,6 +156,7 @@ vocabulary xisadgr {
 		hasFromDate
 		hasIdentity
 		hasIntelectualPropertyRight
+		hasLanguageScripts
 		hasMaterialExpression
 		hasMaterialExpressionDate
 		hasMaterialExpressionRepresentation
