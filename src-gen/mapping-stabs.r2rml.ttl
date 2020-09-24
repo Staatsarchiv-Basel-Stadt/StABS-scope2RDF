@@ -271,7 +271,7 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate xisadgr:hadDatePointApprox ;
+		rr:predicate xisadgr:hasDatePointApprox ;
 		rr:objectMap [
 			rr:constant "true" ;
 		];

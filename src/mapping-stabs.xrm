@@ -115,7 +115,7 @@ map datepoint from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	
 	properties
 	    xisadgr.hasDatePoint  from ENTSTEHUNGSZEITRAUM; // with type xisadgr:datePointType
-	    xisadgr.hadDatePointApprox constant "true"; // with datatype xsd.boolean; @todo: how declare datatypes in general, and here, boolean values?
+	    xisadgr.hasDatePointApprox constant "true"; // with datatype xsd.boolean; @todo: how declare datatypes in general, and here, boolean values?
 	    xisadgr.hasDatePointNote constant "Die Daten sind mit Vorsicht zu geniessen!"; //@todo: Rules to generate meaningful values
 }
 
