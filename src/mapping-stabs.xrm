@@ -89,15 +89,16 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  	    xisadgr.AccessConditions
  	
  	properties
+ 	    xisadgr.hasAccessConditionsNotes from ZUGANGSBESTIMMUNGEN;
  	    xisadgr.hasAccessConditionsNotes from BEWILLIGUNG;
-// 	    xisadgr.hasClassification
-// 	    xisadgr.hasIntelectualPropertyRight
+ 	    xisadgr.hasClassification constant "other";
+ 	    xisadgr.hasIntelectualPropertyRight constant "unknown";
  	    xisadgr.hasMetadataPrivacyProtection constant "false";
  	    xisadgr.hasOpenToThePublic from ZUGAENGLICHKEIT; // @todo: map to values acc. to SHACLS "undefined";
-// 	    xisadgr.hasOtherAccessConditions
-// 	    xisadgr.hasPrivacyProtection
+ 	    xisadgr.hasOtherAccessConditions from RECHTSSTATUS;
+// 	    xisadgr.hasPrivacyProtection // @todo: Must be based on Schutzfristkategorie, is missing in export
  	    xisadgr.hasRetentionPeriod from SCHUTZFRISTENDE; // @todo: Schutzfristdauer is missing in export
-// 	    xisadgr.hasRetentionPeriodConditions
+// 	    xisadgr.hasRetentionPeriodConditions // @todo: needs legal base information
 // 	    xisadgr.hasRetentionPeriodNotes // @todo: Schutzfristnotiz is missing in export
 
 // @add Rechtsstatus

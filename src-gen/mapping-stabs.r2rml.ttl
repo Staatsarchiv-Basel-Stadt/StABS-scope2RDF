@@ -242,7 +242,25 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasAccessConditionsNotes ;
 		rr:objectMap [
+			rr:column "ZUGANGSBESTIMMUNGEN" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasAccessConditionsNotes ;
+		rr:objectMap [
 			rr:column "BEWILLIGUNG" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasClassification ;
+		rr:objectMap [
+			rr:constant "other" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasIntelectualPropertyRight ;
+		rr:objectMap [
+			rr:constant "unknown" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -255,6 +273,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate xisadgr:hasOpenToThePublic ;
 		rr:objectMap [
 			rr:column "ZUGAENGLICHKEIT" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasOtherAccessConditions ;
+		rr:objectMap [
+			rr:column "RECHTSSTATUS" ;
 		];
 	];
 	rr:predicateObjectMap [
