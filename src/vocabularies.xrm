@@ -192,5 +192,10 @@ vocabulary xisadgr {
 		hasScope
 		hasTitle
 		hasToDate
+		
+    datatypes
+        datePointType
+        centuryType
+        dateTimeReducedType
 }
 

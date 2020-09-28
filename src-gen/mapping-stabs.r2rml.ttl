@@ -2,6 +2,7 @@ PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX admin: <https://schema.ld.admin.ch>
 PREFIX schema: <https://schema.org>
 PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Ontology.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <#archivalDescription>
 	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
@@ -114,6 +115,7 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:predicate xisadgr:hasReferenceCodeSt ;
 		rr:objectMap [
 			rr:column "SIGNATUR" ;
+			rr:datatype xsd:string ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -226,106 +228,6 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:objectMap [
 			rr:column "FORM_UND_INHALT" ;
 			rr:language "ger" ;
-		];
-	]
-.
-<#daterange>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DateRange/" ;
-		rr:class xisadgr:DateRange ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasCreatedDatePoint ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DatePoint/" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasToDate ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DatePoint/" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasFromDate ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DatePoint/" ;
-		];
-	]
-.
-<#datepoint>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DatePoint/" ;
-		rr:class xisadgr:DatePoint ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasDatePoint ;
-		rr:objectMap [
-			rr:column "ENTSTEHUNGSZEITRAUM" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasDatePointApprox ;
-		rr:objectMap [
-			rr:constant "true" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasDatePointNote ;
-		rr:objectMap [
-			rr:constant "Die Daten sind mit Vorsicht zu geniessen!" ;
-		];
-	]
-.
-<#matexpr>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/" ;
-		rr:class xisadgr:MaterialExpression ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasAccessConditions ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/AccessConditions/" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasExistenceLocation ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/StorageLocation/" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasExistenceLocationOriginalsSt ;
-		rr:objectMap [
-			rr:constant "Staatsarchiv Basel-Stadt (StABS)" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasExtentMediumSt ;
-		rr:objectMap [
-			rr:column "LAUFMETER" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasPhysTech ;
-		rr:objectMap [
-			rr:column "BESCHREIBSTOFF" ;
-			rr:language "ger" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasExtentMedium ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/ExtentMedium/" ;
 		];
 	]
 .
@@ -455,6 +357,159 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		];
 	]
 .
+<#alliedmaterials>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/AlliedMaterials/" ;
+		rr:class xisadgr:AlliedMaterials ;
+	]
+	
+.
+<#notes>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Notes/" ;
+		rr:class xisadgr:Notes ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasNote ;
+		rr:objectMap [
+			rr:column "FORM_UND_INHALT" ;
+			rr:language "ger" ;
+		];
+	]
+.
+<#descriptioncontrol>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/DescriptionControl/" ;
+		rr:class xisadgr:DescriptionControl ;
+	]
+	
+.
+<#additionalreference>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/AdditionalReference/" ;
+		rr:class xisadgr:AdditionalReference ;
+	]
+	
+.
+<#additionaldata>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/AdditionalDataURI/" ;
+		rr:class xisadgr:AdditionalData ;
+	]
+	
+.
+<#daterange>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DateRange/" ;
+		rr:class xisadgr:DateRange ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasCreatedDatePoint ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DatePoint/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasToDate ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DatePoint/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasFromDate ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DatePoint/" ;
+		];
+	]
+.
+<#datepoint>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DatePoint/" ;
+		rr:class xisadgr:DatePoint ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasDatePoint ;
+		rr:objectMap [
+			rr:column "ENTSTEHUNGSZEITRAUM" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasDatePointApprox ;
+		rr:objectMap [
+			rr:constant "true" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasDatePointNote ;
+		rr:objectMap [
+			rr:constant "Die Daten sind mit Vorsicht zu geniessen!" ;
+		];
+	]
+.
+<#matexpr>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/" ;
+		rr:class xisadgr:MaterialExpression ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasAccessConditions ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/AccessConditions/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasExistenceLocation ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/StorageLocation/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasExistenceLocationOriginalsSt ;
+		rr:objectMap [
+			rr:constant "Staatsarchiv Basel-Stadt (StABS)" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasExtentMedium ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/ExtentMedium/" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasExtentMediumSt ;
+		rr:objectMap [
+			rr:column "LAUFMETER" ;
+			rr:datatype xsd:string ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasPhysTech ;
+		rr:objectMap [
+			rr:column "BESCHREIBSTOFF" ;
+			rr:language "ger" ;
+		];
+	]
+.
 <#extentmedium>
 	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
 	
@@ -549,20 +604,4 @@ PREFIX xisadgr: <https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Onto
 		rr:class xisadgr:MediaType ;
 	]
 	
-.
-<#notes>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Notes/" ;
-		rr:class xisadgr:Notes ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate xisadgr:hasNote ;
-		rr:objectMap [
-			rr:column "FORM_UND_INHALT" ;
-			rr:language "ger" ;
-		];
-	]
 .

@@ -38,7 +38,7 @@ map identity from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 		xisadgr.hasReferenceCode template queryURL with ID_NR; // @todo: basically wrong, this is the catalog entry URL
 		xisadgr.hasReferenceCodeOld from ALTE_SIGNATUREN;
 		xisadgr.hasReferenceCodeOld from FRUEHERE_STABS_SIGNATUR; // @todo: add StABS-prefix or similar
-		xisadgr.hasReferenceCodeSt from SIGNATUR;
+		xisadgr.hasReferenceCodeSt from SIGNATUR with datatype xsd.string;
 		xisadgr.hasTitle from TITEL with language-tag ger;
 }
 
@@ -79,67 +79,9 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 		xisadgr.hasContent from FORM_UND_INHALT with language-tag ger;
 }
 
-/* Both Date classes
- * --------------------
- * - DateRange
- * - DatePoint
- * 
- * @todo: how? -> clarify use of datePointType
- * 
- * use following XML-codes: 
- * - ENTSTEHUNGSZEITRAUM
- * - ENTSTEHUNGSZEIT_SCHWERGEWICHT_
- * - ENTSTEHUNGSZEITRAUM_STREUDATEN
- * - GEBURTSDATUM (personal files)
- * - TODESDATUM (personal files)
- * 
- * 
- */
-map daterange from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
-	subject template DateRangeURI with ID_NR;
-	
-	types
-	    xisadgr.DateRange
-
-	properties
-		xisadgr.hasCreatedDatePoint template DatePointURI with ID_NR;
-	    xisadgr.hasToDate template DatePointURI with ID_NR;
-	    xisadgr.hasFromDate template DatePointURI with ID_NR;
-}
-
-map datepoint from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
-	subject template DatePointURI with ID_NR;
-	
-	types
-	    xisadgr.DatePoint
-	
-	properties
-	    xisadgr.hasDatePoint  from ENTSTEHUNGSZEITRAUM; // with type xisadgr:datePointType
-	    xisadgr.hasDatePointApprox constant "true"; // with datatype xsd.boolean; @todo: how declare datatypes in general, and here, boolean values?
-	    xisadgr.hasDatePointNote constant "Die Daten sind mit Vorsicht zu geniessen!"; //@todo: Rules to generate meaningful values
-}
-
-/* Material Expression: Base Map
- * =============================
- */
- map matexpr from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
- 	subject template MatExprURI with ID_NR;
- 	
- 	types
- 	    xisadgr.MaterialExpression
- 	    
- 	properties
- 	    xisadgr.hasAccessConditions template AccessConditionsURI with ID_NR;
- 	    xisadgr.hasExistenceLocation template StorageLocationURI with ID_NR;
- 	    xisadgr.hasExistenceLocationOriginalsSt constant "Staatsarchiv Basel-Stadt (StABS)";
- 	    xisadgr.hasExtentMediumSt from LAUFMETER;
- 	    xisadgr.hasPhysTech from BESCHREIBSTOFF with language-tag ger;
- 	    xisadgr.hasExtentMedium template ExtentMediumURI with ID_NR;
- }
- 
- /* Access Conditions
-  * -----------------
-  */
+/* Access Conditions
+* -----------------
+*/
  map accessconditions from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  	subject template AccessConditionsURI with ID_NR;
  	
@@ -236,6 +178,150 @@ map arrangement from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  	    xisadgr.hasFindingAids from FINDHILFSMITTEL;
  }
  
+ /* Allied Materials
+  * ----------------
+  * @todo
+  */
+map alliedmaterials from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+	subject template AlliedMaterialsURI with ID_NR;
+	
+	types
+	    xisadgr.AlliedMaterials
+	    
+//	properties
+//	    xisadgr.hasRelatedUnitsUri // anyURI
+//	    xisadgr.hasRelatedUnitsAd // range:ArchivalDescription
+//	    xisadgr.hasRelatedUnits // string
+//	    xisadgr.hasPublicationUri //anyURI
+//	    xisadgr.hasPublication // string
+}
+
+/* Notes
+ * -----
+ */ 
+map notes from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS { 
+	subject template NotesURI with ID_NR;
+	
+	types 
+	    xisadgr.Notes
+	
+	properties
+	    xisadgr.hasNote from FORM_UND_INHALT with language-tag ger;
+}
+
+/* DescriptionControl
+ * ------------------
+ * @todo
+ * @todo: abgleich mit prov-vocab
+ */
+ map descriptioncontrol from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+ 	subject template DescriptionControlURI with ID_NR;
+ 	
+ 	types
+ 	    xisadgr.DescriptionControl
+ 	    
+// 	properties
+// 	    xisadgr.hasArchivistsNote // string
+// 	    xisadgr.hasRulesConventions // string: Verweis auf xIsadG und StABS-Regelwerk
+// 	    xisadgr.hasDescriptionDates // date
+}
+
+/* Additional Reference
+ * --------------------
+ * @todo: Unklare Verweise
+ */
+ 
+map additionalreference from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+	subject template AdditionalReferenceURI with ID_NR;
+	
+	types
+	    xisadgr.AdditionalReference
+	    
+//	properties
+//	    xisadgr.hasRecordReference // @todo: 
+}
+
+/* Additional Data
+ * ---------------
+ * @todo: unklare Properties
+ */
+ 
+map additionaldata from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+	subject template AdditionalDataURI with ID_NR;
+	
+	types
+	    xisadgr.AdditionalData
+	    
+//	properties
+//	    xisadgr.hasMdWrap
+//	    xisadgr.hasXmlData
+}
+
+// ==========================================================
+
+/* Both Date classes
+ * --------------------
+ * - DateRange
+ * - DatePoint
+ * 
+ * @todo: how? -> clarify use of datePointType
+ * 
+ * use following XML-codes: 
+ * - ENTSTEHUNGSZEITRAUM
+ * - ENTSTEHUNGSZEIT_SCHWERGEWICHT_
+ * - ENTSTEHUNGSZEITRAUM_STREUDATEN
+ * - GEBURTSDATUM (personal files)
+ * - TODESDATUM (personal files)
+ * 
+ * 
+ */
+map daterange from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+	subject template DateRangeURI with ID_NR;
+	
+	types
+	    xisadgr.DateRange
+
+	properties
+		xisadgr.hasCreatedDatePoint template DatePointURI with ID_NR;
+	    xisadgr.hasToDate template DatePointURI with ID_NR;
+	    xisadgr.hasFromDate template DatePointURI with ID_NR;
+}
+
+map datepoint from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+	subject template DatePointURI with ID_NR;
+	
+	types
+	    xisadgr.DatePoint
+	
+	properties
+	    xisadgr.hasDatePoint  from ENTSTEHUNGSZEITRAUM; // with type xisadgr:datePointType
+	    xisadgr.hasDatePointApprox constant "true"; // with datatype xsd.boolean; // @todo: how declare datatypes in general, and here, boolean values?
+	    xisadgr.hasDatePointNote constant "Die Daten sind mit Vorsicht zu geniessen!"; //@todo: Rules to generate meaningful values
+}
+
+// ========================================================================
+
+/* Material Expression: Base Map
+ * -----------------------------
+ */
+map matexpr from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+    subject template MatExprURI with ID_NR;
+ 	
+ 	types
+ 	    xisadgr.MaterialExpression
+ 	    
+ 	properties
+ 	    xisadgr.hasAccessConditions template AccessConditionsURI with ID_NR;
+ 	    xisadgr.hasExistenceLocation template StorageLocationURI with ID_NR;
+ 	    xisadgr.hasExistenceLocationOriginalsSt constant "Staatsarchiv Basel-Stadt (StABS)";
+ 	    xisadgr.hasExtentMedium template ExtentMediumURI with ID_NR;
+ 	    xisadgr.hasExtentMediumSt from LAUFMETER with datatype xsd.string;
+// 	    xisadgr.hasMaterialExpressionRepresentation template MatExprURI with ID_NR; // @todo: nicht selbstreferentiell bauen
+// 	    xisadgr.hasMaterialExpressionVersion
+//        xisadgr.hasMaterialExpressionDate template DatePointURI
+ 	    xisadgr.hasPhysTech from BESCHREIBSTOFF with language-tag ger;
+}
+
  /* Extent Medium
   * -------------
   */
@@ -282,14 +368,4 @@ map mediatype from  WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	
 	types
 	    xisadgr.MediaType
-}
- 
-map notes from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS { 
-	subject template NotesURI with ID_NR;
-	
-	types 
-	    xisadgr.Notes
-	
-	properties
-	    xisadgr.hasNote from FORM_UND_INHALT with language-tag ger;
 }
