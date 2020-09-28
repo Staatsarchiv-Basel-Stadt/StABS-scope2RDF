@@ -204,7 +204,7 @@ map alliedmaterials02 from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Verwe
 	    xisadgr.AlliedMaterials
 	    
 	properties
-	    xisadgr.hasRelatedUnitsAd from ID_NR_2;
+	    xisadgr.hasRelatedUnitsAd template UodURI with ID_NR_2;
 } 
 
 /* Notes

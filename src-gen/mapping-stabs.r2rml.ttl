@@ -437,7 +437,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasRelatedUnitsAd ;
 		rr:objectMap [
-			rr:column "ID_NR_2" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR_2}/" ;
 		];
 	]
 .
