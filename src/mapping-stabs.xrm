@@ -117,9 +117,9 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  	    xisadgr.Agent
  	    
  	properties
- 	    xisadgr.hasAgentName from AKTENBILDNER_PROVENIENZ_TEXT; // @todo
+ 	    xisadgr.hasAgentName from AKTENBILDNER_PROVENIENZ_TEXT;
  	    xisadgr.hasAgentId from VE_AKTENBILDNER_LINK; // @todo: prob. not working
- 	    xisadgr.hasAgentCv template AgentCvURI with ID_NR;
+ 	    xisadgr.hasAgentCv template AgentCvURI with ID_NR; // @todo: Verknüpfungen without role??? unusable
  }
  
  map agentcv from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
@@ -181,19 +181,31 @@ map arrangement from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
   * ----------------
   * @todo
   */
-map alliedmaterials from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+map alliedmaterials01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template AlliedMaterialsURI with ID_NR;
 	
 	types
 	    xisadgr.AlliedMaterials
 	    
-//	properties
+	properties
 //	    xisadgr.hasRelatedUnitsUri // anyURI
 //	    xisadgr.hasRelatedUnitsAd // range:ArchivalDescription
-//	    xisadgr.hasRelatedUnits // string
+	    xisadgr.hasRelatedUnits from VERWANDTES_MATERIAL; // @todo: Präfix, keine Unterscheidung möglich
+	    xisadgr.hasRelatedUnits from VERWANDTE_VE_NICHT_IN_SCOPEARC; // @todo: Präfix, keine Unterscheidung möglich
 //	    xisadgr.hasPublicationUri //anyURI
 //	    xisadgr.hasPublication // string
 }
+
+map alliedmaterials02 from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Verweise {
+	subject template AlliedMaterialsURI with ID_NR_1;
+	
+	// @todo
+	types
+	    xisadgr.AlliedMaterials
+	    
+	properties
+	    xisadgr.hasRelatedUnitsAd from ID_NR_2;
+} 
 
 /* Notes
  * -----
@@ -210,7 +222,6 @@ map notes from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 
 /* DescriptionControl
  * ------------------
- * @todo
  * @todo: abgleich mit prov-vocab
  */
  map descriptioncontrol from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
@@ -228,7 +239,7 @@ map notes from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 
 /* Additional Reference
  * --------------------
- * @todo: Unklare Verweise
+ * @todo: Unklarer Sammeltopf
  */
  
 map additionalreference from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {

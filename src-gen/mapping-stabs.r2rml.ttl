@@ -405,14 +405,41 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#alliedmaterials>
+<#alliedmaterials01>
 	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/AlliedMaterials/" ;
 		rr:class xisadgr:AlliedMaterials ;
-	]
+	];
 	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasRelatedUnits ;
+		rr:objectMap [
+			rr:column "VERWANDTES_MATERIAL" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasRelatedUnits ;
+		rr:objectMap [
+			rr:column "VERWANDTE_VE_NICHT_IN_SCOPEARC" ;
+		];
+	]
+.
+<#alliedmaterials02>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VRZNG_ENHT_BZHNG_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR_1}/AlliedMaterials/" ;
+		rr:class xisadgr:AlliedMaterials ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasRelatedUnitsAd ;
+		rr:objectMap [
+			rr:column "ID_NR_2" ;
+		];
+	]
 .
 <#notes>
 	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
