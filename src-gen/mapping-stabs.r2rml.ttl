@@ -237,8 +237,32 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/AccessConditions/" ;
 		rr:class xisadgr:AccessConditions ;
-	]
+	];
 	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasAccessConditionsNotes ;
+		rr:objectMap [
+			rr:column "BEWILLIGUNG" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasMetadataPrivacyProtection ;
+		rr:objectMap [
+			rr:constant "false" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasOpenToThePublic ;
+		rr:objectMap [
+			rr:column "ZUGAENGLICHKEIT" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasRetentionPeriod ;
+		rr:objectMap [
+			rr:column "SCHUTZFRISTENDE" ;
+		];
+	]
 .
 <#agent>
 	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];
