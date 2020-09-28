@@ -436,8 +436,26 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/DescriptionControl/" ;
 		rr:class xisadgr:DescriptionControl ;
-	]
+	];
 	
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasRulesConventions ;
+		rr:objectMap [
+			rr:column "ERSCHLIESSUNGSGRAD" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasDescriptionDates ;
+		rr:objectMap [
+			rr:column "AUFNAHMEDATUM" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasDescriptionDates ;
+		rr:objectMap [
+			rr:column "REVISIONSDATUM" ;
+		];
+	]
 .
 <#additionalreference>
 	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE SIGNATUR NOT LIKE 'RIE%'""" ];

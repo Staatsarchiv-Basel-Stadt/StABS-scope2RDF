@@ -90,7 +90,7 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  	
  	properties
  	    xisadgr.hasAccessConditionsNotes from ZUGANGSBESTIMMUNGEN;
- 	    xisadgr.hasAccessConditionsNotes from BEWILLIGUNG;
+ 	    xisadgr.hasAccessConditionsNotes from BEWILLIGUNG; // @todo: Weitere Benutzungshinweise missing in export
  	    xisadgr.hasClassification constant "other";
  	    xisadgr.hasIntelectualPropertyRight constant "unknown";
  	    xisadgr.hasMetadataPrivacyProtection constant "false";
@@ -100,8 +100,6 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  	    xisadgr.hasRetentionPeriod from SCHUTZFRISTENDE; // @todo: Schutzfristdauer is missing in export
 // 	    xisadgr.hasRetentionPeriodConditions // @todo: needs legal base information
 // 	    xisadgr.hasRetentionPeriodNotes // @todo: Schutzfristnotiz is missing in export
-
-// @add Rechtsstatus
 }
 
 /* All the Agent classes
@@ -221,10 +219,11 @@ map notes from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  	types
  	    xisadgr.DescriptionControl
  	    
-// 	properties
+ 	properties
 // 	    xisadgr.hasArchivistsNote // string
-// 	    xisadgr.hasRulesConventions // string: Verweis auf xIsadG und StABS-Regelwerk
-// 	    xisadgr.hasDescriptionDates // date
+ 	    xisadgr.hasRulesConventions from ERSCHLIESSUNGSGRAD;
+ 	    xisadgr.hasDescriptionDates from AUFNAHMEDATUM;
+ 	    xisadgr.hasDescriptionDates from REVISIONSDATUM; // @todo: prefix or so needed
 }
 
 /* Additional Reference
