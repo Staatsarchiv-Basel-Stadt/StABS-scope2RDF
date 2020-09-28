@@ -1,5 +1,5 @@
 vocabulary admin {
-	prefix "admin" "https://schema.ld.admin.ch/"
+	prefix "admin" "http://schema.ld.admin.ch/"
 	
 	classes
 	    Isil
@@ -15,7 +15,7 @@ vocabulary admin {
 }
 
 vocabulary schema {
-	prefix "schema" "https://schema.org/"
+	prefix "schema" "http://schema.org/"
 	
 	classes
 	    Organization
@@ -40,7 +40,7 @@ vocabulary schema {
  * see xIsadg OWL by KOST (https://kost-ceco.ch/cms/17-034_owl_de.html)
  */
 vocabulary xisadgr {
-	prefix "xisadgr" "https://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Ontology.owl#"
+	prefix "xisadgr" "http://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Ontology.owl#"
 
 	classes // list contains all classes
 		AccessConditions
@@ -177,6 +177,7 @@ vocabulary xisadgr {
  * see Library of Congres (https://www.loc.gov/standards/iso639-2/)
  */
 language-tags {
+	ara
 	eng
 	fre
 	ger
