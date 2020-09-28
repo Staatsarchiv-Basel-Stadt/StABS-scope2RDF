@@ -1,35 +1,5 @@
-/* Language Codes
- * ==============
- * small subset of ISO 639-2/5 
- * see Library of Congres (https://www.loc.gov/standards/iso639-2/)
- */
-language-tags {
-	eng
-	fre
-	ger
-	gsw // Swiss German
-	ita
-}
-
-/* Datatypes
- * =========
- * small subset of XSD datatypes
- * see "XML Schema Part 2: Datatypes Second Edition" (https://www.w3.org/TR/xmlschema-2/)
- */
-
-vocabulary xsd {
-	prefix "xsd" "http://www.w3.org/2001/XMLSchema#"
-
-	datatypes
-		anyURI
-		boolean
-		decimal
-		integer
-		string
-}
-
 vocabulary admin {
-	prefix "admin" "https://schema.ld.admin.ch"
+	prefix "admin" "https://schema.ld.admin.ch/"
 	
 	classes
 	    Isil
@@ -45,7 +15,7 @@ vocabulary admin {
 }
 
 vocabulary schema {
-	prefix "schema" "https://schema.org"
+	prefix "schema" "https://schema.org/"
 	
 	classes
 	    Organization
@@ -199,3 +169,38 @@ vocabulary xisadgr {
         dateTimeReducedType
 }
 
+// === Codes and Datatypes ===
+
+/* Language Codes
+ * ==============
+ * small subset of ISO 639-2/5 
+ * see Library of Congres (https://www.loc.gov/standards/iso639-2/)
+ */
+language-tags {
+	eng
+	fre
+	ger
+	gsw // Swiss German
+	ita
+	lat
+	mul // Multiple languages
+	und // Undetermined
+	zxx // No linguistic content; Not applicable
+}
+
+/* Datatypes
+ * =========
+ * small subset of XSD datatypes
+ * see "XML Schema Part 2: Datatypes Second Edition" (https://www.w3.org/TR/xmlschema-2/)
+ */
+
+vocabulary xsd {
+	prefix "xsd" "http://www.w3.org/2001/XMLSchema#"
+
+	datatypes
+		anyURI
+		boolean
+		decimal
+		integer
+		string
+}
