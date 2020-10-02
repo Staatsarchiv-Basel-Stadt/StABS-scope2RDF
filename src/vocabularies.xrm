@@ -34,6 +34,32 @@ vocabulary schema {
 	    url
 }
 
+vocabulary skos {
+	prefix "skos" "http://www.w3.org/2004/02/skos/core#"
+	
+	classes
+	    Concept
+	    ConceptScheme
+	    Collection
+	    
+	properties
+	    prefLabel
+	    altLabel
+	    hiddenLabel
+	    broader
+	    narrower
+	    related
+	    note
+	    scopeNote
+	    definition
+	    example
+	    historyNote
+	    editorialNote
+	    changeNote
+	    inScheme
+	    hasTopConcept
+}
+
 /* xIsadgR
  * =======
  * main vocabulary for first publication

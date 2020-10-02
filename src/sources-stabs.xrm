@@ -156,7 +156,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			ZUGAENGLICHKEIT
 	}
 
-	logical-source Deskriptoren {
+	logical-source DESC {
 		source "MVK_OGD_DSKRP_1" 
 
 		referenceables

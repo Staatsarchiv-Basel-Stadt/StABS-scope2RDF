@@ -380,3 +380,22 @@ map mediatype from  WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	types
 	    xisadgr.MediaType
 }
+
+// ===============================================================================================
+
+/* Descriptor base map
+ * 
+ */
+ map descrbase from WSD_STABS_SCP_ARCHIV_DBA.DESC  {
+ 	subject template DescURI with ID_NR;
+ 	
+ 	types
+ 	    skos.Concept
+ 	    
+ 	properties
+ 	    skos.prefLabel from BEZEICHNUNG with language-tag ger;
+ 	    skos.altLabel from FREMDSPRACHIGE_BEZEICHNUNGEN; // @todo: unbrauchbar, da leer, ausser bei falscher Verwendung
+ 	    skos.note from BESCHREIBUNG with language-tag ger;
+ 	    skos.editorialNote from QUELLE with language-tag ger;
+ 	    skos.inScheme from THESAURUS;
+}

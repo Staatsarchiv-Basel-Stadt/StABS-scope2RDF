@@ -1,6 +1,7 @@
 PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX admin: <http://schema.ld.admin.ch/>
 PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xisadgr: <http://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Ontology.owl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
@@ -697,4 +698,46 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:class xisadgr:MediaType ;
 	]
 	
+.
+<#descrbase>
+	rr:logicalTable [ rr:tableName "MVK_OGD_DSKRP_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/descriptor/id/{ID_NR}/" ;
+		rr:class skos:Concept ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:prefLabel ;
+		rr:objectMap [
+			rr:column "BEZEICHNUNG" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:altLabel ;
+		rr:objectMap [
+			rr:column "FREMDSPRACHIGE_BEZEICHNUNGEN" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:note ;
+		rr:objectMap [
+			rr:column "BESCHREIBUNG" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:editorialNote ;
+		rr:objectMap [
+			rr:column "QUELLE" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme ;
+		rr:objectMap [
+			rr:column "THESAURUS" ;
+		];
+	]
 .
