@@ -217,7 +217,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			NOTIZ
 	}
 	
-	logical-source Verzeichnungseinheiten_Deskriptoren_Verknuepfungen {
+	logical-source VE_DESC_LINK {
 		source "MVK_OGD_VE_DSKRP_BZHNG_1"
 		
 		referenceables

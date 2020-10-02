@@ -1,5 +1,6 @@
 PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX admin: <http://schema.ld.admin.ch/>
+PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX schema: <http://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xisadgr: <http://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Ontology.owl#>
@@ -738,6 +739,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate skos:inScheme ;
 		rr:objectMap [
 			rr:column "THESAURUS" ;
+		];
+	]
+.
+<#descuodlink>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VE_DSKRP_BZHNG_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR_VRZNG_ENHT}/" ;
+		rr:class xisadgr:ArchivalDescription ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate dct:subject ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/descriptor/id/{ID_NR_DSKRP}/" ;
 		];
 	]
 .

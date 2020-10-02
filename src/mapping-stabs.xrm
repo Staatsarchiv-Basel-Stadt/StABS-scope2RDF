@@ -386,7 +386,7 @@ map mediatype from  WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 /* Descriptor base map
  * 
  */
- map descrbase from WSD_STABS_SCP_ARCHIV_DBA.DESC  {
+ map descrbase from WSD_STABS_SCP_ARCHIV_DBA.DESC {
  	subject template DescURI with ID_NR;
  	
  	types
@@ -398,4 +398,17 @@ map mediatype from  WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  	    skos.note from BESCHREIBUNG with language-tag ger;
  	    skos.editorialNote from QUELLE with language-tag ger;
  	    skos.inScheme from THESAURUS;
+}
+
+/* Connect Descriptors to UoDs
+ * ---------------------------
+ */
+ map descuodlink from WSD_STABS_SCP_ARCHIV_DBA.VE_DESC_LINK {
+ 	subject template UodURI with ID_NR_VRZNG_ENHT;	
+
+	types
+		xisadgr.ArchivalDescription
+		
+	properties
+	    dcterms.^subject template DescURI with ID_NR_DSKRP;
 }
