@@ -24,6 +24,52 @@ map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 		xisadgr.hasNotes template NotesURI with ID_NR;
 }
 
+/* Description Level Classes
+ * -------------------------
+ */
+
+map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIVE {
+	subject template UodURI with ID_NR;
+
+	types
+	    xisadgr.Archive
+}
+
+map level_group from WSD_STABS_SCP_ARCHIV_DBA.VE_GROUP {
+	subject template UodURI with ID_NR;
+	
+	types
+	    xisadgr.Group
+}
+
+map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
+	subject template UodURI with ID_NR;
+
+	types
+	    xisadgr.Fonds
+}
+
+map level_series from WSD_STABS_SCP_ARCHIV_DBA.VE_SERIES {
+	subject template UodURI with ID_NR;
+
+	types
+	    xisadgr.Series
+}
+
+map level_file from WSD_STABS_SCP_ARCHIV_DBA.VE_FILE {
+	subject template UodURI with ID_NR;
+
+	types
+	    xisadgr.File
+}
+
+map level_item from WSD_STABS_SCP_ARCHIV_DBA.VE_ITEM {
+	subject template UodURI with ID_NR;
+
+	types
+	    xisadgr.Item
+}
+
 /* Identity
  * --------
  */
@@ -199,7 +245,7 @@ map alliedmaterials01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 map alliedmaterials02 from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Verweise {
 	subject template AlliedMaterialsURI with ID_NR_1;
 	
-	// @todo
+	// @todo: consider ROLLE & ZEITRAUM
 	types
 	    xisadgr.AlliedMaterials
 	    
