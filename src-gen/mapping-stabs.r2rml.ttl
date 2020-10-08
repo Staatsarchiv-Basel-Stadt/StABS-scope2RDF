@@ -7,7 +7,7 @@ PREFIX xisadgr: <http://github.com/KOST-CECO/ontologies/raw/master/xIsadgR_Ontol
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <#archivalDescription>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/" ;
@@ -136,7 +136,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	
 .
 <#identity>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/" ;
@@ -183,7 +183,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#context>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Context/" ;
@@ -245,7 +245,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#contentstructure>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/ContentStructure/" ;
@@ -288,7 +288,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#accessconditions>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/AccessConditions/" ;
@@ -345,7 +345,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#agent>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Agent/" ;
@@ -372,7 +372,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#agentcv>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/AgentCv/" ;
@@ -387,7 +387,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#agentcventry>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/AgentCvEntry/" ;
@@ -408,7 +408,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#arrangement>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Arrangement/" ;
@@ -435,7 +435,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#conditionsaccessuse>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uid/id/{ID_NR}/ConditionsAccessUse/" ;
@@ -462,7 +462,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#alliedmaterials01>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/AlliedMaterials/" ;
@@ -498,7 +498,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#notes>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Notes/" ;
@@ -514,7 +514,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#descriptioncontrol>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/DescriptionControl/" ;
@@ -541,7 +541,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#additionalreference>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/AdditionalReference/" ;
@@ -550,7 +550,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	
 .
 <#additionaldata>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/AdditionalDataURI/" ;
@@ -559,7 +559,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	
 .
 <#daterange>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DateRange/" ;
@@ -586,7 +586,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#datepoint>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/Identity/DatePoint/" ;
@@ -613,7 +613,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#matexpr>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/" ;
@@ -660,7 +660,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#extentmedium>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/ExtentMedium/" ;
@@ -699,7 +699,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#storagelocation>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/StorageLocation/" ;
@@ -746,7 +746,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#mediatype>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE where (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/MaterialExpression/MediaType/" ;
