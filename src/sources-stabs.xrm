@@ -161,7 +161,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
  * Does not exclude positions from RIE
  */
     logical-source VE_STABS_ARCHIVE {
-        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR LIKE '548575'" // selects Archive Record StABS
+        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575" // selects Archive Record StABS
 
         referenceables
             ID_NR
