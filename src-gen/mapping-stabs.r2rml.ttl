@@ -82,7 +82,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#level_archive>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR LIKE '548575'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR LIKE '548575';""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/uod/id/{ID_NR}/" ;
