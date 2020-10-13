@@ -2,7 +2,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 	type rdb
 
 	logical-source VE_STABS {
-        source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL);"
+        source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL)"
 
 		referenceables
 			TITEL
@@ -161,42 +161,42 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
  * Does not exclude positions from RIE
  */
     logical-source VE_STABS_ARCHIVE {
-        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR LIKE '548575';" // selects Archive Record StABS
+        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR LIKE '548575'" // selects Archive Record StABS
 
         referenceables
             ID_NR
     }
 
     logical-source VE_GROUP {
-        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Abteilung' OR STUFE LIKE 'Fonds';"
+        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Abteilung' OR STUFE LIKE 'Fonds'"
 
         referenceables
             ID_NR
     }
 
     logical-source VE_FONDS {
-        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Bestand';"
+        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Bestand'"
 
         referenceables
             ID_NR
     }
 
     logical-source VE_SERIES {
-        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Serie';"
+        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Serie'"
 
         referenceables
             ID_NR
     }
 
     logical-source VE_FILE {
-        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dossier';"
+        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dossier'"
 
         referenceables
             ID_NR
     }
 
     logical-source VE_ITEM {
-        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dokument';"
+        source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dokument'"
 
         referenceables
             ID_NR
