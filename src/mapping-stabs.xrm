@@ -11,16 +11,16 @@ map archivalDescription from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 		xisadgr.ArchivalDescription
 
 	properties
-        xisadgr.hasAdditionalData template AdditionalDataURI with ID_NR;
-        xisadgr.hasAdditionalReference template AdditionalReferenceURI with ID_NR;
+		xisadgr.hasAdditionalData template AdditionalDataURI with ID_NR;
+		xisadgr.hasAdditionalReference template AdditionalReferenceURI with ID_NR;
 		xisadgr.hasAlliedMaterials template AlliedMaterialsURI with ID_NR;
 		xisadgr.hasArchivalDescription template UodURI with PARENT_ID_NR;
 		xisadgr.hasConditionsAccessUse template ConditionsAccessUseURI with ID_NR;
 		xisadgr.hasContentStructure template ContentStructureURI with ID_NR;
 		xisadgr.hasContext template ContextURI with ID_NR;
 		xisadgr.hasDescriptionControl template DescriptionControlURI with ID_NR;
-        xisadgr.hasIdentity template IdentityURI with ID_NR;
-        xisadgr.hasMaterialExpression template MatExprURI with ID_NR;
+		xisadgr.hasIdentity template IdentityURI with ID_NR;
+		xisadgr.hasMaterialExpression template MatExprURI with ID_NR;
 		xisadgr.hasNotes template NotesURI with ID_NR;
 }
 
@@ -32,42 +32,42 @@ map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIVE {
 	subject template UodURI with ID_NR;
 
 	types
-	    xisadgr.Archive
+		xisadgr.Archive
 }
 
 map level_group from WSD_STABS_SCP_ARCHIV_DBA.VE_GROUP {
 	subject template UodURI with ID_NR;
 	
 	types
-	    xisadgr.Group
+		xisadgr.Group
 }
 
 map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
 	subject template UodURI with ID_NR;
 
 	types
-	    xisadgr.Fonds
+		xisadgr.Fonds
 }
 
 map level_series from WSD_STABS_SCP_ARCHIV_DBA.VE_SERIES {
 	subject template UodURI with ID_NR;
 
 	types
-	    xisadgr.Series
+		xisadgr.Series
 }
 
 map level_file from WSD_STABS_SCP_ARCHIV_DBA.VE_FILE {
 	subject template UodURI with ID_NR;
 
 	types
-	    xisadgr.File
+		xisadgr.File
 }
 
 map level_item from WSD_STABS_SCP_ARCHIV_DBA.VE_ITEM {
 	subject template UodURI with ID_NR;
 
 	types
-	    xisadgr.Item
+		xisadgr.Item
 }
 
 /* Identity
@@ -95,17 +95,17 @@ map context from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template ContextURI with ID_NR;
 	
 	types
-	    xisadgr.Context
-	    
+		xisadgr.Context
+		
 	properties
-	    xisadgr.hasAcqInfo template AgentURI with ID_NR;
-	    xisadgr.hasAdminBioHistory template AgentCvURI with ID_NR;
-	    xisadgr.hasArchivalHistory from BESTANDSGESCHICHTE with language-tag ger;
-	    xisadgr.hasArchivalHistory from VERWALTUNGSGESCHICHTE with language-tag ger;
-	    xisadgr.hasArchivalHistory from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
-	    xisadgr.hasArchivalHistory from ARCHIVGESCHICHTE with language-tag ger;
-	    xisadgr.hasArchivalHistory from ZEITRAUM_DER_MATERIALZUSAMMENS with language-tag ger;
-        xisadgr.hasCreator template AgentURI with ID_NR;
+		xisadgr.hasAcqInfo template AgentURI with ID_NR;
+		xisadgr.hasAdminBioHistory template AgentCvURI with ID_NR;
+		xisadgr.hasArchivalHistory from BESTANDSGESCHICHTE with language-tag ger;
+		xisadgr.hasArchivalHistory from VERWALTUNGSGESCHICHTE with language-tag ger;
+		xisadgr.hasArchivalHistory from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
+		xisadgr.hasArchivalHistory from ARCHIVGESCHICHTE with language-tag ger;
+		xisadgr.hasArchivalHistory from ZEITRAUM_DER_MATERIALZUSAMMENS with language-tag ger;
+		xisadgr.hasCreator template AgentURI with ID_NR;
 }
 
 /* Content Structure
@@ -115,37 +115,37 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template ContentStructureURI with ID_NR;
 	
 	types
-	    xisadgr.ContentStructure
-	    
+		xisadgr.ContentStructure
+		
 	properties
-		xisadgr.hasAccruals from NEUZUGAENGE with language-tag ger;      	
-	    xisadgr.hasAppraisalDestruction from BEWERTUNG_UND_KASSATION with language-tag ger;
-        xisadgr.hasArrangement template ArrangementURI with ID_NR;
-	    xisadgr.hasScope from KOMMENTAR_ZUM_UMFANG with language-tag ger;
+		xisadgr.hasAccruals from NEUZUGAENGE with language-tag ger;
+		xisadgr.hasAppraisalDestruction from BEWERTUNG_UND_KASSATION with language-tag ger;
+		xisadgr.hasArrangement template ArrangementURI with ID_NR;
+		xisadgr.hasScope from KOMMENTAR_ZUM_UMFANG with language-tag ger;
 		xisadgr.hasContent from FORM_UND_INHALT with language-tag ger;
 }
 
 /* Access Conditions
 * -----------------
 */
- map accessconditions from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
- 	subject template AccessConditionsURI with ID_NR;
- 	
- 	types
- 	    xisadgr.AccessConditions
- 	
- 	properties
- 	    xisadgr.hasAccessConditionsNotes from ZUGANGSBESTIMMUNGEN;
- 	    xisadgr.hasAccessConditionsNotes from BEWILLIGUNG; // @todo: Weitere Benutzungshinweise missing in export
- 	    xisadgr.hasClassification constant "other";
- 	    xisadgr.hasIntelectualPropertyRight constant "unknown";
- 	    xisadgr.hasMetadataPrivacyProtection constant "false";
- 	    xisadgr.hasOpenToThePublic from ZUGAENGLICHKEIT; // @todo: map to values acc. to SHACLS "undefined";
- 	    xisadgr.hasOtherAccessConditions from RECHTSSTATUS;
-// 	    xisadgr.hasPrivacyProtection // @todo: Must be based on Schutzfristkategorie, is missing in export
- 	    xisadgr.hasRetentionPeriod from SCHUTZFRISTENDE; // @todo: Schutzfristdauer is missing in export
-// 	    xisadgr.hasRetentionPeriodConditions // @todo: needs legal base information
-// 	    xisadgr.hasRetentionPeriodNotes // @todo: Schutzfristnotiz is missing in export
+map accessconditions from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+	subject template AccessConditionsURI with ID_NR;
+
+	types
+		xisadgr.AccessConditions
+
+	properties
+		xisadgr.hasAccessConditionsNotes from ZUGANGSBESTIMMUNGEN;
+		xisadgr.hasAccessConditionsNotes from BEWILLIGUNG_NM; // @todo: Weitere Benutzungshinweise missing in export
+		xisadgr.hasClassification constant "other";
+		xisadgr.hasIntelectualPropertyRight constant "unknown";
+		xisadgr.hasMetadataPrivacyProtection constant "false";
+		xisadgr.hasOpenToThePublic from ZUGAENGLICHKEIT_NM; // @todo: map to values acc. to SHACLS "undefined";
+		xisadgr.hasOtherAccessConditions from RECHTSSTATUS;
+//		xisadgr.hasPrivacyProtection // @todo: Must be based on Schutzfristkategorie, is missing in export
+		xisadgr.hasRetentionPeriod from SCHUTZFRISTENDE; // @todo: Schutzfristdauer is missing in export
+//		xisadgr.hasRetentionPeriodConditions // @todo: needs legal base information
+//		xisadgr.hasRetentionPeriodNotes // @todo: Schutzfristnotiz is missing in export
 }
 
 /* All the Agent classes
@@ -155,40 +155,40 @@ map contentstructure from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  * - Agent-CV-Entry
  * @todo
  */
- 
- map agent from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
- 	subject template AgentURI with ID_NR;
- 	
- 	types
- 	    xisadgr.Agent
- 	    
- 	properties
- 	    xisadgr.hasAgentName from AKTENBILDNER_PROVENIENZ_TEXT;
- 	    xisadgr.hasAgentId from VE_AKTENBILDNER_LINK; // @todo: prob. not working
- 	    xisadgr.hasAgentCv template AgentCvURI with ID_NR; // @todo: Verknüpfungen without role??? unusable
- }
- 
- map agentcv from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
- 	subject template AgentCvURI with ID_NR;
- 	
- 	types
- 	    xisadgr.AgentCv
- 	    
- 	properties
- 	    xisadgr.hasAgentCvEntry template AgentCvEntryURI with ID_NR;
-//        xisadgr.hasAgentCvId from --- with ID_NR;
+
+map agent from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+	subject template AgentURI with ID_NR;
+	
+	types
+		xisadgr.Agent
+		
+	properties
+		xisadgr.hasAgentName from AKTENBILDNER_PROVENIENZ_TEXT;
+		xisadgr.hasAgentId from VE_AKTENBILDNER_LINK; // @todo: prob. not working
+		xisadgr.hasAgentCv template AgentCvURI with ID_NR; // @todo: Verknüpfungen without role??? unusable
+}
+
+map agentcv from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+	subject template AgentCvURI with ID_NR;
+	
+	types
+		xisadgr.AgentCv
+		
+	properties
+		xisadgr.hasAgentCvEntry template AgentCvEntryURI with ID_NR;
+//		xisadgr.hasAgentCvId from --- with ID_NR;
 }
 
 map agentcventry from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template AgentCvEntryURI with ID_NR;
 	
 	types
-	    xisadgr.AgentCvEntry
-	    
+		xisadgr.AgentCvEntry
+		
 	properties
-//	    xisadgr.hasAgentCvDatesComment from -- // @todo  
-        xisadgr.hasAgentCvDateRange template DateRangeURI with ID_NR; // @todo: what ID?
-        xisadgr.hasAgentCvDatePoint template DatePointURI with ID_NR; // @todo: what ID?
+//		xisadgr.hasAgentCvDatesComment from -- // @todo  
+		xisadgr.hasAgentCvDateRange template DateRangeURI with ID_NR; // @todo: what ID?
+		xisadgr.hasAgentCvDatePoint template DatePointURI with ID_NR; // @todo: what ID?
 }
 
 /* Arrangement
@@ -199,47 +199,47 @@ map arrangement from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template ArrangementURI with ID_NR;
 	
 	types
-	    xisadgr.Arrangement
+		xisadgr.Arrangement
 	
 	properties
-	    xisadgr.hasArrangementComment from ORDNUNG_UND_KLASSIFIKATION; //@todo: DE prob. wrong
-	    xisadgr.hasArrangementDateRange template DateRangeURI with ID_NR;
-	    xisadgr.hasArrangementDatePoint template DatePointURI with ID_NR;
+		xisadgr.hasArrangementComment from ORDNUNG_UND_KLASSIFIKATION; //@todo: DE prob. wrong
+		xisadgr.hasArrangementDateRange template DateRangeURI with ID_NR;
+		xisadgr.hasArrangementDatePoint template DatePointURI with ID_NR;
 }
 
 /* ConditionsAccessUse
  * -------------------
  */
- 
- map conditionsaccessuse from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
- 	subject template ConditionsAccessUseURI with ID_NR;
- 	
- 	types
- 	    xisadgr.ConditionsAccessUse
- 	    
- 	properties
- 	    xisadgr.hasReproConditions from KOPIEN_BZW_REPRODUKTIONEN; // @todo: sicher falsch
- 	    xisadgr.hasLanguageScripts from SPRACHE; // @todo: prüfen, ev. kann auch ein Standardwert für Latin o.ä. eingegeben werden?
- 	    xisadgr.hasFindingAids from FINDHILFSMITTEL;
- }
- 
- /* Allied Materials
-  * ----------------
-  * @todo
-  */
+
+map conditionsaccessuse from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+	subject template ConditionsAccessUseURI with ID_NR;
+	
+	types
+		xisadgr.ConditionsAccessUse
+		
+	properties
+		xisadgr.hasReproConditions from KOPIEN_BZW_REPRODUKTIONEN; // @todo: sicher falsch
+		xisadgr.hasLanguageScripts from SPRACHE; // @todo: prüfen, ev. kann auch ein Standardwert für Latin o.ä. eingegeben werden?
+		xisadgr.hasFindingAids from FINDHILFSMITTEL;
+}
+
+/* Allied Materials
+ * ----------------
+ * @todo
+ */
 map alliedmaterials01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template AlliedMaterialsURI with ID_NR;
 	
 	types
-	    xisadgr.AlliedMaterials
-	    
+		xisadgr.AlliedMaterials
+		
 	properties
-//	    xisadgr.hasRelatedUnitsUri // anyURI
-//	    xisadgr.hasRelatedUnitsAd // range:ArchivalDescription
-	    xisadgr.hasRelatedUnits from VERWANDTES_MATERIAL; // @todo: Präfix, keine Unterscheidung möglich
-	    xisadgr.hasRelatedUnits from VERWANDTE_VE_NICHT_IN_SCOPEARC; // @todo: Präfix, keine Unterscheidung möglich
-//	    xisadgr.hasPublicationUri //anyURI
-//	    xisadgr.hasPublication // string
+//		xisadgr.hasRelatedUnitsUri // anyURI
+//		xisadgr.hasRelatedUnitsAd // range:ArchivalDescription
+		xisadgr.hasRelatedUnits from VERWANDTES_MATERIAL; // @todo: Präfix, keine Unterscheidung möglich
+		xisadgr.hasRelatedUnits from VERWANDTE_VE_NICHT_IN_SCOPEARC; // @todo: Präfix, keine Unterscheidung möglich
+//		xisadgr.hasPublicationUri //anyURI
+//		xisadgr.hasPublication // string
 }
 
 map alliedmaterials02 from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Verweise {
@@ -247,10 +247,10 @@ map alliedmaterials02 from WSD_STABS_SCP_ARCHIV_DBA.Verzeichnungseinheiten_Verwe
 	
 	// @todo: consider ROLLE & ZEITRAUM
 	types
-	    xisadgr.AlliedMaterials
-	    
+		xisadgr.AlliedMaterials
+		
 	properties
-	    xisadgr.hasRelatedUnitsAd template UodURI with ID_NR_2;
+		xisadgr.hasRelatedUnitsAd template UodURI with ID_NR_2;
 } 
 
 /* Notes
@@ -260,58 +260,58 @@ map notes from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template NotesURI with ID_NR;
 	
 	types 
-	    xisadgr.Notes
+		xisadgr.Notes
 	
 	properties
-	    xisadgr.hasNote from FORM_UND_INHALT with language-tag ger;
+		xisadgr.hasNote from FORM_UND_INHALT with language-tag ger;
 }
 
 /* DescriptionControl
  * ------------------
  * @todo: abgleich mit prov-vocab
  */
- map descriptioncontrol from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
- 	subject template DescriptionControlURI with ID_NR;
- 	
- 	types
- 	    xisadgr.DescriptionControl
- 	    
- 	properties
-// 	    xisadgr.hasArchivistsNote // string
- 	    xisadgr.hasRulesConventions from ERSCHLIESSUNGSGRAD;
- 	    xisadgr.hasDescriptionDates from AUFNAHMEDATUM;
- 	    xisadgr.hasDescriptionDates from REVISIONSDATUM; // @todo: prefix or so needed
+map descriptioncontrol from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
+	subject template DescriptionControlURI with ID_NR;
+	
+	types
+		xisadgr.DescriptionControl
+		
+	properties
+//		xisadgr.hasArchivistsNote // string
+		xisadgr.hasRulesConventions from ERSCHLIESSUNGSGRAD;
+		xisadgr.hasDescriptionDates from AUFNAHMEDATUM;
+		xisadgr.hasDescriptionDates from REVISIONSDATUM; // @todo: prefix or so needed
 }
 
 /* Additional Reference
  * --------------------
  * @todo: Unklarer Sammeltopf
  */
- 
+
 map additionalreference from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template AdditionalReferenceURI with ID_NR;
 	
 	types
-	    xisadgr.AdditionalReference
-	    
+		xisadgr.AdditionalReference
+		
 //	properties
-//	    xisadgr.hasRecordReference // @todo: 
+//		xisadgr.hasRecordReference // @todo: 
 }
 
 /* Additional Data
  * ---------------
  * @todo: unklare Properties
  */
- 
+
 map additionaldata from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template AdditionalDataURI with ID_NR;
 	
 	types
-	    xisadgr.AdditionalData
-	    
+		xisadgr.AdditionalData
+		
 //	properties
-//	    xisadgr.hasMdWrap
-//	    xisadgr.hasXmlData
+//		xisadgr.hasMdWrap
+//		xisadgr.hasXmlData
 }
 
 // ==========================================================
@@ -336,24 +336,24 @@ map daterange from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template DateRangeURI with ID_NR;
 	
 	types
-	    xisadgr.DateRange
+		xisadgr.DateRange
 
 	properties
 		xisadgr.hasCreatedDatePoint template DatePointURI with ID_NR;
-	    xisadgr.hasToDate template DatePointURI with ID_NR;
-	    xisadgr.hasFromDate template DatePointURI with ID_NR;
+		xisadgr.hasToDate template DatePointURI with ID_NR;
+		xisadgr.hasFromDate template DatePointURI with ID_NR;
 }
 
 map datepoint from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template DatePointURI with ID_NR;
 	
 	types
-	    xisadgr.DatePoint
+		xisadgr.DatePoint
 	
 	properties
-	    xisadgr.hasDatePoint  from ENTSTEHUNGSZEITRAUM; // with type xisadgr:datePointType
-	    xisadgr.hasDatePointApprox constant "true"; // with datatype xsd.boolean; // @todo: how declare datatypes in general, and here, boolean values?
-	    xisadgr.hasDatePointNote constant "Die Daten sind mit Vorsicht zu geniessen!"; //@todo: Rules to generate meaningful values
+		xisadgr.hasDatePoint  from ENTSTEHUNGSZEITRAUM; // with type xisadgr:datePointType
+		xisadgr.hasDatePointApprox constant "true"; // with datatype xsd.boolean; // @todo: how declare datatypes in general, and here, boolean values?
+		xisadgr.hasDatePointNote constant "Die Daten sind mit Vorsicht zu geniessen!"; //@todo: Rules to generate meaningful values
 }
 
 // ========================================================================
@@ -362,39 +362,39 @@ map datepoint from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
  * -----------------------------
  */
 map matexpr from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
-    subject template MatExprURI with ID_NR;
- 	
- 	types
- 	    xisadgr.MaterialExpression
- 	    
- 	properties
- 	    xisadgr.hasAccessConditions template AccessConditionsURI with ID_NR;
- 	    xisadgr.hasExistenceLocation template StorageLocationURI with ID_NR;
- 	    xisadgr.hasExistenceLocationOriginalsSt constant "Staatsarchiv Basel-Stadt (StABS)";
- 	    xisadgr.hasExtentMedium template ExtentMediumURI with ID_NR;
- 	    xisadgr.hasExtentMediumSt from LAUFMETER with datatype xsd.string;
-// 	    xisadgr.hasMaterialExpressionRepresentation template MatExprURI with ID_NR; // @todo: nicht selbstreferentiell bauen
-// 	    xisadgr.hasMaterialExpressionVersion
-//        xisadgr.hasMaterialExpressionDate template DatePointURI
- 	    xisadgr.hasPhysTech from BESCHREIBSTOFF with language-tag ger;
+	subject template MatExprURI with ID_NR;
+	
+	types
+		xisadgr.MaterialExpression
+		
+	properties
+		xisadgr.hasAccessConditions template AccessConditionsURI with ID_NR;
+		xisadgr.hasExistenceLocation template StorageLocationURI with ID_NR;
+		xisadgr.hasExistenceLocationOriginalsSt constant "Staatsarchiv Basel-Stadt (StABS)";
+		xisadgr.hasExtentMedium template ExtentMediumURI with ID_NR;
+		xisadgr.hasExtentMediumSt from LAUFMETER with datatype xsd.string;
+//		xisadgr.hasMaterialExpressionRepresentation template MatExprURI with ID_NR; // @todo: nicht selbstreferentiell bauen
+//		xisadgr.hasMaterialExpressionVersion
+//		xisadgr.hasMaterialExpressionDate template DatePointURI
+		xisadgr.hasPhysTech from BESCHREIBSTOFF with language-tag ger;
 }
 
- /* Extent Medium
-  * -------------
-  */
+/* Extent Medium
+ * -------------
+ */
 map extentmedium from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template ExtentMediumURI with ID_NR;
 	
 	types
-	    xisadgr.ExtentMedium
-	    
+		xisadgr.ExtentMedium
+		
 	properties
-	    xisadgr.hasExtentMediumDataSize from LAUFMETER;
-	    //xisadgr.hasExtentMediumDataUnit
-	    xisadgr.hasExtentMediumDataQuantity from LAUFMETER;
-	    xisadgr.hasExtentMediumDescription from LAUFMETER;
-	    xisadgr.hasExtentMediumMedium from BESCHREIBSTOFF;
-	    xisadgr.hasMediaType template MediaTypeURI with ID_NR;
+		xisadgr.hasExtentMediumDataSize from LAUFMETER;
+		//xisadgr.hasExtentMediumDataUnit
+		xisadgr.hasExtentMediumDataQuantity from LAUFMETER;
+		xisadgr.hasExtentMediumDescription from LAUFMETER;
+		xisadgr.hasExtentMediumMedium from BESCHREIBSTOFF;
+		xisadgr.hasMediaType template MediaTypeURI with ID_NR;
 }
 
 /* Storage Location
@@ -405,17 +405,17 @@ map storagelocation from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template StorageLocationURI with ID_NR;
 	
 	types
-	    xisadgr.StorageLocation
-	    admin.Isil
-	    schema.Organization
-	    
+		xisadgr.StorageLocation
+		admin.Isil
+		schema.Organization
+		
 	properties
-	    admin.termCode constant "https://culture.ld.admin.ch/isil/CH-000027-1";
-	    schema.identifier constant "CH-000027-1";
-	    schema.email constant "stabs@bs.ch";
-	    schema.sameAs constant "https://de.wikipedia.org/wiki/Staatsarchiv_Basel-Stadt";
-	    schema.sameAs constant "https://www.wikidata.org/wiki/Q2324698";
-	    schema.url constant "https://staatsarchiv.bs.ch";
+		admin.termCode constant "https://culture.ld.admin.ch/isil/CH-000027-1";
+		schema.identifier constant "CH-000027-1";
+		schema.email constant "stabs@bs.ch";
+		schema.sameAs constant "https://de.wikipedia.org/wiki/Staatsarchiv_Basel-Stadt";
+		schema.sameAs constant "https://www.wikidata.org/wiki/Q2324698";
+		schema.url constant "https://staatsarchiv.bs.ch";
 } 
 /* Media Type
  * ----------
@@ -424,7 +424,7 @@ map mediatype from  WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	subject template MediaTypeURI with ID_NR;
 	
 	types
-	    xisadgr.MediaType
+		xisadgr.MediaType
 }
 
 // ===============================================================================================
@@ -432,29 +432,29 @@ map mediatype from  WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 /* Descriptor base map
  * 
  */
- map descrbase from WSD_STABS_SCP_ARCHIV_DBA.DESC {
- 	subject template DescURI with ID_NR;
- 	
- 	types
- 	    skos.Concept
- 	    
- 	properties
- 	    skos.prefLabel from BEZEICHNUNG with language-tag ger;
- 	    skos.altLabel from FREMDSPRACHIGE_BEZEICHNUNGEN; // @todo: unbrauchbar, da leer, ausser bei falscher Verwendung
- 	    skos.note from BESCHREIBUNG with language-tag ger;
- 	    skos.editorialNote from QUELLE with language-tag ger;
- 	    skos.inScheme from THESAURUS;
+map descrbase from WSD_STABS_SCP_ARCHIV_DBA.DESC {
+	subject template DescURI with ID_NR;
+	
+	types
+		skos.Concept
+		
+	properties
+		skos.prefLabel from BEZEICHNUNG with language-tag ger;
+		skos.altLabel from FREMDSPRACHIGE_BEZEICHNUNGEN; // @todo: unbrauchbar, da leer, ausser bei falscher Verwendung
+		skos.note from BESCHREIBUNG with language-tag ger;
+		skos.editorialNote from QUELLE with language-tag ger;
+		skos.inScheme from THESAURUS;
 }
 
 /* Connect Descriptors to UoDs
  * ---------------------------
  */
- map descuodlink from WSD_STABS_SCP_ARCHIV_DBA.VE_DESC_LINK {
- 	subject template UodURI with ID_NR_VRZNG_ENHT;	
+map descuodlink from WSD_STABS_SCP_ARCHIV_DBA.VE_DESC_LINK {
+	subject template UodURI with ID_NR_VRZNG_ENHT;	
 
 	types
 		xisadgr.ArchivalDescription
 		
 	properties
-	    dcterms.^subject template DescURI with ID_NR_DSKRP;
+		dcterms.^subject template DescURI with ID_NR_DSKRP;
 }

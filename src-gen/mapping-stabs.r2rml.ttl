@@ -304,7 +304,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasAccessConditionsNotes ;
 		rr:objectMap [
-			rr:column "BEWILLIGUNG" ;
+			rr:column "BEWILLIGUNG_NM" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -328,7 +328,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasOpenToThePublic ;
 		rr:objectMap [
-			rr:column "ZUGAENGLICHKEIT" ;
+			rr:column "ZUGAENGLICHKEIT_NM" ;
 		];
 	];
 	rr:predicateObjectMap [

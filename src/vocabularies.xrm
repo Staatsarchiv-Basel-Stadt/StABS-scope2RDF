@@ -2,69 +2,69 @@ vocabulary admin {
 	prefix "admin" "http://schema.ld.admin.ch/"
 	
 	classes
-	    Isil
+		Isil
 	
 	properties
-	    about
-	    administrativeHistory
-	    inventoryDescription
-	    libraryMaterials
-	    otherMaterials
-	    termCode
-	    valid
+		about
+		administrativeHistory
+		inventoryDescription
+		libraryMaterials
+		otherMaterials
+		termCode
+		valid
 }
 
 vocabulary dcterms {
 	prefix "dct" "http://purl.org/dc/terms/"
 	
 	properties
-	    ^subject
+		^subject
 }
 
 vocabulary schema {
 	prefix "schema" "http://schema.org/"
 	
 	classes
-	    Organization
-	    ArchiveOrganization
-	    
+		Organization
+		ArchiveOrganization
+
 	properties
-	    address
-	    email
-	    foundingDate
-	    foundingLocation
-	    funder
-	    identifier
-	    location
-	    sameAs
-	    telephone
-	    url
+		address
+		email
+		foundingDate
+		foundingLocation
+		funder
+		identifier
+		location
+		sameAs
+		telephone
+		url
 }
 
 vocabulary skos {
 	prefix "skos" "http://www.w3.org/2004/02/skos/core#"
 	
 	classes
-	    Concept
-	    ConceptScheme
-	    Collection
-	    
+		Concept
+		ConceptScheme
+		Collection
+
 	properties
-	    prefLabel
-	    altLabel
-	    hiddenLabel
-	    broader
-	    narrower
-	    related
-	    note
-	    scopeNote
-	    definition
-	    example
-	    historyNote
-	    editorialNote
-	    changeNote
-	    inScheme
-	    hasTopConcept
+		prefLabel
+		altLabel
+		hiddenLabel
+		broader
+		narrower
+		related
+		note
+		scopeNote
+		definition
+		example
+		historyNote
+		editorialNote
+		changeNote
+		inScheme
+		hasTopConcept
 }
 
 /* xIsadgR
@@ -196,10 +196,10 @@ vocabulary xisadgr {
 		hasTitle
 		hasToDate
 		
-    datatypes
-        datePointType
-        centuryType
-        dateTimeReducedType
+	datatypes
+		datePointType
+		centuryType
+		dateTimeReducedType
 }
 
 // === Codes and Datatypes ===
