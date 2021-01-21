@@ -31,6 +31,17 @@ vocabulary rico {
 	    RecordPart
 	    Instantiation
 }
+
+vocabulary ricrst {
+	prefix "ric-rst" "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#"
+	
+	classes
+	    Collection
+	    File
+	    Fonds
+	    Series
+}
+
 vocabulary schema {
 	prefix "schema" "http://schema.org/"
 	

@@ -147,7 +147,7 @@ map accessconditions from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 		xisadgr.hasMetadataPrivacyProtection constant "false";
 		xisadgr.hasOpenToThePublic from ZUGAENGLICHKEIT_NM; // @todo: map to values acc. to SHACLS "undefined";
 		xisadgr.hasOtherAccessConditions from RECHTSSTATUS;
-//		xisadgr.hasPrivacyProtection // @todo: Must be based on Schutzfristkategorie, is missing in export
+		xisadgr.hasPrivacyProtection  from SCHUTZFRISTKATEGORIE_NM; // @todo: check again
 		xisadgr.hasRetentionPeriod from SCHUTZFRISTENDE; // @todo: Schutzfristdauer is missing in export
 //		xisadgr.hasRetentionPeriodConditions // @todo: needs legal base information
 //		xisadgr.hasRetentionPeriodNotes // @todo: Schutzfristnotiz is missing in export
@@ -396,7 +396,7 @@ map extentmedium from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS {
 	properties
 		xisadgr.hasExtentMediumDataSize from LAUFMETER;
 		//xisadgr.hasExtentMediumDataUnit
-		xisadgr.hasExtentMediumDataQuantity from LAUFMETER;
+		xisadgr.hasExtentMediumDataQuantity from ANZAHL_DATEIEN;
 		xisadgr.hasExtentMediumDescription from LAUFMETER;
 		xisadgr.hasExtentMediumMedium from BESCHREIBSTOFF;
 		xisadgr.hasMediaType template MediaTypeURI with ID_NR;
@@ -445,7 +445,7 @@ map descrbase from WSD_STABS_SCP_ARCHIV_DBA.DESC {
 		
 	properties
 		skos.prefLabel from BEZEICHNUNG with language-tag ger;
-		skos.altLabel from FREMDSPRACHIGE_BEZEICHNUNGEN; // @todo: unbrauchbar, da leer, ausser bei falscher Verwendung
+//		skos.altLabel from FREMDSPRACHIGE_BEZEICHNUNGEN; // @todo: unbrauchbar, da leer, ausser bei falscher Verwendung
 		skos.note from BESCHREIBUNG with language-tag ger;
 		skos.editorialNote from QUELLE with language-tag ger;
 		skos.inScheme from THESAURUS;

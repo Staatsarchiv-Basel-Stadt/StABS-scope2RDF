@@ -344,6 +344,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
+		rr:predicate xisadgr:hasPrivacyProtection ;
+		rr:objectMap [
+			rr:column "SCHUTZFRISTKATEGORIE_NM" ;
+		];
+	];
+	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasRetentionPeriod ;
 		rr:objectMap [
 			rr:column "SCHUTZFRISTENDE" ;
@@ -682,7 +688,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate xisadgr:hasExtentMediumDataQuantity ;
 		rr:objectMap [
-			rr:column "LAUFMETER" ;
+			rr:column "ANZAHL_DATEIEN" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -773,12 +779,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rr:column "BEZEICHNUNG" ;
 			rr:language "ger" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate skos:altLabel ;
-		rr:objectMap [
-			rr:column "FREMDSPRACHIGE_BEZEICHNUNGEN" ;
 		];
 	];
 	rr:predicateObjectMap [
