@@ -40,6 +40,7 @@ map level_group from WSD_STABS_SCP_ARCHIV_DBA.VE_GROUP {
 	
 	types
 		xisadgr.Group
+		rico.RecordSet
 }
 
 map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
@@ -47,6 +48,7 @@ map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
 
 	types
 		xisadgr.Fonds
+		rico.RecordSet
 }
 
 map level_series from WSD_STABS_SCP_ARCHIV_DBA.VE_SERIES {
@@ -54,6 +56,7 @@ map level_series from WSD_STABS_SCP_ARCHIV_DBA.VE_SERIES {
 
 	types
 		xisadgr.Series
+		rico.RecordSet
 }
 
 map level_file from WSD_STABS_SCP_ARCHIV_DBA.VE_FILE {
@@ -61,6 +64,7 @@ map level_file from WSD_STABS_SCP_ARCHIV_DBA.VE_FILE {
 
 	types
 		xisadgr.File
+		rico.Record
 }
 
 map level_item from WSD_STABS_SCP_ARCHIV_DBA.VE_ITEM {
@@ -68,6 +72,7 @@ map level_item from WSD_STABS_SCP_ARCHIV_DBA.VE_ITEM {
 
 	types
 		xisadgr.Item
+		rico.RecordPart
 }
 
 /* Identity

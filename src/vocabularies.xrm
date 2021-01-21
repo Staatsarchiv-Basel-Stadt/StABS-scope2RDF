@@ -21,6 +21,16 @@ vocabulary dcterms {
 		^subject
 }
 
+
+vocabulary rico {
+	prefix "rico" "https://www.ica.org/standards/RiC/ontology#"
+	
+	classes
+	    RecordSet
+	    Record
+	    RecordPart
+	    Instantiation
+}
 vocabulary schema {
 	prefix "schema" "http://schema.org/"
 	
