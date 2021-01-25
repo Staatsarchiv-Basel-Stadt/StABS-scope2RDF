@@ -4,7 +4,7 @@
 *   - DescURI: Descriptors (Persons, Organisations, Places, Topics that are subjects of UoDs)
 *   - queryURL: URL to the current public archival catalog
 */
-template UodURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/"
+template UodURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/" // @todo: Base-URIs nochmal klären
 template DescURI "http://ld.staatsarchiv.bs.ch/descriptor/id/{0}/"
 template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
 
