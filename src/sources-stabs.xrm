@@ -176,6 +176,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 
 		referenceables
 			ID_NR
+			TITEL
 	}
 
 	logical-source VE_GROUP {
