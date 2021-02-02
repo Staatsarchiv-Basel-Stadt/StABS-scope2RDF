@@ -17,7 +17,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#level_abt>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Abteilung'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Abteilung'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
@@ -59,7 +59,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#level_best>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Bestand'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Bestand'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
@@ -80,7 +80,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#level_series>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Serie'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Serie'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;

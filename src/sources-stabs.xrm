@@ -180,7 +180,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 	}
 
 	logical-source VE_ABT {
-		source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Abteilung'"
+		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Abteilung'"
 
 		referenceables
 			ID_NR
@@ -196,7 +196,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 	}
 
 	logical-source VE_BEST {
-		source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Bestand'"
+		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Bestand'"
 
 		referenceables
 			ID_NR
@@ -204,7 +204,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 	}
 
 	logical-source VE_SERIES {
-		source query "SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Serie'"
+		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Serie'"
 
 		referenceables
 			ID_NR
