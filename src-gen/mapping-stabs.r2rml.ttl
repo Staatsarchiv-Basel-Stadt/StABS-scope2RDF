@@ -5,10 +5,16 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
-		rr:class rico:RecordSet ;
-	]
+		rr:template "http://ld.staatsarchiv.bs.ch/Agent/{ID_NR}" ;
+		rr:class rico:CorporateBody ;
+	];
 	
+	rr:predicateObjectMap [
+		rr:predicate rico:name ;
+		rr:objectMap [
+			rr:column "TITEL" ;
+		];
+	]
 .
 <#level_group>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Abteilung' OR STUFE LIKE 'Fonds'""" ];
@@ -16,8 +22,20 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
 		rr:class rico:RecordSet ;
-	]
+	];
 	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Collection> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadHolder ;
+		rr:objectMap [
+			rr:constant <http://ld.staatsarchiv.bs.ch/Agent/548575> ;
+		];
+	]
 .
 <#level_fonds>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Bestand'""" ];
@@ -25,8 +43,20 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
 		rr:class rico:RecordSet ;
-	]
+	];
 	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Fonds> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{PARENT_ID_NR}" ;
+		];
+	]
 .
 <#level_series>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Serie'""" ];
@@ -34,8 +64,20 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
 		rr:class rico:RecordSet ;
-	]
+	];
 	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Series> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{PARENT_ID_NR}" ;
+		];
+	]
 .
 <#level_file>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dossier'""" ];
@@ -43,8 +85,14 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
 		rr:class rico:Record ;
-	]
+	];
 	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File> ;
+		];
+	]
 .
 <#level_item>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dokument'""" ];

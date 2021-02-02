@@ -5,10 +5,13 @@ output r2rml
  */
 
 map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIVE {
-	subject template rrURI with ID_NR;
+	subject template agURI with ID_NR;
 	
 	types
-	    rico.RecordSet
+	    rico.CorporateBody
+	    
+	 properties
+	     rico.name from TITEL;
 }
 
 map level_group from WSD_STABS_SCP_ARCHIV_DBA.VE_GROUP {
@@ -16,6 +19,10 @@ map level_group from WSD_STABS_SCP_ARCHIV_DBA.VE_GROUP {
 	
 	types
 		rico.RecordSet
+		
+	properties
+	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Collection";
+	    rico.hasOrHadHolder constant "http://ld.staatsarchiv.bs.ch/Agent/548575";
 }
 
 map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
@@ -23,6 +30,10 @@ map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
 
 	types
 		rico.RecordSet
+		
+	properties
+	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Fonds";
+	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 }
 
 map level_series from WSD_STABS_SCP_ARCHIV_DBA.VE_SERIES {
@@ -30,6 +41,10 @@ map level_series from WSD_STABS_SCP_ARCHIV_DBA.VE_SERIES {
 
 	types
 		rico.RecordSet
+		
+	properties
+	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Series";
+	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;	
 }
 
 map level_file from WSD_STABS_SCP_ARCHIV_DBA.VE_FILE {
@@ -37,6 +52,9 @@ map level_file from WSD_STABS_SCP_ARCHIV_DBA.VE_FILE {
 
 	types
 		rico.Record
+		
+	properties
+	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File";		
 }
 
 map level_item from WSD_STABS_SCP_ARCHIV_DBA.VE_ITEM {

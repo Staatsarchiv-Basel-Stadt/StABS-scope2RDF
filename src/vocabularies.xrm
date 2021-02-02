@@ -36,11 +36,16 @@ vocabulary rico {
 	    RecordSet
 	    Record
 	    RecordPart
+	    RecordSetType
 	    Instantiation
 	    
 	properties
+	    hasOrHadHolder
 	    isCorporateBodyTypeOf
+	    isOrWasIncludedIn
 	    hasAgentName
+	    hasRecordSetType
+	    name
 }
 
 vocabulary ricrst {
