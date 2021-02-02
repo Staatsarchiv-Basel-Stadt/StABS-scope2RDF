@@ -4,7 +4,7 @@ output r2rml
  * -------------------------
  */
 
-map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIVE {
+map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIV {
 	subject template agURI with ID_NR;
 	
 	types
@@ -14,7 +14,7 @@ map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIVE {
 	     rico.name from TITEL;
 }
 
-map level_group from WSD_STABS_SCP_ARCHIV_DBA.VE_GROUP {
+map level_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_ABT {
 	subject template rrURI with ID_NR;
 	
 	types
@@ -36,6 +36,17 @@ map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
 	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 }
 
+map level_best from WSD_STABS_SCP_ARCHIV_DBA.VE_BEST {
+	subject template rrURI with ID_NR;
+
+	types
+		rico.RecordSet
+		
+	properties
+	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Fonds";
+	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+}
+
 map level_series from WSD_STABS_SCP_ARCHIV_DBA.VE_SERIES {
 	subject template rrURI with ID_NR;
 
@@ -47,7 +58,7 @@ map level_series from WSD_STABS_SCP_ARCHIV_DBA.VE_SERIES {
 	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;	
 }
 
-map level_file from WSD_STABS_SCP_ARCHIV_DBA.VE_FILE {
+map level_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
 	subject template rrURI with ID_NR;
 
 	types
@@ -57,7 +68,7 @@ map level_file from WSD_STABS_SCP_ARCHIV_DBA.VE_FILE {
 	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File";		
 }
 
-map level_item from WSD_STABS_SCP_ARCHIV_DBA.VE_ITEM {
+map level_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
 	subject template rrURI with ID_NR;
 
 	types
