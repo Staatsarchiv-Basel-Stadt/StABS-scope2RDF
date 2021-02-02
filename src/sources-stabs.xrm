@@ -188,7 +188,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 	}
 	
 	logical-source VE_FONDS {
-		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE LIKE 'Fonds'"
+		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Fonds'"
 		
 		referenceables
 		    ID_NR

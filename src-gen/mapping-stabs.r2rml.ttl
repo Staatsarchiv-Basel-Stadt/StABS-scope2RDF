@@ -38,7 +38,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#level_fonds>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE LIKE 'Fonds'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Fonds'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
