@@ -8,21 +8,6 @@ template UodURI "http://ld.staatsarchiv.bs.ch/uod/id/{0}/" // @todo: Base-URIs n
 template DescURI "http://ld.staatsarchiv.bs.ch/descriptor/id/{0}/"
 template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
 
-/* Base URI templates for RiC-O
- * ============================
- * alle sieben second level entities
- * @todo: klären, ob alle Entities verwendet werden sollen
- */
-template rrURI "http://ld.staatsarchiv.bs.ch/RecordResource/{0}"
-template inURI "http://ld.staatsarchiv.bs.ch/Instantiation/{0}"
-template agURI "http://ld.staatsarchiv.bs.ch/Agent/{0}"
-template evURI "http://ld.staatsarchiv.bs.ch/Event/{0}"
-template ruURI "http://ld.staatsarchiv.bs.ch/Rule/{0}"
-template plURI "http://ld.staatsarchiv.bs.ch/Place/{0}"
-template daURI "http://ld.staatsarchiv.bs.ch/Date/{0}"
-
-
-
 /* Named Nodes (subclasses) for StABS
  * ==================================
  */  

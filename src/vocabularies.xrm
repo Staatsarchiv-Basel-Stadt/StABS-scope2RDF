@@ -26,26 +26,10 @@ vocabulary rico {
 	prefix "rico" "https://www.ica.org/standards/RiC/ontology#"
 	
 	classes
-	    Agent
-	    AgentName
-	    CorporateBody
-	    Group
-	    Identifier
-	    IdentifierType
-	    Name
 	    RecordSet
 	    Record
 	    RecordPart
-	    RecordSetType
 	    Instantiation
-	    
-	properties
-	    hasOrHadHolder
-	    isCorporateBodyTypeOf
-	    isOrWasIncludedIn
-	    hasAgentName
-	    hasRecordSetType
-	    name
 }
 
 vocabulary ricrst {
