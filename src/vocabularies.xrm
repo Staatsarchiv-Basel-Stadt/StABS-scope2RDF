@@ -40,6 +40,7 @@ vocabulary rico {
 	    Instantiation
 	    
 	properties
+	    conditionsOfAccess
 	    date
 	    hasOrHadHolder
 	    isCorporateBodyTypeOf

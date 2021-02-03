@@ -75,6 +75,13 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 			rr:column "VERWALTUNGSGESCHICHTE_BIOGRAFI" ;
 			rr:language "ger" ;
 		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:conditionsOfAccess ;
+		rr:objectMap [
+			rr:column "ZUGANGS_BESTIMMUNGEN" ;
+			rr:language "ger" ;
+		];
 	]
 .
 <#level_fonds>
