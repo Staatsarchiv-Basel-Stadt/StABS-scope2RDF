@@ -2,7 +2,7 @@ PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 
 <#level_archive>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, TITEL FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Agent/{ID_NR}" ;

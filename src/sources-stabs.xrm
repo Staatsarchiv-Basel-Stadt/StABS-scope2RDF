@@ -172,11 +172,13 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
  * Does not exclude positions from RIE
  */
 	logical-source VE_STABS_ARCHIV {
-		source query "SELECT ID_NR, TITEL FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575" // Aufnahme Archiv StABS
+		source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575" // Aufnahme Archiv StABS
 
 		referenceables
 			ID_NR
 			TITEL
+			ARCHIVGESCHICHTE
+			SIGNATUR
 	}
 
 	logical-source VE_ABT {
