@@ -231,6 +231,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 
 		referenceables
 			ID_NR
+			PARENT_ID_NR
 	}
 
 	logical-source VE_DOKUMENT {
@@ -238,6 +239,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 
 		referenceables
 			ID_NR
+			PARENT_ID_NR
 	}
 
 /* Deskriptoren

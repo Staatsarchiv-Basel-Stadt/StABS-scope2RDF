@@ -82,7 +82,8 @@ map level_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
 		rico.Record
 		
 	properties
-	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File";		
+	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File";
+	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;	    		
 }
 
 map level_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
@@ -90,4 +91,8 @@ map level_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
 
 	types
 		rico.RecordPart
+		
+	properties
+	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File";
+	    rico.isOrWasConstituentOf template rrURI with PARENT_ID_NR;
 }

@@ -79,7 +79,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:conditionsOfAccess ;
 		rr:objectMap [
-			rr:column "ZUGANGSBESTIMMUNGEN" ;
+			rr:column "ZUGANGS_BESTIMMUNGEN" ;
 			rr:language "ger" ;
 		];
 	]
@@ -160,6 +160,12 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 		rr:objectMap [
 			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File> ;
 		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{PARENT_ID_NR}" ;
+		];
 	]
 .
 <#level_dokument>
@@ -168,6 +174,18 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
 		rr:class rico:RecordPart ;
-	]
+	];
 	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasConstituentOf ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{PARENT_ID_NR}" ;
+		];
+	]
 .
