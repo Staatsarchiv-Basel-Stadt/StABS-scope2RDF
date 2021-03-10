@@ -1,8 +1,8 @@
 source-group WSD_STABS_SCP_ARCHIV_DBA {
 	type rdb
 
-	logical-source VE_STABS {
-		source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE (SIGNATUR NOT LIKE 'RIE%' OR SIGNATUR IS NULL)"
+	logical-source VE_STABS_RR {
+		source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'"
 
 		referenceables
 		TITEL
@@ -169,7 +169,6 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 
 /* Query Sources for description levels
  * ------------------------------------
- * Does not exclude positions from RIE
  */
 	logical-source VE_STABS_ARCHIV {
 		source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575" // Aufnahme Archiv StABS
@@ -180,6 +179,10 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			ARCHIVGESCHICHTE
 			SIGNATUR
 	}
+	
+/* Alle Stufe Abteilung StABS
+ * --------------------------
+ */	
 
 	logical-source VE_STABS_ABT {
 		source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'"

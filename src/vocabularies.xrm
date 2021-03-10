@@ -33,6 +33,7 @@ vocabulary rico {
 	    Identifier
 	    IdentifierType
 	    Name
+	    RecordResource
 	    RecordSet
 	    Record
 	    RecordPart

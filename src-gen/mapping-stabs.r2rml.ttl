@@ -1,46 +1,18 @@
 PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 
-<#level_archive>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Agent/{ID_NR}" ;
-		rr:class rico:CorporateBody ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:name ;
-		rr:objectMap [
-			rr:column "TITEL" ;
-		];
-	]
-.
-<#level_abt>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'""" ];
+<#rr_stabs>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
-		rr:class rico:RecordSet ;
+		rr:class rico:RecordResource ;
 	];
 	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType ;
-		rr:objectMap [
-			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Collection> ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{PARENT_ID_NR}" ;
-		];
-	];
 	rr:predicateObjectMap [
 		rr:predicate rico:name ;
 		rr:objectMap [
 			rr:column "TITEL" ;
-			rr:language "ger" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -81,6 +53,49 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 		rr:objectMap [
 			rr:column "ZUGANGSBESTIMMUNGEN" ;
 			rr:language "ger" ;
+		];
+	]
+.
+<#level_archive>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
+		rr:class rico:RecordSet ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:name ;
+		rr:objectMap [
+			rr:column "TITEL" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:identifier ;
+		rr:objectMap [
+			rr:column "SIGNATUR" ;
+			rr:language "zxx" ;
+		];
+	]
+.
+<#level_abt>
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
+		rr:class rico:RecordSet ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Collection> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{PARENT_ID_NR}" ;
 		];
 	]
 .

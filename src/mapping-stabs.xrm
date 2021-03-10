@@ -1,17 +1,36 @@
 output r2rml
 
+
+map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR {
+	subject template rrURI with ID_NR;
+	
+	types
+	    rico.RecordResource
+	    
+	properties
+        rico.name from TITEL;
+        rico.identifier from SIGNATUR with language-tag zxx;
+        rico.date from ENTSTEHUNGSZEITRAUM;
+	    rico.measure from UMFANG_GESCHAETZT;
+	    rico.history from BESTANDSGESCHICHTE with language-tag ger;
+	    rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
+	    rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger;
+        
+	    
+}
 /* Description Level Classes
  * -------------------------
  */
 
 map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIV {
-	subject template agURI with ID_NR;
+	subject template rrURI with ID_NR;
 	
 	types
-	    rico.CorporateBody
+	    rico.RecordSet
 	    
 	 properties
 	     rico.name from TITEL;
+	     rico.identifier from SIGNATUR with language-tag zxx;
 }
 
 map level_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
@@ -23,13 +42,6 @@ map level_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
 	properties
 	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Collection";
 	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-	    rico.name from TITEL with language-tag ger;
-	    rico.identifier from SIGNATUR with language-tag zxx;
-	    rico.date from ENTSTEHUNGSZEITRAUM;
-	    rico.measure from UMFANG_GESCHAETZT;
-	    rico.history from BESTANDSGESCHICHTE with language-tag ger;
-	    rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
-	    rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger;
 //	    rico.hasOrHadHolder constant "http://ld.staatsarchiv.bs.ch/Agent/548575";
 /*
  * AUFNAHMEDATUM > activity
