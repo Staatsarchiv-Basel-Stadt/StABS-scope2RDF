@@ -11,10 +11,10 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR {
         rico.name from TITEL;
         rico.identifier from SIGNATUR with language-tag zxx;
         rico.date from ENTSTEHUNGSZEITRAUM;
-	    rico.measure from UMFANG_GESCHAETZT;
-	    rico.history from BESTANDSGESCHICHTE with language-tag ger;
-	    rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
-	    rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger;
+        rico.measure from UMFANG_GESCHAETZT;
+        rico.history from BESTANDSGESCHICHTE with language-tag ger;
+        rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
+        rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger;
         
 	    
 }
