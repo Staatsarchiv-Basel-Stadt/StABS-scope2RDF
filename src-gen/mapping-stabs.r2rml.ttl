@@ -148,7 +148,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#level_dossier>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dossier'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dossier'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
@@ -169,7 +169,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#level_dokument>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dokument'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dokument'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/RecordResource/{ID_NR}" ;
