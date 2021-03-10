@@ -29,7 +29,7 @@ map level_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
 	    rico.measure from UMFANG_GESCHAETZT;
 	    rico.history from BESTANDSGESCHICHTE with language-tag ger;
 	    rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
-	    rico.conditionsOfAccess from ZUGANGS_BESTIMMUNGEN with language-tag ger;
+	    rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger;
 //	    rico.hasOrHadHolder constant "http://ld.staatsarchiv.bs.ch/Agent/548575";
 /*
  * AUFNAHMEDATUM > activity
