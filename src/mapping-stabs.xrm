@@ -1,9 +1,8 @@
 output r2rml
 
-
 map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR {
-	subject template rrURI with ID_NR;
-	
+	subject template idURI with ID_NR;
+
 	types
 	    rico.RecordResource
 	    
@@ -25,7 +24,7 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR {
  */
 
 map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIV {
-	subject template rrURI with ID_NR;
+	subject template idURI with ID_NR;
 	
 	types
 	    rico.RecordSet
@@ -37,67 +36,82 @@ map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIV {
 }
 
 map level_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
-	subject template rrURI with ID_NR;
+	subject template idURI with ID_NR;
 	
 	types
 		rico.RecordSet
 		
 	properties
 	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Collection";
-	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+	    rico.isOrWasIncludedIn template idURI with PARENT_ID_NR;
 }
 
 map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
-	subject template rrURI with ID_NR;
+	subject template idURI with ID_NR;
 
 	types
 		rico.RecordSet
 		
 	properties
 	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Fonds";
-	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+	    rico.isOrWasIncludedIn template idURI with PARENT_ID_NR;
 }
 
 map level_best from WSD_STABS_SCP_ARCHIV_DBA.VE_BEST {
-	subject template rrURI with ID_NR;
+	subject template idURI with ID_NR;
 
 	types
 		rico.RecordSet
 		
 	properties
 	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Fonds";
-	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+	    rico.isOrWasIncludedIn template idURI with PARENT_ID_NR;
 }
 
 map level_series from WSD_STABS_SCP_ARCHIV_DBA.VE_SERIES {
-	subject template rrURI with ID_NR;
+	subject template idURI with ID_NR;
 
 	types
 		rico.RecordSet
-		
+
 	properties
 	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Series";
-	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;	
+	    rico.isOrWasIncludedIn template idURI with PARENT_ID_NR;
 }
 
 map level_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
-	subject template rrURI with ID_NR;
+	subject template idURI with ID_NR;
 
 	types
 		rico.Record
-		
+
 	properties
 	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File";
-	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;	    		
+	    rico.isOrWasIncludedIn template idURI with PARENT_ID_NR;
 }
 
 map level_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
-	subject template rrURI with ID_NR;
+	subject template idURI with ID_NR;
 
 	types
 		rico.RecordPart
-		
+
 	properties
 	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File";
-	    rico.isOrWasConstituentOf template rrURI with PARENT_ID_NR;
+	    rico.isOrWasConstituentOf template idURI with PARENT_ID_NR;
+}
+
+/* Subject links (to nowhere)
+ * --------------------------
+ * @todo: Subjects erstellen
+ */
+
+map rr2subject from WSD_STABS_SCP_ARCHIV_DBA.VE_DESC_LINK {
+    subject template idURI with ID_NR_VRZNG_ENHT;
+
+	types
+	    rico.RecordResource
+
+	properties
+		rico.hasOrHadSubject template idURI with ID_NR_DSKRP;
 }

@@ -48,6 +48,7 @@ vocabulary rico {
 	    isOrWasConstituentOf
 	    isOrWasIncludedIn
 	    hasAgentName
+	    hasOrHadSubject
 	    hasRecordSetType
 	    history
 	    identifier
