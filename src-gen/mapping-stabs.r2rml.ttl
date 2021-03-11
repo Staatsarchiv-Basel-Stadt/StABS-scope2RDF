@@ -68,6 +68,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 		rr:predicate rico:name ;
 		rr:objectMap [
 			rr:column "TITEL" ;
+			rr:language "ger" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -75,6 +76,13 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 		rr:objectMap [
 			rr:column "SIGNATUR" ;
 			rr:language "zxx" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:history ;
+		rr:objectMap [
+			rr:column "ARCHIVGESCHICHTE" ;
+			rr:language "ger" ;
 		];
 	]
 .

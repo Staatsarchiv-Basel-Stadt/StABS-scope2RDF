@@ -20,6 +20,8 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR {
 }
 /* Description Level Classes
  * -------------------------
+ * * builds the main RecordResource Relations (include and constitute)
+ * * sets the RecordSetType
  */
 
 map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIV {
@@ -29,8 +31,9 @@ map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIV {
 	    rico.RecordSet
 	    
 	 properties
-	     rico.name from TITEL;
+	     rico.name from TITEL with language-tag ger;
 	     rico.identifier from SIGNATUR with language-tag zxx;
+	     rico.history from ARCHIVGESCHICHTE with language-tag ger;
 }
 
 map level_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
@@ -42,16 +45,6 @@ map level_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
 	properties
 	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Collection";
 	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-//	    rico.hasOrHadHolder constant "http://ld.staatsarchiv.bs.ch/Agent/548575";
-/*
- * AUFNAHMEDATUM > activity
- * ANMERKUNGEN
- * ERSCHLIESSUNGSGRAD > rule
- * FINDHILFSMITTEL
- * FORM_UND_INHALT
- * ZEITRAUM_DER_MATERIALZUSAMMENS > activity
- */
-			
 }
 
 map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {

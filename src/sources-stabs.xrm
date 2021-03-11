@@ -167,9 +167,12 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 		ANZEIGEFORMULAR_ID
 	}
 
-/* Query Sources for description levels
- * ------------------------------------
- */
+/* Select Stufen StABS
+ * -------------------
+ * * only main relation IDs
+ * * exception is Archive level
+ */	
+ 
 	logical-source VE_STABS_ARCHIV {
 		source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575" // Aufnahme Archiv StABS
 
@@ -180,29 +183,12 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			SIGNATUR
 	}
 	
-/* Alle Stufe Abteilung StABS
- * --------------------------
- */	
-
 	logical-source VE_STABS_ABT {
 		source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'"
 
 		referenceables
-			AUFNAHMEDATUM
-			ANMERKUNGEN
-			BESTANDSGESCHICHTE
-			ENTSTEHUNGSZEITRAUM
-			ERSCHLIESSUNGSGRAD
-			FINDHILFSMITTEL
 			ID_NR
-			TITEL
-			SIGNATUR
-			FORM_UND_INHALT
 			PARENT_ID_NR
-			UMFANG_GESCHAETZT
-			VERWALTUNGSGESCHICHTE_BIOGRAFI
-			ZEITRAUM_DER_MATERIALZUSAMMENS
-			ZUGANGSBESTIMMUNGEN
 	}
 	
 	logical-source VE_FONDS {
