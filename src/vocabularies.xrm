@@ -55,6 +55,14 @@ vocabulary rico {
 	    name
 }
 
+vocabulary ricdft {
+	prefix "ric-dft" "https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#"
+	
+	classes
+	    AuthorityRecord
+	    FindingAid
+}
+
 vocabulary ricrst {
 	prefix "ric-rst" "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#"
 	
