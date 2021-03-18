@@ -16,6 +16,12 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR {
 		rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger;
 }
 
+/* Erste Mappings
+ * -------------
+ * * Basic Mapping für alle VE (ev. auf Stufen unterschieden)
+ * * Bildmapping
+ */
+
 /* Description Level Classes
  * -------------------------
  * * builds the main RecordResource Relations (include and constitute)

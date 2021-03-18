@@ -108,7 +108,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#level_fonds>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Fonds'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/id/{ID_NR}" ;
@@ -129,7 +129,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#level_best>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Bestand'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Bestand'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/id/{ID_NR}" ;
@@ -150,7 +150,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#level_series>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Serie'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Serie'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/id/{ID_NR}" ;
@@ -171,7 +171,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#level_dossier>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dossier'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/id/{ID_NR}" ;
@@ -192,7 +192,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#level_dokument>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dokument'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/id/{ID_NR}" ;

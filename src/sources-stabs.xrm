@@ -192,7 +192,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 	}
 	
 	logical-source VE_FONDS {
-		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Fonds'"
+		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'"
 		
 		referenceables
 		    ID_NR
@@ -200,7 +200,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 	}
 
 	logical-source VE_BEST {
-		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Bestand'"
+		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Bestand'"
 
 		referenceables
 			ID_NR
@@ -208,7 +208,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 	}
 
 	logical-source VE_SERIES {
-		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Serie'"
+		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Serie'"
 
 		referenceables
 			ID_NR
@@ -216,7 +216,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 	}
 
 	logical-source VE_DOSSIER {
-		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dossier'"
+		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'"
 
 		referenceables
 			ID_NR
@@ -224,7 +224,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 	}
 
 	logical-source VE_DOKUMENT {
-		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE STUFE LIKE 'Dokument'"
+		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'"
 
 		referenceables
 			ID_NR
@@ -233,26 +233,32 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 
 /* Deskriptoren
  * ------------
+ * * logical_source für Personenbegriffe > Agent
+ * * logical_source für Ortsbegriffe > Place
+ * * nur Felder mit Inhalten werden selektiert und referenziert
  */
 
-	logical-source DESC {
-		source "MVK_OGD_DSKRP_1" 
+	logical-source DESC_AGENT {
+		source query "SELECT BEZEICHNUNG, QUELLE, BESCHREIBUNG, ID_NR, GEBURTSDATUM, TODESDATUM FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Personenbegriffe'" 
 
 		referenceables
-			THESAURUS
 			BEZEICHNUNG
-			FREMDSPRACHIGE_BEZEICHNUNGEN
 			QUELLE
 			BESCHREIBUNG
-			ID_NAME
 			ID_NR
-			ANZAHL_VERKNUEPFUNGEN
 			GEBURTSDATUM
 			TODESDATUM
-			GND
-			VIAF
-		
 	}
+	
+	logical-source DESC_PLACE {
+		source query "SELECT BEZEICHNUNG, QUELLE, BESCHREIBUNG, ID_NR FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Ortsbegriffe'" 
+
+		referenceables
+			BEZEICHNUNG
+			QUELLE
+			BESCHREIBUNG
+			ID_NR
+	}	
 	
 	logical-source Ablieferungen {
 		source "MVK_OGD_ABLFR_1"

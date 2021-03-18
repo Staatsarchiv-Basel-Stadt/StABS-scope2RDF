@@ -2,7 +2,10 @@
  * ============================
  * nur IDURI in Gebrauch, identifiziert sämtliche RiCo-Entitäten
  */
+template rrURI "http://ld.staatsarchiv.bs.ch/RecordResource/id/{0}"
+
 template idURI "http://ld.staatsarchiv.bs.ch/id/{0}"
+
 template inURI "http://ld.staatsarchiv.bs.ch/Instantiation/{0}"
 template agURI "http://ld.staatsarchiv.bs.ch/Agent/{0}"
 template evURI "http://ld.staatsarchiv.bs.ch/Event/{0}"
