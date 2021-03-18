@@ -14,13 +14,6 @@ vocabulary admin {
 		valid
 }
 
-vocabulary dcterms {
-	prefix "dct" "http://purl.org/dc/terms/"
-	
-	properties
-		^subject
-}
-
 
 vocabulary rico {
 	prefix "rico" "https://www.ica.org/standards/RiC/ontology#"

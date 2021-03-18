@@ -1,10 +1,16 @@
 /* Base URI templates for RiC-O
  * ============================
- * nur IDURI in Gebrauch, identifiziert sämtliche RiCo-Entitäten
+ * Subject URIS grundsätzlich gebildet anhand der sieben second level 
+ * entities von RiC O/CM 
+ * (@todo: klären, ob alle Entities verwendet werden sollen)
+ * idURI ist eine Möglichkeit zur radikalen Vereinfachung (@todo, prüfen)
  */
-template rrURI "http://ld.staatsarchiv.bs.ch/RecordResource/id/{0}"
 
+/* Subject URI basierend nur auf ID, aktuell nicht in Gerauch */
 template idURI "http://ld.staatsarchiv.bs.ch/id/{0}"
+
+/* Subject URIs für Record Resources (Verzeichnungseinheiten) */
+template rrURI "http://ld.staatsarchiv.bs.ch/record/id/{0}" 
 
 template inURI "http://ld.staatsarchiv.bs.ch/Instantiation/{0}"
 template agURI "http://ld.staatsarchiv.bs.ch/Agent/{0}"
