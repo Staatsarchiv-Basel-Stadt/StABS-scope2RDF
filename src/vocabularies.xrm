@@ -22,6 +22,7 @@ vocabulary rico {
 	    Agent
 	    AgentName
 	    CorporateBody
+	    DateRange
 	    Group
 	    Identifier
 	    IdentifierType
@@ -35,6 +36,10 @@ vocabulary rico {
 	    
 	properties
 	    conditionsOfAccess
+	    hasOrHadIdentifier
+	    hasIdentifierType
+	    textualValue
+	    isAssociatedWithDate
 	    date
 	    hasOrHadHolder
 	    isCorporateBodyTypeOf

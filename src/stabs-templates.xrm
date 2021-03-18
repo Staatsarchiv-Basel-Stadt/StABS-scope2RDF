@@ -10,7 +10,9 @@
 template idURI "http://ld.staatsarchiv.bs.ch/id/{0}"
 
 /* Subject URIs für Record Resources (Verzeichnungseinheiten) */
-template rrURI "http://ld.staatsarchiv.bs.ch/record/id/{0}" 
+template rrURI "http://ld.staatsarchiv.bs.ch/record/id/{0}"
+template identURI  "http://ld.staatsarchiv.bs.ch/record/id/{0}/identity"
+template dateURI "http://ld.staatsarchiv.bs.ch/record/id/{0}/daterange"
 
 template inURI "http://ld.staatsarchiv.bs.ch/Instantiation/{0}"
 template agURI "http://ld.staatsarchiv.bs.ch/Agent/{0}"

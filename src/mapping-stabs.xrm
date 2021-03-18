@@ -1,6 +1,6 @@
 output r2rml
 
-map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR {
+map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
 	subject template idURI with ID_NR;
 
 	types
@@ -10,10 +10,13 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR {
 		rico.name from TITEL;
 		rico.identifier from SIGNATUR with language-tag zxx;
 		rico.date from ENTSTEHUNGSZEITRAUM;
-		rico.measure from UMFANG_GESCHAETZT;
-		rico.history from BESTANDSGESCHICHTE with language-tag ger;
-		rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
-		rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger;
+		// ARCHIVALIENART
+		// DARIN
+		// ENTHAELT
+		rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk
+		
+		rico.hasOrHadIdentifier template identURI with ID_NR;
+		rico.isAssociatedWithDate template dateURI with ID_NR;
 }
 
 /* Erste Mappings
