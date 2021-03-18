@@ -97,7 +97,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Collection> ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Abteilung> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -118,7 +118,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Fonds> ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Fonds> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -139,7 +139,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Fonds> ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Bestand> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -160,7 +160,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Series> ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Serie> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -181,7 +181,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File> ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Dossier> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -202,7 +202,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:constant <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File> ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Dokument> ;
 		];
 	];
 	rr:predicateObjectMap [

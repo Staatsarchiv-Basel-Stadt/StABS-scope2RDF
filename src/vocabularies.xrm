@@ -67,6 +67,18 @@ vocabulary ricrst {
 	    Series
 }
 
+vocabulary stabslevels {
+	prefix "stabs-l" "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#"
+	
+	classes
+		Abteilung
+		Fonds
+		Bestand
+		Serie
+		Dossier
+		Dokument
+}
+
 vocabulary schema {
 	prefix "schema" "http://schema.org/"
 	

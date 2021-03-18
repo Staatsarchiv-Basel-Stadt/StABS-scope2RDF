@@ -47,7 +47,7 @@ map level_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
 		rico.RecordSet
 		
 	properties
-	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Collection";
+	    rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Abteilung";
 	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 }
 
@@ -58,7 +58,7 @@ map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
 		rico.RecordSet
 		
 	properties
-	    rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Fonds";
+	    rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Fonds";
 	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 }
 
@@ -69,7 +69,7 @@ map level_best from WSD_STABS_SCP_ARCHIV_DBA.VE_BEST {
 		rico.RecordSet
 		
 	properties
-		rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Fonds";
+		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Bestand";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 }
 
@@ -80,7 +80,7 @@ map level_series from WSD_STABS_SCP_ARCHIV_DBA.VE_SERIES {
 		rico.RecordSet
 
 	properties
-		rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#Series";
+		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Serie";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 }
 
@@ -91,7 +91,7 @@ map level_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
 		rico.Record
 
 	properties
-		rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File";
+		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Dossier";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 }
 
@@ -102,7 +102,7 @@ map level_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
 		rico.RecordPart
 
 	properties
-		rico.hasRecordSetType constant "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#File";
+		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Dokument";
 		rico.isOrWasConstituentOf template rrURI with PARENT_ID_NR;
 }
 
