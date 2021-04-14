@@ -14,7 +14,7 @@ template rrURI "http://ld.staatsarchiv.bs.ch/record/id/{0}"
 template identURI  "http://ld.staatsarchiv.bs.ch/record/id/{0}/identity"
 template dateURI "http://ld.staatsarchiv.bs.ch/record/id/{0}/daterange"
 
-template inURI "http://ld.staatsarchiv.bs.ch/Instantiation/{0}"
+template instURI "http://ld.staatsarchiv.bs.ch/Instantiation/{0}"
 template agURI "http://ld.staatsarchiv.bs.ch/Agent/{0}"
 template evURI "http://ld.staatsarchiv.bs.ch/Event/{0}"
 template ruURI "http://ld.staatsarchiv.bs.ch/Rule/{0}"

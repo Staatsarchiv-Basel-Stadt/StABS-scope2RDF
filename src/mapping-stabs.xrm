@@ -19,21 +19,24 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
 		rico.isAssociatedWithDate template dateURI with ID_NR;
 }
 
-map in_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
-	subject template inURI with ID_NR;
+map inst_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
+	subject template instURI with ID_NR;
 
-	types
-		rico.Instantiation
-
-	//properties
-		// rico:physicalCharacteristics 
+	properties
+		//rico.physicalCharacteristics 
+		rico.physicalOrLogicalExtent from ANZAHL; // @todo: verwende Klasse rico:Extent
+		rico.productionTechnique from TECHNIK;
 }
 
-/* Erste Mappings
- * -------------
- * * Basic Mapping für alle VE (ev. auf Stufen unterschieden)
- * * Bildmapping
- */
+map inst_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
+	subject template instURI with ID_NR;
+
+	properties
+		//rico.physicalCharacteristics
+		rico.physicalOrLogicalExtent from ANZAHL; // @todo: verwende Klasse rico:Extent
+		rico.productionTechnique from TECHNIK;
+}
+
 
 /* Description Level Classes
  * -------------------------
@@ -60,8 +63,8 @@ map level_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
 		rico.RecordSet
 		
 	properties
-	    rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Abteilung";
-	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Abteilung";
+		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 }
 
 map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
@@ -71,8 +74,8 @@ map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
 		rico.RecordSet
 		
 	properties
-	    rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Fonds";
-	    rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Fonds";
+		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
 }
 
@@ -109,6 +112,7 @@ map level_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
 	properties
 		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Dossier";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		rico.hasInstantiation template instURI with ID_NR;
 		// rico.hasContentOfType template ctURI with ID_NR;// ARCHIVALIENART (3.1.5) @todo: sollte auf eigene Klasse gemappt werden
 }
 
@@ -116,11 +120,12 @@ map level_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
 	subject template rrURI with ID_NR;
 
 	types
-		rico.RecordPart
+		rico.Record // @todo vorher testweise als RecordPart
 
 	properties
 		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Dokument";
-		rico.isOrWasConstituentOf template rrURI with PARENT_ID_NR;
+		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		rico.hasInstantiation template instURI with ID_NR;
 		// rico.hasContentOfType // ARCHIVALIENART (3.1.5) @todo s.o.
 }
 

@@ -69,14 +69,45 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 		];
 	]
 .
-<#in_stabs>
-	rr:logicalTable [ rr:sqlQuery """SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, DARIN, ARCHIVALIENART, ENTHAELT, ZUGANGS_UND_BENUTZUNGSBEDINGUN, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
+<#inst_dossier>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}" ;
-		rr:class rico:Instantiation ;
-	]
+	];
 	
+	rr:predicateObjectMap [
+		rr:predicate rico:physicalOrLogicalExtent ;
+		rr:objectMap [
+			rr:column "ANZAHL" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:productionTechnique ;
+		rr:objectMap [
+			rr:column "TECHNIK" ;
+		];
+	]
+.
+<#inst_dokument>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}" ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:physicalOrLogicalExtent ;
+		rr:objectMap [
+			rr:column "ANZAHL" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:productionTechnique ;
+		rr:objectMap [
+			rr:column "TECHNIK" ;
+		];
+	]
 .
 <#level_archive>
 	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
@@ -193,7 +224,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#level_dossier>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/record/id/{ID_NR}" ;
@@ -211,14 +242,20 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 		rr:objectMap [
 			rr:template "http://ld.staatsarchiv.bs.ch/record/id/{PARENT_ID_NR}" ;
 		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasInstantiation ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}" ;
+		];
 	]
 .
 <#level_dokument>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/record/id/{ID_NR}" ;
-		rr:class rico:RecordPart ;
+		rr:class rico:Record ;
 	];
 	
 	rr:predicateObjectMap [
@@ -228,9 +265,15 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasConstituentOf ;
+		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
 			rr:template "http://ld.staatsarchiv.bs.ch/record/id/{PARENT_ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasInstantiation ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}" ;
 		];
 	]
 .

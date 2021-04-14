@@ -41,6 +41,8 @@ vocabulary rico {
 	    textualValue
 	    isAssociatedWithDate
 	    date
+	    hasExtent
+	    hasInstantiation
 	    hasOrHadHolder
 	    isCorporateBodyTypeOf
 	    isOrWasConstituentOf
@@ -52,6 +54,9 @@ vocabulary rico {
 	    identifier
 	    measure
 	    name
+	    physicalCharacteristics
+	    physicalOrLogicalExtent
+	    productionTechnique
 	    scopeAndContent
 	    ^type
 }
