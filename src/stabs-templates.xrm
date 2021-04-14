@@ -6,7 +6,7 @@
  * idURI ist eine Möglichkeit zur radikalen Vereinfachung (@todo, prüfen)
  */
 
-/* Subject URI basierend nur auf ID, aktuell nicht in Gerauch */
+/* Subject URI basierend nur auf ID, aktuell nicht in Gebrauch */
 template idURI "http://ld.staatsarchiv.bs.ch/id/{0}"
 
 /* Subject URIs für Record Resources (Verzeichnungseinheiten) */
