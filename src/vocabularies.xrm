@@ -39,6 +39,7 @@ vocabulary rico {
 	    conditionsOfUse
 	    hasOrHadIdentifier
 	    hasIdentifierType
+	    hasProvenance
 	    textualValue
 	    isAssociatedWithDate
 	    date

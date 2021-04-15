@@ -77,6 +77,7 @@ map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
 	properties
 		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Fonds";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
 		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
 }
 
@@ -89,6 +90,7 @@ map level_best from WSD_STABS_SCP_ARCHIV_DBA.VE_BEST {
 	properties
 		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Bestand";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
 		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
 }
 
