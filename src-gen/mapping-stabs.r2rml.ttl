@@ -2,7 +2,7 @@ PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 
 <#rr_stabs>
-	rr:logicalTable [ rr:sqlQuery """SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, DARIN, ARCHIVALIENART, ENTHAELT, ZUGANGS_UND_BENUTZUNGSBEDINGUN, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, DARIN, ARCHIVALIENART, ENTHAELT, ZUGANGS_UND_BENUTZUNGSBEDINGUN, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE, ZUGAENGLICHKEIT_NM FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
@@ -53,6 +53,13 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 		rr:predicate rico:conditionsOfAccess ;
 		rr:objectMap [
 			rr:column "ZUGANGSBESTIMMUNGEN" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:conditionsOfUse ;
+		rr:objectMap [
+			rr:column "ZUGAENGLICHKEIT_NM" ;
 			rr:language "ger" ;
 		];
 	];
