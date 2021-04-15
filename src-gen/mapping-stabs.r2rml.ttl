@@ -5,7 +5,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:logicalTable [ rr:sqlQuery """SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, DARIN, ARCHIVALIENART, ENTHAELT, ZUGANGS_UND_BENUTZUNGSBEDINGUN, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/id/{ID_NR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordResource ;
 	];
 	
@@ -59,13 +59,13 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasOrHadIdentifier ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/record/id/{ID_NR}/identity" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/identity" ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate rico:isAssociatedWithDate ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/record/id/{ID_NR}/daterange" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/daterange" ;
 		];
 	]
 .
@@ -113,7 +113,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/record/id/{ID_NR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordSet ;
 	];
 	
@@ -143,7 +143,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/record/id/{ID_NR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordSet ;
 	];
 	
@@ -156,7 +156,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/record/id/{PARENT_ID_NR}" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
 	]
 .
@@ -164,7 +164,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/record/id/{ID_NR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordSet ;
 	];
 	
@@ -177,7 +177,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/record/id/{PARENT_ID_NR}" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
 	]
 .
@@ -185,7 +185,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Bestand'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/record/id/{ID_NR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordSet ;
 	];
 	
@@ -198,7 +198,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/record/id/{PARENT_ID_NR}" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
 	]
 .
@@ -206,7 +206,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Serie'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/record/id/{ID_NR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordSet ;
 	];
 	
@@ -219,7 +219,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/record/id/{PARENT_ID_NR}" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
 	]
 .
@@ -227,7 +227,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/record/id/{ID_NR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:Record ;
 	];
 	
@@ -240,7 +240,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/record/id/{PARENT_ID_NR}" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -254,7 +254,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/record/id/{ID_NR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:Record ;
 	];
 	
@@ -267,7 +267,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/record/id/{PARENT_ID_NR}" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -281,14 +281,14 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VE_DSKRP_BZHNG_1" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/record/id/{ID_NR_VRZNG_ENHT}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_VRZNG_ENHT}" ;
 		rr:class rico:RecordResource ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:hasOrHadSubject ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/id/{ID_NR_DSKRP}" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Thing/{ID_NR_DSKRP}" ;
 		];
 	]
 .

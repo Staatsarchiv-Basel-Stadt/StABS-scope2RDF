@@ -6,13 +6,13 @@
  * idURI ist eine Möglichkeit zur radikalen Vereinfachung (@todo, prüfen)
  */
 
-/* Subject URI basierend nur auf ID, aktuell nicht in Gebrauch */
-template idURI "http://ld.staatsarchiv.bs.ch/id/{0}"
+/* Thing URI basierend nur auf ID, Fallback für nicht näher definierte Instanzen (aktuell "Deskriptoren" */
+template thURI "http://ld.staatsarchiv.bs.ch/Thing/{0}"
 
 /* Subject URIs für Record Resources (Verzeichnungseinheiten) */
-template rrURI "http://ld.staatsarchiv.bs.ch/record/id/{0}"
-template identURI  "http://ld.staatsarchiv.bs.ch/record/id/{0}/identity"
-template dateURI "http://ld.staatsarchiv.bs.ch/record/id/{0}/daterange"
+template rrURI "http://ld.staatsarchiv.bs.ch/Record/{0}"
+template identURI "http://ld.staatsarchiv.bs.ch/Record/{0}/identity"
+template dateURI "http://ld.staatsarchiv.bs.ch/Record/{0}/daterange"
 
 template instURI "http://ld.staatsarchiv.bs.ch/Instantiation/{0}"
 template agURI "http://ld.staatsarchiv.bs.ch/Agent/{0}"

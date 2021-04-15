@@ -1,7 +1,7 @@
 output r2rml
 
 map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
-	subject template idURI with ID_NR;
+	subject template rrURI with ID_NR;
 
 	types
 		rico.RecordResource
@@ -142,5 +142,5 @@ map rr2subject from WSD_STABS_SCP_ARCHIV_DBA.VE_DESC_LINK {
 		rico.RecordResource
 
 	properties
-		rico.hasOrHadSubject template idURI with ID_NR_DSKRP;
+		rico.hasOrHadSubject template thURI with ID_NR_DSKRP;
 }
