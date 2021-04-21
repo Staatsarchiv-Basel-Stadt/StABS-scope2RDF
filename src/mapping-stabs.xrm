@@ -7,7 +7,7 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
 		rico.RecordResource
 
 	properties
-		rico.name from TITEL;
+		rico.title from TITEL;
 		rico.identifier from SIGNATUR with language-tag zxx;
 		rico.date from ENTSTEHUNGSZEITRAUM;
 		rico.scopeAndContent from DARIN with language-tag ger; // Hervorzuhebende Inhalte von 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
@@ -50,9 +50,9 @@ map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIV {
 
 	types
 		rico.RecordSet
-	    
-	 properties
-		rico.name from TITEL with language-tag ger;
+
+	properties
+		rico.title from TITEL with language-tag ger;
 		rico.identifier from SIGNATUR with language-tag zxx;
 		rico.history from ARCHIVGESCHICHTE with language-tag ger; // use rico.Event class later
 }

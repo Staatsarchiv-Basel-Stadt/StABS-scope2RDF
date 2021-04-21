@@ -10,7 +10,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:name ;
+		rr:predicate rico:title ;
 		rr:objectMap [
 			rr:column "TITEL" ;
 		];
@@ -125,7 +125,7 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:name ;
+		rr:predicate rico:title ;
 		rr:objectMap [
 			rr:column "TITEL" ;
 			rr:language "ger" ;
