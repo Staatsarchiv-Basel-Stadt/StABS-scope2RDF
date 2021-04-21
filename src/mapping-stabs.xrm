@@ -137,6 +137,17 @@ map level_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
  * @todo: Subjects erstellen
  * @todo: funktioniert so nicht, da unklar, ob es sich beim Objekt um einen Agent oder Place handelt
  */
+map desc_agent from WSD_STABS_SCP_ARCHIV_DBA.DESC_AGENT {
+	subject template agURI with ID_NR;
+
+	types
+		rico.Agent // @todo: unpräzise, keine Unterscheidung zwischen peron, group, corp. body, family
+
+	properties
+		rico.name from BEZEICHNUNG with language-tag ger;
+		rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
+		// Lebensdaten (rico:hasDeathDate / rico:hasBirthDate haben Domain rico:Person!)
+}
 
 map rr2subject from WSD_STABS_SCP_ARCHIV_DBA.VE_DESC_LINK {
 	subject template rrURI with ID_NR_VRZNG_ENHT;

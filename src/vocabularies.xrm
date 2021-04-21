@@ -37,6 +37,7 @@ vocabulary rico {
 	properties
 		conditionsOfAccess
 		conditionsOfUse
+		descriptiveNote
 		hasOrHadIdentifier
 		hasIdentifierType
 		hasProvenance

@@ -298,6 +298,29 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 		];
 	]
 .
+<#desc_agent>
+	rr:logicalTable [ rr:sqlQuery """SELECT BEZEICHNUNG, QUELLE, BESCHREIBUNG, ID_NR, GEBURTSDATUM, TODESDATUM FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Personenbegriffe'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Agent/{ID_NR}" ;
+		rr:class rico:Agent ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:name ;
+		rr:objectMap [
+			rr:column "BEZEICHNUNG" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote ;
+		rr:objectMap [
+			rr:column "BESCHREIBUNG" ;
+			rr:language "ger" ;
+		];
+	]
+.
 <#rr2subject>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VE_DSKRP_BZHNG_1" ];
 	
