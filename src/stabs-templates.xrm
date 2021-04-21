@@ -1,13 +1,13 @@
 /* Base URI templates for RiC-O
  * ============================
  * Subject URIS grundsätzlich gebildet anhand der sieben second level 
- * entities von RiC O/CM 
+ * entities von RiC-CM (RiC-O umfasst aber 12 second level!) 
  * (@todo: klären, ob alle Entities verwendet werden sollen)
- * idURI ist eine Möglichkeit zur radikalen Vereinfachung (@todo, prüfen)
+ * thURI ist eine Möglichkeit zur radikalen Vereinfachung (@todo, prüfen)
  */
 
 /* Thing URI basierend nur auf ID, Fallback für nicht näher definierte Instanzen (aktuell "Deskriptoren" */
-template thURI "http://ld.staatsarchiv.bs.ch/Thing/{0}"
+template thURI "http://ld.staatsarchiv.bs.ch/Thing/{0}" // oder ohne '/Thing/'
 
 /* Subject URIs für Record Resources (Verzeichnungseinheiten) */
 template rrURI "http://ld.staatsarchiv.bs.ch/Record/{0}"
@@ -20,3 +20,19 @@ template evURI "http://ld.staatsarchiv.bs.ch/Event/{0}"
 template ruURI "http://ld.staatsarchiv.bs.ch/Rule/{0}"
 template plURI "http://ld.staatsarchiv.bs.ch/Place/{0}"
 template daURI "http://ld.staatsarchiv.bs.ch/Date/{0}"
+
+/* 12 Subklassen von rico:Thing
+ * ----------------------------
+ * rico:Agent
+ * rico:Concept
+ * rico:Coordinates
+ * rico:Date
+ * rico:Event
+ * rico:Extent
+ * rico:Instantiation
+ * rico:PhysicalLocation
+ * rico:Place
+ * rico:RecordResource
+ * rico:Relation
+ * rico:Rule 
+ */
