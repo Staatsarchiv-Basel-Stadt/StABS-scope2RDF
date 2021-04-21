@@ -19,66 +19,67 @@ vocabulary rico {
 	prefix "rico" "https://www.ica.org/standards/RiC/ontology#"
 	
 	classes
-	    Agent
-	    AgentName
-	    CorporateBody
-	    DateRange
-	    Group
-	    Identifier
-	    IdentifierType
-	    Name
-	    RecordResource
-	    RecordSet
-	    Record
-	    RecordPart
-	    RecordSetType
-	    Instantiation
-	    
+		Agent
+		AgentName
+		CorporateBody
+		DateRange
+		Group
+		Identifier
+		IdentifierType
+		Name
+		RecordResource
+		RecordSet
+		Record
+		RecordPart
+		RecordSetType
+		Instantiation
+		
 	properties
-	    conditionsOfAccess
-	    conditionsOfUse
-	    hasOrHadIdentifier
-	    hasIdentifierType
-	    hasProvenance
-	    textualValue
-	    isAssociatedWithDate
-	    date
-	    hasExtent
-	    hasInstantiation
-	    hasOrHadHolder
-	    isCorporateBodyTypeOf
-	    isOrWasConstituentOf
-	    isOrWasIncludedIn
-	    hasAgentName
-	    hasOrHadSubject
-	    hasRecordSetType
-	    history
-	    identifier
-	    measure
-	    name
-	    physicalCharacteristics
-	    physicalOrLogicalExtent
-	    productionTechnique
-	    scopeAndContent
-	    ^type
+		conditionsOfAccess
+		conditionsOfUse
+		hasOrHadIdentifier
+		hasIdentifierType
+		hasProvenance
+		textualValue
+		isAssociatedWithDate
+		date
+		hasExtent
+		hasInstantiation
+		hasOrHadHolder
+		isCorporateBodyTypeOf
+		isOrWasConstituentOf
+		isOrWasIncludedIn
+		hasAgentName
+		hasOrHadSubject
+		hasRecordSetType
+		history
+		identifier
+		measure
+		name
+		physicalCharacteristics
+		physicalOrLogicalExtent
+		productionTechnique
+		scopeAndContent
+		title
+		^type
 }
 
 vocabulary ricdft {
 	prefix "ric-dft" "https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#"
 	
 	classes
-	    AuthorityRecord
-	    FindingAid
+		AuthorityRecord
+		FindingAid
 }
 
 vocabulary ricrst {
 	prefix "ric-rst" "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#"
 	
 	classes
-	    Collection
-	    File
-	    Fonds
-	    Series
+		Collection
+		File
+		Fonds
+		Series
 }
 
 vocabulary stabslevels {
