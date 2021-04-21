@@ -132,29 +132,37 @@ map level_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
 		// rico.hasContentOfType // ARCHIVALIENART (3.1.5) @todo s.o.
 }
 
-/* Subject links (to nowhere)
+/* Descriptors (scope Concept)
  * --------------------------
- * @todo: Subjects erstellen
- * @todo: funktioniert so nicht, da unklar, ob es sich beim Objekt um einen Agent oder Place handelt
+ * * Erstelle Auth-Records
+ * * Erstelle Agent-/ und Place-Subjects (optional)
+ * * Verbinde mit RiC-R020
  */
-map desc_agent from WSD_STABS_SCP_ARCHIV_DBA.DESC_AGENT {
-	subject template agURI with ID_NR;
+map desc_agent from WSD_STABS_SCP_ARCHIV_DBA.DESC {
+	subject template rrURI with ID_NR;
 
 	types
-		rico.Agent // @todo: unpräzise, keine Unterscheidung zwischen peron, group, corp. body, family
+		rico.Record
 
 	properties
-		rico.name from BEZEICHNUNG with language-tag ger;
+		rico.title from BEZEICHNUNG with language-tag ger;
 		rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
-		// Lebensdaten (rico:hasDeathDate / rico:hasBirthDate haben Domain rico:Person!)
+		rico.hasDocumentaryFormType constant "https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#AuthorityRecord";
+		rico.describesOrDescribed template agURI with BEZEICHNUNG;
+		// QUELLE
+		// THESAURUS (für spätere Verwendung?)
+		// Lebensdaten (rico:hasDeathDate / rico:hasBirthDate haben Domain rico:Person!) @erstelle Person-Records
 }
 
-map rr2subject from WSD_STABS_SCP_ARCHIV_DBA.VE_DESC_LINK {
+map rr2authrec from WSD_STABS_SCP_ARCHIV_DBA.VE_DESC_LINK {
 	subject template rrURI with ID_NR_VRZNG_ENHT;
 
 	types
 		rico.RecordResource
 
 	properties
-		rico.hasOrHadSubject template thURI with ID_NR_DSKRP;
+		rico.hasOrHadMainSubject template rrURI with ID_NR_DSKRP;
+		// ROLLE
+		// ZEITRAUM
+		// NOTIZ
 }

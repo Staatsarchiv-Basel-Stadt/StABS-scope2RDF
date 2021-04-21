@@ -38,12 +38,15 @@ vocabulary rico {
 		conditionsOfAccess
 		conditionsOfUse
 		descriptiveNote
+		describesOrDescribed
 		hasOrHadIdentifier
+		hasOrHadMainSubject
 		hasIdentifierType
 		hasProvenance
 		textualValue
 		isAssociatedWithDate
 		date
+		hasDocumentaryFormType
 		hasExtent
 		hasInstantiation
 		hasOrHadHolder

@@ -101,27 +101,18 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
  * * nur Felder mit Inhalten werden selektiert und referenziert
  */
 
-	logical-source DESC_AGENT {
-		source query "SELECT BEZEICHNUNG, QUELLE, BESCHREIBUNG, ID_NR, GEBURTSDATUM, TODESDATUM FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Personenbegriffe'" 
+	logical-source DESC {
+		source query "SELECT * FROM MVK_OGD_DSKRP_1" 
 
 		referenceables
-			BEZEICHNUNG
-			QUELLE
 			BESCHREIBUNG
-			ID_NR
+			BEZEICHNUNG
 			GEBURTSDATUM
+			ID_NR
+			QUELLE
+			THESAURUS
 			TODESDATUM
 	}
-	
-	logical-source DESC_PLACE {
-		source query "SELECT BEZEICHNUNG, QUELLE, BESCHREIBUNG, ID_NR FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Ortsbegriffe'" 
-
-		referenceables
-			BEZEICHNUNG
-			QUELLE
-			BESCHREIBUNG
-			ID_NR
-	}	
 	
 	logical-source Ablieferungen {
 		source "MVK_OGD_ABLFR_1"

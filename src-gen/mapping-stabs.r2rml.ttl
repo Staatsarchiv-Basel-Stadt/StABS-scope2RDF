@@ -299,15 +299,15 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	]
 .
 <#desc_agent>
-	rr:logicalTable [ rr:sqlQuery """SELECT BEZEICHNUNG, QUELLE, BESCHREIBUNG, ID_NR, GEBURTSDATUM, TODESDATUM FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Personenbegriffe'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_DSKRP_1""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Agent/{ID_NR}" ;
-		rr:class rico:Agent ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:class rico:Record ;
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:name ;
+		rr:predicate rico:title ;
 		rr:objectMap [
 			rr:column "BEZEICHNUNG" ;
 			rr:language "ger" ;
@@ -319,9 +319,21 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 			rr:column "BESCHREIBUNG" ;
 			rr:language "ger" ;
 		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasDocumentaryFormType ;
+		rr:objectMap [
+			rr:constant <https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#AuthorityRecord> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:describesOrDescribed ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Agent/{BEZEICHNUNG}" ;
+		];
 	]
 .
-<#rr2subject>
+<#rr2authrec>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VE_DSKRP_BZHNG_1" ];
 	
 	rr:subjectMap [
@@ -330,9 +342,9 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:hasOrHadSubject ;
+		rr:predicate rico:hasOrHadMainSubject ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Thing/{ID_NR_DSKRP}" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_DSKRP}" ;
 		];
 	]
 .
