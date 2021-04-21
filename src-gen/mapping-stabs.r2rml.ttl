@@ -325,12 +325,6 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 		rr:objectMap [
 			rr:constant <https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#AuthorityRecord> ;
 		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:describesOrDescribed ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Agent/{BEZEICHNUNG}" ;
-		];
 	]
 .
 <#rr2authrec>

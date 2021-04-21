@@ -160,9 +160,6 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 		referenceables
 			ID_NR_DSKRP
 			ID_NR_VRZNG_ENHT
-			ROLLE
-			ZEITRAUM
-			NOTIZ
 	}
 	
 	logical-source Verzeichnungseinheiten_Ablieferungen_Verknuepfungen {
