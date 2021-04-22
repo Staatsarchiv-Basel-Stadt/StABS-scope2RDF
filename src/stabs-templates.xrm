@@ -36,3 +36,5 @@ template daURI "http://ld.staatsarchiv.bs.ch/Date/{0}"
  * rico:Relation
  * rico:Rule 
  */
+ 
+template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}" 

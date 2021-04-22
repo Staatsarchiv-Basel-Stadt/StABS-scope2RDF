@@ -18,6 +18,9 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
 
 		rico.hasOrHadIdentifier template identURI with ID_NR;
 		rico.isAssociatedWithDate template dateURI with ID_NR;
+
+		schema.url template queryURL with ID_NR;
+		dct.isReferencedBy template queryURL with ID_NR;
 }
 
 map inst_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
