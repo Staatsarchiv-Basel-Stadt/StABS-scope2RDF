@@ -398,3 +398,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
+<#abl2ve>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VE_ABLFR_BZHNG_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_VRZNG_ENHT}" ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:resultsOrResultedFrom ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Event/{ID_NR_ABLFR}" ;
+		];
+	]
+.

@@ -73,6 +73,7 @@ vocabulary rico {
 		physicalCharacteristics
 		physicalOrLogicalExtent
 		productionTechnique
+		resultsOrResultedFrom
 		scopeAndContent
 		title
 		^type

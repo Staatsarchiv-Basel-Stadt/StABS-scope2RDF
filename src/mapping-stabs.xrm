@@ -185,3 +185,14 @@ map abl from WSD_STABS_SCP_ARCHIV_DBA.ABL {
 		rico.date from ZEITRAUM_PERIODE; // @todo: falsch, da nicht Zeitraum der Aktivität, sondern des Bestands
 		// rico.isAssociatedWithDate from ZEITRAUM_PERIODE;
 }
+
+map abl2ve from WSD_STABS_SCP_ARCHIV_DBA.VE_ABL_LINK {
+	subject template rrURI with ID_NR_VRZNG_ENHT;
+
+	properties
+		rico.resultsOrResultedFrom template evURI with ID_NR_ABLFR;
+}
+
+
+
+
