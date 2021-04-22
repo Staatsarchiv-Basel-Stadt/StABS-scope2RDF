@@ -362,14 +362,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:identifier ;
 		rr:objectMap [
 			rr:column "ID_NR" ;
-			rr:datatype xsd:integer ;
+			rr:datatype xsd:string ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate rico:type ;
 		rr:objectMap [
 			rr:template "{TYP} - {SUBTYP}" ;
-			rr:termType rr:Literal ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -379,7 +378,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate rico:isAssociatedWithDate ;
+		rr:predicate rico:date ;
 		rr:objectMap [
 			rr:column "ZEITRAUM_PERIODE" ;
 		];
