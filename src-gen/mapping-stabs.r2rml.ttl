@@ -383,6 +383,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:type ;
 		rr:objectMap [
 			rr:template "{TYP} - {SUBTYP}" ;
+			rr:termType rr:Literal ;
 		];
 	];
 	rr:predicateObjectMap [
