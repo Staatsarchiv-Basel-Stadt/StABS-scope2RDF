@@ -342,3 +342,44 @@ PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 		];
 	]
 .
+<#abl>
+	rr:logicalTable [ rr:tableName "MVK_OGD_ABLFR_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Event/{ID_NR}" ;
+		rr:class rico:Activity ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:name ;
+		rr:objectMap [
+			rr:template "Ablieferung Nr. {JAHR_LAUF_NR}" ;
+			rr:termType rr:Literal ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:identifier ;
+		rr:objectMap [
+			rr:column "ID_NR" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:type ;
+		rr:objectMap [
+			rr:template "{TYP} / {SUBTYP}" ;
+			rr:termType rr:Literal ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:agentOrActivityIsTargetOfProvenanceRelation ;
+		rr:objectMap [
+			rr:column "AKTENBILDENDE_STELLE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:isAssociatedWithDate ;
+		rr:objectMap [
+			rr:column "ZEITRAUM_PERIODE" ;
+		];
+	]
+.

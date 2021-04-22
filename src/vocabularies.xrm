@@ -19,6 +19,7 @@ vocabulary rico {
 	prefix "rico" "https://www.ica.org/standards/RiC/ontology#"
 	
 	classes
+		Activity
 		Agent
 		AgentName
 		CorporateBody
@@ -35,10 +36,12 @@ vocabulary rico {
 		Instantiation
 		
 	properties
+		agentOrActivityIsTargetOfProvenanceRelation
 		conditionsOfAccess
 		conditionsOfUse
 		descriptiveNote
 		describesOrDescribed
+		hasActivityType
 		hasOrHadIdentifier
 		hasOrHadMainSubject
 		hasIdentifierType

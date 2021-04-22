@@ -114,7 +114,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			TODESDATUM
 	}
 	
-	logical-source Ablieferungen {
+	logical-source ABL {
 		source "MVK_OGD_ABLFR_1"
 		
 		referenceables
