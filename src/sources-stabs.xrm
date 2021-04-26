@@ -128,7 +128,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			ID_NAME
 	}
 	
-	logical-source Partner {
+	logical-source PRTNR {
 		source "MVK_OGD_PRTNR_1"
 		
 		referenceables
@@ -181,7 +181,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			NOTIZ	
 	}
 	
-	logical-source Verzeichnungeinheiten_Partner_Verknuepfungen {
+	logical-source VE_PRTNR_LINK {
 		source "MVK_OGD_VE_PRTNR_BZHNG_1"
 	
 		referenceables

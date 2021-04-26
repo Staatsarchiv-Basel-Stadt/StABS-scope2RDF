@@ -193,6 +193,30 @@ map abl2ve from WSD_STABS_SCP_ARCHIV_DBA.VE_ABL_LINK {
 		rico.resultsOrResultedFrom template evURI with ID_NR_ABLFR;
 }
 
+/* Partner
+ * -------
+ * rico:Agent
+ *
+ * Nur neun Einträge im Partnermodul typisiert und vollständig erfasst (Typ, Rechtsform, Namensformen)
+ * Deshalb nur ID_NAME verwendbar
+ */
 
+map partner from WSD_STABS_SCP_ARCHIV_DBA.PRTNR {
+	subject template agURI with ID_NR;
+
+	types
+		rico.Agent
+
+	properties
+		//rico.hasOrHadAgentName template agName with ID_NAME;
+		rico.name from ID_NAME;
+}
+
+map prtnr2ve from WSD_STABS_SCP_ARCHIV_DBA.VE_PRTNR_LINK {
+	subject template agURI with ID_NR_PRTNR;
+
+	properties
+	rico.isAccumulatorOf template rrURI with ID_NR_VRZNG_ENHT;
+}
 
 

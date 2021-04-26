@@ -413,3 +413,32 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
+<#partner>
+	rr:logicalTable [ rr:tableName "MVK_OGD_PRTNR_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Agent/{ID_NR}" ;
+		rr:class rico:Agent ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:name ;
+		rr:objectMap [
+			rr:column "ID_NAME" ;
+		];
+	]
+.
+<#prtnr2ve>
+	rr:logicalTable [ rr:tableName "MVK_OGD_VE_PRTNR_BZHNG_1" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Agent/{ID_NR_PRTNR}" ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isAccumulatorOf ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_VRZNG_ENHT}" ;
+		];
+	]
+.
