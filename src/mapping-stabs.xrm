@@ -16,7 +16,7 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
 		rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk
 		rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen
 
-		rico.hasOrHadIdentifier template identURI with ID_NR;
+		rico.hasOrHadIdentifier template _ident with ID_NR as BlankNode;
 		rico.isAssociatedWithDate template dateURI with ID_NR;
 
 		schema.url template queryURL with ID_NR;
@@ -41,6 +41,17 @@ map inst_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
 		rico.productionTechnique from TECHNIK;
 }
 
+map ident_01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_PREV_SIG {
+	subject template _ident with ID_NR as BlankNode;
+
+	types
+		rico.Identifier
+
+	properties
+		rico.hasIdentifierType constant "Frühere Signatur im Staatsarchiv";
+		rico.name from FRUEHERE_STABS_SIGNATUR;
+		rico.descriptiveNote constant "Signaturen, die früher im Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
+}
 
 /* Description Level Classes
  * -------------------------

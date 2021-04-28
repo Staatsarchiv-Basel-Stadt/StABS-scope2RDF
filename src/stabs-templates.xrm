@@ -21,6 +21,10 @@ template ruURI "http://ld.staatsarchiv.bs.ch/Rule/{0}"
 template plURI "http://ld.staatsarchiv.bs.ch/Place/{0}"
 template daURI "http://ld.staatsarchiv.bs.ch/Date/{0}"
 
+/* Templates for blank nodes */
+
+template _ident "_ident{0}"
+
 /* 12 Subklassen von rico:Thing
  * ----------------------------
  * rico:Agent

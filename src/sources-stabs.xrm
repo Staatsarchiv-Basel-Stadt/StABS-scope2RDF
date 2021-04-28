@@ -24,6 +24,18 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 		ZUGAENGLICHKEIT_NM
 	}
 
+/* Select Identifiers
+ * * Signaturen
+ * * weitere IDs
+ */
+
+	logical-source VE_STABS_PREV_SIG {
+		source query "SELECT ID_NR, FRUEHERE_STABS_SIGNATUR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'"
+		
+		referenceables
+			ID_NR
+			FRUEHERE_STABS_SIGNATUR
+	}
 /* Select Stufen StABS
  * -------------------
  * * only main relation IDs
