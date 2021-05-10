@@ -1,9 +1,9 @@
 vocabulary admin {
 	prefix "admin" "http://schema.ld.admin.ch/"
-	
+
 	classes
 		Isil
-	
+
 	properties
 		about
 		administrativeHistory
@@ -16,15 +16,16 @@ vocabulary admin {
 
 vocabulary dct {
 	prefix "dcterms" "http://purl.org/dc/terms/"
-	
+
 	classes
+
 	properties
 		isReferencedBy
 }
 
 vocabulary rico {
 	prefix "rico" "https://www.ica.org/standards/RiC/ontology#"
-	
+
 	classes
 		AccumulationRelation
 		Activity
@@ -132,7 +133,7 @@ vocabulary rico {
 		UnitOfMeasurement
 		WholePartRelation
 		WorkRelation
-		
+
 	properties
 		accrual
 		accrualStatus
@@ -638,7 +639,7 @@ vocabulary rico {
 
 vocabulary ricdft {
 	prefix "ric-dft" "https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#"
-	
+
 	classes
 		AuthorityRecord
 		FindingAid
@@ -646,7 +647,7 @@ vocabulary ricdft {
 
 vocabulary ricrst {
 	prefix "ric-rst" "https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#"
-	
+
 	classes
 		Collection
 		File
@@ -656,7 +657,7 @@ vocabulary ricrst {
 
 vocabulary stabslevels {
 	prefix "stabs-l" "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#"
-	
+
 	classes
 		Abteilung
 		Fonds
@@ -668,7 +669,7 @@ vocabulary stabslevels {
 
 vocabulary schema {
 	prefix "schema" "http://schema.org/"
-	
+
 	classes
 		ArchiveOrganization
 		Organization
@@ -689,7 +690,7 @@ vocabulary schema {
 
 vocabulary skos {
 	prefix "skos" "http://www.w3.org/2004/02/skos/core#"
-	
+
 	classes
 		Concept
 		ConceptScheme
@@ -714,7 +715,6 @@ vocabulary skos {
 }
 
 // === Codes and Datatypes ===
-
 /* Language Codes
  * ==============
  * small subset of ISO 639-2/5 
@@ -749,3 +749,4 @@ vocabulary xsd {
 		integer
 		string
 }
+
