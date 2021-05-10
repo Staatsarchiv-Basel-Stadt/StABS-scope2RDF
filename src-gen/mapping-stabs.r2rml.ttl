@@ -132,6 +132,35 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
+<#ident_01>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, FRUEHERE_STABS_SIGNATUR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
+	
+	rr:subjectMap [
+		rr:template "_ident{ID_NR}" ;
+		rr:class rico:Identifier ;
+		rr:termType rr:BlankNode ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasIdentifierType ;
+		rr:objectMap [
+			rr:constant "Signatur" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:name ;
+		rr:objectMap [
+			rr:column "SIGNATUR" ;
+			rr:language "zxx" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote ;
+		rr:objectMap [
+			rr:constant "Die Signatur dient als primäres Merkmal zur Identifizierung des Archivguts." ;
+		];
+	]
+.
 <#ident_02>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, FRUEHERE_STABS_SIGNATUR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
@@ -151,6 +180,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:name ;
 		rr:objectMap [
 			rr:column "FRUEHERE_STABS_SIGNATUR" ;
+			rr:language "zxx" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -161,7 +191,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#ident_03>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, FRUEHERE_STABS_SIGNATUR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
 	rr:subjectMap [
 		rr:template "_ident{ID_NR}" ;
@@ -172,13 +202,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType ;
 		rr:objectMap [
-			rr:constant "Alte Signature" ;
+			rr:constant "Alte Signatur" ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate rico:name ;
 		rr:objectMap [
 			rr:column "ALTE_SIGNATUREN" ;
+			rr:language "zxx" ;
 		];
 	];
 	rr:predicateObjectMap [
