@@ -11,13 +11,23 @@ template thURI "http://ld.staatsarchiv.bs.ch/Thing/{0}" // oder ohne '/Thing/'
 
 /* Subject URIs für Record Resources (Verzeichnungseinheiten) */
 template rrURI "http://ld.staatsarchiv.bs.ch/Record/{0}"
-template identURI "http://ld.staatsarchiv.bs.ch/Record/{0}/identity"
+template idURI "http://ld.staatsarchiv.bs.ch/Record/{0}/Identifier"
+template idrefcodeURI "http://ld.staatsarchiv.bs.ch/Record/{0}/reference-code"
 template dateURI "http://ld.staatsarchiv.bs.ch/Record/{0}/daterange"
 
-template instURI "http://ld.staatsarchiv.bs.ch/Instantiation/{0}"
+template instURI "http://ld.staatsarchiv.bs.ch/Instantiation/{0}-i"
 template agURI "http://ld.staatsarchiv.bs.ch/Agent/{0}"
 template evURI "http://ld.staatsarchiv.bs.ch/Event/{0}"
+
+/* Extent URI Templates */
 template exURI "http://ld.staatsarchiv.bs.ch/Extent/{0}"
+template exlmURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/linear-meters"
+template exnumURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/number-of-units"
+template exnumfileURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/number-of-files"
+template exapproxURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/extent-approximative"
+template excommentURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/extent-comment"
+template exdvURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/volume-of-data"
+
 template ruURI "http://ld.staatsarchiv.bs.ch/Rule/{0}"
 template plURI "http://ld.staatsarchiv.bs.ch/Place/{0}"
 template daURI "http://ld.staatsarchiv.bs.ch/Date/{0}"
@@ -25,6 +35,7 @@ template daURI "http://ld.staatsarchiv.bs.ch/Date/{0}"
 /* Templates for blank nodes */
 
 template _ident "_ident{0}"
+template _extent "_extent{0}" // nicht mehr in Gebrauch
 
 /* 12 Subklassen von rico:Thing
  * ----------------------------
@@ -42,4 +53,5 @@ template _ident "_ident{0}"
  * rico:Rule 
  */
  
-template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}" 
+template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
+
