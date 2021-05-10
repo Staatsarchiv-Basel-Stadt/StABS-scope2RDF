@@ -13,20 +13,23 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
 		rico.scopeAndContent from DARIN with language-tag ger; // Hervorzuhebende Inhalte von 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
 		rico.scopeAndContent from ENTHAELT with language-tag ger; // Hauptgegenstand von isadg 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
 		rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
-		rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk
-		rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen
-
+		rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
+		rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
 		rico.hasOrHadIdentifier template _ident with ID_NR as BlankNode;
 		rico.isAssociatedWithDate template dateURI with ID_NR;
 
 		dct.isReferencedBy template queryURL with ID_NR;
 }
 
+/* Instantiation Maps
+ * ------------------
+ */
+
 map inst_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
 	subject template instURI with ID_NR;
 
 	properties
-		//rico.physicalCharacteristics 
+		// rico.physicalCharacteristics 
 		rico.physicalOrLogicalExtent from ANZAHL; // @todo: verwende Klasse rico:Extent
 		rico.productionTechnique from TECHNIK;
 }
@@ -35,13 +38,18 @@ map inst_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
 	subject template instURI with ID_NR;
 
 	properties
-		//rico.physicalCharacteristics
+		// rico.physicalCharacteristics
 		rico.physicalOrLogicalExtent from ANZAHL; // @todo: verwende Klasse rico:Extent
 		rico.productionTechnique from TECHNIK;
 }
 
+/* Identity Maps
+ * -------------
+ * * Signatur als eigene named instance
+ * * übrige als blank nodes (@todo: sollte geändert werden)
+ */
 map ident_01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
-	subject template _ident with ID_NR as BlankNode;
+	subject template idrefcodeURI with ID_NR;
 
 	types
 		rico.Identifier
@@ -66,16 +74,67 @@ map ident_02 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
 
 map ident_03 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
 	subject template _ident with ID_NR as BlankNode;
-	
+
 	types
 		rico.Identifier
-	
+
 	properties
 		rico.hasIdentifierType constant "Alte Signatur";
 		rico.name from ALTE_SIGNATUREN with language-tag zxx;
 		rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
 		
 }
+
+/* Extent Maps
+ * -----------
+ * DE: LAUFMETER, ANZAHL, ANZAHL_DATEIEN, UMFANG_GESCHAETZT, KOMMENTAR_ZUM_UMFANG, DATENVOLUMEN_MB
+ */
+
+/* Abteilung: nur wenige mit DE:UMFANG_GESCHAETZT */
+map extent_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
+	subject template exapproxURI with ID_NR;
+
+	types
+		rico.RecordResourceExtent
+
+	properties
+		rico.isExtentOf template rrURI with ID_NR;
+		rico.hasExtentType constant "Umfang approximativ";
+		rico.textualValue from UMFANG_GESCHAETZT;
+		rico.descriptiveNote constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen.";
+}
+
+/* Fonds: Nur wenige mit DE:LAUFMETER und DE:ANZAHL */
+map extent_fonds_lm from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
+	subject template exlmURI with ID_NR;
+
+	types
+		rico.RecordResourceExtent
+
+	properties
+		rico.isExtentOf template rrURI with ID_NR;
+		rico.hasExtentType constant "Laufmeter";
+		rico.quantity from LAUFMETER with datatype xsd.decimal;
+		rico.hasUnitOfMeasurement constant "http://qudt.org/vocab/unit/M"; // @todo: als rico:UnitOfMeasurement
+		rico.descriptiveNote constant "Laufmeter";
+}
+
+map extent_fonds_num from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
+	subject template exnumURI with ID_NR;
+
+	types
+		rico.RecordResourceExtent
+
+	properties
+		rico.isExtentOf template rrURI with ID_NR;
+		rico.hasExtentType constant "Anzahl";
+		rico.quantity from ANZAHL with datatype xsd.integer;
+		// rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
+		rico.descriptiveNote constant "Anzahl Einheiten oder Behältnisse";
+}
+
+//map extent_01 from {
+//}
 
 /* Description Level Classes
  * -------------------------
@@ -97,10 +156,10 @@ map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIV {
 
 map level_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
 	subject template rrURI with ID_NR;
-	
+
 	types
 		rico.RecordSet
-		
+
 	properties
 		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Abteilung";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
@@ -111,7 +170,7 @@ map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
 
 	types
 		rico.RecordSet
-		
+
 	properties
 		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Fonds";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
@@ -124,7 +183,7 @@ map level_best from WSD_STABS_SCP_ARCHIV_DBA.VE_BEST {
 
 	types
 		rico.RecordSet
-		
+
 	properties
 		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Bestand";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
@@ -187,7 +246,7 @@ map desc_agent from WSD_STABS_SCP_ARCHIV_DBA.DESC {
 		rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
 		rico.hasDocumentaryFormType constant "https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#AuthorityRecord";
 		// QUELLE
-		// THESAURUS (für spätere Verwendung?)
+// THESAURUS (für spätere Verwendung?)
 }
 
 map rr2authrec from WSD_STABS_SCP_ARCHIV_DBA.VE_DESC_LINK {
@@ -243,7 +302,7 @@ map partner from WSD_STABS_SCP_ARCHIV_DBA.PRTNR {
 		rico.Agent
 
 	properties
-		//rico.hasOrHadAgentName template agName with ID_NAME;
+		// rico.hasOrHadAgentName template agName with ID_NAME;
 		rico.name from ID_NAME;
 }
 
@@ -251,7 +310,7 @@ map prtnr2ve from WSD_STABS_SCP_ARCHIV_DBA.VE_PRTNR_LINK {
 	subject template agURI with ID_NR_PRTNR;
 
 	properties
-	rico.isAccumulatorOf template rrURI with ID_NR_VRZNG_ENHT;
+		rico.isAccumulatorOf template rrURI with ID_NR_VRZNG_ENHT;
 }
 
 

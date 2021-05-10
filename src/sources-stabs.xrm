@@ -5,33 +5,32 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 		source query "SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, DARIN, ARCHIVALIENART, ENTHAELT, ZUGANGS_UND_BENUTZUNGSBEDINGUN, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE, ZUGAENGLICHKEIT_NM FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'"
 
 		referenceables
-		TITEL
-		SIGNATUR
-		STUFE
-		ENTSTEHUNGSZEITRAUM
-		DARIN
-		ARCHIVALIENART
-		ENTHAELT
-		ZUGANGS_UND_BENUTZUNGSBEDINGUN
-		RECHTSSTATUS
-		ZUGANGSBESTIMMUNGEN
-		SPRACHE
-		FORM_UND_INHALT
-		ID_NR
-		PARENT_ID_NR
-		HIERARCHIE_PFAD
-		SCHUTZFRISTENDE
-		ZUGAENGLICHKEIT_NM
+			TITEL
+			SIGNATUR
+			STUFE
+			ENTSTEHUNGSZEITRAUM
+			DARIN
+			ARCHIVALIENART
+			ENTHAELT
+			ZUGANGS_UND_BENUTZUNGSBEDINGUN
+			RECHTSSTATUS
+			ZUGANGSBESTIMMUNGEN
+			SPRACHE
+			FORM_UND_INHALT
+			ID_NR
+			PARENT_ID_NR
+			HIERARCHIE_PFAD
+			SCHUTZFRISTENDE
+			ZUGAENGLICHKEIT_NM
 	}
 
-/* Select Identifiers
- * * Signaturen
- * * weitere IDs
- */
-
+	/* Select Identifiers
+	 * * Signaturen
+	 * * weitere IDs
+	 */
 	logical-source VE_STABS_SIG {
 		source query "SELECT ID_NR, FRUEHERE_STABS_SIGNATUR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'"
-		
+
 		referenceables
 			ID_NR
 			SIGNATUR
@@ -39,12 +38,11 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			ALTE_SIGNATUREN
 	}
 
-/* Select Stufen StABS
- * -------------------
- * * only main relation IDs
- * * exception is Archive level
- */	
- 
+	/* Select Stufen StABS
+	 * -------------------
+	 * * only main relation IDs
+	 * * exception is Archive level
+	 */
 	logical-source VE_STABS_ARCHIV {
 		source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575" // Aufnahme Archiv StABS
 
@@ -54,22 +52,25 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			ARCHIVGESCHICHTE
 			SIGNATUR
 	}
-	
+
 	logical-source VE_STABS_ABT {
-		source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'"
+		source query "SELECT ID_NR, PARENT_ID_NR, UMFANG_GESCHAETZT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'"
 
 		referenceables
 			ID_NR
 			PARENT_ID_NR
+			UMFANG_GESCHAETZT
 	}
-	
+
 	logical-source VE_FONDS {
-		source query "SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'"
-		
+		source query "SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT, LAUFMETER, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'"
+
 		referenceables
 			ID_NR
 			PARENT_ID_NR
 			AKTENBILDNER_PROVENIENZ_TEXT
+			LAUFMETER
+			ANZAHL
 	}
 
 	logical-source VE_BEST {
@@ -109,15 +110,14 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			TECHNIK
 	}
 
-/* Deskriptoren
- * ------------
- * * logical_source für Personenbegriffe > Agent
- * * logical_source für Ortsbegriffe > Place
- * * nur Felder mit Inhalten werden selektiert und referenziert
- */
-
+	/* Deskriptoren
+	 * ------------
+	 * * logical_source für Personenbegriffe > Agent
+	 * * logical_source für Ortsbegriffe > Place
+	 * * nur Felder mit Inhalten werden selektiert und referenziert
+	 */
 	logical-source DESC {
-		source query "SELECT * FROM MVK_OGD_DSKRP_1" 
+		source query "SELECT * FROM MVK_OGD_DSKRP_1"
 
 		referenceables
 			BESCHREIBUNG
@@ -128,10 +128,10 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			THESAURUS
 			TODESDATUM
 	}
-	
+
 	logical-source ABL {
 		source "MVK_OGD_ABLFR_1"
-		
+
 		referenceables
 			TYP
 			SUBTYP
@@ -142,10 +142,10 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			ID_NR
 			ID_NAME
 	}
-	
+
 	logical-source PRTNR {
 		source "MVK_OGD_PRTNR_1"
-		
+
 		referenceables
 			ID_NR
 			ID_NAME
@@ -155,12 +155,12 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			EXISTENZ_ZEITRAUM
 			RECHTSFORM
 			RECHTLICHE_GRUNDLAGE
-			AUFNAHMEDATUM		
+			AUFNAHMEDATUM
 	}
-	
+
 	logical-source Verzeichnungseinheiten_Verweise {
 		source "MVK_OGD_VRZNG_ENHT_BZHNG_1"
-		
+
 		referenceables
 			ID_NR_1
 			ID_NR_2
@@ -168,46 +168,45 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			ZEITRAUM
 			NOTIZ
 	}
-	
+
 	logical-source VE_DESC_LINK {
 		source "MVK_OGD_VE_DSKRP_BZHNG_1"
-		
+
 		referenceables
 			ID_NR_DSKRP
 			ID_NR_VRZNG_ENHT
 	}
-	
+
 	logical-source VE_ABL_LINK {
 		source "MVK_OGD_VE_ABLFR_BZHNG_1"
-		
+
 		referenceables
 			ID_NR_VRZNG_ENHT
-			ID_NR_ABLFR	
+			ID_NR_ABLFR
 	}
-	
+
 	logical-source Deskriptoren_Verweise {
 		source "MVK_OGD_DSKRP_BZHNG_1"
-		
+
 		referenceables
 			ID_NR_1
 			ID_NR_2
 			ROLLE
 			ZEITRAUM
-			NOTIZ	
+			NOTIZ
 	}
-	
+
 	logical-source VE_PRTNR_LINK {
 		source "MVK_OGD_VE_PRTNR_BZHNG_1"
-	
+
 		referenceables
 			ID_NR_VRZNG_ENHT
 			ID_NR_PRTNR
-		
 	}
-		
+
 	logical-source Partner_Verweise {
 		source "MVK_OGD_PRTNR_BZHNG_1"
-		
+
 		referenceables
 			ID_NR_1
 			ID_NR_2

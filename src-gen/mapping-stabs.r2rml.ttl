@@ -89,7 +89,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}-i" ;
 	];
 	
 	rr:predicateObjectMap [
@@ -109,7 +109,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}-i" ;
 	];
 	
 	rr:predicateObjectMap [
@@ -129,9 +129,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, FRUEHERE_STABS_SIGNATUR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
 	rr:subjectMap [
-		rr:template "_ident{ID_NR}" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/reference-code" ;
 		rr:class rico:Identifier ;
-		rr:termType rr:BlankNode ;
 	];
 	
 	rr:predicateObjectMap [
@@ -212,6 +211,113 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
+<#extent_abt>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, UMFANG_GESCHAETZT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ID_NR}/extent-approximative" ;
+		rr:class rico:RecordResourceExtent ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isExtentOf ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasExtentType ;
+		rr:objectMap [
+			rr:constant "Umfang approximativ" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:textualValue ;
+		rr:objectMap [
+			rr:column "UMFANG_GESCHAETZT" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote ;
+		rr:objectMap [
+			rr:constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen." ;
+		];
+	]
+.
+<#extent_fonds_lm>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT, LAUFMETER, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ID_NR}/linear-meters" ;
+		rr:class rico:RecordResourceExtent ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isExtentOf ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasExtentType ;
+		rr:objectMap [
+			rr:constant "Laufmeter" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:quantity ;
+		rr:objectMap [
+			rr:column "LAUFMETER" ;
+			rr:datatype xsd:decimal ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasUnitOfMeasurement ;
+		rr:objectMap [
+			rr:constant <http://qudt.org/vocab/unit/M> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote ;
+		rr:objectMap [
+			rr:constant "Laufmeter" ;
+		];
+	]
+.
+<#extent_fonds_num>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT, LAUFMETER, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ID_NR}/number-of-units" ;
+		rr:class rico:RecordResourceExtent ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isExtentOf ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasExtentType ;
+		rr:objectMap [
+			rr:constant "Anzahl" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:quantity ;
+		rr:objectMap [
+			rr:column "ANZAHL" ;
+			rr:datatype xsd:integer ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote ;
+		rr:objectMap [
+			rr:constant "Anzahl Einheiten oder Behältnisse" ;
+		];
+	]
+.
 <#level_archive>
 	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
 	
@@ -243,7 +349,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#level_abt>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, UMFANG_GESCHAETZT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
@@ -264,7 +370,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#level_fonds>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT, LAUFMETER, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
@@ -363,7 +469,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasInstantiation ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}-i" ;
 		];
 	]
 .
@@ -390,7 +496,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasInstantiation ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}-i" ;
 		];
 	]
 .
