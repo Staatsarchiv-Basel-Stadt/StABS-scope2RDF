@@ -1,7 +1,6 @@
 PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
-PREFIX schema: <http://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <#rr_stabs>
@@ -77,12 +76,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:isAssociatedWithDate ;
 		rr:objectMap [
 			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/daterange" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate schema:url ;
-		rr:objectMap [
-			rr:template "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={ID_NR}" ;
 		];
 	];
 	rr:predicateObjectMap [

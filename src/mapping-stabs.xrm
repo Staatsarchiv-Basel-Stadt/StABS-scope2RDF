@@ -19,7 +19,6 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
 		rico.hasOrHadIdentifier template _ident with ID_NR as BlankNode;
 		rico.isAssociatedWithDate template dateURI with ID_NR;
 
-		schema.url template queryURL with ID_NR;
 		dct.isReferencedBy template queryURL with ID_NR;
 }
 
