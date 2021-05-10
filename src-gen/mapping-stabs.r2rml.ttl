@@ -150,7 +150,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Die Signatur dient als primäres Merkmal zur Identifizierung des Archivguts." ;
+			rr:constant "Die Signatur dient zur eindeutigen Identifikation innerhalb des Archivs." ;
 		];
 	]
 .

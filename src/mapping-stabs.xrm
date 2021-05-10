@@ -49,7 +49,7 @@ map ident_01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
 	properties
 		rico.hasIdentifierType constant "Signatur";
 		rico.name from SIGNATUR with language-tag zxx;
-		rico.descriptiveNote constant "Die Signatur dient als primäres Merkmal zur Identifizierung des Archivguts.";
+		rico.descriptiveNote constant "Die Signatur dient zur eindeutigen Identifikation innerhalb des Archivs.";
 }
 
 map ident_02 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
