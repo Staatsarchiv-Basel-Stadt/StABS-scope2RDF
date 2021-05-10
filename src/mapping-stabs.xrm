@@ -41,7 +41,7 @@ map inst_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
 		rico.productionTechnique from TECHNIK;
 }
 
-map ident_01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_PREV_SIG {
+map ident_02 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_PREV_SIG {
 	subject template _ident with ID_NR as BlankNode;
 
 	types
@@ -51,6 +51,19 @@ map ident_01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_PREV_SIG {
 		rico.hasIdentifierType constant "Frühere Signatur im Staatsarchiv";
 		rico.name from FRUEHERE_STABS_SIGNATUR;
 		rico.descriptiveNote constant "Signaturen, die früher im Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
+}
+
+map ident_03 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_OLD_SIG {
+	subject template _ident with ID_NR as BlankNode;
+	
+	types
+		rico.Identifier
+	
+	properties
+		rico.hasIdentifierType constant "Alte Signature";
+		rico.name from ALTE_SIGNATUREN;
+		rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
+		
 }
 
 /* Description Level Classes
