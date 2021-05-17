@@ -30,7 +30,6 @@ map inst_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
 
 	properties
 		// rico.physicalCharacteristics 
-		rico.physicalOrLogicalExtent from ANZAHL; // @todo: verwende Klasse rico:Extent
 		rico.productionTechnique from TECHNIK;
 }
 
@@ -39,7 +38,6 @@ map inst_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
 
 	properties
 		// rico.physicalCharacteristics
-		rico.physicalOrLogicalExtent from ANZAHL; // @todo: verwende Klasse rico:Extent
 		rico.productionTechnique from TECHNIK;
 }
 
@@ -90,21 +88,6 @@ map ident_03 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
  * DE: LAUFMETER, ANZAHL, ANZAHL_DATEIEN, UMFANG_GESCHAETZT, KOMMENTAR_ZUM_UMFANG, DATENVOLUMEN_MB
  */
 
-/* Abteilung: nur wenige mit DE:UMFANG_GESCHAETZT */
-/*map extent_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
-	subject template exapproxURI with ID_NR;
-
-	types
-		rico.RecordResourceExtent
-
-	properties
-		rico.isExtentOf template rrURI with ID_NR;
-		rico.hasExtentType constant "Umfang approximativ";
-		rico.textualValue from UMFANG_GESCHAETZT;
-		rico.descriptiveNote constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen.";
-}
-/*
-/* Fonds: Nur wenige mit DE:LAUFMETER und DE:ANZAHL */
 map extent_lm from WSD_STABS_SCP_ARCHIV_DBA.VE_EXT_LM {
 	subject template exlmURI with LAUFMETER;
 
@@ -148,7 +131,7 @@ map extent_num_files from WSD_STABS_SCP_ARCHIV_DBA.VE_NUM_FILES {
 }
 
 map extent_data_vol from WSD_STABS_SCP_ARCHIV_DBA.VE_DATA_VOLUME {
-subject template exdvURI with DATENVOLUMEN_MB;
+	subject template exdvURI with DATENVOLUMEN_MB;
 
 	types
 		rico.RecordResourceExtent
@@ -162,8 +145,18 @@ subject template exdvURI with DATENVOLUMEN_MB;
 	
 } 
 
-//map extent_01 from {
-//}
+map extent_approx from WSD_STABS_SCP_ARCHIV_DBA.VE_EXT_APPROX {
+	subject template exapproxURI with ID_NR;
+	
+	types
+		rico.RecordResourceExtent
+	
+	properties
+		rico.isExtentOf template rrURI with ID_NR;
+		rico.hasExtentType constant "http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Umfang-approximativ";
+		rico.textualValue from UMFANG_GESCHAETZT;
+		rico.descriptiveNote constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen.";
+}
 
 /* Description Level Classes
  * -------------------------

@@ -25,7 +25,6 @@ template exlmURI "http://ld.staatsarchiv.bs.ch/Extent/{0}-linear-meters"
 template exnumURI "http://ld.staatsarchiv.bs.ch/Extent/{0}-number-of-units"
 template exnumfileURI "http://ld.staatsarchiv.bs.ch/Extent/{0}-number-of-files"
 template exapproxURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/extent-approximative"
-template excommentURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/extent-comment"
 template exdvURI "http://ld.staatsarchiv.bs.ch/Extent/{0}-volume-of-data"
 
 template ruURI "http://ld.staatsarchiv.bs.ch/Rule/{0}"
