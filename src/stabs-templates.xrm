@@ -21,8 +21,8 @@ template evURI "http://ld.staatsarchiv.bs.ch/Event/{0}"
 
 /* Extent URI Templates */
 template exURI "http://ld.staatsarchiv.bs.ch/Extent/{0}"
-template exlmURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/linear-meters"
-template exnumURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/number-of-units"
+template exlmURI "http://ld.staatsarchiv.bs.ch/Extent/{0}-linear-meters"
+template exnumURI "http://ld.staatsarchiv.bs.ch/Extent/{0}-number-of-units"
 template exnumfileURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/number-of-files"
 template exapproxURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/extent-approximative"
 template excommentURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/extent-comment"

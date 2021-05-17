@@ -106,7 +106,7 @@ map extent_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
 
 /* Fonds: Nur wenige mit DE:LAUFMETER und DE:ANZAHL */
 map extent_fonds_lm from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
-	subject template exlmURI with ID_NR;
+	subject template exlmURI with LAUFMETER;
 
 	types
 		rico.RecordResourceExtent
@@ -120,7 +120,7 @@ map extent_fonds_lm from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
 }
 
 map extent_fonds_num from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
-	subject template exnumURI with ID_NR;
+	subject template exnumURI with ANZAHL;
 
 	types
 		rico.RecordResourceExtent

@@ -248,7 +248,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT, LAUFMETER, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ID_NR}/linear-meters" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{LAUFMETER}-linear-meters" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
@@ -288,7 +288,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT, LAUFMETER, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ID_NR}/number-of-units" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ANZAHL}-number-of-units" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
