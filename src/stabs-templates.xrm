@@ -12,7 +12,7 @@ template thURI "http://ld.staatsarchiv.bs.ch/Thing/{0}" // oder ohne '/Thing/'
 /* Subject URIs für Record Resources (Verzeichnungseinheiten) */
 template rrURI "http://ld.staatsarchiv.bs.ch/Record/{0}"
 template idURI "http://ld.staatsarchiv.bs.ch/Record/{0}/Identifier"
-template idrefcodeURI "http://ld.staatsarchiv.bs.ch/Record/{0}/reference-code"
+template refcodeURI "http://ld.staatsarchiv.bs.ch/Record/{0}"
 template dateURI "http://ld.staatsarchiv.bs.ch/Record/{0}/daterange"
 
 template instURI "http://ld.staatsarchiv.bs.ch/Instantiation/{0}-i"

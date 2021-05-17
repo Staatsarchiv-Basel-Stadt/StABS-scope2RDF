@@ -8,7 +8,7 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
 
 	properties
 		rico.title from TITEL with language-tag ger;
-		rico.identifier from SIGNATUR;
+		rico.hasOrHadIdentifier template refcodeURI with SIGNATUR;
 		rico.date from ENTSTEHUNGSZEITRAUM;
 		rico.scopeAndContent from DARIN with language-tag ger; // Hervorzuhebende Inhalte von 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
 		rico.scopeAndContent from ENTHAELT with language-tag ger; // Hauptgegenstand von isadg 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
@@ -47,7 +47,7 @@ map inst_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
  * * übrige als blank nodes (@todo: sollte geändert werden)
  */
 map ident_01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
-	subject template idrefcodeURI with ID_NR;
+	subject template refcodeURI with SIGNATUR;
 
 	types
 		rico.Identifier

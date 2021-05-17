@@ -19,9 +19,9 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate rico:identifier ;
+		rr:predicate rico:hasOrHadIdentifier ;
 		rr:objectMap [
-			rr:column "SIGNATUR" ;
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{SIGNATUR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -117,7 +117,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, SIGNATUR, FRUEHERE_STABS_SIGNATUR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/reference-code" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{SIGNATUR}" ;
 		rr:class rico:Identifier ;
 	];
 	
