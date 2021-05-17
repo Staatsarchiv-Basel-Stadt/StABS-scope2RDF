@@ -91,7 +91,7 @@ map ident_03 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
  */
 
 /* Abteilung: nur wenige mit DE:UMFANG_GESCHAETZT */
-map extent_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
+/*map extent_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
 	subject template exapproxURI with ID_NR;
 
 	types
@@ -103,9 +103,9 @@ map extent_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
 		rico.textualValue from UMFANG_GESCHAETZT;
 		rico.descriptiveNote constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen.";
 }
-
+/*
 /* Fonds: Nur wenige mit DE:LAUFMETER und DE:ANZAHL */
-map extent_fonds_lm from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
+map extent_lm from WSD_STABS_SCP_ARCHIV_DBA.VE_EXT_LM {
 	subject template exlmURI with LAUFMETER;
 
 	types
@@ -119,7 +119,7 @@ map extent_fonds_lm from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
 		rico.descriptiveNote constant "Laufmeter";
 }
 
-map extent_fonds_num from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
+map extent_num from WSD_STABS_SCP_ARCHIV_DBA.VE_NUM {
 	subject template exnumURI with ANZAHL;
 
 	types
@@ -132,6 +132,35 @@ map extent_fonds_num from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
 		// rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
 		rico.descriptiveNote constant "Anzahl Einheiten oder Behältnisse";
 }
+
+map extent_num_files from WSD_STABS_SCP_ARCHIV_DBA.VE_NUM_FILES {
+	subject template exnumfileURI with ANZAHL_DATEIEN;
+
+	types
+		rico.RecordResourceExtent
+
+	properties
+		rico.isExtentOf template rrURI with ID_NR;
+		rico.hasExtentType constant "Anzahl Dateien";
+		rico.quantity from ANZAHL_DATEIEN with datatype xsd.integer;
+		// rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
+		rico.descriptiveNote constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht.";
+}
+
+map extent_data_vol from WSD_STABS_SCP_ARCHIV_DBA.VE_DATA_VOLUME {
+subject template exdvURI with DATENVOLUMEN_MB;
+
+	types
+		rico.RecordResourceExtent
+
+	properties
+		rico.isExtentOf template rrURI with ID_NR;
+		rico.hasExtentType constant "Datenvolumen (MB)";
+		rico.quantity from DATENVOLUMEN_MB with datatype xsd.integer;
+		// rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
+		rico.descriptiveNote constant "Angabe des enthaltenen Datenvolumens in Megabyte (MB)";
+	
+} 
 
 //map extent_01 from {
 //}

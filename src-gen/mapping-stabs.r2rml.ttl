@@ -211,41 +211,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#extent_abt>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, UMFANG_GESCHAETZT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ID_NR}/extent-approximative" ;
-		rr:class rico:RecordResourceExtent ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isExtentOf ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:hasExtentType ;
-		rr:objectMap [
-			rr:constant "Umfang approximativ" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:textualValue ;
-		rr:objectMap [
-			rr:column "UMFANG_GESCHAETZT" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote ;
-		rr:objectMap [
-			rr:constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen." ;
-		];
-	]
-.
-<#extent_fonds_lm>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT, LAUFMETER, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
+<#extent_lm>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, LAUFMETER FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND WHERE LAUFMETER IS NOT NULL""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{LAUFMETER}-linear-meters" ;
@@ -284,8 +251,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#extent_fonds_num>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT, LAUFMETER, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
+<#extent_num>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND WHERE ANZAHL IS NOT NULL""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ANZAHL}-number-of-units" ;
@@ -315,6 +282,74 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
 			rr:constant "Anzahl Einheiten oder Behältnisse" ;
+		];
+	]
+.
+<#extent_num_files>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL_DATEIEN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND WHERE ANZAHL_DATEIEN IS NOT NULL""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ANZAHL_DATEIEN}-number-of-files" ;
+		rr:class rico:RecordResourceExtent ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isExtentOf ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasExtentType ;
+		rr:objectMap [
+			rr:constant "Anzahl Dateien" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:quantity ;
+		rr:objectMap [
+			rr:column "ANZAHL_DATEIEN" ;
+			rr:datatype xsd:integer ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote ;
+		rr:objectMap [
+			rr:constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht." ;
+		];
+	]
+.
+<#extent_data_vol>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, DATENVOLUMEN_MB FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND WHERE DATENVOLUMEN_MB IS NOT NULL""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{DATENVOLUMEN_MB}-volume-of-data" ;
+		rr:class rico:RecordResourceExtent ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isExtentOf ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasExtentType ;
+		rr:objectMap [
+			rr:constant "Datenvolumen (MB)" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:quantity ;
+		rr:objectMap [
+			rr:column "DATENVOLUMEN_MB" ;
+			rr:datatype xsd:integer ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote ;
+		rr:objectMap [
+			rr:constant "Angabe des enthaltenen Datenvolumens in Megabyte (MB)" ;
 		];
 	]
 .
@@ -349,7 +384,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#level_abt>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, UMFANG_GESCHAETZT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
@@ -370,7 +405,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#level_fonds>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT, LAUFMETER, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
