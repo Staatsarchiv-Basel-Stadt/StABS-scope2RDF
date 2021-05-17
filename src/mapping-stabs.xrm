@@ -7,8 +7,8 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
 		rico.RecordResource
 
 	properties
-		rico.title from TITEL;
-		rico.identifier from SIGNATUR with language-tag zxx;
+		rico.title from TITEL with language-tag ger;
+		rico.identifier from SIGNATUR;
 		rico.date from ENTSTEHUNGSZEITRAUM;
 		rico.scopeAndContent from DARIN with language-tag ger; // Hervorzuhebende Inhalte von 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
 		rico.scopeAndContent from ENTHAELT with language-tag ger; // Hauptgegenstand von isadg 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
@@ -54,7 +54,7 @@ map ident_01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
 
 	properties
 		rico.hasIdentifierType constant "Signatur";
-		rico.name from SIGNATUR with language-tag zxx;
+		rico.name from SIGNATUR;
 		rico.descriptiveNote constant "Die Signatur dient zur eindeutigen Identifikation innerhalb des Archivs.";
 }
 
@@ -66,7 +66,7 @@ map ident_02 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
 
 	properties
 		rico.hasIdentifierType constant "Frühere Signatur im Staatsarchiv";
-		rico.name from FRUEHERE_STABS_SIGNATUR with language-tag zxx;
+		rico.name from FRUEHERE_STABS_SIGNATUR;
 		rico.descriptiveNote constant "Signaturen, die früher im Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
 }
 
@@ -78,7 +78,7 @@ map ident_03 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
 
 	properties
 		rico.hasIdentifierType constant "Alte Signatur";
-		rico.name from ALTE_SIGNATUREN with language-tag zxx;
+		rico.name from ALTE_SIGNATUREN;
 		rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
 		
 }
@@ -172,7 +172,7 @@ map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIV {
 
 	properties
 		rico.title from TITEL with language-tag ger;
-		rico.identifier from SIGNATUR with language-tag zxx;
+		rico.identifier from SIGNATUR;
 		rico.history from ARCHIVGESCHICHTE with language-tag ger; // use rico.Event class later
 }
 

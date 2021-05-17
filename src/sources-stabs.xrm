@@ -82,9 +82,6 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 	 		ID_NR
 	 		UMFANG_GESCHAETZT
 	 }
-	 
-	 
-/* , ANZAHL, ANZAHL_DATEIEN, UMFANG_GESCHAETZT, DATENVOLUMEN_MB  */
 
 	/* Select Stufen StABS
 	 * -------------------
