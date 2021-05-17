@@ -113,7 +113,7 @@ map extent_lm from WSD_STABS_SCP_ARCHIV_DBA.VE_EXT_LM {
 
 	properties
 		rico.isExtentOf template rrURI with ID_NR;
-		rico.hasExtentType constant "Laufmeter";
+		rico.hasExtentType constant "http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Laufmeter";
 		rico.quantity from LAUFMETER with datatype xsd.decimal;
 		rico.hasUnitOfMeasurement constant "http://qudt.org/vocab/unit/M"; // @todo: als rico:UnitOfMeasurement
 		rico.descriptiveNote constant "Laufmeter";
@@ -127,7 +127,7 @@ map extent_num from WSD_STABS_SCP_ARCHIV_DBA.VE_NUM {
 
 	properties
 		rico.isExtentOf template rrURI with ID_NR;
-		rico.hasExtentType constant "Anzahl";
+		rico.hasExtentType constant "http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl";
 		rico.quantity from ANZAHL with datatype xsd.integer;
 		// rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
 		rico.descriptiveNote constant "Anzahl Einheiten oder Behältnisse";
@@ -141,7 +141,7 @@ map extent_num_files from WSD_STABS_SCP_ARCHIV_DBA.VE_NUM_FILES {
 
 	properties
 		rico.isExtentOf template rrURI with ID_NR;
-		rico.hasExtentType constant "Anzahl Dateien";
+		rico.hasExtentType constant "http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl-Dateien";
 		rico.quantity from ANZAHL_DATEIEN with datatype xsd.integer;
 		// rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
 		rico.descriptiveNote constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht.";
@@ -155,8 +155,8 @@ subject template exdvURI with DATENVOLUMEN_MB;
 
 	properties
 		rico.isExtentOf template rrURI with ID_NR;
-		rico.hasExtentType constant "Datenvolumen (MB)";
-		rico.quantity from DATENVOLUMEN_MB with datatype xsd.integer;
+		rico.hasExtentType constant "http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Datenvolumen-MB";
+		rico.quantity from DATENVOLUMEN_MB with datatype xsd.decimal;
 		// rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
 		rico.descriptiveNote constant "Angabe des enthaltenen Datenvolumens in Megabyte (MB)";
 	

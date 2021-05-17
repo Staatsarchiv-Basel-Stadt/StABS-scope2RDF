@@ -228,7 +228,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant "Laufmeter" ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Laufmeter> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -268,7 +268,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant "Anzahl" ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -302,7 +302,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant "Anzahl Dateien" ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl-Dateien> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -336,14 +336,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant "Datenvolumen (MB)" ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Datenvolumen-MB> ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate rico:quantity ;
 		rr:objectMap [
 			rr:column "DATENVOLUMEN_MB" ;
-			rr:datatype xsd:integer ;
+			rr:datatype xsd:decimal ;
 		];
 	];
 	rr:predicateObjectMap [
