@@ -212,7 +212,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#extent_lm>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, LAUFMETER FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND WHERE LAUFMETER IS NOT NULL""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, LAUFMETER FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND LAUFMETER IS NOT NULL""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{LAUFMETER}-linear-meters" ;
@@ -252,7 +252,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#extent_num>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND WHERE ANZAHL IS NOT NULL""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL IS NOT NULL""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ANZAHL}-number-of-units" ;
@@ -286,7 +286,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#extent_num_files>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL_DATEIEN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND WHERE ANZAHL_DATEIEN IS NOT NULL""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL_DATEIEN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL_DATEIEN IS NOT NULL""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ANZAHL_DATEIEN}-number-of-files" ;
@@ -320,7 +320,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#extent_data_vol>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, DATENVOLUMEN_MB FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND WHERE DATENVOLUMEN_MB IS NOT NULL""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, DATENVOLUMEN_MB FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND DATENVOLUMEN_MB IS NOT NULL""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{DATENVOLUMEN_MB}-volume-of-data" ;
