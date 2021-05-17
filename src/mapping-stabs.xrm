@@ -53,7 +53,7 @@ map ident_01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
 		rico.Identifier
 
 	properties
-		rico.hasIdentifierType constant "Signatur";
+		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Signatur";
 		rico.name from SIGNATUR;
 		rico.descriptiveNote constant "Die Signatur dient zur eindeutigen Identifikation innerhalb des Archivs.";
 }
@@ -65,7 +65,7 @@ map ident_02 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
 		rico.Identifier
 
 	properties
-		rico.hasIdentifierType constant "Frühere Signatur im Staatsarchiv";
+		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-Signatur-im-Staatsarchiv";
 		rico.name from FRUEHERE_STABS_SIGNATUR;
 		rico.descriptiveNote constant "Signaturen, die früher im Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
 }
@@ -77,7 +77,7 @@ map ident_03 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
 		rico.Identifier
 
 	properties
-		rico.hasIdentifierType constant "Alte Signatur";
+		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur";
 		rico.name from ALTE_SIGNATUREN;
 		rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
 		

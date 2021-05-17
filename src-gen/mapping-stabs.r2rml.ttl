@@ -124,7 +124,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType ;
 		rr:objectMap [
-			rr:constant "Signatur" ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Signatur> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -152,7 +152,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType ;
 		rr:objectMap [
-			rr:constant "Frühere Signatur im Staatsarchiv" ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-Signatur-im-Staatsarchiv> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -180,7 +180,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType ;
 		rr:objectMap [
-			rr:constant "Alte Signatur" ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur> ;
 		];
 	];
 	rr:predicateObjectMap [
