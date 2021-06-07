@@ -19,6 +19,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
+		rr:predicate rico:identifier ;
+		rr:objectMap [
+			rr:column "SIGNATUR" ;
+		];
+	];
+	rr:predicateObjectMap [
 		rr:predicate rico:hasOrHadIdentifier ;
 		rr:objectMap [
 			rr:template "http://ld.staatsarchiv.bs.ch/Record/{SIGNATUR}" ;
@@ -82,34 +88,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate dcterms:isReferencedBy ;
 		rr:objectMap [
 			rr:template "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={ID_NR}" ;
-		];
-	]
-.
-<#inst_dossier>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}-i" ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:productionTechnique ;
-		rr:objectMap [
-			rr:column "TECHNIK" ;
-		];
-	]
-.
-<#inst_dokument>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}-i" ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:productionTechnique ;
-		rr:objectMap [
-			rr:column "TECHNIK" ;
 		];
 	]
 .
@@ -384,12 +362,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rr:column "TITEL" ;
 			rr:language "ger" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:identifier ;
-		rr:objectMap [
-			rr:column "SIGNATUR" ;
 		];
 	];
 	rr:predicateObjectMap [

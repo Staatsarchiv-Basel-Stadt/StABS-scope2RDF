@@ -8,6 +8,7 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
 
 	properties
 		rico.title from TITEL with language-tag ger;
+		rico.identifier from SIGNATUR;
 		rico.hasOrHadIdentifier template refcodeURI with SIGNATUR;
 		rico.date from ENTSTEHUNGSZEITRAUM;
 		rico.scopeAndContent from DARIN with language-tag ger; // Hervorzuhebende Inhalte von 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
@@ -25,6 +26,7 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
  * ------------------
  */
 
+/**
 map inst_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
 	subject template instURI with ID_NR;
 
@@ -40,6 +42,7 @@ map inst_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
 		// rico.physicalCharacteristics
 		rico.productionTechnique from TECHNIK;
 }
+*/
 
 /* Identity Maps
  * -------------
@@ -172,7 +175,6 @@ map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIV {
 
 	properties
 		rico.title from TITEL with language-tag ger;
-		rico.identifier from SIGNATUR;
 		rico.history from ARCHIVGESCHICHTE with language-tag ger; // use rico.Event class later
 }
 
