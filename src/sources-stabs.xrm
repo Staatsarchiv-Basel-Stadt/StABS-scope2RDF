@@ -171,6 +171,28 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			TODESDATUM
 	}
 
+	logical-source VE_DESC_LINK {
+		source "MVK_OGD_VE_DSKRP_BZHNG_1"
+
+		referenceables
+			ID_NR_DSKRP
+			ID_NR_VRZNG_ENHT
+	}
+
+	logical-source Deskriptoren_Verweise {
+		source "MVK_OGD_DSKRP_BZHNG_1"
+
+		referenceables
+			ID_NR_1
+			ID_NR_2
+			ROLLE
+			ZEITRAUM
+			NOTIZ
+	}	
+
+	/* Ablieferungen
+	 * -------------
+	 */
 	logical-source ABL {
 		source "MVK_OGD_ABLFR_1"
 
@@ -185,6 +207,17 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			ID_NAME
 	}
 
+	logical-source VE_ABL_LINK {
+		source "MVK_OGD_VE_ABLFR_BZHNG_1"
+
+		referenceables
+			ID_NR_VRZNG_ENHT
+			ID_NR_ABLFR
+	}
+
+	/* Partner
+	 * -------
+	 */
 	logical-source PRTNR {
 		source "MVK_OGD_PRTNR_1"
 
@@ -200,44 +233,6 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			AUFNAHMEDATUM
 	}
 
-	logical-source Verzeichnungseinheiten_Verweise {
-		source "MVK_OGD_VRZNG_ENHT_BZHNG_1"
-
-		referenceables
-			ID_NR_1
-			ID_NR_2
-			ROLLE
-			ZEITRAUM
-			NOTIZ
-	}
-
-	logical-source VE_DESC_LINK {
-		source "MVK_OGD_VE_DSKRP_BZHNG_1"
-
-		referenceables
-			ID_NR_DSKRP
-			ID_NR_VRZNG_ENHT
-	}
-
-	logical-source VE_ABL_LINK {
-		source "MVK_OGD_VE_ABLFR_BZHNG_1"
-
-		referenceables
-			ID_NR_VRZNG_ENHT
-			ID_NR_ABLFR
-	}
-
-	logical-source Deskriptoren_Verweise {
-		source "MVK_OGD_DSKRP_BZHNG_1"
-
-		referenceables
-			ID_NR_1
-			ID_NR_2
-			ROLLE
-			ZEITRAUM
-			NOTIZ
-	}
-
 	logical-source VE_PRTNR_LINK {
 		source "MVK_OGD_VE_PRTNR_BZHNG_1"
 
@@ -248,6 +243,17 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 
 	logical-source Partner_Verweise {
 		source "MVK_OGD_PRTNR_BZHNG_1"
+
+		referenceables
+			ID_NR_1
+			ID_NR_2
+			ROLLE
+			ZEITRAUM
+			NOTIZ
+	}
+
+	logical-source Verzeichnungseinheiten_Verweise {
+		source "MVK_OGD_VRZNG_ENHT_BZHNG_1"
 
 		referenceables
 			ID_NR_1
