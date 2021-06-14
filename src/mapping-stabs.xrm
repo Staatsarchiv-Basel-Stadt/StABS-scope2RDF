@@ -253,6 +253,21 @@ map level_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
 		// rico.hasContentOfType // ARCHIVALIENART (3.1.5) @todo s.o.
 }
 
+/* Provenienz
+ * ----------
+ * * erster Versuch
+ */
+map prov_1 from WSD_STABS_SCP_ARCHIV_DBA.PROV_1 {
+	subject template agURI with PR_ID;
+
+	types
+		rico.Agent
+
+	properties
+		rico.name from PR_NAME;
+		rico.isProvenanceOf template rrURI with VE_ID;
+}
+
 /* Descriptors (scope Concept)
  * --------------------------
  * * Erstelle Auth-Records
@@ -336,5 +351,3 @@ map prtnr2ve from WSD_STABS_SCP_ARCHIV_DBA.VE_PRTNR_LINK {
 	properties
 		rico.isAccumulatorOf template rrURI with ID_NR_VRZNG_ENHT;
 }
-
-
