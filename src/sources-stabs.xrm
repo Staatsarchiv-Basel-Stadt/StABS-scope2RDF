@@ -152,8 +152,8 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			TECHNIK
 	}
 
-	/* Source for Provenance Information
-	 * ---------------------------------
+	/* Source für Provenienzinformation
+	 * --------------------------------
 	 */
 	 logical-source PROV_1 {
 		source query "SELECT MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_VRZNG_ENHT AS VE_ID, MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_PRTNR AS PR_ID, MVK_OGD_PRTNR_1.ID_NAME AS PR_NAME FROM MVK_OGD_VE_PRTNR_BZHNG_1 JOIN MVK_OGD_PRTNR_1 ON MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_PRTNR = MVK_OGD_PRTNR_1.ID_NR"
@@ -237,6 +237,9 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 
 	/* Partner
 	 * -------
+	 * (aktuell nicht verwendet, s.o. PROV_1)
+	 *  Nur neun Einträge im Partnermodul typisiert und vollständig erfasst (Typ, Rechtsform, Namensformen)
+	 *  Deshalb nur ID_NAME verwendbar
 	 */
 	logical-source PRTNR {
 		source "MVK_OGD_PRTNR_1"
@@ -253,13 +256,6 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			AUFNAHMEDATUM
 	}
 
-	logical-source VE_PRTNR_LINK {
-		source "MVK_OGD_VE_PRTNR_BZHNG_1"
-
-		referenceables
-			ID_NR_VRZNG_ENHT
-			ID_NR_PRTNR
-	}
 
 	logical-source Partner_Verweise {
 		source "MVK_OGD_PRTNR_BZHNG_1"
