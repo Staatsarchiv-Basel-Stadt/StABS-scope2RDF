@@ -208,7 +208,28 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			ROLLE
 			ZEITRAUM
 			NOTIZ
-	}	
+	}
+
+	/* Modelling Thesauri
+	 * ------------------
+	 * * sa = siehe auch > skos:related
+	 * * bf = benutzt für > skos:altLabel
+	 */	
+	 logical-source ALT_LABEL {
+	 	source query "select  	bzh.ID_NR_1,
+        					  	bzh.ID_NR_2,
+        						bzh.ROLLE,
+								dskrp.BEZEICHNUNG,
+								dskrp.THESAURUS
+						from WSD_STABS_SCP_ARCHIV_DBA.MVK_OGD_DSKRP_BZHNG_1 bzh
+						inner join WSD_STABS_SCP_ARCHIV_DBA.MVK_OGD_DSKRP_1 dskrp on bzh.ID_NR_2 = dskrp.ID_NR
+						where dskrp.THESAURUS like 'Ortsbegriffe' or dskrp.THESAURUS like 'Personenbegriffe'"
+
+		referenceables
+			ID_NR_1
+			ID_NR_2
+			BEZEICHNUNG
+	 }
 
 	/* Ablieferungen
 	 * -------------
