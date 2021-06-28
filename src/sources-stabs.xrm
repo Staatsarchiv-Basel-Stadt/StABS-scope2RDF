@@ -205,7 +205,7 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 	 * * bf = benutzt für > skos:altLabel (funktioniert noch nicht, da Label nicht export werden)
 	 */	
 	 logical-source TH_BASE {
-	 	source query "SELECT ID_NR, THESAURUS, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE REGEXP_LIKE (THESAURUS , '^*(n|s)begriffe$', 'c')"
+	 	source query "SELECT ID_NR, THESAURUS, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Ortsbegriffe' OR THESAURUS LIKE 'Personenbegriffe'"
 
 		referenceables
 			ID_NR
