@@ -199,37 +199,28 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 			ID_NR_VRZNG_ENHT
 	}
 
-	logical-source Deskriptoren_Verweise {
-		source "MVK_OGD_DSKRP_BZHNG_1"
-
-		referenceables
-			ID_NR_1
-			ID_NR_2
-			ROLLE
-			ZEITRAUM
-			NOTIZ
-	}
-
 	/* Modelling Thesauri
 	 * ------------------
 	 * * sa = siehe auch > skos:related
-	 * * bf = benutzt für > skos:altLabel
+	 * * bf = benutzt für > skos:altLabel (funktioniert noch nicht, da Label nicht export werden)
 	 */	
-	 logical-source ALT_LABEL {
-	 	source query "select  	bzh.ID_NR_1,
-        					  	bzh.ID_NR_2,
-        						bzh.ROLLE,
-								dskrp.BEZEICHNUNG,
-								dskrp.THESAURUS
-						from WSD_STABS_SCP_ARCHIV_DBA.MVK_OGD_DSKRP_BZHNG_1 bzh
-						inner join WSD_STABS_SCP_ARCHIV_DBA.MVK_OGD_DSKRP_1 dskrp on bzh.ID_NR_2 = dskrp.ID_NR
-						where dskrp.THESAURUS like 'Ortsbegriffe' or dskrp.THESAURUS like 'Personenbegriffe'"
+	 logical-source TH_BASE {
+	 	source query "SELECT ID_NR, THESAURUS, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE REGEXP_LIKE (THESAURUS , '^*(n|s)begriffe$', 'c')"
+
+		referenceables
+			ID_NR
+			THESAURUS
+			BEZEICHNUNG
+			BESCHREIBUNG
+	 }
+
+	logical-source TH_REL {
+		source query "SELECT ID_NR_1, ID_NR_2 FROM MVK_OGD_DSKRP_BZHNG_1 WHERE ROLLE LIKE 'siehe auch'"
 
 		referenceables
 			ID_NR_1
 			ID_NR_2
-			BEZEICHNUNG
-	 }
+	}
 
 	/* Ablieferungen
 	 * -------------
@@ -280,17 +271,6 @@ source-group WSD_STABS_SCP_ARCHIV_DBA {
 
 	logical-source Partner_Verweise {
 		source "MVK_OGD_PRTNR_BZHNG_1"
-
-		referenceables
-			ID_NR_1
-			ID_NR_2
-			ROLLE
-			ZEITRAUM
-			NOTIZ
-	}
-
-	logical-source Verzeichnungseinheiten_Verweise {
-		source "MVK_OGD_VRZNG_ENHT_BZHNG_1"
 
 		referenceables
 			ID_NR_1

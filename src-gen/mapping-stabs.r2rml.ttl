@@ -1,6 +1,7 @@
 PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <#rr_stabs>
@@ -545,12 +546,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#desc_agent>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_DSKRP_1""" ];
+<#thes_records>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, THESAURUS, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE REGEXP_LIKE (THESAURUS , '^*(n|s)begriffe$', 'c')""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:Record ;
+		rr:class skos:Concept ;
 	];
 	
 	rr:predicateObjectMap [
@@ -571,6 +573,48 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:hasDocumentaryFormType ;
 		rr:objectMap [
 			rr:constant <https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#AuthorityRecord> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:prefLabel ;
+		rr:objectMap [
+			rr:column "BEZEICHNUNG" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:note ;
+		rr:objectMap [
+			rr:column "BESCHREIBUNG" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#{THESAURUS}" ;
+		];
+	]
+.
+<#thes_rel>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR_1, ID_NR_2 FROM MVK_OGD_DSKRP_BZHNG_1 WHERE ROLLE LIKE 'siehe auch'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_1}" ;
+		rr:class rico:Record ;
+		rr:class skos:Concept ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isRecordResourceAssociatedWithRecordResource ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_2}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:related ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_2}" ;
 		];
 	]
 .

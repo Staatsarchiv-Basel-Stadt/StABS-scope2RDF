@@ -270,22 +270,36 @@ map prov_1 from WSD_STABS_SCP_ARCHIV_DBA.PROV_1 {
 
 /* Descriptors (scope Concept)
  * --------------------------
- * * Erstelle Auth-Records
+ * * Erstelle Auth-Records / Thesaurus-Records
  * * Erstelle Agent-/ und Place-Subjects (optional)
  * * Verbinde mit RiC-R020
  */
-map desc_agent from WSD_STABS_SCP_ARCHIV_DBA.DESC {
+map thes_records from WSD_STABS_SCP_ARCHIV_DBA.TH_BASE {
 	subject template rrURI with ID_NR;
 
 	types
 		rico.Record
+		skos.Concept
 
 	properties
 		rico.title from BEZEICHNUNG with language-tag ger;
 		rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
 		rico.hasDocumentaryFormType constant "https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#AuthorityRecord";
-		// QUELLE
-// THESAURUS (für spätere Verwendung?)
+		skos.prefLabel from BEZEICHNUNG with language-tag ger;
+		skos.note from BESCHREIBUNG with language-tag ger;
+		skos.inScheme template thtypeURI with THESAURUS;
+}
+
+map thes_rel from WSD_STABS_SCP_ARCHIV_DBA.TH_REL {
+	subject template rrURI with ID_NR_1;
+
+	types
+		rico.Record
+		skos.Concept
+
+	properties
+		rico.isRecordResourceAssociatedWithRecordResource template rrURI with ID_NR_2;
+		skos.related template rrURI with ID_NR_2;
 }
 
 map rr2authrec from WSD_STABS_SCP_ARCHIV_DBA.VE_DESC_LINK {
@@ -325,3 +339,4 @@ map abl2ve from WSD_STABS_SCP_ARCHIV_DBA.VE_ABL_LINK {
 	properties
 		rico.resultsOrResultedFrom template evURI with ID_NR_ABLFR;
 }
+
