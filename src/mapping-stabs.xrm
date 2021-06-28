@@ -1,6 +1,6 @@
 output r2rml
 
-map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
+map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 	subject template rrURI with ID_NR;
 
 	types
@@ -27,7 +27,7 @@ map rr_stabs from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_RR_BASE {
  */
 
 /**
-map inst_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
+map inst_dossier from MVK_OGD.VE_DOSSIER {
 	subject template instURI with ID_NR;
 
 	properties
@@ -35,7 +35,7 @@ map inst_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
 		rico.productionTechnique from TECHNIK;
 }
 
-map inst_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
+map inst_dokument from MVK_OGD.VE_DOKUMENT {
 	subject template instURI with ID_NR;
 
 	properties
@@ -49,7 +49,7 @@ map inst_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
  * * Signatur als eigene named instance
  * * übrige als blank nodes (@todo: sollte geändert werden)
  */
-map ident_01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
+map ident_01 from MVK_OGD.VE_STABS_SIG {
 	subject template refcodeURI with SIGNATUR;
 
 	types
@@ -61,7 +61,7 @@ map ident_01 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
 		rico.descriptiveNote constant "Die Signatur dient zur eindeutigen Identifikation innerhalb des Archivs.";
 }
 
-map ident_02 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
+map ident_02 from MVK_OGD.VE_STABS_SIG {
 	subject template _ident with ID_NR as BlankNode;
 
 	types
@@ -73,7 +73,7 @@ map ident_02 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
 		rico.descriptiveNote constant "Signaturen, die früher im Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
 }
 
-map ident_03 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
+map ident_03 from MVK_OGD.VE_STABS_SIG {
 	subject template _ident with ID_NR as BlankNode;
 
 	types
@@ -91,7 +91,7 @@ map ident_03 from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_SIG {
  * DE: LAUFMETER, ANZAHL, ANZAHL_DATEIEN, UMFANG_GESCHAETZT, KOMMENTAR_ZUM_UMFANG, DATENVOLUMEN_MB
  */
 
-map extent_lm from WSD_STABS_SCP_ARCHIV_DBA.VE_EXT_LM {
+map extent_lm from MVK_OGD.VE_EXT_LM {
 	subject template exlmURI with LAUFMETER;
 
 	types
@@ -105,7 +105,7 @@ map extent_lm from WSD_STABS_SCP_ARCHIV_DBA.VE_EXT_LM {
 		rico.descriptiveNote constant "Laufmeter";
 }
 
-map extent_num from WSD_STABS_SCP_ARCHIV_DBA.VE_NUM {
+map extent_num from MVK_OGD.VE_NUM {
 	subject template exnumURI with ANZAHL;
 
 	types
@@ -119,7 +119,7 @@ map extent_num from WSD_STABS_SCP_ARCHIV_DBA.VE_NUM {
 		rico.descriptiveNote constant "Anzahl Einheiten oder Behältnisse";
 }
 
-map extent_num_files from WSD_STABS_SCP_ARCHIV_DBA.VE_NUM_FILES {
+map extent_num_files from MVK_OGD.VE_NUM_FILES {
 	subject template exnumfileURI with ANZAHL_DATEIEN;
 
 	types
@@ -133,7 +133,7 @@ map extent_num_files from WSD_STABS_SCP_ARCHIV_DBA.VE_NUM_FILES {
 		rico.descriptiveNote constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht.";
 }
 
-map extent_data_vol from WSD_STABS_SCP_ARCHIV_DBA.VE_DATA_VOLUME {
+map extent_data_vol from MVK_OGD.VE_DATA_VOLUME {
 	subject template exdvURI with DATENVOLUMEN_MB;
 
 	types
@@ -148,7 +148,7 @@ map extent_data_vol from WSD_STABS_SCP_ARCHIV_DBA.VE_DATA_VOLUME {
 	
 } 
 
-map extent_approx from WSD_STABS_SCP_ARCHIV_DBA.VE_EXT_APPROX {
+map extent_approx from MVK_OGD.VE_EXT_APPROX {
 	subject template exapproxURI with ID_NR;
 	
 	types
@@ -167,7 +167,7 @@ map extent_approx from WSD_STABS_SCP_ARCHIV_DBA.VE_EXT_APPROX {
  * * sets the RecordSetType
  */
 
-map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIV {
+map level_archive from MVK_OGD.VE_STABS_ARCHIV {
 	subject template rrURI with ID_NR;
 
 	types
@@ -178,7 +178,7 @@ map level_archive from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ARCHIV {
 		rico.history from ARCHIVGESCHICHTE with language-tag ger; // use rico.Event class later
 }
 
-map level_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
+map level_abt from MVK_OGD.VE_STABS_ABT {
 	subject template rrURI with ID_NR;
 
 	types
@@ -189,7 +189,7 @@ map level_abt from WSD_STABS_SCP_ARCHIV_DBA.VE_STABS_ABT {
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 }
 
-map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
+map level_fonds from MVK_OGD.VE_FONDS {
 	subject template rrURI with ID_NR;
 
 	types
@@ -202,7 +202,7 @@ map level_fonds from WSD_STABS_SCP_ARCHIV_DBA.VE_FONDS {
 		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
 }
 
-map level_best from WSD_STABS_SCP_ARCHIV_DBA.VE_BEST {
+map level_best from MVK_OGD.VE_BEST {
 	subject template rrURI with ID_NR;
 
 	types
@@ -215,7 +215,7 @@ map level_best from WSD_STABS_SCP_ARCHIV_DBA.VE_BEST {
 		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
 }
 
-map level_series from WSD_STABS_SCP_ARCHIV_DBA.VE_SERIES {
+map level_series from MVK_OGD.VE_SERIES {
 	subject template rrURI with ID_NR;
 
 	types
@@ -227,7 +227,7 @@ map level_series from WSD_STABS_SCP_ARCHIV_DBA.VE_SERIES {
 		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
 }
 
-map level_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
+map level_dossier from MVK_OGD.VE_DOSSIER {
 	subject template rrURI with ID_NR;
 
 	types
@@ -240,7 +240,7 @@ map level_dossier from WSD_STABS_SCP_ARCHIV_DBA.VE_DOSSIER {
 		// rico.hasContentOfType template ctURI with ID_NR;// ARCHIVALIENART (3.1.5) @todo: sollte auf eigene Klasse gemappt werden
 }
 
-map level_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
+map level_dokument from MVK_OGD.VE_DOKUMENT {
 	subject template rrURI with ID_NR;
 
 	types
@@ -257,7 +257,7 @@ map level_dokument from WSD_STABS_SCP_ARCHIV_DBA.VE_DOKUMENT {
  * ----------
  * * erster Versuch
  */
-map prov_1 from WSD_STABS_SCP_ARCHIV_DBA.PROV_1 {
+map prov_1 from MVK_OGD.PROV_1 {
 	subject template agURI with PR_ID;
 
 	types
@@ -274,7 +274,7 @@ map prov_1 from WSD_STABS_SCP_ARCHIV_DBA.PROV_1 {
  * * Erstelle Agent-/ und Place-Subjects (optional)
  * * Verbinde mit RiC-R020
  */
-map thes_records from WSD_STABS_SCP_ARCHIV_DBA.TH_BASE {
+map thes_records from MVK_OGD.TH_BASE {
 	subject template rrURI with ID_NR;
 
 	types
@@ -290,7 +290,7 @@ map thes_records from WSD_STABS_SCP_ARCHIV_DBA.TH_BASE {
 		skos.inScheme template thtypeURI with THESAURUS;
 }
 
-map thes_rel from WSD_STABS_SCP_ARCHIV_DBA.TH_REL {
+map thes_rel from MVK_OGD.TH_REL {
 	subject template rrURI with ID_NR_1;
 
 	types
@@ -302,7 +302,7 @@ map thes_rel from WSD_STABS_SCP_ARCHIV_DBA.TH_REL {
 		skos.related template rrURI with ID_NR_2;
 }
 
-map rr2authrec from WSD_STABS_SCP_ARCHIV_DBA.VE_DESC_LINK {
+map rr2authrec from MVK_OGD.VE_DESC_LINK {
 	subject template rrURI with ID_NR_VRZNG_ENHT;
 
 	types
@@ -318,7 +318,7 @@ map rr2authrec from WSD_STABS_SCP_ARCHIV_DBA.VE_DESC_LINK {
  * @todo: Activity-Types als Klasse (rico:Activity) mit rico:hasActivityType
  */
 
-map abl from WSD_STABS_SCP_ARCHIV_DBA.ABL {
+map abl from MVK_OGD.ABL {
 	subject template evURI with ID_NR;
 
 	types
@@ -333,7 +333,7 @@ map abl from WSD_STABS_SCP_ARCHIV_DBA.ABL {
 		// rico.isAssociatedWithDate from ZEITRAUM_PERIODE;
 }
 
-map abl2ve from WSD_STABS_SCP_ARCHIV_DBA.VE_ABL_LINK {
+map abl2ve from MVK_OGD.VE_ABL_LINK {
 	subject template rrURI with ID_NR_VRZNG_ENHT;
 
 	properties
