@@ -18,6 +18,7 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 		rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
 		rico.hasOrHadIdentifier template _ident with ID_NR as BlankNode;
 		rico.isAssociatedWithDate template dateURI with ID_NR;
+		rico.hasRecordSetType template rstypeURI with STUFE;
 
 		dct.isReferencedBy template queryURL with ID_NR;
 }
@@ -185,7 +186,6 @@ map level_abt from MVK_OGD.VE_STABS_ABT {
 		rico.RecordSet
 
 	properties
-		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Abteilung";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 }
 
@@ -196,7 +196,6 @@ map level_fonds from MVK_OGD.VE_FONDS {
 		rico.RecordSet
 
 	properties
-		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Fonds";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 		rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
 		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
@@ -209,7 +208,6 @@ map level_best from MVK_OGD.VE_BEST {
 		rico.RecordSet
 
 	properties
-		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Bestand";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 		rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
 		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
@@ -222,7 +220,6 @@ map level_series from MVK_OGD.VE_SERIES {
 		rico.RecordSet
 
 	properties
-		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Serie";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
 }
@@ -234,7 +231,6 @@ map level_dossier from MVK_OGD.VE_DOSSIER {
 		rico.Record
 
 	properties
-		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Dossier";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 		rico.hasInstantiation template instURI with ID_NR;
 		// rico.hasContentOfType template ctURI with ID_NR;// ARCHIVALIENART (3.1.5) @todo: sollte auf eigene Klasse gemappt werden
@@ -247,7 +243,6 @@ map level_dokument from MVK_OGD.VE_DOKUMENT {
 		rico.Record // @todo vorher testweise als RecordPart
 
 	properties
-		rico.hasRecordSetType constant "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Dokument";
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 		rico.hasInstantiation template instURI with ID_NR;
 		// rico.hasContentOfType // ARCHIVALIENART (3.1.5) @todo s.o.
@@ -270,7 +265,7 @@ map prov_1 from MVK_OGD.PROV_1 {
 
 /* Descriptors (scope Concept)
  * --------------------------
- * * Erstelle Auth-Records / Thesaurus-Records
+ * * Erstelle Auth-Records / Thesaurus-Records in skos
  * * Erstelle Agent-/ und Place-Subjects (optional)
  * * Verbinde mit RiC-R020
  */

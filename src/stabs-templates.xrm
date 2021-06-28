@@ -57,4 +57,5 @@ template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
 /* Templates for Types */
 
 template thtypeURI "http://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#{0}"
+template rstypeURI "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#{0}"
 

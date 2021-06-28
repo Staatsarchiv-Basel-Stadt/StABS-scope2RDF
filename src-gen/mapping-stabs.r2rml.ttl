@@ -86,6 +86,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#{STUFE}" ;
+		];
+	];
+	rr:predicateObjectMap [
 		rr:predicate dcterms:isReferencedBy ;
 		rr:objectMap [
 			rr:template "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={ID_NR}" ;
@@ -382,12 +388,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType ;
-		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Abteilung> ;
-		];
-	];
-	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
 			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
@@ -402,12 +402,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:class rico:RecordSet ;
 	];
 	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType ;
-		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Fonds> ;
-		];
-	];
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
@@ -431,12 +425,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType ;
-		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Bestand> ;
-		];
-	];
-	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
 			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
@@ -459,12 +447,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType ;
-		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Serie> ;
-		];
-	];
-	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
 			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
@@ -479,12 +461,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:class rico:Record ;
 	];
 	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType ;
-		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Dossier> ;
-		];
-	];
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
@@ -506,12 +482,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:class rico:Record ;
 	];
 	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType ;
-		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Dokument> ;
-		];
-	];
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
