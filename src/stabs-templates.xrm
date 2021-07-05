@@ -11,7 +11,6 @@ template thURI "http://ld.staatsarchiv.bs.ch/Thing/{0}" // oder ohne '/Thing/'
 
 /* Subject URIs für Record Resources (Verzeichnungseinheiten) */
 template rrURI "http://ld.staatsarchiv.bs.ch/Record/{0}"
-template idURI "http://ld.staatsarchiv.bs.ch/Record/{0}/Identifier"
 template refcodeURI "http://ld.staatsarchiv.bs.ch/Record/{0}"
 template dateURI "http://ld.staatsarchiv.bs.ch/Record/{0}/daterange"
 
@@ -54,7 +53,9 @@ template _extent "_extent{0}" // nicht mehr in Gebrauch
  
 template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
 
-/* Templates for Types */
+/* Templates für Types
+ * -------------------
+ */
 
 template thtypeURI "http://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#{0}"
 template rstypeURI "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#{0}"

@@ -1,6 +1,9 @@
 source-group MVK_OGD {
 	type rdb
 
+	/* Basis-Datenelemente je Verzeichnungseinheit
+	 * -------------------------------------------
+	 */
 	logical-source VE_STABS_RR_BASE {
 		source query "SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, DARIN, ARCHIVALIENART, ENTHAELT, ZUGANGS_UND_BENUTZUNGSBEDINGUN, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE, ZUGAENGLICHKEIT_NM FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'"
 
@@ -24,9 +27,11 @@ source-group MVK_OGD {
 			ZUGAENGLICHKEIT_NM
 	}
 
-	/* Select Identifiers
-	 * * Signaturen
-	 * * weitere IDs
+	/* Identifikatoren
+	 * ---------------
+	 * - Signatur
+	 * - weitere Signaturen
+	 * - später weitere Identifikatoren
 	 */
 	logical-source VE_STABS_SIG {
 		source query "SELECT ID_NR, SIGNATUR, FRUEHERE_STABS_SIGNATUR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'"
@@ -38,10 +43,10 @@ source-group MVK_OGD {
 			ALTE_SIGNATUREN
 	}
 	
-	/* Source Elements for Extent
-	 * --------------------------
-	 * * Alle Werte integer oder dezimal (Laufmeter, Anzahl, Anzahl Dateien, Datenvolumen MB)
-	 * * Umfang geschätzt @todo (Textwert)
+	/* Elements for Extent / Ausmass
+	 * -----------------------------
+	 * - Alle Werte integer oder dezimal (Laufmeter, Anzahl, Anzahl Dateien, Datenvolumen MB)
+	 * - Umfang geschätzt @todo (Textwert)
 	 */
 	 logical-source VE_EXT_LM {
 	 	source query "SELECT ID_NR, LAUFMETER FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND LAUFMETER IS NOT NULL"
@@ -83,19 +88,17 @@ source-group MVK_OGD {
 	 		UMFANG_GESCHAETZT
 	 }
 
-	/* Select Stufen StABS
-	 * -------------------
-	 * * only main relation IDs
-	 * * exception is Archive level
+	/* Stufen StABS (Mapping der ISAD(G)-Hierarchie
+	 * --------------------------------------------
+	 * - nur mit Verwendung der PARENT_ID
+	 * - Ausnahmen sind Stufe Archiv und Bestand
 	 */
 	logical-source VE_STABS_ARCHIV {
-		source query "SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575" // Aufnahme Archiv StABS
+		source query "SELECT ID_NR, ARCHIVGESCHICHTE FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575" // Aufnahme Archiv StABS
 
 		referenceables
 			ID_NR
-			TITEL
 			ARCHIVGESCHICHTE
-			SIGNATUR
 	}
 
 	logical-source VE_STABS_ABT {
@@ -133,27 +136,23 @@ source-group MVK_OGD {
 	}
 
 	logical-source VE_DOSSIER {
-		source query "SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'"
+		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'"
 
 		referenceables
 			ID_NR
 			PARENT_ID_NR
-			ANZAHL
-			TECHNIK
 	}
 
 	logical-source VE_DOKUMENT {
-		source query "SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'"
+		source query "SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'"
 
 		referenceables
 			ID_NR
 			PARENT_ID_NR
-			ANZAHL
-			TECHNIK
 	}
 
-	/* Source für Provenienzinformation
-	 * --------------------------------
+	/* Provenienzinformation
+	 * ---------------------
 	 */
 	 logical-source PROV_1 {
 		source query "SELECT MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_VRZNG_ENHT AS VE_ID, MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_PRTNR AS PR_ID, MVK_OGD_PRTNR_1.ID_NAME AS PR_NAME FROM MVK_OGD_VE_PRTNR_BZHNG_1 JOIN MVK_OGD_PRTNR_1 ON MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_PRTNR = MVK_OGD_PRTNR_1.ID_NR"
@@ -172,10 +171,8 @@ source-group MVK_OGD {
 			AKTENBILDNER_PROVENIENZ_TEXT
 	}
 
-	/* Modelling Thesauri
-	 * ------------------
-	 * * sa = siehe auch > skos:related
-	 * * bf = benutzt für > skos:altLabel (funktioniert noch nicht, da Label nicht export werden)
+	/* Thesauri / Deskriptoren
+	 * -----------------------
 	 */	
 	 logical-source TH_BASE {
 	 	source query "SELECT ID_NR, THESAURUS, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Ortsbegriffe' OR THESAURUS LIKE 'Personenbegriffe'"

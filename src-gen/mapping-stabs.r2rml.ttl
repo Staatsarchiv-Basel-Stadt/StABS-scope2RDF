@@ -357,20 +357,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#level_archive>
-	rr:logicalTable [ rr:sqlQuery """SELECT * FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ARCHIVGESCHICHTE FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordSet ;
 	];
 	
-	rr:predicateObjectMap [
-		rr:predicate rico:title ;
-		rr:objectMap [
-			rr:column "TITEL" ;
-			rr:language "ger" ;
-		];
-	];
 	rr:predicateObjectMap [
 		rr:predicate rico:history ;
 		rr:objectMap [
@@ -454,7 +447,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#level_dossier>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
@@ -475,7 +468,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#level_dokument>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, ANZAHL, TECHNIK FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'""" ];
 	
 	rr:subjectMap [
 		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;

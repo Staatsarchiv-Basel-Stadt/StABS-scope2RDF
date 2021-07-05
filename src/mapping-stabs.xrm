@@ -175,8 +175,7 @@ map level_archive from MVK_OGD.VE_STABS_ARCHIV {
 		rico.RecordSet
 
 	properties
-		rico.title from TITEL with language-tag ger;
-		rico.history from ARCHIVGESCHICHTE with language-tag ger; // use rico.Event class later
+		rico.history from ARCHIVGESCHICHTE with language-tag ger; // @todo: use rico.Event class later
 }
 
 map level_abt from MVK_OGD.VE_STABS_ABT {
@@ -198,7 +197,6 @@ map level_fonds from MVK_OGD.VE_FONDS {
 	properties
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 		rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
-		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
 }
 
 map level_best from MVK_OGD.VE_BEST {
