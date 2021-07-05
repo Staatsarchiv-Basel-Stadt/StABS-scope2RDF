@@ -27,67 +27,6 @@ source-group MVK_OGD {
 			ZUGAENGLICHKEIT_NM
 	}
 
-	/* Identifikatoren
-	 * ---------------
-	 * - Signatur
-	 * - weitere Signaturen
-	 * - später weitere Identifikatoren
-	 */
-	logical-source VE_STABS_SIG {
-		source query "SELECT ID_NR, SIGNATUR, FRUEHERE_STABS_SIGNATUR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'"
-
-		referenceables
-			ID_NR
-			SIGNATUR
-			FRUEHERE_STABS_SIGNATUR
-			ALTE_SIGNATUREN
-	}
-	
-	/* Elements for Extent / Ausmass
-	 * -----------------------------
-	 * - Alle Werte integer oder dezimal (Laufmeter, Anzahl, Anzahl Dateien, Datenvolumen MB)
-	 * - Umfang geschätzt @todo (Textwert)
-	 */
-	 logical-source VE_EXT_LM {
-	 	source query "SELECT ID_NR, LAUFMETER FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND LAUFMETER IS NOT NULL"
-	 	
-	 	referenceables
-	 		ID_NR
-	 		LAUFMETER
-	 }
-	 
-	 logical-source VE_NUM {
-	 	source query "SELECT ID_NR, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL IS NOT NULL"
-	 	
-	 	referenceables
-	 		ID_NR
-	 		ANZAHL
-	 }
-
-	 logical-source VE_NUM_FILES {
-	 	source query "SELECT ID_NR, ANZAHL_DATEIEN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL_DATEIEN IS NOT NULL"
-	 	
-	 	referenceables
-	 		ID_NR
-	 		ANZAHL_DATEIEN
-	 }
-	 
-	 logical-source VE_DATA_VOLUME {
-	 	source query "SELECT ID_NR, DATENVOLUMEN_MB FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND DATENVOLUMEN_MB IS NOT NULL"
-	 	
-	 	referenceables
-	 		ID_NR
-	 		DATENVOLUMEN_MB
-	 }
-	 
-	 logical-source VE_EXT_APPROX {
-	 	source query "SELECT ID_NR, UMFANG_GESCHAETZT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND UMFANG_GESCHAETZT IS NOT NULL"
-	 	
-	 	referenceables
-	 		ID_NR
-	 		UMFANG_GESCHAETZT
-	 }
-
 	/* Stufen StABS (Mapping der ISAD(G)-Hierarchie
 	 * --------------------------------------------
 	 * - nur mit Verwendung der PARENT_ID
@@ -151,6 +90,67 @@ source-group MVK_OGD {
 			PARENT_ID_NR
 	}
 
+	/* Identifikatoren
+	 * ---------------
+	 * - Signatur
+	 * - weitere Signaturen
+	 * - später weitere Identifikatoren
+	 */
+	logical-source VE_STABS_SIG {
+		source query "SELECT ID_NR, SIGNATUR, FRUEHERE_STABS_SIGNATUR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'"
+
+		referenceables
+			ID_NR
+			SIGNATUR
+			FRUEHERE_STABS_SIGNATUR
+			ALTE_SIGNATUREN
+	}
+	
+	/* Elements for Extent / Ausmass
+	 * -----------------------------
+	 * - Alle Werte integer oder dezimal (Laufmeter, Anzahl, Anzahl Dateien, Datenvolumen MB)
+	 * - Umfang geschätzt @todo (Textwert)
+	 */
+	 logical-source VE_EXT_LM {
+	 	source query "SELECT ID_NR, LAUFMETER FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND LAUFMETER IS NOT NULL"
+	 	
+	 	referenceables
+	 		ID_NR
+	 		LAUFMETER
+	 }
+	 
+	 logical-source VE_NUM {
+	 	source query "SELECT ID_NR, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL IS NOT NULL"
+	 	
+	 	referenceables
+	 		ID_NR
+	 		ANZAHL
+	 }
+
+	 logical-source VE_NUM_FILES {
+	 	source query "SELECT ID_NR, ANZAHL_DATEIEN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL_DATEIEN IS NOT NULL"
+	 	
+	 	referenceables
+	 		ID_NR
+	 		ANZAHL_DATEIEN
+	 }
+	 
+	 logical-source VE_DATA_VOLUME {
+	 	source query "SELECT ID_NR, DATENVOLUMEN_MB FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND DATENVOLUMEN_MB IS NOT NULL"
+	 	
+	 	referenceables
+	 		ID_NR
+	 		DATENVOLUMEN_MB
+	 }
+	 
+	 logical-source VE_EXT_APPROX {
+	 	source query "SELECT ID_NR, UMFANG_GESCHAETZT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND UMFANG_GESCHAETZT IS NOT NULL"
+	 	
+	 	referenceables
+	 		ID_NR
+	 		UMFANG_GESCHAETZT
+	 }
+
 	/* Provenienzinformation
 	 * ---------------------
 	 */
@@ -169,6 +169,19 @@ source-group MVK_OGD {
 		referenceables
 			ID_NR
 			AKTENBILDNER_PROVENIENZ_TEXT
+	}
+
+	/* Verwaltungsgeschichte / Biografische Angaben
+	 * --------------------------------------------
+	 * entspricht ISAD(G) 2.2
+	 */
+
+	logical-source BIOGHIST {
+		source query "SELECT ID_NR, VERWALTUNGSGESCHICHTE_BIOGRAFI FROM MVK_OGD_VRZNG_ENHT_1 WHERE VERWALTUNGSGESCHICHTE_BIOGRAFI IS NOT NULL AND (STUFE LIKE 'Fonds' OR STUFE LIKE 'Bestand')"
+
+		referenceables
+			ID_NR
+			VERWALTUNGSGESCHICHTE_BIOGRAFI
 	}
 
 	/* Thesauri / Deskriptoren

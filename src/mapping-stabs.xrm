@@ -261,6 +261,21 @@ map prov_1 from MVK_OGD.PROV_1 {
 		rico.isProvenanceOf template rrURI with VE_ID;
 }
 
+/* Verwaltungsgeschichte / Biografische Angaben
+ * --------------------------------------------
+ * (prüfen, ob als Event/1234 rico:isEventAssociatedWith Record/1234)
+ */
+ 
+map bioghist_1 from MVK_OGD.BIOGHIST {
+	subject template rrURI with ID_NR;
+
+	types
+		rico.RecordResource
+
+	properties
+		rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
+}
+
 /* Descriptors (scope Concept)
  * --------------------------
  * * Erstelle Auth-Records / Thesaurus-Records in skos

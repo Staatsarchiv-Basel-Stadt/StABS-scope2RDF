@@ -509,6 +509,22 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
+<#bioghist_1>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, VERWALTUNGSGESCHICHTE_BIOGRAFI FROM MVK_OGD_VRZNG_ENHT_1 WHERE VERWALTUNGSGESCHICHTE_BIOGRAFI IS NOT NULL AND (STUFE LIKE 'Fonds' OR STUFE LIKE 'Bestand')""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:class rico:RecordResource ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:history ;
+		rr:objectMap [
+			rr:column "VERWALTUNGSGESCHICHTE_BIOGRAFI" ;
+			rr:language "ger" ;
+		];
+	]
+.
 <#thes_records>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, THESAURUS, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Ortsbegriffe' OR THESAURUS LIKE 'Personenbegriffe'""" ];
 	
