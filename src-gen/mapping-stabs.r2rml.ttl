@@ -513,6 +513,28 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
+<#bioghist_2>
+	rr:logicalTable [ rr:sqlQuery """SELECT MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_PRTNR AS PR_ID, MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_VRZNG_ENHT AS VE_ID, MVK_OGD_VRZNG_ENHT_1.ORGANISATIONSZUGEHOERIGKEIT, MVK_OGD_VRZNG_ENHT_1.GESCHICHTE, MVK_OGD_VRZNG_ENHT_1.ORT, MVK_OGD_VRZNG_ENHT_1.FUNKTION_UND_AKTIVITAET, MVK_OGD_VRZNG_ENHT_1.ALLGEMEINER_KONTEXT FROM MVK_OGD_VE_PRTNR_BZHNG_1 JOIN MVK_OGD_VRZNG_ENHT_1 ON MVK_OGD_VRZNG_ENHT_1.ID_NR = MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_VRZNG_ENHT AND  MVK_OGD_VRZNG_ENHT_1.ANZEIGEFORMULAR_ID = 10146""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Agent/{PR_ID}" ;
+		rr:class rico:Agent ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:history ;
+		rr:objectMap [
+			rr:column "GESCHICHTE" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadLocation ;
+		rr:objectMap [
+			rr:column "ORT" ;
+		];
+	]
+.
 <#thes_records>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, THESAURUS, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Ortsbegriffe' OR THESAURUS LIKE 'Personenbegriffe'""" ];
 	

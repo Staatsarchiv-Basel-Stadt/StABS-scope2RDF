@@ -112,8 +112,8 @@ map level_dokument from MVK_OGD.VE_DOKUMENT {
 
 /* Identity Maps
  * -------------
- * * Signatur als eigene named instance
- * * übrige als blank nodes (@todo: sollte geändert werden)
+ * - Signatur als eigene named instance
+ * - übrige als blank nodes (@todo: sollte geändert werden)
  */
 map ident_01 from MVK_OGD.VE_STABS_SIG {
 	subject template refcodeURI with SIGNATUR;
@@ -247,7 +247,7 @@ map prov_1 from MVK_OGD.PROV_1 {
  * (prüfen, ob als Event/1234 rico:isEventAssociatedWith Record/1234)
  */
  
-map bioghist_1 from MVK_OGD.BIOGHIST {
+map bioghist_1 from MVK_OGD.BIOGHIST_1 {
 	subject template rrURI with ID_NR;
 
 	types
@@ -255,6 +255,17 @@ map bioghist_1 from MVK_OGD.BIOGHIST {
 
 	properties
 		rico.history from VERWALTUNGSGESCHICHTE_BIOGRAFI with language-tag ger;
+}
+
+map bioghist_2 from MVK_OGD.BIOGHIST_2 {
+	subject template agURI with PR_ID;
+
+	types
+		rico.Agent
+
+	properties
+		rico.history from GESCHICHTE with language-tag ger;
+		rico.hasOrHadLocation from ORT; // ORT als subject URI
 }
 
 /* Descriptors (scope Concept)
