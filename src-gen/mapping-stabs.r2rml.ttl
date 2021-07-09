@@ -98,6 +98,126 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
+<#level_archive>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ARCHIVGESCHICHTE FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:class rico:RecordSet ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:history ;
+		rr:objectMap [
+			rr:column "ARCHIVGESCHICHTE" ;
+			rr:language "ger" ;
+		];
+	]
+.
+<#level_abt>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:class rico:RecordSet ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+		];
+	]
+.
+<#level_fonds>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:class rico:RecordSet ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasProvenance ;
+		rr:objectMap [
+			rr:column "AKTENBILDNER_PROVENIENZ_TEXT" ;
+			rr:language "ger" ;
+		];
+	]
+.
+<#level_best>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Bestand'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:class rico:RecordSet ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasProvenance ;
+		rr:objectMap [
+			rr:column "AKTENBILDNER_PROVENIENZ_TEXT" ;
+			rr:language "ger" ;
+		];
+	]
+.
+<#level_series>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Serie'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:class rico:RecordSet ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+		];
+	]
+.
+<#level_dossier>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:class rico:Record ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+		];
+	]
+.
+<#level_dokument>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'""" ];
+	
+	rr:subjectMap [
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:class rico:Record ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasIncludedIn ;
+		rr:objectMap [
+			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+		];
+	]
+.
 <#ident_01>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, SIGNATUR, FRUEHERE_STABS_SIGNATUR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
@@ -353,138 +473,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
 			rr:constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen." ;
-		];
-	]
-.
-<#level_archive>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ARCHIVGESCHICHTE FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
-		rr:class rico:RecordSet ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:history ;
-		rr:objectMap [
-			rr:column "ARCHIVGESCHICHTE" ;
-			rr:language "ger" ;
-		];
-	]
-.
-<#level_abt>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
-		rr:class rico:RecordSet ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
-		];
-	]
-.
-<#level_fonds>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
-		rr:class rico:RecordSet ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:hasProvenance ;
-		rr:objectMap [
-			rr:column "AKTENBILDNER_PROVENIENZ_TEXT" ;
-			rr:language "ger" ;
-		];
-	]
-.
-<#level_best>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Bestand'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
-		rr:class rico:RecordSet ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:hasProvenance ;
-		rr:objectMap [
-			rr:column "AKTENBILDNER_PROVENIENZ_TEXT" ;
-			rr:language "ger" ;
-		];
-	]
-.
-<#level_series>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Serie'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
-		rr:class rico:RecordSet ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
-		];
-	]
-.
-<#level_dossier>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
-		rr:class rico:Record ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:hasInstantiation ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}-i" ;
-		];
-	]
-.
-<#level_dokument>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
-		rr:class rico:Record ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIncludedIn ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:hasInstantiation ;
-		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}-i" ;
 		];
 	]
 .

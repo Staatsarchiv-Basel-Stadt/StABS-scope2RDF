@@ -1,5 +1,10 @@
 output r2rml
 
+/* Basis-Map
+ * ----------
+ * - für alle RecordResourcen
+ */
+
 map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 	subject template rrURI with ID_NR;
 
@@ -23,27 +28,87 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 		dct.isReferencedBy template queryURL with ID_NR;
 }
 
-/* Instantiation Maps
- * ------------------
+/* Description Level Classes
+ * -------------------------
+ * - builds the main RecordResource Relations (include and constitute)
+ * - sets the RecordSetType
  */
 
-/**
-map inst_dossier from MVK_OGD.VE_DOSSIER {
-	subject template instURI with ID_NR;
+map level_archive from MVK_OGD.VE_STABS_ARCHIV {
+	subject template rrURI with ID_NR;
+
+	types
+		rico.RecordSet
 
 	properties
-		// rico.physicalCharacteristics 
-		rico.productionTechnique from TECHNIK;
+		rico.history from ARCHIVGESCHICHTE with language-tag ger; // @todo: use rico.Event class later
 }
 
-map inst_dokument from MVK_OGD.VE_DOKUMENT {
-	subject template instURI with ID_NR;
+map level_abt from MVK_OGD.VE_STABS_ABT {
+	subject template rrURI with ID_NR;
+
+	types
+		rico.RecordSet
 
 	properties
-		// rico.physicalCharacteristics
-		rico.productionTechnique from TECHNIK;
+		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 }
-*/
+
+map level_fonds from MVK_OGD.VE_FONDS {
+	subject template rrURI with ID_NR;
+
+	types
+		rico.RecordSet
+
+	properties
+		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
+}
+
+map level_best from MVK_OGD.VE_BEST {
+	subject template rrURI with ID_NR;
+
+	types
+		rico.RecordSet
+
+	properties
+		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
+		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
+}
+
+map level_series from MVK_OGD.VE_SERIES {
+	subject template rrURI with ID_NR;
+
+	types
+		rico.RecordSet
+
+	properties
+		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
+}
+
+map level_dossier from MVK_OGD.VE_DOSSIER {
+	subject template rrURI with ID_NR;
+
+	types
+		rico.Record
+
+	properties
+		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		// rico.hasContentOfType template ctURI with ID_NR;// ARCHIVALIENART (3.1.5) @todo: sollte auf eigene Klasse gemappt werden
+}
+
+map level_dokument from MVK_OGD.VE_DOKUMENT {
+	subject template rrURI with ID_NR;
+
+	types
+		rico.Record // @todo vorher testweise als RecordPart
+
+	properties
+		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		// rico.hasContentOfType // ARCHIVALIENART (3.1.5) @todo s.o.
+}
 
 /* Identity Maps
  * -------------
@@ -160,90 +225,6 @@ map extent_approx from MVK_OGD.VE_EXT_APPROX {
 		rico.hasExtentType constant "http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Umfang-approximativ";
 		rico.textualValue from UMFANG_GESCHAETZT;
 		rico.descriptiveNote constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen.";
-}
-
-/* Description Level Classes
- * -------------------------
- * * builds the main RecordResource Relations (include and constitute)
- * * sets the RecordSetType
- */
-
-map level_archive from MVK_OGD.VE_STABS_ARCHIV {
-	subject template rrURI with ID_NR;
-
-	types
-		rico.RecordSet
-
-	properties
-		rico.history from ARCHIVGESCHICHTE with language-tag ger; // @todo: use rico.Event class later
-}
-
-map level_abt from MVK_OGD.VE_STABS_ABT {
-	subject template rrURI with ID_NR;
-
-	types
-		rico.RecordSet
-
-	properties
-		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-}
-
-map level_fonds from MVK_OGD.VE_FONDS {
-	subject template rrURI with ID_NR;
-
-	types
-		rico.RecordSet
-
-	properties
-		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-		rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
-}
-
-map level_best from MVK_OGD.VE_BEST {
-	subject template rrURI with ID_NR;
-
-	types
-		rico.RecordSet
-
-	properties
-		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-		rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
-		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
-}
-
-map level_series from MVK_OGD.VE_SERIES {
-	subject template rrURI with ID_NR;
-
-	types
-		rico.RecordSet
-
-	properties
-		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
-}
-
-map level_dossier from MVK_OGD.VE_DOSSIER {
-	subject template rrURI with ID_NR;
-
-	types
-		rico.Record
-
-	properties
-		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-		rico.hasInstantiation template instURI with ID_NR;
-		// rico.hasContentOfType template ctURI with ID_NR;// ARCHIVALIENART (3.1.5) @todo: sollte auf eigene Klasse gemappt werden
-}
-
-map level_dokument from MVK_OGD.VE_DOKUMENT {
-	subject template rrURI with ID_NR;
-
-	types
-		rico.Record // @todo vorher testweise als RecordPart
-
-	properties
-		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
-		rico.hasInstantiation template instURI with ID_NR;
-		// rico.hasContentOfType // ARCHIVALIENART (3.1.5) @todo s.o.
 }
 
 /* Provenienz
