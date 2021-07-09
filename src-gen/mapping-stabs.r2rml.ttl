@@ -533,6 +533,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rr:column "ORT" ;
 		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:isOrWasSubdivisionOf ;
+		rr:objectMap [
+			rr:column "ORGANISATIONSZUGEHOERIGKEIT" ;
+		];
 	]
 .
 <#thes_records>
