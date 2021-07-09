@@ -266,7 +266,7 @@ map bioghist_2 from MVK_OGD.BIOGHIST_2 {
 	properties
 		rico.history from GESCHICHTE with language-tag ger;
 		rico.hasOrHadLocation from ORT; // ORT als subject URI
-		rico.isOrWasSubdivisionOf from ORGANISATIONSZUGEHOERIGKEIT; // @todo als subject URI
+		rico.isOrWasPartOf from ORGANISATIONSZUGEHOERIGKEIT; // @todo als subject URI
 }
 
 /* Descriptors (scope Concept)
