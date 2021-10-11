@@ -8,7 +8,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, DARIN, ARCHIVALIENART, ENTHAELT, ZUGANGS_UND_BENUTZUNGSBEDINGUN, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE, ZUGAENGLICHKEIT_NM FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordResource ;
 	];
 	
@@ -28,7 +28,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasOrHadIdentifier ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{SIGNATUR}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{SIGNATUR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -73,22 +73,15 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate rico:hasOrHadIdentifier ;
-		rr:objectMap [
-			rr:template "_ident{ID_NR}" ;
-			rr:termType rr:BlankNode ;
-		];
-	];
-	rr:predicateObjectMap [
 		rr:predicate rico:isAssociatedWithDate ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/daterange" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/daterange" ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#{STUFE}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#{STUFE}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -102,7 +95,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ARCHIVGESCHICHTE FROM MVK_OGD_VRZNG_ENHT_1 WHERE ID_NR = 548575""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordSet ;
 	];
 	
@@ -118,14 +111,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE like 'Abteilung'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordSet ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
 	]
 .
@@ -133,14 +126,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Fonds'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordSet ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -155,14 +148,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR, AKTENBILDNER_PROVENIENZ_TEXT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Bestand'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordSet ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -177,14 +170,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Serie'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordSet ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
 	]
 .
@@ -192,14 +185,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dossier'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:Record ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
 	]
 .
@@ -207,70 +200,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' and STUFE LIKE 'Dokument'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:Record ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
-		];
-	]
-.
-<#ident_02>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, SIGNATUR, FRUEHERE_STABS_SIGNATUR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
-	
-	rr:subjectMap [
-		rr:template "_ident{ID_NR}" ;
-		rr:class rico:Identifier ;
-		rr:termType rr:BlankNode ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasIdentifierType ;
-		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-Signatur-im-Staatsarchiv> ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:name ;
-		rr:objectMap [
-			rr:column "FRUEHERE_STABS_SIGNATUR" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote ;
-		rr:objectMap [
-			rr:constant "Signaturen, die früher im Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden." ;
-		];
-	]
-.
-<#ident_03>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, SIGNATUR, FRUEHERE_STABS_SIGNATUR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
-	
-	rr:subjectMap [
-		rr:template "_ident{ID_NR}" ;
-		rr:class rico:Identifier ;
-		rr:termType rr:BlankNode ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasIdentifierType ;
-		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur> ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:name ;
-		rr:objectMap [
-			rr:column "ALTE_SIGNATUREN" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote ;
-		rr:objectMap [
-			rr:constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen." ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
 	]
 .
@@ -278,14 +215,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, LAUFMETER FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND LAUFMETER IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{LAUFMETER}-linear-meters" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{LAUFMETER}-linear-meters" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isExtentOf ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -318,14 +255,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{ANZAHL}-number-of-units" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{ANZAHL}-number-of-units" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isExtentOf ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -352,14 +289,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL_DATEIEN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL_DATEIEN IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{ANZAHL_DATEIEN}-number-of-files" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{ANZAHL_DATEIEN}-number-of-files" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isExtentOf ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -386,14 +323,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, DATENVOLUMEN_MB FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND DATENVOLUMEN_MB IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{DATENVOLUMEN_MB}-volume-of-data" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{DATENVOLUMEN_MB}-volume-of-data" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isExtentOf ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -420,14 +357,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, UMFANG_GESCHAETZT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND UMFANG_GESCHAETZT IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/extent-approximative" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/extent-approximative" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isExtentOf ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -453,7 +390,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_VRZNG_ENHT AS VE_ID, MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_PRTNR AS PR_ID, MVK_OGD_PRTNR_1.ID_NAME AS PR_NAME FROM MVK_OGD_VE_PRTNR_BZHNG_1 JOIN MVK_OGD_PRTNR_1 ON MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_PRTNR = MVK_OGD_PRTNR_1.ID_NR""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Agent/{PR_ID}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Agent/{PR_ID}" ;
 		rr:class rico:Agent ;
 	];
 	
@@ -466,7 +403,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:isProvenanceOf ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{VE_ID}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{VE_ID}" ;
 		];
 	]
 .
@@ -474,7 +411,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, VERWALTUNGSGESCHICHTE_BIOGRAFI FROM MVK_OGD_VRZNG_ENHT_1 WHERE VERWALTUNGSGESCHICHTE_BIOGRAFI IS NOT NULL AND (STUFE LIKE 'Fonds' OR STUFE LIKE 'Bestand')""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		rr:class rico:RecordResource ;
 	];
 	
@@ -490,7 +427,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_PRTNR AS PR_ID, MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_VRZNG_ENHT AS VE_ID, MVK_OGD_VRZNG_ENHT_1.ORGANISATIONSZUGEHOERIGKEIT, MVK_OGD_VRZNG_ENHT_1.GESCHICHTE, MVK_OGD_VRZNG_ENHT_1.ORT, MVK_OGD_VRZNG_ENHT_1.FUNKTION_UND_AKTIVITAET, MVK_OGD_VRZNG_ENHT_1.ALLGEMEINER_KONTEXT FROM MVK_OGD_VE_PRTNR_BZHNG_1 JOIN MVK_OGD_VRZNG_ENHT_1 ON MVK_OGD_VRZNG_ENHT_1.ID_NR = MVK_OGD_VE_PRTNR_BZHNG_1.ID_NR_VRZNG_ENHT AND  MVK_OGD_VRZNG_ENHT_1.ANZEIGEFORMULAR_ID = 10146""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Agent/{PR_ID}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Agent/{PR_ID}" ;
 		rr:class rico:Agent ;
 	];
 	
@@ -518,7 +455,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Personenbegriffe'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Agent/{ID_NR}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Agent/{ID_NR}" ;
 		rr:class rico:Agent ;
 		rr:class skos:Concept ;
 	];
@@ -562,7 +499,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Ortsbegriffe'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Place/{ID_NR}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Place/{ID_NR}" ;
 		rr:class rico:Place ;
 		rr:class skos:Concept ;
 	];
@@ -606,7 +543,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:tableName "MVK_OGD_ABLFR_1" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Event/{ID_NR}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Event/{ID_NR}" ;
 		rr:class rico:Activity ;
 	];
 	
@@ -648,13 +585,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:tableName "MVK_OGD_VE_ABLFR_BZHNG_1" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_VRZNG_ENHT}" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR_VRZNG_ENHT}" ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:resultsOrResultedFrom ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Event/{ID_NR_ABLFR}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Event/{ID_NR_ABLFR}" ;
 		];
 	]
 .

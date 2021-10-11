@@ -656,7 +656,7 @@ vocabulary ricrst {
 }
 
 vocabulary stabslevels {
-	prefix "stabs-l" "http://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#"
+	prefix "stabs-l" "https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#"
 
 	classes
 		Abteilung

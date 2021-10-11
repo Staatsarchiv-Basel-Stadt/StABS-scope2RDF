@@ -21,7 +21,6 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 		rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
 		rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
 		rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
-		rico.hasOrHadIdentifier template _ident with ID_NR as BlankNode;
 		rico.isAssociatedWithDate template dateURI with ID_NR;
 		rico.hasRecordSetType template rstypeURI with STUFE;
 
@@ -126,31 +125,31 @@ map level_dokument from MVK_OGD.VE_DOKUMENT {
 //		rico.name from SIGNATUR;
 //		rico.descriptiveNote constant "Die Signatur dient zur eindeutigen Identifikation innerhalb des Archivs.";
 //}
-
-map ident_02 from MVK_OGD.VE_STABS_SIG {
-	subject template _ident with ID_NR as BlankNode;
-
-	types
-		rico.Identifier
-
-	properties
-		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-Signatur-im-Staatsarchiv";
-		rico.name from FRUEHERE_STABS_SIGNATUR;
-		rico.descriptiveNote constant "Signaturen, die früher im Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
-}
-
-map ident_03 from MVK_OGD.VE_STABS_SIG {
-	subject template _ident with ID_NR as BlankNode;
-
-	types
-		rico.Identifier
-
-	properties
-		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur";
-		rico.name from ALTE_SIGNATUREN;
-		rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
-		
-}
+//
+//map ident_02 from MVK_OGD.VE_STABS_SIG {
+//	subject template _ident with ID_NR as BlankNode;
+//
+//	types
+//		rico.Identifier
+//
+//	properties
+//		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-Signatur-im-Staatsarchiv";
+//		rico.name from FRUEHERE_STABS_SIGNATUR;
+//		rico.descriptiveNote constant "Signaturen, die früher im Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
+//}
+//
+//map ident_03 from MVK_OGD.VE_STABS_SIG {
+//	subject template _ident with ID_NR as BlankNode;
+//
+//	types
+//		rico.Identifier
+//
+//	properties
+//		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur";
+//		rico.name from ALTE_SIGNATUREN;
+//		rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
+//		
+//}
 
 /* Extent Maps
  * -----------
