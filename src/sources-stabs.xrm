@@ -200,12 +200,20 @@ source-group MVK_OGD {
 	/* Thesauri / Deskriptoren
 	 * -----------------------
 	 */	
-	 logical-source TH_BASE {
-	 	source query "SELECT ID_NR, THESAURUS, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Ortsbegriffe' OR THESAURUS LIKE 'Personenbegriffe'"
+	 logical-source TH_PERS {
+	 	source query "SELECT ID_NR, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Personenbegriffe'"
 
 		referenceables
 			ID_NR
-			THESAURUS
+			BEZEICHNUNG
+			BESCHREIBUNG
+	 }
+
+	 logical-source TH_ORT {
+	 	source query "SELECT ID_NR, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Ortsbegriffe'"
+
+		referenceables
+			ID_NR
 			BEZEICHNUNG
 			BESCHREIBUNG
 	 }

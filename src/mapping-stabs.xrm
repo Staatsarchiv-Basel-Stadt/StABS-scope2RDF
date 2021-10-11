@@ -103,7 +103,7 @@ map level_dokument from MVK_OGD.VE_DOKUMENT {
 	subject template rrURI with ID_NR;
 
 	types
-		rico.Record // @todo vorher testweise als RecordPart
+		rico.Record
 
 	properties
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
@@ -275,43 +275,57 @@ map bioghist_2 from MVK_OGD.BIOGHIST_2 {
  * * Erstelle Agent-/ und Place-Subjects (optional)
  * * Verbinde mit RiC-R020
  */
-map thes_records from MVK_OGD.TH_BASE {
-	subject template rrURI with ID_NR;
+map thes_pers from MVK_OGD.TH_PERS {
+	subject template agURI with ID_NR;
 
 	types
-		rico.Record
+		rico.Agent
 		skos.Concept
 
 	properties
-		rico.title from BEZEICHNUNG with language-tag ger;
+		rico.name from BEZEICHNUNG with language-tag ger;
 		rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
-		rico.hasDocumentaryFormType constant "https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#AuthorityRecord";
 		skos.prefLabel from BEZEICHNUNG with language-tag ger;
 		skos.note from BESCHREIBUNG with language-tag ger;
-		skos.inScheme template thtypeURI with THESAURUS;
+		skos.inScheme constant "http://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Personenbegriffe";
 }
 
-map thes_rel from MVK_OGD.TH_REL {
-	subject template rrURI with ID_NR_1;
+map thes_ort from MVK_OGD.TH_ORT {
+	subject template plURI with ID_NR;
 
 	types
-		rico.Record
+		rico.Place
 		skos.Concept
 
 	properties
-		rico.isRecordResourceAssociatedWithRecordResource template rrURI with ID_NR_2;
-		skos.related template rrURI with ID_NR_2;
+		rico.name from BEZEICHNUNG with language-tag ger;
+		rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
+		skos.prefLabel from BEZEICHNUNG with language-tag ger;
+		skos.note from BESCHREIBUNG with language-tag ger;
+		skos.inScheme constant "http://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Ortsbegriffe";
 }
 
-map rr2authrec from MVK_OGD.VE_DESC_LINK {
-	subject template rrURI with ID_NR_VRZNG_ENHT;
+//map thes_rel from MVK_OGD.TH_REL {
+//	subject template rrURI with ID_NR_1;
+//
+//	types
+//		rico.Record
+//		skos.Concept
+//
+//	properties
+//		rico.isRecordResourceAssociatedWithRecordResource template rrURI with ID_NR_2;
+//		skos.related template rrURI with ID_NR_2;
+//}
 
-	types
-		rico.RecordResource
-
-	properties
-		rico.hasOrHadMainSubject template rrURI with ID_NR_DSKRP;
-}
+//map rr2authrec from MVK_OGD.VE_DESC_LINK {
+//	subject template rrURI with ID_NR_VRZNG_ENHT;
+//
+//	types
+//		rico.RecordResource
+//
+//	properties
+//		rico.hasOrHadMainSubject template rrURI with ID_NR_DSKRP;
+//}
 
 /* Ablieferungen
  * ------------

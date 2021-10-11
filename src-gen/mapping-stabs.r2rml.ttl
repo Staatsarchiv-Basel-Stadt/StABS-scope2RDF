@@ -420,7 +420,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, UMFANG_GESCHAETZT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND UMFANG_GESCHAETZT IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{1}/extent-approximative" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/extent-approximative" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
@@ -514,17 +514,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#thes_records>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, THESAURUS, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Ortsbegriffe' OR THESAURUS LIKE 'Personenbegriffe'""" ];
+<#thes_pers>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Personenbegriffe'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
-		rr:class rico:Record ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Agent/{ID_NR}" ;
+		rr:class rico:Agent ;
 		rr:class skos:Concept ;
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:title ;
+		rr:predicate rico:name ;
 		rr:objectMap [
 			rr:column "BEZEICHNUNG" ;
 			rr:language "ger" ;
@@ -535,12 +535,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rr:column "BESCHREIBUNG" ;
 			rr:language "ger" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:hasDocumentaryFormType ;
-		rr:objectMap [
-			rr:constant <https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#AuthorityRecord> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -560,44 +554,51 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate skos:inScheme ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#{THESAURUS}" ;
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Personenbegriffe> ;
 		];
 	]
 .
-<#thes_rel>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR_1, ID_NR_2 FROM MVK_OGD_DSKRP_BZHNG_1 WHERE ROLLE LIKE 'siehe auch'""" ];
+<#thes_ort>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, BEZEICHNUNG, BESCHREIBUNG FROM MVK_OGD_DSKRP_1 WHERE THESAURUS LIKE 'Ortsbegriffe'""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_1}" ;
-		rr:class rico:Record ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Place/{ID_NR}" ;
+		rr:class rico:Place ;
 		rr:class skos:Concept ;
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:isRecordResourceAssociatedWithRecordResource ;
+		rr:predicate rico:name ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_2}" ;
+			rr:column "BEZEICHNUNG" ;
+			rr:language "ger" ;
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate skos:related ;
+		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_2}" ;
+			rr:column "BESCHREIBUNG" ;
+			rr:language "ger" ;
 		];
-	]
-.
-<#rr2authrec>
-	rr:logicalTable [ rr:tableName "MVK_OGD_VE_DSKRP_BZHNG_1" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_VRZNG_ENHT}" ;
-		rr:class rico:RecordResource ;
 	];
-	
 	rr:predicateObjectMap [
-		rr:predicate rico:hasOrHadMainSubject ;
+		rr:predicate skos:prefLabel ;
 		rr:objectMap [
-			rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR_DSKRP}" ;
+			rr:column "BEZEICHNUNG" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:note ;
+		rr:objectMap [
+			rr:column "BESCHREIBUNG" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme ;
+		rr:objectMap [
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Ortsbegriffe> ;
 		];
 	]
 .
