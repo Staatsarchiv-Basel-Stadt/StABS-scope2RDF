@@ -115,17 +115,17 @@ map level_dokument from MVK_OGD.VE_DOKUMENT {
  * - Signatur als eigene named instance
  * - übrige als blank nodes (@todo: sollte geändert werden)
  */
-map ident_01 from MVK_OGD.VE_STABS_SIG {
-	subject template refcodeURI with SIGNATUR;
-
-	types
-		rico.Identifier
-
-	properties
-		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Signatur";
-		rico.name from SIGNATUR;
-		rico.descriptiveNote constant "Die Signatur dient zur eindeutigen Identifikation innerhalb des Archivs.";
-}
+//map ident_01 from MVK_OGD.VE_STABS_SIG {
+//	subject template refcodeURI with SIGNATUR;
+//
+//	types
+//		rico.Identifier
+//
+//	properties
+//		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Signatur";
+//		rico.name from SIGNATUR;
+//		rico.descriptiveNote constant "Die Signatur dient zur eindeutigen Identifikation innerhalb des Archivs.";
+//}
 
 map ident_02 from MVK_OGD.VE_STABS_SIG {
 	subject template _ident with ID_NR as BlankNode;
@@ -158,7 +158,7 @@ map ident_03 from MVK_OGD.VE_STABS_SIG {
  */
 
 map extent_lm from MVK_OGD.VE_EXT_LM {
-	subject template exlmURI with LAUFMETER;
+	subject template exlmURI with ID_NR LAUFMETER;
 
 	types
 		rico.RecordResourceExtent
@@ -172,7 +172,7 @@ map extent_lm from MVK_OGD.VE_EXT_LM {
 }
 
 map extent_num from MVK_OGD.VE_NUM {
-	subject template exnumURI with ANZAHL;
+	subject template exnumURI with ID_NR ANZAHL;
 
 	types
 		rico.RecordResourceExtent
@@ -186,7 +186,7 @@ map extent_num from MVK_OGD.VE_NUM {
 }
 
 map extent_num_files from MVK_OGD.VE_NUM_FILES {
-	subject template exnumfileURI with ANZAHL_DATEIEN;
+	subject template exnumfileURI with ID_NR ANZAHL_DATEIEN;
 
 	types
 		rico.RecordResourceExtent
@@ -200,7 +200,7 @@ map extent_num_files from MVK_OGD.VE_NUM_FILES {
 }
 
 map extent_data_vol from MVK_OGD.VE_DATA_VOLUME {
-	subject template exdvURI with DATENVOLUMEN_MB;
+	subject template exdvURI with ID_NR DATENVOLUMEN_MB;
 
 	types
 		rico.RecordResourceExtent

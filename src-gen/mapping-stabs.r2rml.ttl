@@ -218,33 +218,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#ident_01>
-	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, SIGNATUR, FRUEHERE_STABS_SIGNATUR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
-	
-	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Record/{SIGNATUR}" ;
-		rr:class rico:Identifier ;
-	];
-	
-	rr:predicateObjectMap [
-		rr:predicate rico:hasIdentifierType ;
-		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Signatur> ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:name ;
-		rr:objectMap [
-			rr:column "SIGNATUR" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:descriptiveNote ;
-		rr:objectMap [
-			rr:constant "Die Signatur dient zur eindeutigen Identifikation innerhalb des Archivs." ;
-		];
-	]
-.
 <#ident_02>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, SIGNATUR, FRUEHERE_STABS_SIGNATUR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
@@ -305,7 +278,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, LAUFMETER FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND LAUFMETER IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{LAUFMETER}-linear-meters" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{LAUFMETER}-linear-meters" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
@@ -345,7 +318,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ANZAHL}-number-of-units" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{ANZAHL}-number-of-units" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
@@ -379,7 +352,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL_DATEIEN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL_DATEIEN IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ANZAHL_DATEIEN}-number-of-files" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{ANZAHL_DATEIEN}-number-of-files" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
@@ -413,7 +386,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, DATENVOLUMEN_MB FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND DATENVOLUMEN_MB IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{DATENVOLUMEN_MB}-volume-of-data" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{DATENVOLUMEN_MB}-volume-of-data" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
@@ -447,7 +420,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, UMFANG_GESCHAETZT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND UMFANG_GESCHAETZT IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "http://ld.staatsarchiv.bs.ch/Extent/{ID_NR}/extent-approximative" ;
+		rr:template "http://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{1}/extent-approximative" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	

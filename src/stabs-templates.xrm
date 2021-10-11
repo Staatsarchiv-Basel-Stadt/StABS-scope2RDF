@@ -20,11 +20,11 @@ template evURI "http://ld.staatsarchiv.bs.ch/Event/{0}"
 
 /* Extent URI Templates */
 template exURI "http://ld.staatsarchiv.bs.ch/Extent/{0}"
-template exlmURI "http://ld.staatsarchiv.bs.ch/Extent/{0}-linear-meters"
-template exnumURI "http://ld.staatsarchiv.bs.ch/Extent/{0}-number-of-units"
-template exnumfileURI "http://ld.staatsarchiv.bs.ch/Extent/{0}-number-of-files"
-template exapproxURI "http://ld.staatsarchiv.bs.ch/Extent/{0}/extent-approximative"
-template exdvURI "http://ld.staatsarchiv.bs.ch/Extent/{0}-volume-of-data"
+template exlmURI "http://ld.staatsarchiv.bs.ch/Record/{0}/Extent/{1}-linear-meters"
+template exnumURI "http://ld.staatsarchiv.bs.ch/Record/{0}/Extent/{1}-number-of-units"
+template exnumfileURI "http://ld.staatsarchiv.bs.ch/Record/{0}/Extent/{1}-number-of-files"
+template exapproxURI "http://ld.staatsarchiv.bs.ch/Record/{0}/Extent/extent-approximative"
+template exdvURI "http://ld.staatsarchiv.bs.ch/Record/{0}/Extent/{1}-volume-of-data"
 
 template ruURI "http://ld.staatsarchiv.bs.ch/Rule/{0}"
 template plURI "http://ld.staatsarchiv.bs.ch/Place/{0}"
@@ -33,7 +33,6 @@ template daURI "http://ld.staatsarchiv.bs.ch/Date/{0}"
 /* Templates for blank nodes */
 
 template _ident "_ident{0}"
-template _extent "_extent{0}" // nicht mehr in Gebrauch
 
 /* 12 Subklassen von rico:Thing
  * ----------------------------
