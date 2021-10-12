@@ -137,19 +137,18 @@ map level_dokument from MVK_OGD.VE_DOKUMENT {
 //		rico.name from FRUEHERE_STABS_SIGNATUR;
 //		rico.descriptiveNote constant "Signaturen, die früher im Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
 //}
-//
-//map ident_03 from MVK_OGD.VE_STABS_SIG {
-//	subject template _ident with ID_NR as BlankNode;
-//
-//	types
-//		rico.Identifier
-//
-//	properties
-//		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur";
-//		rico.name from ALTE_SIGNATUREN;
-//		rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
-//		
-//}
+
+map ident_03 from MVK_OGD.VE_STABS_SIG {
+	subject template oldrefcodeURI with ALTE_SIGNATUREN;
+
+	types
+		rico.Identifier
+
+	properties
+		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur";
+		rico.name from ALTE_SIGNATUREN;
+		rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
+}
 
 /* Extent Maps
  * -----------

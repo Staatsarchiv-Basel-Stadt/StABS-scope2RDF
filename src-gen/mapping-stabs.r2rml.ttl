@@ -211,6 +211,33 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
+<#ident_03>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, SIGNATUR, FRUEHERE_STABS_SIGNATUR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
+	
+	rr:subjectMap [
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ALTE_SIGNATUREN}" ;
+		rr:class rico:Identifier ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasIdentifierType ;
+		rr:objectMap [
+			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:name ;
+		rr:objectMap [
+			rr:column "ALTE_SIGNATUREN" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote ;
+		rr:objectMap [
+			rr:constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen." ;
+		];
+	]
+.
 <#extent_lm>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, LAUFMETER FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND LAUFMETER IS NOT NULL""" ];
 	
