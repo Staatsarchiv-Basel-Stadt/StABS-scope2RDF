@@ -566,6 +566,36 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
+<#rr2thes_pers>
+	rr:logicalTable [ rr:sqlQuery """SELECT BZ.ID_NR_DSKRP AS ID_DS, BZ.ID_NR_VRZNG_ENHT AS ID_VE FROM MVK_OGD_VE_DSKRP_BZHNG_1 BZ INNER JOIN MVK_OGD_DSKRP_1 DS ON  BZ.ID_NR_DSKRP = DS.ID_NR WHERE DS.THESAURUS LIKE 'Personenbegriffe'""" ];
+	
+	rr:subjectMap [
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_VE}" ;
+		rr:class rico:RecordResource ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadMainSubject ;
+		rr:objectMap [
+			rr:template "https://ld.staatsarchiv.bs.ch/Agent/{ID_DS}" ;
+		];
+	]
+.
+<#rr2thes_ort>
+	rr:logicalTable [ rr:sqlQuery """SELECT BZ.ID_NR_DSKRP AS ID_DS, BZ.ID_NR_VRZNG_ENHT AS ID_VE FROM MVK_OGD_VE_DSKRP_BZHNG_1 BZ INNER JOIN MVK_OGD_DSKRP_1 DS ON  BZ.ID_NR_DSKRP = DS.ID_NR WHERE DS.THESAURUS LIKE 'Ortsbegriffe'""" ];
+	
+	rr:subjectMap [
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_VE}" ;
+		rr:class rico:RecordResource ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasOrHadMainSubject ;
+		rr:objectMap [
+			rr:template "https://ld.staatsarchiv.bs.ch/Place/{ID_DS}" ;
+		];
+	]
+.
 <#abl>
 	rr:logicalTable [ rr:tableName "MVK_OGD_ABLFR_1" ];
 	

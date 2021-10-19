@@ -226,12 +226,20 @@ source-group MVK_OGD {
 			ID_NR_2
 	}
 
-	logical-source VE_DESC_LINK {
-		source "MVK_OGD_VE_DSKRP_BZHNG_1"
+	logical-source TH_PERS_VE_LINK {
+		source query "SELECT BZ.ID_NR_DSKRP AS ID_DS, BZ.ID_NR_VRZNG_ENHT AS ID_VE FROM MVK_OGD_VE_DSKRP_BZHNG_1 BZ INNER JOIN MVK_OGD_DSKRP_1 DS ON  BZ.ID_NR_DSKRP = DS.ID_NR WHERE DS.THESAURUS LIKE 'Personenbegriffe'"
 
 		referenceables
-			ID_NR_DSKRP
-			ID_NR_VRZNG_ENHT
+			ID_DS
+			ID_VE
+	}
+
+	logical-source TH_ORT_VE_LINK {
+		source query "SELECT BZ.ID_NR_DSKRP AS ID_DS, BZ.ID_NR_VRZNG_ENHT AS ID_VE FROM MVK_OGD_VE_DSKRP_BZHNG_1 BZ INNER JOIN MVK_OGD_DSKRP_1 DS ON  BZ.ID_NR_DSKRP = DS.ID_NR WHERE DS.THESAURUS LIKE 'Ortsbegriffe'"
+
+		referenceables
+			ID_DS
+			ID_VE
 	}
 
 	/* Ablieferungen

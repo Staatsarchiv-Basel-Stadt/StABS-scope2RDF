@@ -315,15 +315,25 @@ map thes_ort from MVK_OGD.TH_ORT {
 //		skos.related template rrURI with ID_NR_2;
 //}
 
-//map rr2authrec from MVK_OGD.VE_DESC_LINK {
-//	subject template rrURI with ID_NR_VRZNG_ENHT;
-//
-//	types
-//		rico.RecordResource
-//
-//	properties
-//		rico.hasOrHadMainSubject template rrURI with ID_NR_DSKRP;
-//}
+map rr2thes_pers from MVK_OGD.TH_PERS_VE_LINK {
+	subject template rrURI with ID_VE;
+
+	types
+		rico.RecordResource
+
+	properties
+		rico.hasOrHadMainSubject template agURI with ID_DS;
+}
+
+map rr2thes_ort from MVK_OGD.TH_ORT_VE_LINK {
+	subject template rrURI with ID_VE;
+
+	types
+		rico.RecordResource
+
+	properties
+		rico.hasOrHadMainSubject template plURI with ID_DS;
+}
 
 /* Ablieferungen
  * ------------
