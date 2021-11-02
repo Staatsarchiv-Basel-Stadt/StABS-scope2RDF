@@ -1,5 +1,6 @@
 PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX http://www.w3.org/2002/07/owl#: <>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -23,12 +24,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:identifier ;
 		rr:objectMap [
 			rr:column "SIGNATUR" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:hasOrHadIdentifier ;
-		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{SIGNATUR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -88,6 +83,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate dcterms:isReferencedBy ;
 		rr:objectMap [
 			rr:template "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={ID_NR}" ;
+		];
+	]
+.
+<#rr_stabs_refcode>
+	rr:logicalTable [ rr:sqlQuery """SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, DARIN, ARCHIVALIENART, ENTHAELT, ZUGANGS_UND_BENUTZUNGSBEDINGUN, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE, ZUGAENGLICHKEIT_NM FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
+	
+	rr:subjectMap [
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{SIGNATUR}" ;
+		rr:class rico:RecordResource ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate http://www.w3.org/2002/07/owl#:sameAs ;
+		rr:objectMap [
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
 		];
 	]
 .

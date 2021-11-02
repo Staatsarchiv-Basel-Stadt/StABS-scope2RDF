@@ -23,6 +23,15 @@ vocabulary dct {
 		isReferencedBy
 }
 
+vocabulary owl {
+	prefix "owl" "http://www.w3.org/2002/07/owl#"
+
+	classes
+
+	properties
+		sameAs
+}
+
 vocabulary rico {
 	prefix "rico" "https://www.ica.org/standards/RiC/ontology#"
 

@@ -14,7 +14,6 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 	properties
 		rico.title from TITEL with language-tag ger;
 		rico.identifier from SIGNATUR;
-		rico.hasOrHadIdentifier template refcodeURI with SIGNATUR;
 		rico.date from ENTSTEHUNGSZEITRAUM;
 		rico.scopeAndContent from DARIN with language-tag ger; // Hervorzuhebende Inhalte von 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
 		rico.scopeAndContent from ENTHAELT with language-tag ger; // Hauptgegenstand von isadg 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
@@ -25,6 +24,16 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 		rico.hasRecordSetType template rstypeURI with STUFE;
 
 		dct.isReferencedBy template queryURL with ID_NR;
+}
+
+map rr_stabs_refcode from MVK_OGD.VE_STABS_RR_BASE {
+	subject template refcodeURI with SIGNATUR;
+
+	types
+		rico.RecordResource
+
+	properties
+		owl.sameAs template rrURI with ID_NR;
 }
 
 /* Description Level Classes
