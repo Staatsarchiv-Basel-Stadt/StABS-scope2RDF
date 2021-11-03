@@ -80,13 +80,19 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
+		rr:predicate owl:sameAs ;
+		rr:objectMap [
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{SIGNATUR}" ;
+		];
+	];
+	rr:predicateObjectMap [
 		rr:predicate dcterms:isReferencedBy ;
 		rr:objectMap [
 			rr:template "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={ID_NR}" ;
 		];
 	]
 .
-<#rr_stabs_refcode>
+<#rr_stabs_ref>
 	rr:logicalTable [ rr:sqlQuery """SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, DARIN, ARCHIVALIENART, ENTHAELT, ZUGANGS_UND_BENUTZUNGSBEDINGUN, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE, ZUGAENGLICHKEIT_NM FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
 	rr:subjectMap [
@@ -221,7 +227,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
-<#ident_02>
+<#ident_01>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ALTE_SIGNATUREN IS NOT NULL""" ];
 	
 	rr:subjectMap [
@@ -232,7 +238,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType ;
 		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -245,6 +251,33 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
 			rr:constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen." ;
+		];
+	]
+.
+<#ident_02>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, FRUEHERE_SIGNATUR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND FRUEHERE_SIGNATUR IS NOT NULL""" ];
+	
+	rr:subjectMap [
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Former-Reference/{FRUEHERE_SIGNATUR}" ;
+		rr:class rico:Identifier ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasIdentifierType ;
+		rr:objectMap [
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-Signatur> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:name ;
+		rr:objectMap [
+			rr:column "FRUEHERE_SIGNATUR" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote ;
+		rr:objectMap [
+			rr:constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung" ;
 		];
 	]
 .
@@ -265,7 +298,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Laufmeter> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Laufmeter> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -305,7 +338,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -339,7 +372,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl-Dateien> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl-Dateien> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -373,7 +406,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Datenvolumen-MB> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Datenvolumen-MB> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -407,7 +440,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Umfang-approximativ> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Umfang-approximativ> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -528,7 +561,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate skos:inScheme ;
 		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Personenbegriffe> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Personenbegriffe> ;
 		];
 	]
 .
@@ -572,7 +605,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate skos:inScheme ;
 		rr:objectMap [
-			rr:constant <http://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Ortsbegriffe> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Ortsbegriffe> ;
 		];
 	]
 .

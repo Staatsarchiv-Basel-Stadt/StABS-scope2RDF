@@ -3,7 +3,7 @@ output r2rml
 /* Basis-Maps for RecordResouces
  * -----------------------------
  * - for all instances of rico:RecordResource
- * - two maps give two subject uris (DB ID and RefCode) and declares them as same
+ * - two maps give two subject uris (DB ID and Reference) and declares them as same
  */
 
 map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
@@ -23,12 +23,12 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 		rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
 		rico.isAssociatedWithDate template dateURI with ID_NR;
 		rico.hasRecordSetType template rstypeURI with STUFE;
-
+		owl.sameAs template refURI with SIGNATUR;
 		dct.isReferencedBy template queryURL with ID_NR;
 }
 
-map rr_stabs_refcode from MVK_OGD.VE_STABS_RR_BASE {
-	subject template refcodeURI with SIGNATUR;
+map rr_stabs_ref from MVK_OGD.VE_STABS_RR_BASE {
+	subject template refURI with SIGNATUR;
 
 	types
 		rico.RecordResource
@@ -121,22 +121,34 @@ map level_dokument from MVK_OGD.VE_DOKUMENT {
 
 /* Identity Maps
  * -------------
- * - Signatur als eigene named instance
- * - übrige als blank nodes (@todo: sollte geändert werden)
+ * - Alte Signaturen
+ * - Frühere Signaturen
+ * - Frühere StABS-Signatur
  */
 
-map ident_02 from MVK_OGD.VE_STABS_ALT_SIG {
-	subject template oldrefcodeURI with ID_NR ALTE_SIGNATUREN;
+map ident_01 from MVK_OGD.VE_STABS_ALT_SIG {
+	subject template oldrefURI with ID_NR ALTE_SIGNATUREN;
 
 	types
 		rico.Identifier
 
 	properties
-		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur";
+		rico.hasIdentifierType constant "https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur";
 		rico.name from ALTE_SIGNATUREN;
 		rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
 }
 
+map ident_02 from MVK_OGD.VE_STABS_FRM_SIG {
+	subject template frmrefURI with ID_NR FRUEHERE_SIGNATUR;
+
+	types
+		rico.Identifier
+
+	properties
+		rico.hasIdentifierType constant "https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-Signatur";
+		rico.name from FRUEHERE_SIGNATUR;
+		rico.descriptiveNote constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung";
+}
 /* Extent Maps
  * -----------
  * DE: LAUFMETER, ANZAHL, ANZAHL_DATEIEN, UMFANG_GESCHAETZT, KOMMENTAR_ZUM_UMFANG, DATENVOLUMEN_MB
@@ -150,7 +162,7 @@ map extent_lm from MVK_OGD.VE_EXT_LM {
 
 	properties
 		rico.isExtentOf template rrURI with ID_NR;
-		rico.hasExtentType constant "http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Laufmeter";
+		rico.hasExtentType constant "https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Laufmeter";
 		rico.quantity from LAUFMETER with datatype xsd.decimal;
 		rico.hasUnitOfMeasurement constant "http://qudt.org/vocab/unit/M"; // @todo: als rico:UnitOfMeasurement
 		rico.descriptiveNote constant "Laufmeter";
@@ -164,7 +176,7 @@ map extent_num from MVK_OGD.VE_NUM {
 
 	properties
 		rico.isExtentOf template rrURI with ID_NR;
-		rico.hasExtentType constant "http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl";
+		rico.hasExtentType constant "https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl";
 		rico.quantity from ANZAHL with datatype xsd.integer;
 		// rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
 		rico.descriptiveNote constant "Anzahl Einheiten oder Behältnisse";
@@ -178,7 +190,7 @@ map extent_num_files from MVK_OGD.VE_NUM_FILES {
 
 	properties
 		rico.isExtentOf template rrURI with ID_NR;
-		rico.hasExtentType constant "http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl-Dateien";
+		rico.hasExtentType constant "https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl-Dateien";
 		rico.quantity from ANZAHL_DATEIEN with datatype xsd.integer;
 		// rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
 		rico.descriptiveNote constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht.";
@@ -192,7 +204,7 @@ map extent_data_vol from MVK_OGD.VE_DATA_VOLUME {
 
 	properties
 		rico.isExtentOf template rrURI with ID_NR;
-		rico.hasExtentType constant "http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Datenvolumen-MB";
+		rico.hasExtentType constant "https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Datenvolumen-MB";
 		rico.quantity from DATENVOLUMEN_MB with datatype xsd.decimal;
 		// rico.hasUnitOfMeasurement  // @todo: Einheiten oder Behältnisse als rico:UnitOfMeasurement
 		rico.descriptiveNote constant "Angabe des enthaltenen Datenvolumens in Megabyte (MB)";
@@ -207,7 +219,7 @@ map extent_approx from MVK_OGD.VE_EXT_APPROX {
 	
 	properties
 		rico.isExtentOf template rrURI with ID_NR;
-		rico.hasExtentType constant "http://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Umfang-approximativ";
+		rico.hasExtentType constant "https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Umfang-approximativ";
 		rico.textualValue from UMFANG_GESCHAETZT;
 		rico.descriptiveNote constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen.";
 }
@@ -272,7 +284,7 @@ map thes_pers from MVK_OGD.TH_PERS {
 		rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
 		skos.prefLabel from BEZEICHNUNG with language-tag ger;
 		skos.note from BESCHREIBUNG with language-tag ger;
-		skos.inScheme constant "http://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Personenbegriffe";
+		skos.inScheme constant "https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Personenbegriffe";
 }
 
 map thes_ort from MVK_OGD.TH_ORT {
@@ -287,7 +299,7 @@ map thes_ort from MVK_OGD.TH_ORT {
 		rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
 		skos.prefLabel from BEZEICHNUNG with language-tag ger;
 		skos.note from BESCHREIBUNG with language-tag ger;
-		skos.inScheme constant "http://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Ortsbegriffe";
+		skos.inScheme constant "https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Ortsbegriffe";
 }
 
 //map thes_rel from MVK_OGD.TH_REL {
