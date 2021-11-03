@@ -1,8 +1,9 @@
 output r2rml
 
-/* Basis-Map
- * ----------
- * - für alle RecordResourcen
+/* Basis-Maps for RecordResouces
+ * -----------------------------
+ * - for all instances of rico:RecordResource
+ * - two maps give two subject uris (DB ID and RefCode) and declares them as same
  */
 
 map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
@@ -38,7 +39,7 @@ map rr_stabs_refcode from MVK_OGD.VE_STABS_RR_BASE {
 
 /* Description Level Classes
  * -------------------------
- * - builds the main RecordResource Relations (include and constitute)
+ * - builds the main RecordResource Relations (include)
  * - sets the RecordSetType
  */
 
@@ -123,32 +124,9 @@ map level_dokument from MVK_OGD.VE_DOKUMENT {
  * - Signatur als eigene named instance
  * - übrige als blank nodes (@todo: sollte geändert werden)
  */
-//map ident_01 from MVK_OGD.VE_STABS_SIG {
-//	subject template refcodeURI with SIGNATUR;
-//
-//	types
-//		rico.Identifier
-//
-//	properties
-//		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Signatur";
-//		rico.name from SIGNATUR;
-//		rico.descriptiveNote constant "Die Signatur dient zur eindeutigen Identifikation innerhalb des Archivs.";
-//}
-//
-//map ident_02 from MVK_OGD.VE_STABS_SIG {
-//	subject template _ident with ID_NR as BlankNode;
-//
-//	types
-//		rico.Identifier
-//
-//	properties
-//		rico.hasIdentifierType constant "http://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-Signatur-im-Staatsarchiv";
-//		rico.name from FRUEHERE_STABS_SIGNATUR;
-//		rico.descriptiveNote constant "Signaturen, die früher im Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
-//}
 
-map ident_03 from MVK_OGD.VE_STABS_SIG {
-	subject template oldrefcodeURI with ALTE_SIGNATUREN;
+map ident_02 from MVK_OGD.VE_STABS_ALT_SIG {
+	subject template oldrefcodeURI with ID_NR ALTE_SIGNATUREN;
 
 	types
 		rico.Identifier

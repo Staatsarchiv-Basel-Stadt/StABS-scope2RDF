@@ -92,17 +92,15 @@ source-group MVK_OGD {
 
 	/* Identifikatoren
 	 * ---------------
-	 * - Signatur
+	 * - Alte Signaturen
 	 * - weitere Signaturen
 	 * - später weitere Identifikatoren
 	 */
-	logical-source VE_STABS_SIG {
-		source query "SELECT ID_NR, SIGNATUR, FRUEHERE_STABS_SIGNATUR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'"
+	logical-source VE_STABS_ALT_SIG {
+		source query "SELECT ID_NR, ALTE_SIGNATUREN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ALTE_SIGNATUREN IS NOT NULL"
 
 		referenceables
 			ID_NR
-			SIGNATUR
-			FRUEHERE_STABS_SIGNATUR
 			ALTE_SIGNATUREN
 	}
 	
