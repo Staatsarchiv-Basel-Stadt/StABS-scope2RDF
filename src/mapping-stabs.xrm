@@ -149,6 +149,18 @@ map ident_02 from MVK_OGD.VE_STABS_FRM_SIG {
 		rico.name from FRUEHERE_SIGNATUR;
 		rico.descriptiveNote constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung";
 }
+
+map ident_03 from MVK_OGD.VE_STABS_FRM_STABS_SIG {
+	subject template frmstabsrefURI with ID_NR FRUEHERE_STABS_SIGNATUR;
+
+	types
+		rico.Identifier
+
+	properties
+		rico.hasIdentifierType constant "https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-StABS-Signatur";
+		rico.name from FRUEHERE_STABS_SIGNATUR;
+		rico.descriptiveNote constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
+}
 /* Extent Maps
  * -----------
  * DE: LAUFMETER, ANZAHL, ANZAHL_DATEIEN, UMFANG_GESCHAETZT, KOMMENTAR_ZUM_UMFANG, DATENVOLUMEN_MB
@@ -284,7 +296,7 @@ map thes_pers from MVK_OGD.TH_PERS {
 		rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
 		skos.prefLabel from BEZEICHNUNG with language-tag ger;
 		skos.note from BESCHREIBUNG with language-tag ger;
-		skos.inScheme constant "https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Personenbegriffe";
+		skos.inScheme constant "https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusTypes#Personenbegriffe";
 }
 
 map thes_ort from MVK_OGD.TH_ORT {
@@ -299,7 +311,7 @@ map thes_ort from MVK_OGD.TH_ORT {
 		rico.descriptiveNote from BESCHREIBUNG with language-tag ger;
 		skos.prefLabel from BEZEICHNUNG with language-tag ger;
 		skos.note from BESCHREIBUNG with language-tag ger;
-		skos.inScheme constant "https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Ortsbegriffe";
+		skos.inScheme constant "https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusTypes#Ortsbegriffe";
 }
 
 //map thes_rel from MVK_OGD.TH_REL {

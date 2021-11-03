@@ -76,7 +76,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#{STUFE}" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#{STUFE}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -278,6 +278,33 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
 			rr:constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung" ;
+		];
+	]
+.
+<#ident_03>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, FRUEHERE_STABS_SIGNATUR FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND FRUEHERE_STABS_SIGNATUR IS NOT NULL;""" ];
+	
+	rr:subjectMap [
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Former-StABS-Reference/{FRUEHERE_STABS_SIGNATUR}" ;
+		rr:class rico:Identifier ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:hasIdentifierType ;
+		rr:objectMap [
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-StABS-Signatur> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:name ;
+		rr:objectMap [
+			rr:column "FRUEHERE_STABS_SIGNATUR" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote ;
+		rr:objectMap [
+			rr:constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden." ;
 		];
 	]
 .
@@ -561,7 +588,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate skos:inScheme ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Personenbegriffe> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusTypes#Personenbegriffe> ;
 		];
 	]
 .
@@ -605,7 +632,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate skos:inScheme ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#Ortsbegriffe> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusTypes#Ortsbegriffe> ;
 		];
 	]
 .

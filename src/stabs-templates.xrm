@@ -14,6 +14,7 @@ template rrURI "https://ld.staatsarchiv.bs.ch/Record/{0}"
 template refURI "https://ld.staatsarchiv.bs.ch/Record/{0}"
 template oldrefURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Old-Reference/{1}"
 template frmrefURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Former-Reference/{1}"
+template frmstabsrefURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Former-StABS-Reference/{1}"
 template dateURI "https://ld.staatsarchiv.bs.ch/Record/{0}/daterange"
 
 template instURI "https://ld.staatsarchiv.bs.ch/Instantiation/{0}-i"
@@ -54,6 +55,8 @@ template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
  * -------------------
  */
 
-template thtypeURI "https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusType#{0}"
-template rstypeURI "https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#{0}"
+template exttypeURI "https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#{0}"
+template thtypeURI "https://ld.staatsarchiv.bs.ch/vocabularies/ThesaurusTypes#{0}"
+template rstypeURI "https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#{0}"
+template idtypeURI "https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#{0}"
 
