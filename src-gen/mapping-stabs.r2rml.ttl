@@ -248,7 +248,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate rico:name ;
+		rr:predicate rico:textualValue ;
 		rr:objectMap [
 			rr:column "ALTE_SIGNATUREN" ;
 		];
@@ -281,7 +281,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate rico:name ;
+		rr:predicate rico:textualValue ;
 		rr:objectMap [
 			rr:column "FRUEHERE_SIGNATUR" ;
 		];
@@ -314,7 +314,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate rico:name ;
+		rr:predicate rico:textualValue ;
 		rr:objectMap [
 			rr:column "FRUEHERE_STABS_SIGNATUR" ;
 		];

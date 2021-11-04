@@ -135,7 +135,7 @@ map ident_01 from MVK_OGD.VE_STABS_ALT_SIG {
 	properties
 		rico.isOrWasIdentifierOf template rrURI with ID_NR;
 		rico.hasIdentifierType constant "https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur";
-		rico.name from ALTE_SIGNATUREN;
+		rico.textualValue from ALTE_SIGNATUREN;
 		rico.descriptiveNote constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen.";
 }
 
@@ -148,7 +148,7 @@ map ident_02 from MVK_OGD.VE_STABS_FRM_SIG {
 	properties
 		rico.isOrWasIdentifierOf template rrURI with ID_NR;
 		rico.hasIdentifierType constant "https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-Signatur";
-		rico.name from FRUEHERE_SIGNATUR;
+		rico.textualValue from FRUEHERE_SIGNATUR;
 		rico.descriptiveNote constant "Angabe der von der Provenienzstelle verwendeten Signatur oder identifizierenden Bezeichnung";
 }
 
@@ -161,7 +161,7 @@ map ident_03 from MVK_OGD.VE_STABS_FRM_STABS_SIG {
 	properties
 		rico.isOrWasIdentifierOf template rrURI with ID_NR;
 		rico.hasIdentifierType constant "https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-StABS-Signatur";
-		rico.name from FRUEHERE_STABS_SIGNATUR;
+		rico.textualValue from FRUEHERE_STABS_SIGNATUR;
 		rico.descriptiveNote constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
 }
 /* Extent Maps
