@@ -163,7 +163,6 @@ map ident_03 from MVK_OGD.VE_STABS_FRM_STABS_SIG {
 		rico.hasIdentifierType constant "https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-StABS-Signatur";
 		rico.name from FRUEHERE_STABS_SIGNATUR;
 		rico.descriptiveNote constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden.";
-		rico.isOrWasIdentifierOf template rrURI with ID_NR;
 }
 /* Extent Maps
  * -----------

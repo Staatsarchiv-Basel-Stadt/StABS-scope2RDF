@@ -324,12 +324,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rr:constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden." ;
 		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate rico:isOrWasIdentifierOf ;
-		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
-		];
 	]
 .
 <#extent_lm>
