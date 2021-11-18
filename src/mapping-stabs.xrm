@@ -131,6 +131,10 @@ map inst_base from MVK_OGD.INST_STABS_BASE {
 	properties
 		rico.isInstantiationOf template rrURI with ID_NR;
 		rico.title from TITEL with language-tag ger;
+		rico.identifier from SIGNATUR;
+		rico.physicalCharacteristics from PHYSISCHE_BESCHAFFENHEIT with language-tag ger;
+		rico.hasCarrierType constant "https://ld.staatsarchiv.bs.ch/vocabularies/CarrierTypes#undefined";
+		rico.hasRepresentationType constant "https://ld.staatsarchiv.bs.ch/vocabularies/RepresentationTypes#undefined";
 }
 
 /* Identity Maps
