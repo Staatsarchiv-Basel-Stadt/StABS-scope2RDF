@@ -119,6 +119,20 @@ map level_dokument from MVK_OGD.VE_DOKUMENT {
 		// rico.hasContentOfType // ARCHIVALIENART (3.1.5) @todo s.o.
 }
 
+/* Instantiation
+ * -------------
+ */
+map inst_base from MVK_OGD.INST_STABS_BASE {
+	subject template instURI with ID_NR;
+
+	types
+		rico.Instantiation
+
+	properties
+		rico.isInstantiationOf template rrURI with ID_NR;
+		rico.title from TITEL with language-tag ger;
+}
+
 /* Identity Maps
  * -------------
  * - Alte Signaturen
