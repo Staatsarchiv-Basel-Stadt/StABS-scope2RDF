@@ -15,7 +15,6 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 	properties
 		rico.title from TITEL with language-tag ger;
 		rico.identifier from SIGNATUR;
-		rico.date from ENTSTEHUNGSZEITRAUM;
 		rico.scopeAndContent from DARIN with language-tag ger; // Hervorzuhebende Inhalte von 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
 		rico.scopeAndContent from ENTHAELT with language-tag ger; // Hauptgegenstand von isadg 3.3.1 @todo: sollte in eigene Unterklasse modelliert werden
 		rico.^type from ARCHIVALIENART with language-tag ger; // @todo: sollte als Klasse modelliert werden, s.u. je Klassenlevel
@@ -23,7 +22,6 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 		rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
 		rico.isAssociatedWithDate template dateURI with ID_NR;
 		rico.hasRecordSetType template rstypeURI with STUFE;
-		owl.sameAs template refURI with SIGNATUR;
 		dct.isReferencedBy template queryURL with ID_NR;
 }
 
@@ -135,6 +133,19 @@ map inst_base from MVK_OGD.INST_STABS_BASE {
 		rico.physicalCharacteristics from PHYSISCHE_BESCHAFFENHEIT with language-tag ger;
 		rico.hasCarrierType constant "https://ld.staatsarchiv.bs.ch/vocabularies/CarrierTypes#undefined";
 		rico.hasRepresentationType constant "https://ld.staatsarchiv.bs.ch/vocabularies/RepresentationTypes#undefined";
+}
+/* Date Maps
+ * ---------
+ * - Entstehungszeitraum
+ */
+map date_01 from MVK_OGD.VE_STABS_RR_BASE {
+	subject template dateURI with ID_NR;
+
+	types
+		rico.Date
+
+	properties
+		rico.textualValue from ENTSTEHUNGSZEITRAUM;
 }
 
 /* Identity Maps

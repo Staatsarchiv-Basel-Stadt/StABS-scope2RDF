@@ -27,12 +27,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate rico:date ;
-		rr:objectMap [
-			rr:column "ENTSTEHUNGSZEITRAUM" ;
-		];
-	];
-	rr:predicateObjectMap [
 		rr:predicate rico:scopeAndContent ;
 		rr:objectMap [
 			rr:column "DARIN" ;
@@ -70,19 +64,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:isAssociatedWithDate ;
 		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/daterange" ;
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Date" ;
 		];
 	];
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
 			rr:template "https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#{STUFE}" ;
-		];
-	];
-	rr:predicateObjectMap [
-		rr:predicate owl:sameAs ;
-		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/Record/{SIGNATUR}" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -271,6 +259,21 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:hasRepresentationType ;
 		rr:objectMap [
 			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RepresentationTypes#undefined> ;
+		];
+	]
+.
+<#date_01>
+	rr:logicalTable [ rr:sqlQuery """SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, DARIN, ARCHIVALIENART, ENTHAELT, ZUGANGS_UND_BENUTZUNGSBEDINGUN, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE, ZUGAENGLICHKEIT_NM FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
+	
+	rr:subjectMap [
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Date" ;
+		rr:class rico:Date ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:textualValue ;
+		rr:objectMap [
+			rr:column "ENTSTEHUNGSZEITRAUM" ;
 		];
 	]
 .
