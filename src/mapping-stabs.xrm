@@ -205,7 +205,7 @@ map extent_lm from MVK_OGD.VE_EXT_LM {
 }
 
 map extent_num from MVK_OGD.VE_NUM {
-	subject template exnumURI with ID_NR ANZAHL;
+	subject template exnumURI with ID_NR;
 
 	types
 		rico.RecordResourceExtent
@@ -219,7 +219,7 @@ map extent_num from MVK_OGD.VE_NUM {
 }
 
 map extent_num_files from MVK_OGD.VE_NUM_FILES {
-	subject template exnumfileURI with ID_NR ANZAHL_DATEIEN;
+	subject template exnumfileURI with ID_NR;
 
 	types
 		rico.RecordResourceExtent
@@ -233,7 +233,7 @@ map extent_num_files from MVK_OGD.VE_NUM_FILES {
 }
 
 map extent_data_vol from MVK_OGD.VE_DATA_VOLUME {
-	subject template exdvURI with ID_NR DATENVOLUMEN_MB;
+	subject template exdvURI with ID_NR;
 
 	types
 		rico.RecordResourceExtent

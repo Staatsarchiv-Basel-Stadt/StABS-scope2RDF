@@ -403,7 +403,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{ANZAHL}-number-of-units" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/number-of-units" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
@@ -437,7 +437,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL_DATEIEN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL_DATEIEN IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{ANZAHL_DATEIEN}-number-of-files" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/number-of-files" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
@@ -471,7 +471,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, DATENVOLUMEN_MB FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND DATENVOLUMEN_MB IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{DATENVOLUMEN_MB}-volume-of-data" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/volume-of-data" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
