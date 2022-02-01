@@ -191,7 +191,7 @@ map ident_03 from MVK_OGD.VE_STABS_FRM_STABS_SIG {
  */
 
 map extent_lm from MVK_OGD.VE_EXT_LM {
-	subject template exlmURI with ID_NR LAUFMETER;
+	subject template exlmURI with ID_NR;
 
 	types
 		rico.RecordResourceExtent

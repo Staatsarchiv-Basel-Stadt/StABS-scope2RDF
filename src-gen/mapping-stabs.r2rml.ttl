@@ -363,7 +363,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, LAUFMETER FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND LAUFMETER IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{LAUFMETER}-linear-meters" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/linear-meters" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
