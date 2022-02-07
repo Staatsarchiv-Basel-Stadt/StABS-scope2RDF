@@ -68,12 +68,6 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
-		rr:predicate rico:hasRecordSetType ;
-		rr:objectMap [
-			rr:template "https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#{STUFE}" ;
-		];
-	];
-	rr:predicateObjectMap [
 		rr:predicate dcterms:isReferencedBy ;
 		rr:objectMap [
 			rr:template "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={ID_NR}" ;
@@ -109,6 +103,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			rr:column "ARCHIVGESCHICHTE" ;
 			rr:language "ger" ;
 		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Archiv> ;
+		];
 	]
 .
 <#level_abt>
@@ -123,6 +123,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
 			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Abteilung> ;
 		];
 	]
 .
@@ -146,6 +152,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			rr:column "AKTENBILDNER_PROVENIENZ_TEXT" ;
 			rr:language "ger" ;
 		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Fonds> ;
+		];
 	]
 .
 <#level_best>
@@ -168,6 +180,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			rr:column "AKTENBILDNER_PROVENIENZ_TEXT" ;
 			rr:language "ger" ;
 		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Bestand> ;
+		];
 	]
 .
 <#level_series>
@@ -183,6 +201,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:objectMap [
 			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
 		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Serie> ;
+		];
 	]
 .
 <#level_dossier>
@@ -190,13 +214,19 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	
 	rr:subjectMap [
 		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
-		rr:class rico:Record ;
+		rr:class rico:RecordSet ;
 	];
 	
 	rr:predicateObjectMap [
 		rr:predicate rico:isOrWasIncludedIn ;
 		rr:objectMap [
 			rr:template "https://ld.staatsarchiv.bs.ch/Record/{PARENT_ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRecordSetType ;
+		rr:objectMap [
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Dossier> ;
 		];
 	]
 .
@@ -333,7 +363,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, LAUFMETER FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND LAUFMETER IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{LAUFMETER}-linear-meters" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/linear-meters" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
@@ -373,7 +403,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{ANZAHL}-number-of-units" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/number-of-units" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
@@ -407,7 +437,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ANZAHL_DATEIEN FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ANZAHL_DATEIEN IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{ANZAHL_DATEIEN}-number-of-files" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/number-of-files" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	
@@ -441,7 +471,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, DATENVOLUMEN_MB FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND DATENVOLUMEN_MB IS NOT NULL""" ];
 	
 	rr:subjectMap [
-		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/{DATENVOLUMEN_MB}-volume-of-data" ;
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Extent/volume-of-data" ;
 		rr:class rico:RecordResourceExtent ;
 	];
 	

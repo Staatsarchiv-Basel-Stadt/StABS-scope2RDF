@@ -21,7 +21,7 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 		rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
 		rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
 		rico.isAssociatedWithDate template dateURI with ID_NR;
-		rico.hasRecordSetType template rstypeURI with STUFE;
+		//rico.hasRecordSetType template rstypeURI with STUFE;
 		dct.isReferencedBy template queryURL with ID_NR;
 }
 
@@ -49,6 +49,7 @@ map level_archive from MVK_OGD.VE_STABS_ARCHIV {
 
 	properties
 		rico.history from ARCHIVGESCHICHTE with language-tag ger; // @todo: use rico.Event class later
+		rico.hasRecordSetType constant "https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Archiv";
 }
 
 map level_abt from MVK_OGD.VE_STABS_ABT {
@@ -59,6 +60,7 @@ map level_abt from MVK_OGD.VE_STABS_ABT {
 
 	properties
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		rico.hasRecordSetType constant "https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Abteilung";
 }
 
 map level_fonds from MVK_OGD.VE_FONDS {
@@ -70,6 +72,7 @@ map level_fonds from MVK_OGD.VE_FONDS {
 	properties
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 		rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
+		rico.hasRecordSetType constant "https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Fonds";
 }
 
 map level_best from MVK_OGD.VE_BEST {
@@ -81,6 +84,7 @@ map level_best from MVK_OGD.VE_BEST {
 	properties
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 		rico.hasProvenance from AKTENBILDNER_PROVENIENZ_TEXT with language-tag ger;
+		rico.hasRecordSetType constant "https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Bestand";
 		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
 }
 
@@ -92,6 +96,7 @@ map level_series from MVK_OGD.VE_SERIES {
 
 	properties
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		rico.hasRecordSetType constant "https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Serie";
 		// rico.hasOrHadAllMembersWithContentType from ARCHIVALIENART // @todo: klären, ob generisch richtig, oder ob rico.hasOrHadSomeMembersWithContentType
 }
 
@@ -99,10 +104,11 @@ map level_dossier from MVK_OGD.VE_DOSSIER {
 	subject template rrURI with ID_NR;
 
 	types
-		rico.Record
+		rico.RecordSet
 
 	properties
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
+		rico.hasRecordSetType constant "https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Dossier";
 		// rico.hasContentOfType template ctURI with ID_NR;// ARCHIVALIENART (3.1.5) @todo: sollte auf eigene Klasse gemappt werden
 }
 
@@ -120,20 +126,6 @@ map level_dokument from MVK_OGD.VE_DOKUMENT {
 /* Instantiation
  * -------------
  */
-//map inst_base from MVK_OGD.INST_STABS_BASE {
-//	subject template instURI with ID_NR;
-//
-//	types
-//		rico.Instantiation
-//
-//	properties
-//		rico.isInstantiationOf template rrURI with ID_NR;
-//		rico.title from TITEL with language-tag ger;
-//		rico.identifier from SIGNATUR;
-//		rico.physicalCharacteristics from PHYSISCHE_BESCHAFFENHEIT with language-tag ger;
-//		rico.hasCarrierType constant "https://ld.staatsarchiv.bs.ch/vocabularies/CarrierTypes#undefined";
-//		rico.hasRepresentationType constant "https://ld.staatsarchiv.bs.ch/vocabularies/RepresentationTypes#undefined";
-//}
 /* Date Maps
  * ---------
  * - Entstehungszeitraum
@@ -199,7 +191,7 @@ map ident_03 from MVK_OGD.VE_STABS_FRM_STABS_SIG {
  */
 
 map extent_lm from MVK_OGD.VE_EXT_LM {
-	subject template exlmURI with ID_NR LAUFMETER;
+	subject template exlmURI with ID_NR;
 
 	types
 		rico.RecordResourceExtent
@@ -213,7 +205,7 @@ map extent_lm from MVK_OGD.VE_EXT_LM {
 }
 
 map extent_num from MVK_OGD.VE_NUM {
-	subject template exnumURI with ID_NR ANZAHL;
+	subject template exnumURI with ID_NR;
 
 	types
 		rico.RecordResourceExtent
@@ -227,7 +219,7 @@ map extent_num from MVK_OGD.VE_NUM {
 }
 
 map extent_num_files from MVK_OGD.VE_NUM_FILES {
-	subject template exnumfileURI with ID_NR ANZAHL_DATEIEN;
+	subject template exnumfileURI with ID_NR;
 
 	types
 		rico.RecordResourceExtent
@@ -241,7 +233,7 @@ map extent_num_files from MVK_OGD.VE_NUM_FILES {
 }
 
 map extent_data_vol from MVK_OGD.VE_DATA_VOLUME {
-	subject template exdvURI with ID_NR DATENVOLUMEN_MB;
+	subject template exdvURI with ID_NR;
 
 	types
 		rico.RecordResourceExtent
