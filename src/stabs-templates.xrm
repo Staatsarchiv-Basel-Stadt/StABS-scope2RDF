@@ -11,7 +11,6 @@ template thURI "https://ld.staatsarchiv.bs.ch/Thing/{0}" // oder ohne '/Thing/'
 
 /* Subject URIs für Record Resources (Verzeichnungseinheiten) */
 template rrURI "https://ld.staatsarchiv.bs.ch/Record/{0}"
-template refURI "https://ld.staatsarchiv.bs.ch/Record/{0}"
 template oldrefURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Old-Reference/{1}"
 template frmrefURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Former-Reference/{1}"
 template frmstabsrefURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Former-StABS-Reference/{1}"
