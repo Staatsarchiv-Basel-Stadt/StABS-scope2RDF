@@ -229,6 +229,53 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	]
 .
+<#inst_base>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, SIGNATUR, TITEL, PHYSISCHE_BESCHAFFENHEIT FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%' AND ID_NR NOT IN (SELECT PARENT_ID_NR FROM MVK_OGD_VRZNG_ENHT_1)""" ];
+	
+	rr:subjectMap [
+		rr:template "https://ld.staatsarchiv.bs.ch/Instantiation/{ID_NR}-i" ;
+		rr:class rico:Instantiation ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rico:isInstantiationOf ;
+		rr:objectMap [
+			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:title ;
+		rr:objectMap [
+			rr:column "TITEL" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:identifier ;
+		rr:objectMap [
+			rr:column "SIGNATUR" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:physicalCharacteristics ;
+		rr:objectMap [
+			rr:column "PHYSISCHE_BESCHAFFENHEIT" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasCarrierType ;
+		rr:objectMap [
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/CarrierTypes#undefined> ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:hasRepresentationType ;
+		rr:objectMap [
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RepresentationTypes#undefined> ;
+		];
+	]
+.
 <#date_01>
 	rr:logicalTable [ rr:sqlQuery """SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, DARIN, ARCHIVALIENART, ENTHAELT, ZUGANGS_UND_BENUTZUNGSBEDINGUN, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE, ZUGAENGLICHKEIT_NM FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
