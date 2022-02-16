@@ -116,7 +116,7 @@ map level_dokument from MVK_OGD.VE_DOKUMENT {
 /* Instantiation
  * -------------
  */
-map inst_base from MVK_OGD.INST_STABS_BASE {
+/* map inst_base from MVK_OGD.INST_STABS_BASE {
 	subject template instURI with ID_NR;
 
 	types
@@ -129,7 +129,7 @@ map inst_base from MVK_OGD.INST_STABS_BASE {
 		rico.physicalCharacteristics from PHYSISCHE_BESCHAFFENHEIT with language-tag ger;
 		rico.hasCarrierType constant "https://ld.staatsarchiv.bs.ch/vocabularies/CarrierTypes#undefined";
 		rico.hasRepresentationType constant "https://ld.staatsarchiv.bs.ch/vocabularies/RepresentationTypes#undefined";
-}
+} */
 
 /* Date Maps
  * ---------
