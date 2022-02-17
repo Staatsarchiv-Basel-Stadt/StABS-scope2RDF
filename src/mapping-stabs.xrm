@@ -127,7 +127,7 @@ map date_01 from MVK_OGD.VE_STABS_RR_BASE {
 		rico.Date
 
 	properties
-		rico.textualValue from ENTSTEHUNGSZEITRAUM;
+		rico.expressedDate from ENTSTEHUNGSZEITRAUM;
 }
 
 /* Identity Maps

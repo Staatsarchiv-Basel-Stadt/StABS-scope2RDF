@@ -238,7 +238,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	];
 	
 	rr:predicateObjectMap [
-		rr:predicate rico:textualValue ;
+		rr:predicate rico:expressedDate ;
 		rr:objectMap [
 			rr:column "ENTSTEHUNGSZEITRAUM" ;
 		];
