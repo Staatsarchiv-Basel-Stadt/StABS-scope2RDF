@@ -23,6 +23,7 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 		rico.isAssociatedWithDate template dateURI with ID_NR;
 		//rico.hasRecordSetType template rstypeURI with STUFE;
 		dct.isReferencedBy template queryURL with ID_NR;
+		stabsdata.ID_NR from ID_NR;
 }
 
 /* Description Level Classes

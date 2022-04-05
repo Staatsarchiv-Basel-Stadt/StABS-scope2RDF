@@ -676,6 +676,19 @@ vocabulary stabslevels {
 		Dokument
 }
 
+vocabulary stabsdata {
+	prefix "stabs-d" "stabs:scope:data/"
+
+	classes
+		Verzeichnungseinheiten
+		Deskriptoren
+		Partner
+		Ablieferungen
+
+	properties
+		ID_NR
+}
+
 vocabulary schema {
 	prefix "schema" "http://schema.org/"
 
