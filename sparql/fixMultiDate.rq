@@ -5,6 +5,6 @@ DELETE {?s rico:expressedDate ?o}
 INSERT {?s rico:expressedDate ?1Date}
 WHERE { 
   ?s rico:expressedDate ?o .
-  filter regex(?o, '\r\n\r\n')
-  BIND (strbefore(?o, '\r\n\r\n') as ?1Date)
+  FILTER REGEX(?o, '\r\n\r\n')
+  BIND (STRBEFORE(?o, '\r\n\r\n') AS ?1Date)
 }
