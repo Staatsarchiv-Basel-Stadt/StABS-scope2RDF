@@ -2,6 +2,7 @@ PREFIX rr: <http://www.w3.org/ns/r2rml#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX stabs-d: <stabs:scope:data/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <#rr_stabs>
@@ -70,6 +71,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate dcterms:isReferencedBy ;
 		rr:objectMap [
 			rr:template "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={ID_NR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs-d:ID_NR ;
+		rr:objectMap [
+			rr:column "ID_NR" ;
 		];
 	]
 .
