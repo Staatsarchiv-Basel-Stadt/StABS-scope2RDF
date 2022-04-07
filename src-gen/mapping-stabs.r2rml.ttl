@@ -77,6 +77,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate stabs-d:ID_NR ;
 		rr:objectMap [
 			rr:column "ID_NR" ;
+			rr:datatype xsd:string ;
 		];
 	]
 .
