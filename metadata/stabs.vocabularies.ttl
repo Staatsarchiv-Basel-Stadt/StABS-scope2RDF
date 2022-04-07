@@ -16,8 +16,8 @@ PREFIX stabs-tht: <https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusTypes#>
 <https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes> a owl:NamedIndividual, skos:ConceptScheme ;
 	dcterms:creator "Staatsarchiv Basel-Stadt"@de ;
 	dcterms:title "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Record Set Types"@de ;
-	rdfs:label "Record Set Types"@en ;
-	skos:definition "Vokabular lokal verwendeter Record Set Types"@de
+	rdfs:label "Recordset-Typen"@de, "Record Set Types"@en ;
+	skos:definition "Vokabular von im Staatsarchiv Basel-Stadt verwendeter Recordset-Typen"@de, "Vocabulary of record set types used by State Archives Basel-Stadt"@en
 	.
 
 stabs-rst:Archiv a rico:RecordSetType , skos:Concept , owl:NamedIndividual ;
