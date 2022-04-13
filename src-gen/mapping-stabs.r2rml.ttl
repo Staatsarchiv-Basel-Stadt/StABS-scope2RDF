@@ -79,6 +79,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 			rr:column "ID_NR" ;
 			rr:datatype xsd:string ;
 		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs-d:PHYSISCHE_BESCHAFFENHEIT ;
+		rr:objectMap [
+			rr:column "PHYSISCHE_BESCHAFFENHEIT" ;
+			rr:datatype xsd:string ;
+		];
 	]
 .
 <#level_archive>

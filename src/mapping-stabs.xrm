@@ -24,6 +24,7 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 		//rico.hasRecordSetType template rstypeURI with STUFE;
 		dct.isReferencedBy template queryURL with ID_NR;
 		stabsdata.ID_NR from ID_NR with datatype xsd.string;
+		stabsdata.PHYSISCHE_BESCHAFFENHEIT from PHYSISCHE_BESCHAFFENHEIT with datatype xsd.string ;
 }
 
 /* Description Level Classes
@@ -113,24 +114,6 @@ map level_dokument from MVK_OGD.VE_DOKUMENT {
 		rico.isOrWasIncludedIn template rrURI with PARENT_ID_NR;
 		// rico.hasContentOfType // ARCHIVALIENART (3.1.5) @todo s.o.
 }
-
-/* Instantiation
- * -------------
- */
-/* map inst_base from MVK_OGD.INST_STABS_BASE {
-	subject template instURI with ID_NR;
-
-	types
-		rico.Instantiation
-
-	properties
-		rico.isInstantiationOf template rrURI with ID_NR;
-		rico.title from TITEL with language-tag ger;
-		rico.identifier from SIGNATUR;
-		rico.physicalCharacteristics from PHYSISCHE_BESCHAFFENHEIT with language-tag ger;
-		rico.hasCarrierType constant "https://ld.staatsarchiv.bs.ch/vocabularies/CarrierTypes#undefined";
-		rico.hasRepresentationType constant "https://ld.staatsarchiv.bs.ch/vocabularies/RepresentationTypes#undefined";
-} */
 
 /* Date Maps
  * ---------

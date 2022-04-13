@@ -687,6 +687,7 @@ vocabulary stabsdata {
 
 	properties
 		ID_NR
+		PHYSISCHE_BESCHAFFENHEIT
 }
 
 vocabulary schema {

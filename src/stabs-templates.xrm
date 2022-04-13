@@ -16,7 +16,6 @@ template frmrefURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Former-Reference/{1
 template frmstabsrefURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Former-StABS-Reference/{1}"
 template dateURI "https://ld.staatsarchiv.bs.ch/Record/{0}/Date"
 
-template instURI "https://ld.staatsarchiv.bs.ch/Instantiation/{0}-i"
 template agURI "https://ld.staatsarchiv.bs.ch/Agent/{0}"
 template evURI "https://ld.staatsarchiv.bs.ch/Event/{0}"
 
