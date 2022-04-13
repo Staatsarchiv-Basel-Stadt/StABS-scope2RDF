@@ -15,27 +15,4 @@ WHERE {
   BIND (STRBEFORE(?o, '\r\n\r\n') AS ?1Date)
 }
 
-# Create rico:Instantiation
 
-INSERT {
-  ?inst_uri a rico:Instantiation ;
-	  rico:isInstantiationOf ?uri ;
-    rico:title ?titel ;
-    rico:identifier ?signatur ;
-    rico:physicalCharacteristics ?pC ;
-    rico:hasCarrierType <https://ld.staatsarchiv.bs.ch/vocabularies/CarrierTypes#undefined> ;
-    rico:hasRepresentationType <https://ld.staatsarchiv.bs.ch/vocabularies/RepresentationTypes#undefined> 
-  .
-  ?uri rico:hasInstantiation ?inst_uri
-  .
-}
-
-WHERE { 
-  ?uri a rico:RecordResource ;
-  rico:identifier ?signatur ;
-  rico:title ?titel ;
-  stabs-d:ID_NR ?id
-  stabs-d:PHYSISCHE_BESCHAFFENHEIT ?pC .
-  BIND (CONCAT("https://ld.staatsarchiv.bs.ch/Instantiation/", ?id, "-i") as ?inst_uri)
-  MINUS { ?s rico:isOrWasIncludedIn ?uri }
-  }
