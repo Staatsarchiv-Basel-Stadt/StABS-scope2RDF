@@ -1,0 +1,32 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
+PREFIX stabs-d: <stabs:scope:data/>
+
+# Create rico:Instantiation
+
+WITH <https://ld.staatsarchiv.bs.ch/graph/source>
+
+INSERT {
+  ?inst_uri a rico:Instantiation ;
+	rico:isInstantiationOf ?uri ;
+    rico:title ?titel ;
+    rico:identifier ?signatur ;
+    rico:physicalCharacteristics ?pC ;
+    rico:hasCarrierType <https://ld.staatsarchiv.bs.ch/vocabularies/CarrierTypes#undefined> ;
+    rico:hasRepresentationType <https://ld.staatsarchiv.bs.ch/vocabularies/RepresentationTypes#undefined> 
+  .
+  ?uri rico:hasInstantiation ?inst_uri
+  .
+}
+
+WHERE { 
+  ?uri a rico:RecordResource ;
+  rico:identifier ?signatur ;
+  rico:title ?titel ;
+  stabs-d:ID_NR ?id ;
+  stabs-d:PHYSISCHE_BESCHAFFENHEIT ?pC .
+  BIND (CONCAT("https://ld.staatsarchiv.bs.ch/Instantiation/", ?id, "-i") as ?inst_uri)
+  MINUS { ?s rico:isOrWasIncludedIn ?uri }
+  }
