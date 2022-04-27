@@ -32,3 +32,4 @@ Präfix | Namespace IRI | Definition
 * [:Place](Place.md): Klassen `rico:Place` und `skos:Concept`
 * [:Event](Event.md): Klasse `rico:Activity`
 * [:Rule](Rule.md): Klasse `rico:Rule`
+* [:Instantiation](Instantiation.md): Klasse `rico:Instantiation`
