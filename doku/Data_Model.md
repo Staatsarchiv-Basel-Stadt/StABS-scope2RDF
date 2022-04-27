@@ -11,19 +11,19 @@ Frei verfügbare Inhalte des Archivsystems scopeArchiv des Staatsarchivs Basel-S
 Präfix | Namespace IRI | Definition
 --- | --- | ---
 \- | <https://ld.staatsarchiv.bs.ch/> | Namensraum für referenzierte Entitäten des Staatsarchivs (Data URI)
-admin | <http://schema.ld.admin.ch/> | Namensraum des Swiss Confederation Linked Data Schema
-dcterms | <http://purl.org/dc/terms/> | Namensraum für Dublin Core Terms
-owl | <http://www.w3.org/2002/07/owl#> | Namensraum für OWL
-rico | <https://www.ica.org/standards/RiC/ontology#> | Namensraum der Records in Context-Ontologie
-ric-dft	| <https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#> |	ICA RiC Documentary Form Types vocabulary namespace
-ric-rst | <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#> | ICA Record Set Types vocabulary namespace
-schema | <http://schema.org/> | Namensraum für schema.org
-skos | <http://www.w3.org/2004/02/skos/core#> | Namensraum für SKOS
-stabs-idt | https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes# | Namensraum für lokal verwendete Typen von Identifikatoren (v.a. Signaturtypen)
-stabs-ext | <https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#> | Namensraum für lokal verwendete Umfangsangaben
-stabs-rst | <https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#> | Namensraum für lokal verwendete Record Set Types
-stabs-tht | <https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusTypes#> | Namensraum für lokal verwendete Thesauri-Typen
-xsd | <http://www.w3.org/2001/XMLSchema#> | XML Schema namespace
+`admin` | <http://schema.ld.admin.ch/> | Namensraum des Swiss Confederation Linked Data Schema
+`dcterms` | <http://purl.org/dc/terms/> | Namensraum für Dublin Core Terms
+`owl` | <http://www.w3.org/2002/07/owl#> | Namensraum für OWL
+`rico` | <https://www.ica.org/standards/RiC/ontology#> | Namensraum der Records in Context-Ontologie
+`ric-dft`	| <https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#> |	ICA RiC Documentary Form Types vocabulary namespace
+`ric-rst` | <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#> | ICA Record Set Types vocabulary namespace
+`schema` | <http://schema.org/> | Namensraum für schema.org
+`skos` | <http://www.w3.org/2004/02/skos/core#> | Namensraum für SKOS
+`stabs-idt` | https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes# | Namensraum für lokal verwendete Typen von Identifikatoren (v.a. Signaturtypen)
+`stabs-ext` | <https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#> | Namensraum für lokal verwendete Umfangsangaben
+`stabs-rst` | <https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#> | Namensraum für lokal verwendete Record Set Types
+`stabs-tht` | <https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusTypes#> | Namensraum für lokal verwendete Thesauri-Typen
+`xsd` | <http://www.w3.org/2001/XMLSchema#> | XML Schema namespace
 
 ## Verwendete Konzepte
 
