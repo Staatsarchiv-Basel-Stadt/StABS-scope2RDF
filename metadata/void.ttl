@@ -54,11 +54,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     schema:name "Staatsarchiv Basel-Stadt"@de , "State Archives of Basel-Stadt"@en ;
     dcterms:title "Staatsarchiv Basel-Stadt"@de , "State Archives of Basel-Stadt"@en ;
     schema:url <https://www.staatsarchiv.bs.ch> ;
-    rdfs:seeAlso wd:Q56219654
+    rdfs:seeAlso wd:Q56219654 ;
+    owl:sameAs <https://culture.ld.admin.ch/isil/CH-000027-1>
     .
 
 ##
-## Information systems (mainly software as source)
+## Information systems (Software)
 ##
 
 <sys/scopeArchiv> a schema:SoftwareApplication ;
@@ -68,6 +69,24 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:description "scopeArchiv™ ist eine umfassende Archivsoftware für öffentliche und private Archive."@de ;
     schema:url <https://www.scope.ch> ;
     rdfs:seeAlso wd:Q2260520
+    .
+
+<sys/RDF-Pipeline> a doap:GitRepository ;
+    schema:name "RDF-Pipeline" ;
+    dcterms:title "RDF-Pipeline" ;
+    schema:description "Die RDF-Pipeline des Staatsarchivs Basel-Stadt transformiert Daten des Archivinformationssystem aus einer relationalen Datenbank (Oracle) nach RDF."@de ;
+    dcterms:description "Die RDF-Pipeline des Staatsarchivs Basel-Stadt transformiert Daten des Archivinformationssystem aus einer relationalen Datenbank (Oracle) nach RDF."@de ;
+    doap:browse <https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline> ;
+    doap:location "https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline.git" 
+    .
+
+##
+## Time span (Temporal Coverage)
+##
+
+<Date/1098/2022> a dcterms:PeriodOfTime ;
+    schema:startDate "1098"^^xsd:gYear ;
+    schema:endDate "2022"^^xsd:gYear
     .
 
 ##
@@ -88,22 +107,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:source <sys/scopeArchiv> ;
     dcterms:licence <https://creativecommons.org/publicdomain/zero/1.0/> ;
     dcterms:created "1999"^^xsd:gYear ;
-    dcterms:issued "%%DATEISSUED%%"^^xsd:date ; # date of issuance, i.e. publication
-    dcterms:temporal [
-        a dcterms:PeriodOfTime ;
-        schema:startDate "1098"^^xsd:gYear ;
-        schema:endDate "2022"^^xsd:gYear
-    ] ;
+#    dcterms:issued "%%DATEISSUED%%"^^xsd:date ; # date of issuance, i.e. publication
+    dcterms:temporal <Date/1098/2022>
     dcterms:accrualPeriodicity <http://purl.org/cld/freq/daily> ;
     dcterms:subject dbr:Records_in_Contexts ;
     dcterms:subject dbr:Finding_aid ;
     dcterms:subject dbr:Archival_catalog ;
     dcterms:subject dbr:Metadata ;
-    doap:repository [
-        a doap:GitRepository ;
-        doap:browse <https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline> ;
-        doap:location "https://github.com/Staatsarchiv-Basel-Stadt/RDF-Pipeline.git" 
-    ] ;
+    doap:repository <sys/RDF-Pipeline> ;
     void:sparqlEndpoint <https://ld.staatsarchiv.bs.ch/sparql> ;
     void:vocabulary <https://www.ica.org/standards/RiC/ontology> ;
     .
