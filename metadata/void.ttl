@@ -59,7 +59,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     .
 
 ##
-## Information systems (mainly software as source)
+## Information systems (Software)
 ##
 
 <sys/scopeArchiv> a schema:SoftwareApplication ;
@@ -81,6 +81,15 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     .
 
 ##
+## Time span (Temporal Coverage)
+##
+
+<Date/1098/2022> a dcterms:PeriodOfTime ;
+    schema:startDate "1098"^^xsd:gYear ;
+    schema:endDate "2022"^^xsd:gYear
+    .
+
+##
 ## Dataset
 ## 
 
@@ -99,11 +108,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:licence <https://creativecommons.org/publicdomain/zero/1.0/> ;
     dcterms:created "1999"^^xsd:gYear ;
 #    dcterms:issued "%%DATEISSUED%%"^^xsd:date ; # date of issuance, i.e. publication
-    dcterms:temporal [
-        a dcterms:PeriodOfTime ;
-        schema:startDate "1098"^^xsd:gYear ;
-        schema:endDate "2022"^^xsd:gYear
-    ] ;
+    dcterms:temporal <Date/1098/2022>
     dcterms:accrualPeriodicity <http://purl.org/cld/freq/daily> ;
     dcterms:subject dbr:Records_in_Contexts ;
     dcterms:subject dbr:Finding_aid ;
