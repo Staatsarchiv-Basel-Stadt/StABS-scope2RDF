@@ -5,7 +5,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX stabs-act <vocabularies/activityTypes#>
+PREFIX stabs-act: <vocabularies/activityTypes#>
 PREFIX stabs-ext: <vocabularies/extentTypes#>
 PREFIX stabs-idt: <vocabularies/identifierTypes#>
 PREFIX stabs-rst: <vocabularies/recordSetTypes#>
