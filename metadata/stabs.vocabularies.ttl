@@ -5,9 +5,10 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX ric-rst: <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX stabs-ext: <vocabularies/ExtentTypes#>
-PREFIX stabs-idt: <vocabularies/IdentifierTypes#>
-PREFIX stabs-rst: <vocabularies/RecordSetTypes#>
+PREFIX stabs-act <vocabularies/activityTypes#>
+PREFIX stabs-ext: <vocabularies/extentTypes#>
+PREFIX stabs-idt: <vocabularies/identifierTypes#>
+PREFIX stabs-rst: <vocabularies/recordSetTypes#>
 PREFIX stabs-tht: <vocabularies/thesaurusTypes#>
 
 # RecordSetTypes des StABS
@@ -73,7 +74,7 @@ stabs-rst:Dossier a rico:RecordSetType , skos:Concept , owl:NamedIndividual ;
 # -------------------------
 # Definiert die Typen der im StABS verwendeten Identifier (d.h. Signaturen und ev. weitere Identifier)
 
-<vocabularies/IdentifierTypes> a owl:NamedIndividual, skos:ConceptScheme ;
+<vocabularies/identifierTypes> a owl:NamedIndividual, skos:ConceptScheme ;
 	dcterms:creator <org/StABS> ;
 	dcterms:title "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Typen von Identifikatoren"@de ;
 	rdfs:label "Identifier Types"@en ;
@@ -84,7 +85,7 @@ stabs-idt:Alte-Signatur a rico:IdentifierType, skos:Concept, owl:NamedIndividual
 	rdfs:label "Alte Signatur"@de ;
 	skos:prefLabel "Alte Signatur"@de ;
 	skos:definition "Gibt allfällig vorhandene alte Signaturen an"@de ;
-	skos:inScheme <vocabularies/IdentifierTypes>
+	skos:inScheme <vocabularies/identifierTypes>
 	.
 
 stabs-idt:Fruehere-Signatur a rico:IdentifierType, skos:Concept, owl:NamedIndividual ;
@@ -98,14 +99,14 @@ stabs-idt:Fruehere-StABS-Signatur a rico:IdentifierType, skos:Concept, owl:Named
 	rdfs:label "Frühere StABS-Signatur"@de ;
 	skos:prefLabel "Frühere StABS-Signatur"@de ;
 	skos:definition "Signatur, die früher im Staatsarchiv Basel-Stadt im Gebrauch war. Bei einer Mutation der Signatur wird im Archivinformationssystem die ursprüngliche Signatur automatisch hierher übertragen."@de ;
-	skos:inScheme <vocabularies/IdentifierTypes>
+	skos:inScheme <vocabularies/identifierTypes>
 	.
 
 # ExtentTypes des StABS
 # ---------------------
 # Definiert die im StABS verwendeten Typen für Umfangsangaben (Laufmeter, Anzahl, Grösse, etc.)
 
-<vocabularies/ExtentTypes> a owl:NamedIndividual, skos:ConceptScheme ;
+<vocabularies/extentTypes> a owl:NamedIndividual, skos:ConceptScheme ;
 	dcterms:created <org/StABS> ;
 	dcterms:title "Typen von Umfangsangaben"@de, "Extent Types"@en ;
 	rdfs:label "Typen von Umfangsangaben"@de, "Extent Types"@en ;
@@ -121,4 +122,15 @@ stabs-idt:Fruehere-StABS-Signatur a rico:IdentifierType, skos:Concept, owl:Named
 	dcterms:title "Typen von Thesauri"@de, "Thesauri Types"@en ;
 	rdfs:label "Typen von Thesauri"@de, "Thesauri Types"@en ;
 	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Thesauri"@de
+	.
+
+# ActivityTypes des StABS
+# -----------------------
+# Definiert die im StABS verwendeten Typen von Aktivitäten
+
+<vocabularies/activity-Types> a owl:NamedIndividual, skos:ConceptScheme ;
+	dcterms:created <org/StABS> ;
+	dcterms:title "Typen von Aktivitäten"@de, "Activity Types"@en ;
+	rdfs:label "Typen von Aktivitäten"@de, "Activity Types"@en ;
+	skos:definition "Typen von Aktivitäten des Staatsarchivs Basel-Stadt"@de
 	.
