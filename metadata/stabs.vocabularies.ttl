@@ -107,7 +107,18 @@ stabs-idt:Fruehere-StABS-Signatur a rico:IdentifierType, skos:Concept, owl:Named
 
 <vocabularies/ExtentTypes> a owl:NamedIndividual, skos:ConceptScheme ;
 	dcterms:created <org/StABS> ;
-	dcterms:title "Typen von Umfangsangaben"@de , "Extent Types"@en ;
+	dcterms:title "Typen von Umfangsangaben"@de, "Extent Types"@en ;
 	rdfs:label "Typen von Umfangsangaben"@de, "Extent Types"@en ;
 	skos:definition "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Typen von Umfangsangaben"@de
+	.
+
+# ThesaurusTypes des StABS
+# ------------------------
+# Definiert die im StABS verwendeten Thesauri des öffentlichen Datensets (Orte und Personen)
+
+<vocabularies/thesaurusTypes> a owl:NamedIndividual, skos:ConceptScheme ;
+	dcterms:created <org/StABS> ;
+	dcterms:title "Typen von Thesauri"@de, "Thesauri Types"@en ;
+	rdfs:label "Typen von Thesauri"@de, "Thesauri Types"@en ;
+	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Thesauri"@de
 	.
