@@ -100,3 +100,14 @@ stabs-idt:Fruehere-StABS-Signatur a rico:IdentifierType, skos:Concept, owl:Named
 	skos:definition "Signatur, die früher im Staatsarchiv Basel-Stadt im Gebrauch war. Bei einer Mutation der Signatur wird im Archivinformationssystem die ursprüngliche Signatur automatisch hierher übertragen."@de ;
 	skos:inScheme <vocabularies/IdentifierTypes>
 	.
+
+# ExtentTypes des StABS
+# ---------------------
+# Definiert die im StABS verwendeten Typen für Umfangsangaben (Laufmeter, Anzahl, Grösse, etc.)
+
+<vocabularies/ExtentTypes> a owl:NamedIndividual, skos:ConceptScheme ;
+	dcterms:created <org/StABS> ;
+	dcterms:title "Typen von Umfangsangaben"@de , "Extent Types"@en ;
+	rdfs:label "Typen von Umfangsangaben"@de, "Extent Types"@en ;
+	skos:definition "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Typen von Umfangsangaben"@de
+	.
