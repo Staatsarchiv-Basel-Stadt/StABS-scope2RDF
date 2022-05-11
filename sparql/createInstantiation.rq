@@ -4,9 +4,8 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX stabs-d: <stabs:scope:data/>
 
-# SELECT (COUNT(?inst_uri) as ?inst_count)
+WITH <https://ld.staatsarchiv.bs.ch/graph/source>
 
-# CONSTRUCT {
 INSERT {  
   ?inst_uri a rico:Instantiation ;
     rico:title ?titel ;
@@ -26,7 +25,6 @@ WHERE {
     stabs-d:ID_NR ?id .
   OPTIONAL { ?uri stabs-d:PHYSISCHE_BESCHAFFENHEIT ?stabspC . }
   BIND (COALESCE(?stabspC, "undefiniert") AS ?pC) 
-  BIND (CONCAT("https://ld.staatsarchiv.bs.ch/Instantiation/", ?id, "-i1") as ?inst_uri)
+  BIND (URI(CONCAT("https://ld.staatsarchiv.bs.ch/Instantiation/", ?id, "-i1")) as ?inst_uri)
   MINUS { ?s rico:isOrWasIncludedIn ?uri }
   }
-# LIMIT 50
