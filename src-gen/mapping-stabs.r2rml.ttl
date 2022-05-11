@@ -106,7 +106,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Archiv> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Archiv> ;
 		];
 	]
 .
@@ -127,7 +127,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Abteilung> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Abteilung> ;
 		];
 	]
 .
@@ -155,7 +155,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Fonds> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Fonds> ;
 		];
 	]
 .
@@ -183,7 +183,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Bestand> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Bestand> ;
 		];
 	]
 .
@@ -204,7 +204,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Serie> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Serie> ;
 		];
 	]
 .
@@ -225,7 +225,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasRecordSetType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#Dossier> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/recordSetTypes#Dossier> ;
 		];
 	]
 .
@@ -276,7 +276,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Alte-Signatur> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/identifierTypes#Alte-Signatur> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -288,7 +288,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Wird verwendet zur Angabe allfÃ¤llig vorhandener alter Signaturen." ;
+			rr:constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen." ;
 		];
 	]
 .
@@ -309,7 +309,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-Signatur> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/identifierTypes#Fruehere-Signatur> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -342,7 +342,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasIdentifierType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#Fruehere-StABS-Signatur> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/identifierTypes#Fruehere-StABS-Signatur> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -354,7 +354,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Signaturen, die frÃ¼her in Gebrauch waren. Signaturen kÃ¶nnen bei einer Mutation automatisch in dieses Feld Ã¼bertragen werden." ;
+			rr:constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden." ;
 		];
 	]
 .
@@ -375,7 +375,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Laufmeter> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/extentTypes#Laufmeter> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -415,7 +415,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/extentTypes#Anzahl> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -428,7 +428,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Anzahl Einheiten oder BehÃ¤ltnisse" ;
+			rr:constant "Anzahl Einheiten oder Behältnisse" ;
 		];
 	]
 .
@@ -449,7 +449,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Anzahl-Dateien> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/extentTypes#Anzahl-Dateien> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -462,7 +462,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Umfangangabe fÃ¼r Archivgut in digitaler Form, das aus Dateien besteht." ;
+			rr:constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht." ;
 		];
 	]
 .
@@ -483,7 +483,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Datenvolumen-MB> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/extentTypes#Datenvolumen-MB> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -517,7 +517,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasExtentType ;
 		rr:objectMap [
-			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#Umfang-approximativ> ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/extentTypes#Umfang-approximativ> ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -529,7 +529,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Wert fÃ¼r den Umfang, wenn keine prÃ¤zisen Zahlen vorliegen." ;
+			rr:constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen." ;
 		];
 	]
 .
