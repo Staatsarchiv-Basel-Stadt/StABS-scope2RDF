@@ -8,9 +8,9 @@ WITH <https://ld.staatsarchiv.bs.ch/graph/source>
 
 INSERT {  
   ?inst_uri a rico:Instantiation ;
-    rico:title ?titel ;
-    rico:identifier ?signatur ;
-    rico:physicalCharacteristics ?pC ;
+    rico:title ?tit ;
+    rico:identifier ?sig ;
+    rico:physicalCharacteristics ?stabspC ;
     rico:hasCarrierType <https://ld.staatsarchiv.bs.ch/vocabularies/carrierTypes#undefined> ; # s. RDA Carrier Types (https://www.rdaregistry.info/termList/RDACarrierType/)
     rico:hasRepresentationType <https://ld.staatsarchiv.bs.ch/vocabularies/representationTypes#undefined> ; # s. RDA Media Types (https://www.rdaregistry.info/termList/RDAMediaType/)
     rico:isInstantiationOf ?uri 
@@ -20,11 +20,12 @@ INSERT {
 
 WHERE { 
   ?uri a rico:RecordResource ;
-    rico:identifier ?signatur ;
-    rico:title ?titel ;
     stabs-d:ID_NR ?id .
+  OPTIONAL { ?uri rico:title ?titel . }
+  OPTIONAL { ?uri rico:identifier ?signatur . }
   OPTIONAL { ?uri stabs-d:PHYSISCHE_BESCHAFFENHEIT ?stabspC . }
-  BIND (COALESCE(?stabspC, "undefiniert") AS ?pC) 
+  BIND (COALESCE(?titel, "[Titel fehlt]") AS ?tit)
+  BIND (COALESCE(?signatur, "[Signatur fehlt]") AS ?sig)
   BIND (URI(CONCAT("https://ld.staatsarchiv.bs.ch/Instantiation/", ?id, "-i1")) as ?inst_uri)
-  MINUS { ?s rico:isOrWasIncludedIn ?uri }
+  MINUS { ?s rico:isOrWasIncludedIn ?uri  .}
   }
