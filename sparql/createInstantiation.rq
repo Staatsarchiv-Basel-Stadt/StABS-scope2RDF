@@ -1,31 +1,32 @@
-# Create rico:Instantiation
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX stabs-d: <stabs:scope:data/>
 
-
-# WITH <https://ld.staatsarchiv.bs.ch/graph/source>
 # SELECT (COUNT(?inst_uri) as ?inst_count)
 
-CONSTRUCT {
+# CONSTRUCT {
+INSERT {  
   ?inst_uri a rico:Instantiation ;
     rico:title ?titel ;
     rico:identifier ?signatur ;
     rico:physicalCharacteristics ?pC ;
-    rico:hasCarrierType <https://ld.staatsarchiv.bs.ch/vocabularies/CarrierTypes#undefined> ;
-    rico:hasRepresentationType <https://ld.staatsarchiv.bs.ch/vocabularies/RepresentationTypes#undefined> ;
-    rico:isInstantiationOf ?uri .
-    ?uri rico:hasInstantiation ?inst_uri
+    rico:hasCarrierType <https://ld.staatsarchiv.bs.ch/vocabularies/carrierTypes#undefined> ; # s. RDA Carrier Types (https://www.rdaregistry.info/termList/RDACarrierType/)
+    rico:hasRepresentationType <https://ld.staatsarchiv.bs.ch/vocabularies/representationTypes#undefined> ; # s. RDA Media Types (https://www.rdaregistry.info/termList/RDAMediaType/)
+    rico:isInstantiationOf ?uri 
+    .
+  ?uri rico:hasInstantiation ?inst_uri .
 }
+
 WHERE { 
   ?uri a rico:RecordResource ;
-       rico:identifier ?signatur ;
-       rico:title ?titel ;
-       stabs-d:PHYSISCHE_BESCHAFFENHEIT ?pC ;
-       stabs-d:ID_NR ?id .
+    rico:identifier ?signatur ;
+    rico:title ?titel ;
+    stabs-d:ID_NR ?id .
+  OPTIONAL { ?uri stabs-d:PHYSISCHE_BESCHAFFENHEIT ?stabspC . }
+  BIND (COALESCE(?stabspC, "undefiniert") AS ?pC) 
   BIND (CONCAT("https://ld.staatsarchiv.bs.ch/Instantiation/", ?id, "-i1") as ?inst_uri)
   MINUS { ?s rico:isOrWasIncludedIn ?uri }
   }
-LIMIT 50
+# LIMIT 50
