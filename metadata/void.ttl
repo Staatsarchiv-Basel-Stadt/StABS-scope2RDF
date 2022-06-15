@@ -15,7 +15,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 ##
 
 <.well-known/void> a void:DatasetDescription ;
-    dcterms:subject <archival-catalog>
+    dcterms:subject <set/archival-catalog>
     .
 
 ##
@@ -61,7 +61,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 ## Dataset
 ## 
 
-<archival-catalog> a void:Dataset ;
+<set/archival-catalog> a void:Dataset ;
     dcterms:isReferencedBy <https://www.staatsarchiv.bs.ch/kataloge/archivkatalog.html> ;
     dcterms:title "Offene Daten des Archivkatalogs des Staatsarchivs Basel-Stadt" @de ;
     dcterms:description "Dieser Datensatz enthält die frei zugänglichen Inhalte des Archivkatalogs des Staatsarchiv Basel-Stadt in RDF (Vokabular: Records in Context)"@de ;
