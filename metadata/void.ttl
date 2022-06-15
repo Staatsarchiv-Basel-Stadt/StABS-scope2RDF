@@ -19,7 +19,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 ##
 
 <.well-known/void> a void:DatasetDescription ;
-    dcterms:subject <catalog/basel/archival-catalog>
+    dcterms:subject <archival-catalog>
     .
 
 ##
@@ -65,7 +65,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 ## Dataset
 ## 
 
-<catalog/basel/archival-catalog> a void:Dataset ;
+<archival-catalog> a void:Dataset ;
     dcterms:isReferencedBy <https://www.staatsarchiv.bs.ch/kataloge/archivkatalog.html> ;
     dcterms:title "Offene Daten des Archivkatalogs des Staatsarchivs Basel-Stadt" @de ;
     dcterms:description "Dieser Datensatz enthält die frei zugänglichen Inhalte des Archivkatalogs des Staatsarchiv Basel-Stadt in RDF (Vokabular: Records in Context)"@de ;
@@ -80,7 +80,17 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:subject wd:Q30216914, wd:Q178376, wd:Q5146094, wd:Q180160 ; 
     doap:repository <sys/RDF-Pipeline> ;
     void:sparqlEndpoint <https://ld.staatsarchiv.bs.ch/sparql> ;
-    void:vocabulary <https://www.ica.org/standards/RiC/ontology> ;
+    void:vocabulary 
+        <https://www.ica.org/standards/RiC/ontology>,
+        <http://www.w3.org/2004/02/skos/core> ;
+    void:uriSpace 
+        "https://ld.staatsarchiv.bs.ch/Record/", 
+        "https://ld.staatsarchiv.bs.ch/Agent/", 
+        "https://ld.staatsarchiv.bs.ch/Event/", 
+        "https://ld.staatsarchiv.bs.ch/Place/" ;
+    void:triples "15000000"^^xsd:integer ;
+    void:distinctSubjects "3000000"^^xsd:integer ;
+    void:properties "120"^^xsd:integer
     .
 #    dcterms:created "%%DATECREATED%%"^^xsd:date;
 #    dcterms:modified "%%DATEMODIFIED%%"^^xsd:date;
