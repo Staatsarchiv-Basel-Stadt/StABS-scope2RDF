@@ -67,7 +67,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:description "Dieser Datensatz enthält die frei zugänglichen Inhalte des Archivkatalogs des Staatsarchiv Basel-Stadt in RDF (Vokabular: Records in Context)"@de ;
     dcterms:contributor <org/zazuko> ;
     dcterms:creator <org/staatsarchiv> ;
-    dcterms:publisher <fachstelle-ogd> ;
+    dcterms:publisher <org/fachstelle-ogd> ;
     dcterms:source <sys/scopeArchiv> ;
     dcterms:licence <https://creativecommons.org/publicdomain/zero/1.0/> ;
     dcterms:created "1999"^^xsd:gYear ;
