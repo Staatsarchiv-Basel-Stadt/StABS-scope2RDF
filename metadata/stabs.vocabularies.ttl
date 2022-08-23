@@ -158,6 +158,19 @@ stabs-ext:Umfang-approximativ a rico:ExtentType, skos:Concept ;
 	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Thesauri"@de
 	.
 
+stabs-tht:Personenbegriffe a owl:NamedIndividual, skos:Concept ;
+	rdfs:label "Personenbegriffe"@de ;
+	skos:prefLabel "Personenbegriffe"@de ;
+	skos:definition "Thesaurus des Staatsarchivs Basel-Stadt zu natürlichen und juristischen Personen, die in den Verzeichnisinformationen enthalten sind."@de ;
+	skos:inScheme <https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusTypes>
+	.
+
+stabs-tht:Ortsbegriffe a owl:NamedIndividual, skos:Concept ;
+	rdfs:label "Ortsbegriffe"@de ;
+	skos:prefLabel "Ortsbegriffe"@de ;
+	skos:definition "Thesaurus des Staatsarchivs Basel-Stadt zu Ortsnamen, die in den Verzeichnisinformationen enthalten sind."@de ;
+	skos:inScheme <https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusTypes>
+	.
 # ActivityTypes des StABS
 # -----------------------
 # Definiert die im StABS verwendeten Typen von Aktivitäten
