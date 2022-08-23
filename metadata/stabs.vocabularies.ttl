@@ -106,7 +106,7 @@ stabs-idt:Fruehere-StABS-Signatur a rico:IdentifierType, skos:Concept, owl:Named
 # Definiert die im StABS verwendeten Typen für Umfangsangaben (Laufmeter, Anzahl, Grösse, etc.)
 
 <https://ld.staatsarchiv.bs.ch/vocabularies/extentTypes> a owl:NamedIndividual, skos:ConceptScheme ;
-	dcterms:created <https://ld.bs.ch/org/staatsarchiv> ;
+	dcterms:creator <https://ld.bs.ch/org/staatsarchiv> ;
 	dcterms:title "Typen von Umfangsangaben"@de, "Extent Types"@en ;
 	rdfs:label "Typen von Umfangsangaben"@de, "Extent Types"@en ;
 	skos:definition "Vokabular der im Staatsarchiv Basel-Stadt verwendeten Typen von Umfangsangaben"@de
@@ -152,7 +152,7 @@ stabs-ext:Umfang-approximativ a rico:ExtentType, skos:Concept ;
 # Definiert die im StABS verwendeten Thesauri des öffentlichen Datensets (Orte und Personen)
 
 <https://ld.staatsarchiv.bs.ch/vocabularies/thesaurusTypes> a owl:NamedIndividual, skos:ConceptScheme ;
-	dcterms:created <org/StABS> ;
+	dcterms:creator <https://ld.bs.ch/org/staatsarchiv> ;
 	dcterms:title "Typen von Thesauri"@de, "Thesauri Types"@en ;
 	rdfs:label "Typen von Thesauri"@de, "Thesauri Types"@en ;
 	skos:definition "Im Staatsarchiv Basel-Stadt verwendete Thesauri"@de
@@ -176,7 +176,7 @@ stabs-tht:Ortsbegriffe a owl:NamedIndividual, skos:Concept ;
 # Definiert die im StABS verwendeten Typen von Aktivitäten
 
 <https://ld.staatsarchiv.bs.ch/vocabularies/activityTypes> a owl:NamedIndividual, skos:ConceptScheme ;
-	dcterms:created <https://ld.bs.ch/org/staatsarchiv> ;
+	dcterms:creator <https://ld.bs.ch/org/staatsarchiv> ;
 	dcterms:title "Typen von Aktivitäten"@de, "Activity Types"@en ;
 	rdfs:label "Typen von Aktivitäten"@de, "Activity Types"@en ;
 	skos:definition "Typen von Aktivitäten des Staatsarchivs Basel-Stadt"@de
