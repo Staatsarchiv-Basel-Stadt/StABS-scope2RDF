@@ -48,13 +48,3 @@ template daURI "https://ld.staatsarchiv.bs.ch/Date/{0}"
  */
  
 template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
-
-/* Templates für Types
- * -------------------
- */
-
-template exttypeURI "https://ld.staatsarchiv.bs.ch/vocabularies/ExtentTypes#{0}"
-template thtypeURI "https://ld.staatsarchiv.bs.ch/vocabularies/ThesaurusTypes#{0}"
-template rstypeURI "https://ld.staatsarchiv.bs.ch/vocabularies/RecordSetTypes#{0}"
-template idtypeURI "https://ld.staatsarchiv.bs.ch/vocabularies/IdentifierTypes#{0}"
-
