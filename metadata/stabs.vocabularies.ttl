@@ -181,3 +181,10 @@ stabs-tht:Ortsbegriffe a owl:NamedIndividual, skos:Concept ;
 	rdfs:label "Typen von Aktivitäten"@de, "Activity Types"@en ;
 	skos:definition "Typen von Aktivitäten des Staatsarchivs Basel-Stadt"@de
 	.
+
+stabs-act:Ablieferung a rico:ActivityType, skos:Concept ;
+	rdfs:label "Ablieferung"@de ;
+	skos:prefLabel "Ablieferung"@de ;
+	skos:definition "Die Ablieferung umfasst sämtliche Tätigkeiten, die zur Übernahme von Archivgut durch das Archiv führen. Abgeliefert werden können sowohl physische wie auch elektronische Akten und Dokumente."@de ;
+	skos:inScheme <https://ld.staatsarchiv.bs.ch/vocabularies/activityTypes>
+	.
