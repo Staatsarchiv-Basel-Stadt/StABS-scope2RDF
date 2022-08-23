@@ -739,6 +739,12 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		];
 	];
 	rr:predicateObjectMap [
+		rr:predicate rico:hasActivityType ;
+		rr:objectMap [
+			rr:constant "https://ld.staatsarchiv.bs.ch/vocabularies/activityTypes/Ablieferung>" ;
+		];
+	];
+	rr:predicateObjectMap [
 		rr:predicate rico:type ;
 		rr:objectMap [
 			rr:template "Typ {TYP} / Subtyp {SUBTYP}" ;
