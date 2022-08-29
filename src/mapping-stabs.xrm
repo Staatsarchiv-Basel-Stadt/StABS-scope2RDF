@@ -374,7 +374,7 @@ map abl from MVK_OGD.ABL {
 	properties
 		rico.name template "Ablieferung Nr. {0}" with JAHR_LAUF_NR as Literal;
 		rico.identifier from ID_NR with datatype xsd.string;
-		rico.hasActivityType constant "https://ld.staatsarchiv.bs.ch/vocabularies/activityTypes/Ablieferung>";
+		rico.hasActivityType constant "https://ld.staatsarchiv.bs.ch/vocabularies/activityTypes/Ablieferung";
 		rico.^type template "Typ {0} / Subtyp {1}" with TYP SUBTYP as Literal;
 		rico.agentOrActivityIsTargetOfProvenanceRelation from AKTENBILDENDE_STELLE; // @sicher falsch
 		rico.date from ZEITRAUM_PERIODE; // @todo: falsch, da nicht Zeitraum der Aktivität, sondern des Bestands
