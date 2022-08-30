@@ -288,7 +288,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen." ;
+			rr:constant "Wird verwendet zur Angabe allfÃ¤llig vorhandener alter Signaturen." ;
 		];
 	]
 .
@@ -354,7 +354,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden." ;
+			rr:constant "Signaturen, die frÃ¼her in Gebrauch waren. Signaturen kÃ¶nnen bei einer Mutation automatisch in dieses Feld Ã¼bertragen werden." ;
 		];
 	]
 .
@@ -428,7 +428,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Anzahl Einheiten oder Behältnisse" ;
+			rr:constant "Anzahl Einheiten oder BehÃ¤ltnisse" ;
 		];
 	]
 .
@@ -462,7 +462,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht." ;
+			rr:constant "Umfangangabe fÃ¼r Archivgut in digitaler Form, das aus Dateien besteht." ;
 		];
 	]
 .
@@ -529,7 +529,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen." ;
+			rr:constant "Wert fÃ¼r den Umfang, wenn keine prÃ¤zisen Zahlen vorliegen." ;
 		];
 	]
 .
@@ -741,7 +741,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:hasActivityType ;
 		rr:objectMap [
-			rr:constant "TestActivityType" ;
+			rr:constant <https://ld.staatsarchiv.bs.ch/vocabularies/activityTypes/Ablieferung> ;
 		];
 	];
 	rr:predicateObjectMap [
