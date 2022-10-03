@@ -6,7 +6,7 @@ PREFIX stabs-d: <stabs:scope:data/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <#rr_stabs>
-	rr:logicalTable [ rr:sqlQuery """SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, PHYSISCHE_BESCHAFFENHEIT, DARIN, ARCHIVALIENART, ENTHAELT, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE, ZUGAENGLICHKEIT_NM FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ANMERKUNGEN, TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, PHYSISCHE_BESCHAFFENHEIT, DARIN, ARCHIVALIENART, ENTHAELT, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE, ZUGAENGLICHKEIT_NM FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
 	rr:subjectMap [
 		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
@@ -65,6 +65,13 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:isAssociatedWithDate ;
 		rr:objectMap [
 			rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Date" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rico:descriptiveNote ;
+		rr:objectMap [
+			rr:column "ANMERKUNGEN" ;
+			rr:language "ger" ;
 		];
 	];
 	rr:predicateObjectMap [
@@ -245,7 +252,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	]
 .
 <#date_01>
-	rr:logicalTable [ rr:sqlQuery """SELECT TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, PHYSISCHE_BESCHAFFENHEIT, DARIN, ARCHIVALIENART, ENTHAELT, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE, ZUGAENGLICHKEIT_NM FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
+	rr:logicalTable [ rr:sqlQuery """SELECT ANMERKUNGEN, TITEL, SIGNATUR, STUFE, ENTSTEHUNGSZEITRAUM, PHYSISCHE_BESCHAFFENHEIT, DARIN, ARCHIVALIENART, ENTHAELT, RECHTSSTATUS, ZUGANGSBESTIMMUNGEN, SPRACHE, FORM_UND_INHALT, ID_NR, PARENT_ID_NR, HIERARCHIE_PFAD, SCHUTZFRISTENDE, ZUGAENGLICHKEIT_NM FROM MVK_OGD_VRZNG_ENHT_1 WHERE HIERARCHIE_PFAD LIKE '00000796390000548575%'""" ];
 	
 	rr:subjectMap [
 		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}/Date" ;
@@ -288,7 +295,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Wird verwendet zur Angabe allfÃ¤llig vorhandener alter Signaturen." ;
+			rr:constant "Wird verwendet zur Angabe allfällig vorhandener alter Signaturen." ;
 		];
 	]
 .
@@ -354,7 +361,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Signaturen, die frÃ¼her in Gebrauch waren. Signaturen kÃ¶nnen bei einer Mutation automatisch in dieses Feld Ã¼bertragen werden." ;
+			rr:constant "Signaturen, die früher in Gebrauch waren. Signaturen können bei einer Mutation automatisch in dieses Feld übertragen werden." ;
 		];
 	]
 .
@@ -428,7 +435,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Anzahl Einheiten oder BehÃ¤ltnisse" ;
+			rr:constant "Anzahl Einheiten oder Behältnisse" ;
 		];
 	]
 .
@@ -462,7 +469,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Umfangangabe fÃ¼r Archivgut in digitaler Form, das aus Dateien besteht." ;
+			rr:constant "Umfangangabe für Archivgut in digitaler Form, das aus Dateien besteht." ;
 		];
 	]
 .
@@ -529,7 +536,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate rico:descriptiveNote ;
 		rr:objectMap [
-			rr:constant "Wert fÃ¼r den Umfang, wenn keine prÃ¤zisen Zahlen vorliegen." ;
+			rr:constant "Wert für den Umfang, wenn keine präzisen Zahlen vorliegen." ;
 		];
 	]
 .

@@ -21,6 +21,7 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 		rico.conditionsOfAccess from ZUGANGSBESTIMMUNGEN with language-tag ger; // ausbauen gemäss Regelwerk (Klasse rico:Rule)
 		rico.conditionsOfUse from ZUGAENGLICHKEIT_NM with language-tag ger; // besser als Klasse zu lösen (rico:Rule)
 		rico.isAssociatedWithDate template dateURI with ID_NR;
+		rico.descriptiveNote from ANMERKUNGEN with language-tag ger;
 		//rico.hasRecordSetType template rstypeURI with STUFE;
 		dct.isReferencedBy template queryURL with ID_NR;
 		stabsdata.ID_NR from ID_NR with datatype xsd.string;
