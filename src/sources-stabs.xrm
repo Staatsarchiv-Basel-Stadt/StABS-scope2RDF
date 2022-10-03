@@ -208,6 +208,16 @@ source-group MVK_OGD {
 			ALLGEMEINER_KONTEXT
 	}
 
+	logical-source HBG_RECORDS {
+		source query "SELECT ID_NR, ALTE_HAUSNUMMER, EIGENTUEMER_1862, HAUSNAME FROM MVK_OGD_VRZNG_ENHT_1 WHERE ANZEIGEFORMULAR_ID LIKE 10148"
+
+		referenceables
+			ID_NR
+			ALTE_HAUSNUMMER
+			EIGENTUEMER_1862
+			HAUSNAME
+	}
+
 	/* Thesauri / Deskriptoren
 	 * -----------------------
 	 */	

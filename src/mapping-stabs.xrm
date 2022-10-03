@@ -292,6 +292,20 @@ map bioghist_2 from MVK_OGD.BIOGHIST_2 {
 		rico.isOrWasPartOf from ORGANISATIONSZUGEHOERIGKEIT; // @todo als subject URI
 }
 
+/* Historisches Grundbuch (HBG)
+* -----------------------------
+*/
+map hbg_records from MVK_OGD.HBG_RECORDS {
+	subject template rrURI with ID_NR;
+
+	types stabsrico.RecordHBG
+
+	properties
+		stabsrico.houseNameBS from HAUSNAME with language-tag ger;
+		stabsrico.oldHousenumber from ALTE_HAUSNUMMER with language-tag ger;
+		stabsrico.owner1862 from EIGENTUEMER_1862 with language-tag ger;
+}
+
 /* Descriptors (scope Concept)
  * --------------------------
  * * Erstelle Auth-Records / Thesaurus-Records in skos

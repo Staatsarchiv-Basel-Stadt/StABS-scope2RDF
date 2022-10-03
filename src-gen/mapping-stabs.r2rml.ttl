@@ -3,6 +3,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rico: <https://www.ica.org/standards/RiC/ontology#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX stabs-d: <stabs:scope:data/>
+PREFIX stabs-rico: <https://ld.staatsarchiv.bs.ch/ontologies/StABS-RiC/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <#rr_stabs>
@@ -602,6 +603,36 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 		rr:predicate rico:isOrWasPartOf ;
 		rr:objectMap [
 			rr:column "ORGANISATIONSZUGEHOERIGKEIT" ;
+		];
+	]
+.
+<#hbg_records>
+	rr:logicalTable [ rr:sqlQuery """SELECT ID_NR, ALTE_HAUSNUMMER, EIGENTUEMER_1862, HAUSNAME FROM MVK_OGD_VRZNG_ENHT_1 WHERE ANZEIGEFORMULAR_ID LIKE 10148""" ];
+	
+	rr:subjectMap [
+		rr:template "https://ld.staatsarchiv.bs.ch/Record/{ID_NR}" ;
+		rr:class stabs-rico:RecordHBG ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:houseNameBS ;
+		rr:objectMap [
+			rr:column "HAUSNAME" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:oldHousenumber ;
+		rr:objectMap [
+			rr:column "ALTE_HAUSNUMMER" ;
+			rr:language "ger" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate stabs-rico:owner1862 ;
+		rr:objectMap [
+			rr:column "EIGENTUEMER_1862" ;
+			rr:language "ger" ;
 		];
 	]
 .
