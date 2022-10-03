@@ -690,6 +690,18 @@ vocabulary stabsdata {
 		PHYSISCHE_BESCHAFFENHEIT
 }
 
+vocabulary stabsrico {
+	prefix "stabs-rico" "https://ld.staatsarchiv.bs.ch/ontologies/StABS-RiC/"
+
+	classes
+		RecordHBG
+
+	properties
+		houseNameBS
+		oldHousenumber
+		owner1862
+}
+
 vocabulary schema {
 	prefix "schema" "http://schema.org/"
 
