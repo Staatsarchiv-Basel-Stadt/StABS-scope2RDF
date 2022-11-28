@@ -23,7 +23,7 @@ map rr_stabs from MVK_OGD.VE_STABS_RR_BASE {
 		rico.isAssociatedWithDate template dateURI with ID_NR;
 		rico.descriptiveNote from ANMERKUNGEN with language-tag ger;
 		//rico.hasRecordSetType template rstypeURI with STUFE;
-		dct.isReferencedBy template queryURL with ID_NR;
+		dct.isReferencedBy template dlsURI with ID_NR;
 		stabsdata.ID_NR from ID_NR with datatype xsd.string;
 		stabsdata.PHYSISCHE_BESCHAFFENHEIT from PHYSISCHE_BESCHAFFENHEIT with datatype xsd.string ;
 }

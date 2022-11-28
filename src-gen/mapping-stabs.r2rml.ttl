@@ -78,7 +78,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 	rr:predicateObjectMap [
 		rr:predicate dcterms:isReferencedBy ;
 		rr:objectMap [
-			rr:template "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={ID_NR}" ;
+			rr:template "https://dls.staatsarchiv.bs.ch/records/{ID_NR}" ;
 		];
 	];
 	rr:predicateObjectMap [
