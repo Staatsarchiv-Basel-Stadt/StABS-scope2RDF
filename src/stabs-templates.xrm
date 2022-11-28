@@ -31,6 +31,8 @@ template ruURI "https://ld.staatsarchiv.bs.ch/Rule/{0}"
 template plURI "https://ld.staatsarchiv.bs.ch/Place/{0}"
 template daURI "https://ld.staatsarchiv.bs.ch/Date/{0}"
 
+template dlsURI "https://dls.staatsarchiv.bs.ch/records/{0}"
+
 /* 12 Subklassen von rico:Thing
  * ----------------------------
  * rico:Agent
@@ -46,5 +48,3 @@ template daURI "https://ld.staatsarchiv.bs.ch/Date/{0}"
  * rico:Relation
  * rico:Rule 
  */
- 
-template queryURL "https://query.staatsarchiv.bs.ch/query/detail.aspx?ID={0}"
