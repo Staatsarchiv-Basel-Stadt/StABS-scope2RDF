@@ -65,7 +65,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:isReferencedBy <https://www.staatsarchiv.bs.ch/kataloge/archivkatalog.html> ;
     dcterms:title "Offene Daten des Archivkatalogs des Staatsarchivs Basel-Stadt" @de ;
     dcterms:description "Dieser Datensatz enthält die frei zugänglichen Inhalte des Archivkatalogs des Staatsarchiv Basel-Stadt in RDF (Vokabular: Records in Context)"@de ;
-    dcterms:contributor <org/zazuko> ;
+    dcterms:contributor <https://register.ld.admin.ch/zefix/company/1198554> ;
     dcterms:creator <org/staatsarchiv> ;
     dcterms:publisher <org/fachstelle-ogd> ;
     dcterms:source <sys/scopeArchiv> ;
