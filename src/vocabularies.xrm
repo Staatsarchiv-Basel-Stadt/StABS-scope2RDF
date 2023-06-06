@@ -270,9 +270,7 @@ vocabulary rico {
 		hasExtent
 		hasExtentType
 		hasFamilyAssociationWith
-		hasFamilyAssociationWith
 		hasFamilyType
-		hasGeneticLinkToRecordResource
 		hasGeneticLinkToRecordResource
 		hasIdentifierType
 		hasInstantiation
@@ -292,7 +290,6 @@ vocabulary rico {
 		hasOrHadController
 		hasOrHadCoordinates
 		hasOrHadCorporateBodyType
-		hasOrHadCorrespondent
 		hasOrHadCorrespondent
 		hasOrHadDemographicGroup
 		hasOrHadHolder
@@ -323,7 +320,6 @@ vocabulary rico {
 		hasOrHadSomeMembersWithLegalStatus
 		hasOrHadSomeMembersWithRecordState
 		hasOrHadSpouse
-		hasOrHadSpouse
 		hasOrHadStudent
 		hasOrHadSubdivision
 		hasOrHadSubevent
@@ -331,7 +327,6 @@ vocabulary rico {
 		hasOrHadSubordinate
 		hasOrHadTeacher
 		hasOrHadTitle
-		hasOrHadWorkRelationWith
 		hasOrHadWorkRelationWith
 		hasOriginal
 		hasProductionTechniqueType
@@ -343,7 +338,6 @@ vocabulary rico {
 		hasReply
 		hasRepresentationType
 		hasSender
-		hasSibling
 		hasSibling
 		hasSource
 		hasSuccessor
@@ -369,7 +363,6 @@ vocabulary rico {
 		isActivityTypeOf
 		isAddresseeOf
 		isAgentAssociatedWithAgent
-		isAgentAssociatedWithAgent
 		isAssociatedWithDate
 		isAssociatedWithEvent
 		isAssociatedWithPlace
@@ -391,7 +384,6 @@ vocabulary rico {
 		isDraftOf
 		isEndDateOf
 		isEquivalentTo
-		isEquivalentTo
 		isEventAssociatedWith
 		isEventTypeOf
 		isExtentOf
@@ -399,15 +391,12 @@ vocabulary rico {
 		isFamilyTypeOf
 		isFromUseDateOf
 		isFunctionallyEquivalentTo
-		isFunctionallyEquivalentTo
 		isIdentifierTypeOf
-		isInstantiationAssociatedWithInstantiation
 		isInstantiationAssociatedWithInstantiation
 		isInstantiationOf
 		isLastUpdateDateOf
 		isModificationDateOf
 		isOriginalOf
-		isOrWasAdjacentTo
 		isOrWasAdjacentTo
 		isOrWasAffectedBy
 		isOrWasAgentNameOf
@@ -472,10 +461,8 @@ vocabulary rico {
 		isPublisherOf
 		isReceiverOf
 		isRecordResourceAssociatedWithRecordResource
-		isRecordResourceAssociatedWithRecordResource
 		isRecordSetTypeOf
 		isRecordStateOf
-		isRelatedTo
 		isRelatedTo
 		isReplyTo
 		isRepresentationTypeOf
@@ -491,7 +478,6 @@ vocabulary rico {
 		knowingOfRelationHasTarget
 		knowingRelationConnects
 		knownBy
-		knows
 		knows
 		knowsOf
 		lastModificationDate
@@ -519,7 +505,6 @@ vocabulary rico {
 		normalizedDateValue
 		normalizedValue
 		occupiesOrOccupied
-		overlapsOrOverlapped
 		overlapsOrOverlapped
 		ownershipRelationHasSource
 		ownershipRelationHasTarget
