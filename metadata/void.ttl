@@ -11,7 +11,7 @@ PREFIX wd: <http://www.wikidata.org/entity/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 ##
-## Dataset Descriptions
+## Dataset Description
 ##
 
 <.well-known/void> a void:DatasetDescription ;
