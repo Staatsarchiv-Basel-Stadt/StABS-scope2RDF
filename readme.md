@@ -1,3 +1,7 @@
+# **ARCHIVIERT FEBRUAR 2026**
+
+Funktional seit 2023 abgelöst von [LOD-Pipeline](https://github.com/Staatsarchiv-Basel-Stadt/LOD-Pipeline)
+
 # StABS-scope2RDF
 Dieses Repository enthält die Transformation der öffentlichen Daten aus dem Archivsystem scopeArchiv des [Staatsarchivs Basel-Stadt (StABS)](https://www.staatsarchiv.bs.ch/) in ein RDF-Modell in der Ontologie [Records in Context Ontology v.02 (RiC-O)](https://github.com/ICA-EGAD/RiC-O/) des [International Council on Archives (ICA)](https://www.ica.org).
 
